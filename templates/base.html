@@ -1,0 +1,38 @@
+{%- import "macros/macros.html" as macros %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%- include "partials/head.html" %}
+  </head>
+  {% block body %}<body id="posts">{% endblock body %}
+    <div class="block-left">
+      <div class="content">
+        {% if page %}<a href="{{ config.base_url }}" class="logo"><img src="{{ get_url(path=config.extra.logo) }}", alt="logo" width="64" height="64"></a>{% endif %}
+  {% block left %}
+        <h1 class="section-title">{%- block page_title %}{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% elif term.name %}{{ '#' ~ term.name }}{% else %}{% endif %}{% endblock page_title %}</h1>
+  {% endblock left %}
+      </div>
+    </div>
+    <div class="block-right">
+      <nav class="nav-bar" role="navigation">
+        <ul class="nav-menu">
+          <li><a href="/projects">Code</a></li>
+          <li><a href="/posts" aria-haspopup="true">Posts</a>
+            <ul class="dropdown" aria-label="submenu">
+              <li><a href="/posts">Index</a></li>
+              <li><a href="/tags">Tags</a></li>
+              <li><a href="/categories">Categories</a></li>
+            </ul>
+          </li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+  {% block right %}
+      <div class="content">
+        <div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>
+        {% block content %}{% endblock content %}
+      </div>
+    </div>
+  {% endblock right %}
+  </body>
+</html>

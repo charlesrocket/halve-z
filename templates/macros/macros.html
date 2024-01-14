@@ -1,0 +1,7 @@
+{%- macro main_images_style(home_url, posts_url) -%}
+#posts .block-left {background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{ posts_url | safe }}") no-repeat;background-size: cover, cover;} .block-left {background: linear-gradient(rgba(44,45,51,0.9), rgba(44,45,51,0.9)), url("{{ home_url | safe }}") no-repeat;background-size: cover;}
+{%- endmacro main_images_style -%}
+
+{%- macro image_style(url) -%}
+#posts.inner-post-page .block-left {background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{ url | safe }}") no-repeat;background-size: cover;}
+{%- endmacro image_style -%}

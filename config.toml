@@ -1,0 +1,57 @@
+###
+base_url = "https://failsafe.monster"
+title = "charlesrocket"
+description = "homepage"
+default_language = "en"
+author = "-k"
+
+compile_sass = true
+minify_html = false
+generate_feed = true
+build_search_index = false
+
+taxonomies = [
+    { name = "categories", feed = true },
+    { name = "tags", feed = true },
+]
+
+[markdown]
+highlight_code = true
+highlight_theme = "css"
+highlight_themes_css = [
+  { theme = "base16-ocean-dark", filename = "syntax-theme-dark.css" },
+  { theme = "base16-ocean-light", filename = "syntax-theme-light.css" },
+]
+render_emoji = false
+external_links_target_blank = true
+
+[slugify]
+paths = "safe"
+taxonomies = "safe"
+anchors = "safe"
+
+[extra]
+giscus_repo_id = "MDEwOlJlcG9zaXRvcnkxNDE1MDQ2MzE="
+locale = "en_US"
+logo = "fireball.gif"
+home_title = "-k"
+home_subtitle = "x"
+home_image = "c1tyh4ll.png"
+post_list_image = "bk-prk.jpg"
+default_post_image = "bk-prk.jpg"
+
+#email = ""
+mastodon = "charlesrocket"
+twitter = "charlesrocket"
+facebook = "charlesrocket"
+github = "charlesrocket"
+stackoverflow = "9899362/charlie137"
+linkedin = "charlesrocket"
+instagram = "charlesrocket"
+lastfm = "charlesrocket"
+reddit = "charlesrocket"
+flickr = "charlesrocket"
+keybase = "charlesrocket"
+#xmpp = "charlie137@jabber.calyxinstitute.org"
+hackernews = "charlesrocket"
+#behance = "charlesrocket"

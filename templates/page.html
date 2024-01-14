@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block body %}<body id="posts" class="inner-post-page">{% endblock body %}
+  {% block left %}
+      <div class="post-title-section">
+        <h1 class="section-title">{{ page.title }}</h1>
+        {% if page.taxonomies["tags"] %}
+        <ul class="tags">
+          {% for tag in page.taxonomies["tags"] %}
+            <li><a href="{{ config.base_url | safe }}/tags/{{ tag | slugify }}">{{ tag }}</a></li>
+            {% if not loop.last %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+  {% endblock left %}
+  {% block right %}
+    <div class="inner-post content">
+      <div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>
+      {% if page.extra.subtitle %}<h1>{{ page.extra.subtitle | safe}}</h1>{% endif %}
+      {% if page.toc %}{% if page.toc | length >= 2 %}
+        <div><ul class="page-toc">
+          {% for h2 in page.toc %}
+          <li>
+            <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+          </li>
+          {% endfor %}
+        </ul></div>
+      {% endif %}{% endif %}
+      {{ page.content | safe }}
+      <br>
+      {% if page.lower or page.higher %}
+        <nav class="pagination">
+        {% if page.higher %}
+          <a class="pagination_pager" href="{{ page.higher.permalink }}">&lt;&lt;&lt;</a>
+        {% else %}
+          <a href="#" class="pagination_pager disabled">&lt;&lt;&lt;</a>
+        {% endif %}
+        {% if page.lower %}
+          <a class="pagination_pager" href="{{ page.lower.permalink }}">&gt;&gt;&gt;</a>
+        {% else %}
+          <a href="#" class="pagination_pager disabled" >&gt;&gt;&gt;</a>
+        {% endif %}
+        </nav>
+      {% endif %}
+      <br>
+      {% if current_path is starting_with("/posts/") %}
+        {%- include "partials/giscus.html" %}
+      {% endif %} 
+    </div>
+  {% endblock right %}

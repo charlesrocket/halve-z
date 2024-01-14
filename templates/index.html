@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}<body id="homepage">{% endblock body %}
+  {% block left %}
+        <div class="main-info">
+          <h1>
+            <i class="hero glitch-h1 layers" data-text="{{ config.extra.home_title }}"><span>{{ config.extra.home_title }}</span></i>
+          </h1>
+          <h2>
+            <i class="hero glitch-h2 layers" data-text="{{ config.extra.home_subtitle }}"><span>{{ config.extra.home_subtitle }}</span></i>
+          </h2>
+          <br />
+          {% include "partials/social-links.html" %}
+        </div>
+  {% endblock left %}
+  {% block right %}
+      <div class="content">
+        <div class="about-info">
+          {{ section.content | safe }}
+        </div>
+      </div>
+    </div> 
+  {% endblock right %}

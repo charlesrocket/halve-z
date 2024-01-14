@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block right %}
+    <div class="content">
+      <div class="date-highlight">x</div>
+      <ul class="posts-list">
+        {% for page in section.pages %}
+          <li>
+            <h2>
+              <a href="{{ page.permalink | safe }}" class="post-title"><span>{{ page.title }}</span></a>
+              <span class="date">{{ page.date | date(format="%d %b %Y") }}</span>
+            </h2>
+            <div class="post-info">
+              <span class="word-count">{{ page.word_count ~ "w"}}</span>&nbsp;<span class="read-time">{{ page.reading_time ~ "m"}}</span>
+            </div>
+            <p>{% if page.extra.subtitle %}{{ page.extra.subtitle | striptags | truncate(length=150) | safe }}{% endif %}</p>
+            <ul class="tags title-tags">
+              {% for tag in page.taxonomies["tags"] %}
+              <li><a href="{{ config.base_url | safe }}/tags/{{ tag | slugify }}">{{ tag }}</a></li>
+                {% if not loop.last %}
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+{% endblock right %}

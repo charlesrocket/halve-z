@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block right %}
+    <div class="inner-post content">
+      <div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>
+      <div>
+        <h2>{{ term.name }}</h2>
+        {%- for year, posts in term.pages | group_by(attribute="year") %}
+          <h3>{{ year }}</h3>
+          {%- for page in posts %}
+            <p><a href="{{ page.permalink | safe }}{%- if uglyurls %}index.html{%- endif %}">{{ page.title }}</a> <time datetime="{{ page.date }}">{{ page.date | date(format="%F") }}</time></p>
+          {%- endfor %}
+        {%- endfor %}
+      </div>
+    </div>
+{% endblock right %}

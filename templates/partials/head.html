@@ -1,0 +1,75 @@
+{%- import "macros/macros.html" as macros %}
+{%- if current_url %}
+  {%- set page_url = current_url %}
+{%- else %}
+  {%- set page_url = get_url(path="404.html", trailing_slash=true) %}
+{%- endif %}
+{% if page.extra.image %}
+  {% set page_image_hash = get_hash(literal=macros::image_style(url=page.extra.image), base64=true, sha_type=512) %}
+{% else %}
+  {% set default_post_image_hash = get_hash(literal=macros::image_style(url=get_url(path=config.extra.default_post_image)), base64=true, sha_type=512) %}
+{% endif %}
+{% set main_images_hash = get_hash(literal=macros::main_images_style(home_url=get_url(path=config.extra.home_image), posts_url=get_url(path=config.extra.post_list_image)), base64=true, sha_type=512) %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="base" content="{{ config.base_url | safe }}"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self'; img-src 'self' {% if page.extra.image %}{% if page.extra.image is starting_with("https://") %}{{ page.extra.image }}{% endif %}{% endif %} raw.githubusercontent.com/charlesrocket/ www.hackthebox.com/badge/image/56695 asciinema.org/a/; script-src 'self' giscus.app/client.js; manifest-src 'self'; style-src 'self' {% if page_image_hash %}'sha512-{{ page_image_hash | safe }}'{% else %}'sha512-{{ default_post_image_hash | safe }}'{% endif %} 'sha512-{{ main_images_hash | safe }}' giscus.app/default.css; media-src 'self'; frame-src 'self' giscus.app; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#2C2D32"/>
+  <link rel="manifest" href="manifest.json">
+  <title>
+  {% block title %}
+    {% if page.title %}
+      {{ page.title }} • {{ config.title }}
+    {% elif section.title %}
+      {{ section.title }} • {{ config.title }}
+    {% elif term.name %}
+      {{ '#' ~ term.name }} • {{ config.title }}
+    {% else %}
+	  {{ config.title }}
+    {%- endif %}
+  {% endblock title %}
+  </title>
+  {% if page.extra.subtitle %}
+    <meta name="description" content="{{ page.extra.subtitle | striptags | safe }}">
+  {% else %}
+    <meta name="description" content="{{ config.description }}">
+  {% endif %}
+  {% if page.taxonomies["tags"] %}<meta name="keywords" content="{{ page.taxonomies["tags"] | as_str | replace(from=" ", to="") | replace(from="[", to="") |  replace(from="]", to="") }}">{% endif %}
+  {%- if config.generate_feed %}
+    <link rel="alternate" type="{% if config.feed_filename is containing('atom') %}application/atom+xml{% else %}application/rss+xml{% endif %}" title="{{ config.title }} Atom/RSS Feed" href="{{ get_url(path=config.feed_filename, trailing_slash=false, lang=lang) | safe }}"/>
+  {%- endif %}
+  <meta property="og:locale" content="{{ config.extra.locale }}">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
+  {% if page.extra.subtitle %}<meta property="og:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
+  <meta property="og:url" content="{{ page_url | safe }}">
+  <meta property="og:site_name" content="{{ config.title }}">
+  <meta property="og:image" content="{{ config.base_url ~ "/" ~ config.extra.logo }}">
+  <link rel="canonical" href="{{ page_url | safe }}"/>
+  {% if page.extra.image %}{% set image = config.base_url ~ "/" ~ page.extra.image %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ image | safe }}">
+  {% else %}<meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="{{ config.base_url ~ "/" ~ config.extra.logo }}">
+  {% endif %}
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
+  {% if page.extra.subtitle %}<meta name="twitter:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
+  {% if config.extra.twitter %}<meta name="twitter:site" content="@{{ config.extra.twitter }}">
+  <meta name="twitter:creator" content="@{{ config.extra.twitter }}">{% endif %}
+  <meta name="MobileOptimized" content="320">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="{{ get_url(path="main.css") }}" integrity="sha512-{{ get_hash(path="main.css", sha_type=512, base64=true) | safe }}">
+  <script defer src="{{ get_url(path='sw-load.js', trailing_slash=false, cachebust=true) | safe }}" integrity="sha512-{{ get_hash(path='sw-load.js', sha_type=512, base64=true) | safe }}"></script>
+  {% if page.extra.image %}
+    <style>{{ macros::image_style(url=page.extra.image) }}</style>
+  {% else %}
+    <style>{{ macros::image_style(url=get_url(path=config.extra.default_post_image)) }}</style>
+  {% endif %}
+  <style>{{ macros::main_images_style(home_url=get_url(path=config.extra.home_image), posts_url=get_url(path=config.extra.post_list_image)) }}</style>

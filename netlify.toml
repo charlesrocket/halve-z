@@ -1,0 +1,23 @@
+[build]
+publish = "public"
+command = "zola build"
+
+[build.environment]
+ZOLA_VERSION = "0.18.0"
+
+[context.branch-deploy]
+command = "zola build --base-url $DEPLOY_PRIME_URL"
+
+[context.deploy-preview]
+command = "zola build --base-url $DEPLOY_PRIME_URL"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "frame-ancestors 'none';"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=63072000; includeSubdomains"

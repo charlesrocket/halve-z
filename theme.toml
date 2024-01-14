@@ -1,0 +1,17 @@
+name = "halve-z"
+description = "Retro two-column theme"
+license = "MIT"
+homepage = "https://github.com/charlesrocket/halvez"
+min_version = "0.18.0"
+demo = "https://halve-z.netlify.app/"
+
+[extra]
+
+[author]
+name = "-k"
+homepage = "https://failsafe.monster/"
+
+[original]
+author =  "Taylan Tatlı"
+homepage = "https://tatli.me/"
+repo = "https://github.com/TaylanTatli/Halve"
