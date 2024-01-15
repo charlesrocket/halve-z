@@ -221,14 +221,16 @@ nav.nav-bar ul li ul li {
     text-decoration: none;
     filter: drop-shadow(0 1px 7px);
     font-size: 1em;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 10px;
+    display: block;
+    width: 100%;
     margin: 0;
     padding: 0;
     li {
       text-decoration: none;
-      padding: 0;
+      display: inline-block;
+      text-align: center;
+      width: 20%;
+      padding: 4px;
       margin: 0;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
