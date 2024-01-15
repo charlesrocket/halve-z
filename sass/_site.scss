@@ -261,7 +261,9 @@ nav.nav-bar ul li ul li {
         -webkit-transition-timing-function: ease-out;
         transition-timing-function: ease-out;
       }
-      &:hover {
+      &:hover,
+      &:focus,
+      &:focus-within {
         &:before {
           -webkit-transform: scaleY(1);
           transform: scaleY(1);
