@@ -217,8 +217,13 @@ nav.nav-bar ul li ul li {
 
   }
   a {
-    text-decoration: dashed underline;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-decoration-thickness: 1px;
+    &:hover {
+      text-decoration-color: $green;
     }
+  }
   ul {
     list-style-type: none;
     text-decoration: none;
