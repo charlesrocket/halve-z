@@ -282,7 +282,8 @@ td:last-child {
   }
 }
 
-pre {
+pre,
+kbd {
   overflow-x: auto;
   padding: 1rem;
   line-height: 1.5;
@@ -293,7 +294,8 @@ p > code,
 a > code,
 li > code,
 figcaption > code,
-td > code {
+td > code,
+kbd {
   padding: 0.1rem 0.2rem;
   font-size: 0.9em;
   border-radius: 0;

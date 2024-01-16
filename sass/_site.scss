@@ -911,7 +911,8 @@ nav.nav-bar ul li ul li {
   a > code,
   li > code,
   figcaption > code,
-  td > code {
+  td > code,
+  kbd {
     background-color: lighten($black, 20%);
   }
   .entry-meta {
