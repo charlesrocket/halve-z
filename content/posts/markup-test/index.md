@@ -54,20 +54,6 @@ Surround very Large tables with `<figure></figure>` so they can scroll horizonta
 
 </figure>
 
-## Definition Lists
-
-Definition List Title
-:   Definition list division.
-
-Startup
-:   A startup company or startup is a company or temporary organization designed to search for a repeatable and scalable business model.
-
-#dowork
-:   Coined by Rob Dyrdek and his personal body guard Christopher "Big Black" Boykins, "Do Work" works as a self motivator, to motivating your friends.
-
-Do It Live
-:   I'll let Bill O'Reilly [explain](https://www.youtube.com/watch?v=O_HyZ5aW76c "We'll Do It Live") this one.
-
 ## Unordered Lists (Nested)
 
   * List item one 
@@ -98,33 +84,6 @@ Do It Live
   3. List item three
   4. List item four
 
-## Buttons
-
-Make any link standout more when applying the `.btn` class.
-
-```html
-<a href="#" class="btn_success">Success Button</a>
-```
-
-[Primary Button](#){: .btn}
-[Success Button](#){: .btn .btn_success}
-[Warning Button](#){: .btn .btn_warning}
-[Danger Button](#){: .btn .btn_danger}
-[Info Button](#){: .btn .btn_info}
-
-```markdown
-[Primary Button Text](#link){: .btn}
-[Success Button Text](#link){: .btn .btn_success}
-[Warning Button Text](#link){: .btn .btn_warning}
-[Danger Button Text](#link){: .btn .btn_danger}
-[Info Button Text](#link){: .btn .btn_info}
-```
-
-## Notices
-
-**Watch out!** You can also add notices by appending `{: .notice}` to a paragraph.
-{: .notice}
-
 ## HTML Tags
 
 ### Address Tag
@@ -135,13 +94,11 @@ Make any link standout more when applying the `.btn` class.
 
 ### Anchor Tag (aka. Link)
 
-This is an example of a [link](http://apple.com "Apple").
+This is an example of a [link](https://www.getzola.org "Zola").
 
 ### Abbreviation Tag
 
-The abbreviation CSS stands for "Cascading Style Sheets".
-
-*[CSS]: Cascading Style Sheets
+<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
 
 ### Cite Tag
 
