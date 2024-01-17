@@ -5,6 +5,8 @@ template = "page.html"
 draft = false
 +++
 
+{{ project(gh_repo="halve-z") }}
+
 {{ project(gh_repo="dorst") }}
 
 {{ project(gh_repo="freebsd-collection") }}
