@@ -484,6 +484,7 @@ nav.nav-bar ul li ul li {
   }
   ul,
   ol {
+    list-style-position: inside;
     padding-left: 30px;
     > li {
       position: relative;
