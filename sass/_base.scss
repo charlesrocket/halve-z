@@ -282,6 +282,11 @@ td:last-child {
   }
 }
 
+figure > table {
+  display: block;
+  overflow-x: auto;
+}
+
 pre,
 kbd {
   overflow-x: auto;

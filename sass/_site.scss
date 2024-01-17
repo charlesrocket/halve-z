@@ -830,6 +830,13 @@ nav.nav-bar ul li ul li {
   .frame-dim p {
     color: $overlay-color-dark;
   }
+  table {
+    border: 1px solid lighten($black, 17%);
+  }
+  thead {
+    background-color: lighten($black, 15%);
+    border-bottom: 1px solid lighten($black, 17%);
+  }
   .btn {
     background-color: lighten($black, 7%);
     color: darken($white, 20%);
