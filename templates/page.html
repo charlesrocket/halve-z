@@ -45,8 +45,8 @@
         </nav>
       {% endif %}
       <br>
-      {% if current_path is starting_with("/posts/") %}
+      {% if current_path is starting_with("/posts/") %}{% if config.extra.giscus_repo is defined %}
         {%- include "partials/giscus.html" %}
-      {% endif %} 
+      {% endif %}{% endif %}
     </div>
   {% endblock right %}
