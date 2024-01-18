@@ -20,8 +20,6 @@ Add the theme as a git submodule:
 
 ```sh
 git submodule add https://github.com/charlesrocket/halve-z themes/halve-z
-git submodule update --init --recursive
-git submodule update --remote --merge
 ```
 
 ### 2: Activate
