@@ -31,6 +31,7 @@ taxonomies = "safe"
 anchors = "safe"
 
 [extra]
+csp = true
 giscus_repo = "charlesrocket/halve-z"
 giscus_repo_id = "R_kgDOLEg70Q"
 giscus_category = "Comments"
