@@ -39,7 +39,7 @@ home_image = "c1tyh4ll.png"
 post_list_image = "bk-prk.jpg"
 default_post_image = "bk-prk.jpg"
 csp = true
-giscus = { repo = "charlesrocket/halve-z", repo_id = "R_kgDOLEg70Q", category = "Comments", category_id = "DIC_kwDOLEg70c4CceS_", mapping = "pathname", strict ="1", reactions ="1", lang = "en" }
+#giscus = { repo = "charlesrocket/halve-z", repo_id = "REPO_ID", category = "Comments", category_id = "CAT_ID", mapping = "pathname", strict ="1", reactions ="1", lang = "en" }
 
 #email = ""
 mastodon = "charlesrocket"
