@@ -31,15 +31,6 @@ taxonomies = "safe"
 anchors = "safe"
 
 [extra]
-csp = true
-giscus_repo = "charlesrocket/halve-z"
-giscus_repo_id = "R_kgDOLEg70Q"
-giscus_category = "Comments"
-giscus_category_id = "DIC_kwDOLEg70c4CceS_"
-giscus_mapping = "pathname"
-giscus_strict ="1"
-giscus_reactions ="1"
-giscus_lang = "en"
 locale = "en_US"
 logo = "fireball.gif"
 home_title = "Halve-Z"
@@ -47,6 +38,8 @@ home_subtitle = "Zola theme"
 home_image = "c1tyh4ll.png"
 post_list_image = "bk-prk.jpg"
 default_post_image = "bk-prk.jpg"
+csp = true
+giscus = { repo = "charlesrocket/halve-z", repo_id = "R_kgDOLEg70Q", category = "Comments", category_id = "DIC_kwDOLEg70c4CceS_", mapping = "pathname", strict ="1", reactions ="1", lang = "en" }
 
 #email = ""
 mastodon = "charlesrocket"
