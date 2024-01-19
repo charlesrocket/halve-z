@@ -1,4 +1,7 @@
 {%- import "macros/macros.html" as macros %}
+{% set categories = get_taxonomy(kind="categories") %}
+{% set tags = get_taxonomy(kind="tags") %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,15 +19,15 @@
     <div class="block-right">
       <nav class="nav-bar" role="navigation">
         <ul class="nav-menu">
-          <li><a href="/projects">Code</a></li>
-          <li><a href="/posts" aria-haspopup="true">Posts</a>
+          <li><a href="{{ get_url(path="@/pages/projects.md") }}">Code</a></li>
+          <li><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">Posts</a>
             <ul class="dropdown" aria-label="submenu">
-              <li><a href="/posts">Index</a></li>
-              <li><a href="/tags">Tags</a></li>
-              <li><a href="/categories">Categories</a></li>
+              <li><a href="{{ get_url(path="@/posts/_index.md") }}">Index</a></li>
+              <li><a href="{{ tags.permalink }}">Tags</a></li>
+              <li><a href="{{ categories.permalink }}">Categories</a></li>
             </ul>
           </li>
-          <li><a href="/">Home</a></li>
+          <li><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
         </ul>
       </nav>
   {% block right %}
