@@ -19,7 +19,7 @@
     <div class="block-right">
       <nav class="nav-bar" role="navigation">
         <ul class="nav-menu">
-          <li><a href="{{ get_url(path="@/pages/projects.md") }}">Code</a></li>
+          <li><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
           <li><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">Posts</a>
             <ul class="dropdown" aria-label="submenu">
               <li><a href="{{ get_url(path="@/posts/_index.md") }}">Index</a></li>
@@ -27,7 +27,7 @@
               <li><a href="{{ categories.permalink }}">Categories</a></li>
             </ul>
           </li>
-          <li><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
+          <li><a href="{{ get_url(path="@/pages/projects.md") }}">Code</a></li>
         </ul>
       </nav>
   {% block right %}

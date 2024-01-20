@@ -50,6 +50,7 @@ nav.nav-bar ul {
   text-transform: uppercase;
   background: $white;
   list-style: none;
+  float: right;
   margin: 0;
 }
 
@@ -62,8 +63,8 @@ nav.nav-bar li {
   color: $black;
   background: $white;
   display: block;
-  float: right;
   position: relative;
+  float: left;
   text-decoration-line: underline;
   text-decoration-color: $green;
   text-decoration-thickness: 2px;
