@@ -1,0 +1,17 @@
+---
+
+name: Check
+
+"on":
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: taiki-e/install-action@zola
+      - name: Run Zola check
+        run: zola check
