@@ -36,6 +36,7 @@ logo = "fireball.gif"
 home_title = "Halve-Z"
 home_subtitle = "Zola theme"
 home_image = "c1tyh4ll.png"
+home_logo = false
 post_list_image = "bk-prk.jpg"
 default_post_image = "bk-prk.jpg"
 csp = true
