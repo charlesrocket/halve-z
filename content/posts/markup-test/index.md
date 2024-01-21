@@ -5,6 +5,7 @@ date = 2023-06-12
 categories = ["markup"]
 tags = ["content", "css", "formatting", "html"]
 [extra]
+image = "https://raw.githubusercontent.com/bearcott/8bit-art/master/cities/urban.gif"
 +++
 
 A variety of common markup showing how the theme styles them.

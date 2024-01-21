@@ -4,18 +4,21 @@
 {%- else %}
   {%- set page_url = get_url(path="404.html", trailing_slash=true) %}
 {%- endif %}
+{% if config.extra.home_image is starting_with("https://") %}{% set home_image = config.extra.home_image %}{% else %}{% set home_image = get_url(path=config.extra.home_image) %}{% endif %}
+{% if config.extra.post_list_image is starting_with("https://") %}{% set post_list_image = config.extra.post_list_image %}{% else %}{% set post_list_image = get_url(path=config.extra.post_list_image) %}{% endif %}
+{% if config.extra.default_post_image is starting_with("https://") %}{% set default_post_image = config.extra.default_post_image %}{% else %}{% set default_post_image = get_url(path=config.extra.default_post_image) %}{% endif %}
 {% if config.extra.csp %}{% if page.extra.image %}
   {% set page_image_hash = get_hash(literal=macros::image_style(url=page.extra.image), base64=true, sha_type=512) %}
 {% else %}
-  {% set default_post_image_hash = get_hash(literal=macros::image_style(url=get_url(path=config.extra.default_post_image)), base64=true, sha_type=512) %}
+  {% set default_post_image_hash = get_hash(literal=macros::image_style(url=default_post_image), base64=true, sha_type=512) %}
 {% endif %}
-{% set main_images_hash = get_hash(literal=macros::main_images_style(home_url=get_url(path=config.extra.home_image), posts_url=get_url(path=config.extra.post_list_image)), base64=true, sha_type=512) %}{% endif %}
+{% set main_images_hash = get_hash(literal=macros::main_images_style(home_url=home_image, posts_url=post_list_image), base64=true, sha_type=512) %}{% endif %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="base" content="{{ config.base_url | safe }}"/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   {% if config.extra.csp %}
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self'; img-src 'self' {% if page.extra.image %}{% if page.extra.image is starting_with("https://") %}{{ page.extra.image }}{% endif %}{% endif %} raw.githubusercontent.com/charlesrocket/ www.hackthebox.com/badge/image/56695 asciinema.org/a/; script-src 'self' giscus.app/client.js; manifest-src 'self'; style-src 'self' {% if page_image_hash %}'sha512-{{ page_image_hash | safe }}'{% else %}'sha512-{{ default_post_image_hash | safe }}'{% endif %} 'sha512-{{ main_images_hash | safe }}' giscus.app/default.css; media-src 'self'; frame-src 'self' giscus.app; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self'; img-src 'self' {% if page.extra.image %}{% if page.extra.image is starting_with("https://") %}{{ page.extra.image }}{% endif %}{% endif %} {% if config.extra.home_image is starting_with("https://") %}{{ config.extra.home_image }}{% endif %} {% if config.extra.post_list_image is starting_with("https://") %}{{ config.extra.post_list_image }}{% endif %} {% if config.extra.default_post_image is starting_with("https://") %}{{ config.extra.default_post_image }}{% endif %} raw.githubusercontent.com/charlesrocket/ www.hackthebox.com/badge/image/56695 asciinema.org/a/; script-src 'self' giscus.app/client.js; manifest-src 'self'; style-src 'self' {% if page_image_hash %}'sha512-{{ page_image_hash | safe }}'{% else %}'sha512-{{ default_post_image_hash | safe }}'{% endif %} 'sha512-{{ main_images_hash | safe }}' giscus.app/default.css; media-src 'self'; frame-src 'self' giscus.app; object-src 'none'; base-uri 'self'; form-action 'self'">
   {% endif %}
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#2C2D32"/>
@@ -50,7 +53,7 @@
   <meta property="og:site_name" content="{{ config.title }}">
   <meta property="og:image" content="{{ config.base_url ~ "/" ~ config.extra.logo }}">
   <link rel="canonical" href="{{ page_url | safe }}"/>
-  {% if page.extra.image %}{% set image = config.base_url ~ "/" ~ page.extra.image %}
+  {% if page.extra.image %}{% if page.extra.image is starting_with("https://") %}{% set image = page.extra.image %}{% else %}{% set image = config.base_url ~ "/" ~ page.extra.image %}{% endif %}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{{ image | safe }}">
   {% else %}<meta name="twitter:card" content="summary">
@@ -72,6 +75,6 @@
   {% if page.extra.image %}
     <style>{{ macros::image_style(url=page.extra.image) }}</style>
   {% else %}
-    <style>{{ macros::image_style(url=get_url(path=config.extra.default_post_image)) }}</style>
+    <style>{{ macros::image_style(url=default_post_image) }}</style>
   {% endif %}
-  <style>{{ macros::main_images_style(home_url=get_url(path=config.extra.home_image), posts_url=get_url(path=config.extra.post_list_image)) }}</style>
+  <style>{{ macros::main_images_style(home_url=home_image, posts_url=post_list_image) }}</style>
