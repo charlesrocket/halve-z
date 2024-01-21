@@ -9,8 +9,6 @@ subtitle = "HTML Tags and Formatting"
 image = "https://raw.githubusercontent.com/bearcott/8bit-art/master/cities/urban.gif"
 +++
 
-# Markup test
-
 A variety of common markup showing how the theme styles them.
 
 # Header one
