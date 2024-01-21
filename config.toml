@@ -35,10 +35,10 @@ locale = "en_US"
 logo = "fireball.gif"
 home_title = "Halve-Z"
 home_subtitle = "Zola theme"
-home_image = "c1tyh4ll.png"
+home_image = "https://charlesrocket.netlify.app/c1tyh4ll.png"
 home_logo = false
-post_list_image = "bk-prk.jpg"
-default_post_image = "bk-prk.jpg"
+post_list_image = "https://charlesrocket.netlify.app/bk-prk.jpg"
+default_post_image = "https://charlesrocket.netlify.app/bk-prk.jpg"
 csp = true
 #giscus = { repo = "charlesrocket/halve-z", repo_id = "REPO_ID", category = "Comments", category_id = "CAT_ID", mapping = "pathname", strict ="1", reactions ="1", lang = "en" }
 
