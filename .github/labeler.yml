@@ -1,0 +1,13 @@
+---
+
+templates:
+  - 'templates/**/*'
+
+content:
+  - 'content/**/*'
+
+ci:
+  - '.github/**/*'
+
+style:
+  - 'sass/**/*'
