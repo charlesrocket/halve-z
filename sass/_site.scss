@@ -833,12 +833,12 @@ nav.nav-bar ul li ul li {
   .frame-dim p {
     color: $overlay-color-dark;
   }
-  table {
-    border: 1px solid lighten($black, 17%);
+  table, td, th, tr {
+    border: 1px solid lighten($black, 42%);
   }
   thead {
     background-color: lighten($black, 15%);
-    border-bottom: 1px solid lighten($black, 17%);
+    border: 1px solid lighten($black, 42%);
   }
   .btn {
     background-color: lighten($black, 7%);
