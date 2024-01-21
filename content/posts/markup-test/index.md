@@ -1,12 +1,15 @@
 +++
-title = "Markup: HTML Tags and Formatting"
+title = "Markup"
 date = 2023-06-12
 [taxonomies]
 categories = ["markup"]
 tags = ["content", "css", "formatting", "html"]
 [extra]
+subtitle = "HTML Tags and Formatting"
 image = "https://raw.githubusercontent.com/bearcott/8bit-art/master/cities/urban.gif"
 +++
+
+# Markup test
 
 A variety of common markup showing how the theme styles them.
 
