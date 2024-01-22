@@ -2,7 +2,7 @@
 <figure>
   <center>
     {%- if link %}<a href={{ link | safe }}>{%- endif %}
-      <img class="align-center page-image" src="{{ image }}"{% if alt %} alt="{{ alt | safe }}"{% endif %}/>
+      <img class="align-center page-image" src="{{ image | safe }}"{% if alt %} alt="{{ alt | safe }}"{% endif %}/>
     {%- if link %}</a>{%- endif %}
   {%- if caption %}<figcaption>{{ caption | safe }}</figcaption>{%- endif %}
   </center>
