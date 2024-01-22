@@ -3,7 +3,7 @@ title = "Markup"
 date = 2023-06-12
 [taxonomies]
 categories = ["markup"]
-tags = ["content", "css", "formatting", "html"]
+tags = ["content", "style", "formatting", "html"]
 [extra]
 subtitle = "HTML Tags and Formatting"
 image = "https://raw.githubusercontent.com/bearcott/8bit-art/master/cities/urban.gif"
