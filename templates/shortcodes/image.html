@@ -1,7 +1,8 @@
+{%- if img is starting_with("https://") %}{% set image = img %}{% else %}{% set image = get_url(path=img, cachebust=true) %}{%- endif %}
 <figure>
   <center>
     {%- if link %}<a href={{ link | safe }}>{%- endif %}
-      <img class="align-center page-image" src="{{ get_url(path=img, cachebust=true) }}"{% if alt %} alt="{{ alt | safe }}"{% endif %}/>
+      <img class="align-center page-image" src="{{ image }}"{% if alt %} alt="{{ alt | safe }}"{% endif %}/>
     {%- if link %}</a>{%- endif %}
   {%- if caption %}<figcaption>{{ caption | safe }}</figcaption>{%- endif %}
   </center>
