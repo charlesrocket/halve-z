@@ -6,6 +6,32 @@ min_version = "0.18.0"
 demo = "https://halve-z.netlify.app/"
 
 [extra]
+locale = "en_US"
+logo = "fireball.gif"
+home_title = "Halve-Z"
+home_subtitle = "Zola theme"
+home_image = "https://failsafe.monster/c1tyh4ll.png"
+home_logo = false
+post_list_image = "https://failsafe.monster/bk-prk.jpg"
+default_post_image = "https://failsafe.monster/bk-prk.jpg"
+csp = false
+#giscus = { repo = "charlesrocket/halve-z", repo_id = "REPO_ID", category = "Comments", category_id = "CAT_ID", mapping = "pathname", strict ="1", reactions ="1", lang = "en" }
+
+#email = ""
+#mastodon = ""
+#twitter = ""
+#facebook = ""
+#github = ""
+#stackoverflow = ""
+#linkedin = ""
+#instagram = ""
+#lastfm = ""
+#reddit = ""
+#flickr = ""
+#keybase = ""
+#xmpp = ""
+#hackernews = ""
+#behance = ""
 
 [author]
 name = "-k"
