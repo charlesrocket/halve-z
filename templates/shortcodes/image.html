@@ -1,7 +1,7 @@
 <figure>
   <center>
     <a href={{ link }}>
-      <img class="align-center page-image" src="{{ img }}" alt="{{ alt }}"/>
+      <img class="align-center page-image" src="{{ get_url(path=img, cachebust=true) }}" alt="{{ alt }}"/>
     </a>
   <figcaption>{{ caption }}</figcaption>
   </center>
