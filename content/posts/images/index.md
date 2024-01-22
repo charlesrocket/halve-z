@@ -8,8 +8,6 @@ tags = ["content", "shortcodes"]
 subtitle = "Shortcodes for images"
 +++
 
-## Internal image
-
 All variables (except `img`) are optional.
 
 input:
@@ -25,6 +23,20 @@ output:
 ```
 
 {{ image(img="fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
+
+input:
+
+```rs
+{{/* image(img="https://halve-z.netlify.app/fireball.gif") */}}
+```
+
+output:
+
+```html
+{{ image(img="https://halve-z.netlify.app/fireball.gif") }}
+```
+
+{{ image(img="https://halve-z.netlify.app/fireball.gif") }}
 
 input:
 
