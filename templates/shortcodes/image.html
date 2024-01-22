@@ -1,8 +1,8 @@
 <figure>
   <center>
-    <a href={{ link }}>
-      <img class="align-center page-image" src="{{ get_url(path=img, cachebust=true) }}" alt="{{ alt }}"/>
+    {% if link %}<a href={{ link }}>{% endif %}
+      <img class="align-center page-image" src="{{ get_url(path=img, cachebust=true) }}"{% if alt %} alt="{{ alt }}"{% endif %}/>
     </a>
-  <figcaption>{{ caption }}</figcaption>
+  {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
   </center>
 </figure>
