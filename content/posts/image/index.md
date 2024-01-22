@@ -1,9 +1,9 @@
 +++
-title = "Images"
+title = "Image"
 date = 2023-06-03
 [taxonomies]
 categories = ["media"]
-tags = ["content", "shortcodes"]
+tags = ["image", "shortcode"]
 [extra]
 subtitle = "Shortcodes for images"
 +++
