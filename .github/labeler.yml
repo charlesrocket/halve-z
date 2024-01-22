@@ -1,13 +1,16 @@
 ---
 
-templates:
+template:
   - 'templates/**/*'
+
+static:
+  - 'static/**/*'
 
 content:
   - 'content/**/*'
 
-ci:
-  - '.github/**/*'
-
 style:
   - 'sass/**/*'
+
+ci:
+  - '.github/**/*'
