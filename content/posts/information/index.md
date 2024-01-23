@@ -30,6 +30,7 @@ tags = ["tag"]
 subtitle = "Example subtitle"
 image = "https://example.com/image.png"
 csp_img = ["example.com/", "foo.org/example"]
++++
 ```
 
-`h1` headers are reserved for page title (left block) and subtitle (optional, right block).
+`h1` headers are reserved for page title (left/top block) and subtitle (optional, right/bottom block).
