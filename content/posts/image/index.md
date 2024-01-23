@@ -9,13 +9,15 @@ subtitle = "Shortcodes for images"
 csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 +++
 
-All variables (except `img`) are optional.
-
 input:
 
 ```rs
 {{/* image(img="fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") */}}
 ```
+
+- `img`: the source string (mandatory)
+- `caption`: set image caption (optional)
+- `alt`: set alternative text (optional)
 
 output:
 
