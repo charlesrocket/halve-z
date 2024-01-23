@@ -25,10 +25,10 @@ A variety of common markup showing how the theme styles them.
 
 ## Blockquotes
 
-> Stay hungry. Stay foolish.
+> You could sit at home, and do like absolutely nothing, and your name goes through like 17 computers a day. 1984? Yeah right, man. That's a typo. Orwell is here now. He's livin' large. We have no names, man. No names. We are nameless!
 
-> Don't communicate by sharing memory, share memory by communicating.<br>
-> <cite>Rob Pike</cite>
+> Hack the planet!<br>
+> <cite>Dade Murphy</cite>
 
 ## Tables
 
@@ -85,7 +85,7 @@ Surround very Large tables with `<figure></figure>` so they can scroll horizonta
 ### Address Tag
 
 <address>
-  1 Infinite Loop<br /> Cupertino, CA 95014<br /> United States
+  3980 Broadway Street<br /> Boulder, CO 80304<br /> United States
 </address>
 
 ### Anchor Tag (aka. Link)
@@ -136,7 +136,7 @@ This tag styles large blocks of code.
 
 ### Quote Tag
 
-<q>Developers, developers, developers&#8230;</q> &#8211;Steve Ballmer
+<q>We have just gotten a wake-up call from the Nintendo Generation.</q> &#8211;Cereal Killer
 
 ### Strong Tag
 
