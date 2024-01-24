@@ -51,13 +51,15 @@
   {% if page.extra.subtitle %}<meta property="og:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
   <meta property="og:url" content="{{ page_url | safe }}">
   <meta property="og:site_name" content="{{ config.title }}">
-  <meta property="og:image" content="{{ config.base_url ~ "/" ~ config.extra.logo }}">
   <link rel="canonical" href="{{ page_url | safe }}"/>
   {% if page.extra.image %}{% if page.extra.image is starting_with("https://") %}{% set image = page.extra.image %}{% else %}{% set image = config.base_url ~ "/" ~ page.extra.image %}{% endif %}
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="{{ image | safe }}">
+  <meta name="twitter:card" content="{{ image | safe }}">
   <meta name="twitter:image" content="{{ image | safe }}">
-  {% else %}<meta name="twitter:card" content="summary">
+  {% else %}
+  <meta name="twitter:card" content="{{ config.base_url ~ "/" ~ config.extra.logo }}">
   <meta name="twitter:image" content="{{ config.base_url ~ "/" ~ config.extra.logo }}">
+  <meta property="og:image" content="{{ config.base_url ~ "/" ~ config.extra.logo }}">
   {% endif %}
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
   {% if page.extra.subtitle %}<meta name="twitter:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
