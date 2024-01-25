@@ -282,6 +282,39 @@ td:last-child {
   }
 }
 
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.video-embedded {
+  position: relative;
+  height: 0;
+  max-width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
+iframe {
+  border-style: none;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  overflow: hidden;
+  }
+
 figure > table {
   display: block;
   overflow-x: auto;

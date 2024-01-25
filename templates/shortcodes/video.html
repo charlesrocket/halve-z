@@ -1,0 +1,5 @@
+<div class="video-embedded">
+  <video height="520" {% if autoplay %}autoplay{% endif %} {% if controls %}controls{% endif %}>
+    <source src="{{ src }}" type="{{ 'video/' ~ type }}">
+  </video>
+</div>
