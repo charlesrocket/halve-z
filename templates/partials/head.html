@@ -52,7 +52,7 @@
   <meta property="og:url" content="{{ page_url | safe }}">
   <meta property="og:site_name" content="{{ config.title }}">
   <link rel="canonical" href="{{ page_url | safe }}"/>
-  {% if page.extra.image %}{% if page.extra.image is starting_with("https://") %}{% set image = page.extra.image %}{% else %}{% set image = config.base_url ~ "/" ~ page.extra.image %}{% endif %}
+  {% if page.extra.image %}{% if page.extra.image is starting_with("https://") %}{% set image = page.extra.image %}{% else %}{% set image = page.path ~ page.extra.image %}{% endif %}
   <meta property="og:image" content="{{ image | safe }}">
   <meta name="twitter:card" content="{{ image | safe }}">
   <meta name="twitter:image" content="{{ image | safe }}">
