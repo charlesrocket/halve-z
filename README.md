@@ -7,8 +7,11 @@ A two-column theme for Zola.
 
 * taxonomies
 * auto color schemes
+* ToC
+* media shortcodes
+* SEO
 * CSP
-* GitHub cards
+* project cards
 * comments ([giscus](http://giscus.app))
 * read time
 
