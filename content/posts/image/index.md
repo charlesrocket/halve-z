@@ -12,48 +12,48 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 input:
 
 ```rs
-{{/* image(img="fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") */}}
+{{/* image(src="fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") */}}
 ```
 
-- `img`: the source string (mandatory)
-- `caption`: set image caption (optional)
+- `src`: the path/URL to the image file (mandatory)
+- `caption`: set the image caption (optional)
 - `alt`: set alternative text (optional)
 
 output:
 
 ```html
-{{ image(img="fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
+{{ image(src="fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
 ```
 
-{{ image(img="fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
+{{ image(src="fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
 
 input:
 
 ```rs
-{{/* image(img="https://halve-z.netlify.app/fireball.gif") */}}
+{{/* image(src="https://halve-z.netlify.app/fireball.gif") */}}
 ```
 
 output:
 
 ```html
-{{ image(img="https://halve-z.netlify.app/fireball.gif") }}
+{{ image(src="https://halve-z.netlify.app/fireball.gif") }}
 ```
 
-{{ image(img="https://halve-z.netlify.app/fireball.gif") }}
+{{ image(src="https://halve-z.netlify.app/fireball.gif") }}
 
 input:
 
 ```rs
-{{/* image(img="fireball.gif") */}}
+{{/* image(src="fireball.gif") */}}
 ```
 
 output:
 
 ```html
-{{ image(img="fireball.gif") }}
+{{ image(src="fireball.gif") }}
 ```
 
-{{ image(img="fireball.gif") }}
+{{ image(src="fireball.gif") }}
 
 ## CSP
 
@@ -75,13 +75,13 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 input:
 
 ```rs
-{{/* image(img="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif", caption="CSP test image") */}}
+{{/* image(src="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif", caption="CSP test image") */}}
 ```
 
 output:
 
 ```html
-{{ image(img="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif", caption="CSP test image"") }}
+{{ image(src="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif", caption="CSP test image"") }}
 ```
 
-{{ image(img="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif", caption="CSP test image") }}
+{{ image(src="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif", caption="CSP test image") }}
