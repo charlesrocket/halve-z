@@ -1,5 +1,10 @@
-<div class="video-embedded">
-  <video height="520" {% if autoplay %}autoplay{% endif %} {% if controls %}controls{% endif %}>
-    <source src="{{ src }}" type="{{ 'video/' ~ type }}">
+<div class="video-local">
+  <video controls{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %}{% if autoplay %} autoplay{% endif %}{% if loop %} loop=true{% endif %}{% if muted %} muted=true{% endif %}>
+    {% for source in src -%}
+      {% set video = page.path ~ source -%}
+      {% set type = source | split(pat=".") | last -%}
+      <source src="{{ get_url(path=video) | safe }}" type="{{ 'video/' ~ type }}"/>
+    {% endfor -%}
+      Your browser does not support the video formats in use.
   </video>
 </div>
