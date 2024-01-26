@@ -28,6 +28,7 @@ output:
 ```html
 {{ vimeo(id="4340383") }}
 ```
+
 {{ vimeo(id="4340383") }}
 
 ## YouTube 
@@ -49,4 +50,43 @@ output:
 ```html
 {{ youtube(id="frBzlP6t9Gw") }}
 ```
+
 {{ youtube(id="frBzlP6t9Gw") }}
+
+## Video (local)
+
+input:
+
+```rs
+{{/* video(src=["over9000.mp4", "over9000.webm"]) */}}
+```
+
+- `src`: an array of video file paths (mandatory)
+- `width`: the width of the video (optional)
+- `height`: the height of the video (optional)
+- `autoplay`: when set to "true", the video autoplays on load (optional)
+- `loop`: when set to "true", the video plays on a loop (optional)
+- `muted`: when set to "true", the audio will be initially silenced (optional)
+
+
+output:
+
+```html
+{{ video(src=["over9000.mp4", "over9000.webm"]) }}
+```
+
+{{ video(src=["over9000.mp4", "over9000.webm"]) }}
+
+input:
+
+```rs
+{{/* video(src=["over9000.mp4"], muted="true") */}}
+```
+
+output:
+
+```html
+{{ video(src=["over9000.mp4"], muted="true") }}
+```
+
+{{ video(src=["over9000.mp4"], muted="true") }}

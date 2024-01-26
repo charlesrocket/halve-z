@@ -282,6 +282,11 @@ td:last-child {
   }
 }
 
+video {
+  max-width: 100%;
+  height: auto;
+}
+
 .video-iframe {
   position: absolute;
   top: 0;
@@ -296,9 +301,8 @@ td:last-child {
   overflow: hidden;
 }
 
-video {
-  max-width: 100%;
-  height: auto;
+.video-local {
+  text-align: center;
 }
 
 embed,
