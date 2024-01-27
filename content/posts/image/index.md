@@ -12,7 +12,7 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 input:
 
 ```rs
-{{/* image(src="fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") */}}
+{{/* image(src="/fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") */}}
 ```
 
 - `src`: the path/URL to the image file (mandatory)
@@ -22,10 +22,10 @@ input:
 output:
 
 ```html
-{{ image(src="fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
+{{ image(src="/fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
 ```
 
-{{ image(src="fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
+{{ image(src="/fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
 
 input:
 
@@ -44,16 +44,16 @@ output:
 input:
 
 ```rs
-{{/* image(src="fireball.gif") */}}
+{{/* image(src="yawn.gif") */}}
 ```
 
 output:
 
 ```html
-{{ image(src="fireball.gif") }}
+{{ image(src="yawn.gif") }}
 ```
 
-{{ image(src="fireball.gif") }}
+{{ image(src="yawn.gif") }}
 
 ## CSP
 

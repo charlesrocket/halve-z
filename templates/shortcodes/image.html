@@ -1,9 +1,7 @@
-{%- if src is starting_with("https://") %}{% set image = src %}{% else %}{% set image = get_url(path=src, cachebust=true) %}{% set meta = get_image_metadata(path=src) %}{%- endif %}
+{%- if src is starting_with("https://") %}{% set image = src %}{%- elif src is starting_with("/") %}{% set image = get_url(path=src, cachebust=true) %}{% set meta = get_image_metadata(path=src) %}{% else %}{% set file = page.path ~ src %}{% set image = get_url(path=file, cachebust=true) %}{% set meta = get_image_metadata(path=file) %}{%- endif %}
 <figure>
-  <center>
-    {%- if link %}<a href={{ link | safe }}>{%- endif %}
-      <img class="align-center page-image" src="{{ image | safe }}"{% if meta %} width="{{ meta.width }}" height="{{ meta.height }}"{% endif %}{% if alt %} alt="{{ alt | safe }}"{% endif %}/>
-    {%- if link %}</a>{%- endif %}
+  {%- if link %}<a href={{ link | safe }}>{%- endif %}
+    <img class="align-center page-image" src="{{ image | safe }}"{% if meta %} width="{{ meta.width }}" height="{{ meta.height }}"{% endif %}{% if alt %} alt="{{ alt | safe }}"{% endif %}/>
+  {%- if link %}</a>{%- endif %}
   {%- if caption %}<figcaption>{{ caption | safe }}</figcaption>{%- endif %}
-  </center>
 </figure>
