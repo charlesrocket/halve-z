@@ -3,7 +3,7 @@ title = "Project"
 date = 2022-12-31
 [taxonomies]
 categories = ["usage"]
-tags = ["content", "features"]
+tags = ["content", "shortcode"]
 [extra]
 subtitle = "Project cards"
 +++

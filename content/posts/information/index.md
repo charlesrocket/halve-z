@@ -3,7 +3,7 @@ title = "Information"
 date = 2024-01-01
 [taxonomies]
 categories = ["usage"]
-tags = ["content", "features"]
+tags = ["content", "feature"]
 [extra]
 subtitle = "Usage guide"
 +++
