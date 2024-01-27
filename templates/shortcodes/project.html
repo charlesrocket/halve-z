@@ -1,17 +1,19 @@
-{% set gh_repo_link = "https://api.github.com/repos/charlesrocket/" ~ gh_repo %}
-{% set gh_repo_data = load_data(url=gh_repo_link, format="json") %}
+{%- if link is starting_with("https://github.com") %} 
+  {%- set gh_repo_link = link | replace(from="https://github.com", to="https://api.github.com/repos") %}
+  {%- set gh_repo_data = load_data(url=gh_repo_link, format="json") %}
+{%- endif %} 
 <div class="projects frame-dim">
   <h3><a href="{{ gh_repo_data['html_url'] | safe }}" target="_blank">{{ gh_repo_data["name"] }}</a></h3>
   <ul class="project-list">
-    <li>{{ gh_repo_data["language"] | default(value="") | safe }} <span class="{{ gh_repo_data["language"] | default(value="") | replace(from="#", to="-Sharp") | replace(from="++", to="pp") | replace(from="-", to="") | replace(from=" ", to="") | safe }}">&#42;</span></li>
+    <li><b>{{ gh_repo_data["language"] | default(value="") | safe }}</b> <span class="{{ gh_repo_data["language"] | default(value="") | replace(from="#", to="-Sharp") | replace(from="++", to="pp") | replace(from="-", to="") | replace(from=" ", to="") | safe }}"><b>&#42;</b></span></li>
     <li><span class="project-license">{{ gh_repo_data["license"]["spdx_id"] | default(value="") | safe }}</span></li>
     <li>{{ gh_repo_data["description"] | default(value="") | regex_replace(pattern='\p{Emoji}', rep='') | safe }}</li>
     <li><ul class="tags project-tags">
-    {% for topic in gh_repo_data["topics"] %}
+    {%- for topic in gh_repo_data["topics"] %}
       <li>{{ topic }}</li>
-        {% if not loop.last %}
-        {% endif %}
-    {% endfor %}
+        {%- if not loop.last %}
+        {%- endif %}
+    {%- endfor %}
     </ul></li>
   </ul>
 </div>

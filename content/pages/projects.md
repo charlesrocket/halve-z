@@ -5,20 +5,20 @@ template = "page.html"
 draft = false
 +++
 
-{{ project(gh_repo="halve-z") }}
+{{ project(link="https://github.com/charlesrocket/halve-z") }}
 
-{{ project(gh_repo="dorst") }}
+{{ project(link="https://github.com/charlesrocket/dorst") }}
 
-{{ project(gh_repo="freebsd-collection") }}
+{{ project(link="https://github.com/charlesrocket/freebsd-collection") }}
 
-{{ project(gh_repo="essential-collection") }}
+{{ project(link="https://github.com/charlesrocket/essential-collection") }}
 
-{{ project(gh_repo="webpixels") }}
+{{ project(link="https://github.com/charlesrocket/webpixels") }}
 
-{{ project(gh_repo="pixelmosh") }}
+{{ project(link="https://github.com/charlesrocket/pixelmosh") }}
 
-{{ project(gh_repo="skully") }}
+{{ project(link="https://github.com/charlesrocket/skully") }}
 
-{{ project(gh_repo="beastie") }}
+{{ project(link="https://github.com/charlesrocket/beastie") }}
 
-{{ project(gh_repo="frightcrawler") }}
+{{ project(link="https://github.com/charlesrocket/frightcrawler") }}
