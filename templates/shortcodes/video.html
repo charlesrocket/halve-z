@@ -3,6 +3,7 @@
     {% for source in src -%}
       {% set video = page.path ~ source -%}
       {% set type = source | split(pat=".") | last -%}
+      {% if type is matching("^mov$") %}{% set type = "quicktime" %}{% endif %}
       <source src="{{ get_url(path=video) | safe }}" type="{{ 'video/' ~ type }}"/>
     {% endfor -%}
       Your browser does not support the video formats in use.
