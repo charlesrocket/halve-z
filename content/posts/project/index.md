@@ -1,5 +1,5 @@
 +++
-title = "Projects"
+title = "Project"
 date = 2022-12-31
 [taxonomies]
 categories = ["usage"]
