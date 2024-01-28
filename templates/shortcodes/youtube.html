@@ -1,6 +1,6 @@
 <div class="video-embedded">
   <iframe
-    src="https://www.youtube{% if not cookie %}-nocookie{% endif %}.com/embed/{{ id }}{% if autoplay %}?autoplay=1{% endif %}"
+    src="https://www.youtube{% if not cookie %}-nocookie{% endif %}.com/embed/{{ id }}}{% if playlist %}?list={{ playlist }}{% endif %}{% if autoplay %}?autoplay=1{% endif %}"
     class="video-iframe"
     title="{{ title | default(value='Youtube') }}"
     webkitallowfullscreen
