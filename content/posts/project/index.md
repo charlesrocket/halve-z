@@ -3,12 +3,12 @@ title = "Project"
 date = 2022-12-31
 [taxonomies]
 categories = ["usage"]
-tags = ["content", "shortcode"]
+tags = ["content", "shortcode", "github"]
 [extra]
 subtitle = "Project cards"
 +++
 
-Use `GITHUB_TOKEN` environment variable to authenticate GitHub requests (optional).
+Use `GITHUB_TOKEN` environment variable to authenticate **GitHub** requests (optional).
 
 input:
 
