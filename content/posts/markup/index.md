@@ -5,7 +5,7 @@ date = 2023-06-12
 categories = ["markup"]
 tags = ["content", "style", "formatting", "html"]
 [extra]
-subtitle = "HTML Tags and Formatting"
+subtitle = "HTML tags and formatting"
 image = "https://raw.githubusercontent.com/bearcott/8bit-art/master/cities/urban.gif"
 +++
 
@@ -85,7 +85,7 @@ Surround very Large tables with `<figure></figure>` so they can scroll horizonta
 ### Address Tag
 
 <address>
-  3980 Broadway Street<br /> Boulder, CO 80304<br /> United States
+  3980 Broadway Street<br /> Boulder, CO 80304<br> United States
 </address>
 
 ### Anchor Tag (aka. Link)
