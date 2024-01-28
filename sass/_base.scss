@@ -305,6 +305,11 @@ video {
   text-align: center;
 }
 
+.video-local,
+.video-embedded {
+  margin: 20px 0;
+}
+
 embed,
 iframe,
 object {
