@@ -57,7 +57,7 @@ output:
 
 ## CSP
 
-Add `csp = enable` to the config's `extra` section to enable Content Security Policy globally. Use front matter's `csp_img` to add URLs:
+Add `csp = enable` to the config's `extra` section to enable **Content Security Policy** globally. Use front matter's `csp_img` to add URLs:
 
 ```
 +++
