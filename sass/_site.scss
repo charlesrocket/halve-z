@@ -114,6 +114,10 @@ nav.nav-bar ul li ul li {
   width: 100%;
 }
 
+a.toc {
+  color: $green;
+}
+
 a.zola-anchor {
   color: $green;
   margin-right: 6px;
@@ -481,7 +485,7 @@ a.zola-anchor {
     margin-bottom: 10px;
     display: block;
   }
-  a:not(.btn):not(.pagination_pager):not(.zola-anchor) {
+  a:not(.btn):not(.pagination_pager):not(.zola-anchor):not(.toc) {
     color: $shamrock-green;
     border-bottom: 1px dotted $green;
   }
@@ -853,7 +857,7 @@ a.zola-anchor {
     color: darken($white, 30%);
   }
   .block-right {
-    a:not(.zola-anchor) {
+    a:not(.zola-anchor):not(.toc) {
       color: $overlay-color-dark;
     }
   }
@@ -879,7 +883,7 @@ a.zola-anchor {
     small {
       color: lighten($black, 40);
     }
-    a:not(.btn):not(.pagination_pager):not(.zola-anchor) {
+    a:not(.btn):not(.pagination_pager):not(.zola-anchor):not(.toc) {
       color: $green;
       border-bottom: 1px dotted $shamrock-green;
     }
