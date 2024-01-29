@@ -16,7 +16,7 @@
             <p>{% if page.extra.subtitle %}{{ page.extra.subtitle | striptags | truncate(length=150) | safe }}{% endif %}</p>
             <ul class="tags title-tags">
               {% for tag in page.taxonomies["tags"] %}
-              <li><a href="{{ config.base_url | safe }}/tags/{{ tag | slugify }}">{{ tag }}</a></li>
+              <li><a class="title-tag" href="{{ config.base_url | safe }}/tags/{{ tag | slugify }}">{{ tag }}</a></li>
                 {% if not loop.last %}
                 {% endif %}
               {% endfor %}

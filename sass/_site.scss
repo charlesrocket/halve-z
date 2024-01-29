@@ -115,11 +115,11 @@ nav.nav-bar ul li ul li {
 }
 
 a.toc {
-  color: $green;
+  color: $shamrock-green;
 }
 
 a.zola-anchor {
-  color: $green;
+  color: $shamrock-green;
   margin-right: 6px;
 }
 
@@ -857,7 +857,7 @@ a.zola-anchor {
     color: darken($white, 30%);
   }
   .block-right {
-    a:not(.zola-anchor):not(.toc) {
+    a:not(.zola-anchor):not(.toc):not(.title-tag) {
       color: $overlay-color-dark;
     }
   }
@@ -915,6 +915,10 @@ a.zola-anchor {
     > a {
       color: $black;
     }
+  }
+  a.zola-anchor,
+  a.toc {
+    color: $green;
   }
   .entry-info {
     color: darken($white, 35) !important;
