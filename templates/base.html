@@ -19,6 +19,7 @@
     <div class="block-right">
       <nav class="nav-bar" role="navigation">
         <ul class="nav-menu">
+        {% block nav %}
           <li><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
           <li><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">Posts</a>
             <ul class="dropdown" aria-label="submenu">
@@ -28,6 +29,7 @@
             </ul>
           </li>
           <li><a href="{{ get_url(path="@/pages/projects.md") }}">Code</a></li>
+        {% endblock nav %}
         </ul>
       </nav>
   {% block right %}
