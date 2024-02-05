@@ -241,24 +241,21 @@ dd {
 table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid darken($white, 7%);
   margin-bottom: 1em;
 }
 
 thead {
   background-color: darken($white, 5%);
-  border-bottom: 1px solid darken($white, 7%);
 }
 
-tr,
+th,
 td {
-  border-bottom: 1px solid darken($white, 7%);
+  border: 1px solid darken($white, 7%);
 }
 
 th,
 td {
   text-align: center;
-  border-right: 1px solid darken($white, 7%);
   padding: 0.5em;
   a {
     text-decoration: none !important;
