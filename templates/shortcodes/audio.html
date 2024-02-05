@@ -1,0 +1,7 @@
+<audio controls>
+  {% for source in src -%}
+    {% set type = source | split(pat=".") | last -%}
+    <source src="{{ config.base_url | safe }}{{ page.path | safe }}{{ source | safe }}" type="{{ 'audio/' ~ type }}" />
+  {% endfor -%}
+  Your browser does not support the audio formats in use.
+</audio>
