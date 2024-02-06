@@ -9,6 +9,7 @@ subtitle = "Shortcodes for images"
 csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 +++
 
+## Local
 #### Input
 
 ```rs
@@ -27,20 +28,7 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 
 {{ image(src="/fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
 
-#### Input
-
-```rs
-{{/* image(src="https://halve-z.netlify.app/fireball.gif") */}}
-```
-
-#### Output
-
-```html
-{{ image(src="https://halve-z.netlify.app/fireball.gif") }}
-```
-
-{{ image(src="https://halve-z.netlify.app/fireball.gif") }}
-
+### Image only
 #### Input
 
 ```rs
@@ -54,6 +42,21 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 ```
 
 {{ image(src="yawn.gif") }}
+
+## External
+#### Input
+
+```rs
+{{/* image(src="https://halve-z.netlify.app/fireball.gif") */}}
+```
+
+#### Output
+
+```html
+{{ image(src="https://halve-z.netlify.app/fireball.gif") }}
+```
+
+{{ image(src="https://halve-z.netlify.app/fireball.gif") }}
 
 ## CSP
 
@@ -72,6 +75,7 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 +++
 ```
 
+### Example
 #### Input
 
 ```rs
