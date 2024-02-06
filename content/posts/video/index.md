@@ -10,7 +10,7 @@ subtitle = "Shortcodes for videos"
 
 ## Video
 
-input:
+#### Input
 
 ```rs
 {{/* video(src=["over9000.mp4", "over9000.webm"]) */}}
@@ -23,8 +23,7 @@ input:
 - `loop`: when set to "true", the video plays on a loop (optional)
 - `muted`: when set to "true", the audio will be initially silenced (optional)
 
-
-output:
+#### Output
 
 ```html
 {{ video(src=["over9000.mp4", "over9000.webm"]) }}
@@ -32,13 +31,13 @@ output:
 
 {{ video(src=["over9000.mp4", "over9000.webm"]) }}
 
-input:
+#### Input
 
 ```rs
 {{/* video(src=["over9000.mp4"], muted="true") */}}
 ```
 
-output:
+#### Output
 
 ```html
 {{ video(src=["over9000.mp4"], muted="true") }}
@@ -48,7 +47,7 @@ output:
 
 ## Vimeo
 
-input:
+#### Input
 
 ```rs
 {{/* vimeo(id="4340383") */}}
@@ -61,7 +60,7 @@ input:
 - `title` - set alt title for the iframe (optional, defaults to "Vimeo")
 - `cookie` - set to "true" if you want tracking cookies, otherwise it defaults to false.
 
-output:
+#### Output
 
 ```html
 {{ vimeo(id="4340383") }}
@@ -71,7 +70,7 @@ output:
 
 ## YouTube
 
-input:
+#### Input
 
 ```rs
 {{/* youtube(id="frBzlP6t9Gw") */}}
@@ -83,7 +82,7 @@ input:
 - `title` - set alt title for the iframe (optional, defaults to "Youtube")
 - `cookie` - set to "true" if you want tracking cookies, otherwise it defaults to false.
 
-output:
+#### Output
 
 ```html
 {{ youtube(id="frBzlP6t9Gw") }}

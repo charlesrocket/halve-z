@@ -10,7 +10,7 @@ subtitle = "Project cards"
 
 Use `GITHUB_TOKEN` environment variable to authenticate **GitHub** requests (optional).
 
-input:
+#### Input
 
 ```rs
 {{/* project(link="https://github.com/charlesrocket/halve-z") */}}
@@ -18,7 +18,7 @@ input:
 
 - `link`: the address of the repository (mandatory)
 
-output:
+#### Output
 
 ```html
 {{ project(link="https://github.com/charlesrocket/halve-z") }}

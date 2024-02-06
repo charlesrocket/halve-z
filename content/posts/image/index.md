@@ -9,7 +9,7 @@ subtitle = "Shortcodes for images"
 csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 +++
 
-input:
+#### Input
 
 ```rs
 {{/* image(src="/fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") */}}
@@ -19,7 +19,7 @@ input:
 - `caption`: set the image caption (optional)
 - `alt`: set alternative text (optional)
 
-output:
+#### Output
 
 ```html
 {{ image(src="/fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
@@ -27,13 +27,13 @@ output:
 
 {{ image(src="/fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
 
-input:
+#### Input
 
 ```rs
 {{/* image(src="https://halve-z.netlify.app/fireball.gif") */}}
 ```
 
-output:
+#### Output
 
 ```html
 {{ image(src="https://halve-z.netlify.app/fireball.gif") }}
@@ -41,13 +41,13 @@ output:
 
 {{ image(src="https://halve-z.netlify.app/fireball.gif") }}
 
-input:
+#### Input
 
 ```rs
 {{/* image(src="yawn.gif") */}}
 ```
 
-output:
+#### Output
 
 ```html
 {{ image(src="yawn.gif") }}
@@ -72,13 +72,13 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 +++
 ```
 
-input:
+#### Input
 
 ```rs
 {{/* image(src="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif", caption="CSP test image") */}}
 ```
 
-output:
+#### Output
 
 ```html
 {{ image(src="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif", caption="CSP test image"") }}
