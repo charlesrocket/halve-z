@@ -10,6 +10,8 @@ subtitle = "Project cards"
 
 Use `GITHUB_TOKEN` environment variable to authenticate **GitHub** requests (optional).
 
+## Example
+
 #### Input
 
 ```rs
