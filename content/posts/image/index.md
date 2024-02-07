@@ -74,6 +74,8 @@ Example of an external image.
 
 Add `csp = enable` to the config's `extra` section to enable **Content Security Policy** globally. Use front matter's `csp_img` to add URLs:
 
+### Example
+
 ```
 +++
 title = "Image"
@@ -87,7 +89,6 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 +++
 ```
 
-### Example
 #### Input
 
 ```rs
@@ -95,9 +96,5 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 ```
 
 #### Output
-
-```html
-{{ image(src="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif", caption="CSP test image"") }}
-```
 
 {{ image(src="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif", caption="CSP test image") }}
