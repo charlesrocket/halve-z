@@ -1,0 +1,15 @@
+{%- if src and key and type %}
+  {%- if src is matching("^http[s]?://") %}
+    {% set loaded_data = load_data(url=src, format=type) %}
+  {%- else %}
+    {% set loaded_data = load_data(path=src, format=type) %}
+  {%- endif %}
+  {{ loaded_data[key] }}
+{%- else %}
+  {%- if src is matching("^http[s]?://") %}
+    {% set loaded_data = load_data(url=src) %}
+  {%- else %}
+    {% set loaded_data = load_data(path=src) %}
+  {%- endif %}
+  {{ loaded_data }}
+{%- endif %}
