@@ -9,16 +9,22 @@ subtitle = "Shortcodes for images"
 csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 +++
 
-## Local
+## Usage
+
+- `src`: the path/URL to the image file (mandatory)
+- `link`: destination URL
+- `caption`: set the image caption
+- `alt`: set alternative text
+
+### Local
+
+Example of a local image with a link and caption.
+
 #### Input
 
 ```rs
 {{/* image(src="/fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") */}}
 ```
-
-- `src`: the path/URL to the image file (mandatory)
-- `caption`: set the image caption (optional)
-- `alt`: set alternative text (optional)
 
 #### Output
 
@@ -29,6 +35,9 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 {{ image(src="/fireball.gif", link="https://halve-z.netlify.app/", alt="Fireball", caption="8bit fireball") }}
 
 ### Image only
+
+Example of an image without any text or links.
+
 #### Input
 
 ```rs
@@ -43,7 +52,10 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 
 {{ image(src="yawn.gif") }}
 
-## External
+### External
+
+Example of an external image.
+
 #### Input
 
 ```rs
