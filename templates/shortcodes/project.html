@@ -4,7 +4,7 @@
   {%- if gh_token is matching("^notoken") %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json") %}{% else %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json", headers=["accept=application/vnd.github.v4.idl", "authorization=Bearer " ~ gh_token]) %}{% endif %}
 {%- endif %}
 <div class="projects frame-dim">
-  <h3><a href="{{ gh_repo_data['html_url'] | safe }}" target="_blank">{{ gh_repo_data["name"] }}</a></h3>
+  <h2><a href="{{ gh_repo_data['html_url'] | safe }}" target="_blank">{{ gh_repo_data["name"] }}</a></h3>
   <ul class="project-list">
     <li><b>{{ gh_repo_data["language"] | default(value="") | safe }}</b> <span class="{{ gh_repo_data["language"] | default(value="") | replace(from="#", to="-Sharp") | replace(from="++", to="pp") | replace(from="-", to="") | replace(from=" ", to="") | safe }}"><b>&#42;</b></span></li>
     <li><span class="project-license">{{ gh_repo_data["license"]["spdx_id"] | default(value="") | safe }}</span></li>
