@@ -8,17 +8,18 @@ tags = ["content", "shortcode", "github"]
 subtitle = "Project cards"
 +++
 
+## Usage
+
 Use `GITHUB_TOKEN` environment variable to authenticate **GitHub** requests (optional).
 
-## Example
+- `link`: the address of the repository (mandatory)
 
+### Example
 #### Input
 
 ```rs
 {{/* project(link="https://github.com/charlesrocket/halve-z") */}}
 ```
-
-- `link`: the address of the repository (mandatory)
 
 #### Output
 

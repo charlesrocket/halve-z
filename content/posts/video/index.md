@@ -10,11 +10,7 @@ subtitle = "Shortcodes for videos"
 
 ## Video
 
-#### Input
-
-```rs
-{{/* video(src=["over9000.mp4", "over9000.webm"]) */}}
-```
+### Usage
 
 - `src`: an array of video file paths (mandatory)
 - `width`: the width of the video (optional)
@@ -22,6 +18,12 @@ subtitle = "Shortcodes for videos"
 - `autoplay`: when set to "true", the video autoplays on load (optional)
 - `loop`: when set to "true", the video plays on a loop (optional)
 - `muted`: when set to "true", the audio will be initially silenced (optional)
+
+#### Input
+
+```rs
+{{/* video(src=["over9000.mp4", "over9000.webm"]) */}}
+```
 
 #### Output
 
@@ -47,11 +49,7 @@ subtitle = "Shortcodes for videos"
 
 ## Vimeo
 
-#### Input
-
-```rs
-{{/* vimeo(id="4340383") */}}
-```
+### Usage
 
 - `id`: the video id (mandatory)
 - `autoplay`: when set to "true", the video autoplays on load (optional)
@@ -59,6 +57,12 @@ subtitle = "Shortcodes for videos"
 - `noautopause`: when set to "true", the video will not autopause (optional)
 - `title` - set alt title for the iframe (optional, defaults to "Vimeo")
 - `cookie` - set to "true" if you want tracking cookies, otherwise it defaults to false.
+
+#### Input
+
+```rs
+{{/* vimeo(id="4340383") */}}
+```
 
 #### Output
 
@@ -70,17 +74,19 @@ subtitle = "Shortcodes for videos"
 
 ## YouTube
 
-#### Input
-
-```rs
-{{/* youtube(id="frBzlP6t9Gw") */}}
-```
+### Usage
 
 - `id`: the video id (mandatory)
 - `playlist`: the playlist id (optional)
 - `autoplay`: when set to "true", the video autoplays on load (optional)
 - `title` - set alt title for the iframe (optional, defaults to "Youtube")
 - `cookie` - set to "true" if you want tracking cookies, otherwise it defaults to false.
+
+#### Input
+
+```rs
+{{/* youtube(id="frBzlP6t9Gw") */}}
+```
 
 #### Output
 

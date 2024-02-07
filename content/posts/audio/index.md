@@ -8,15 +8,16 @@ tags = ["content", "shortcode"]
 subtitle = "Working with audio files"
 +++
 
-## Example
+## Usage
 
+- `src`: an array of audio file paths (mandatory)
+
+### Example
 #### Input
 
 ```rs
 {{/* audio(src=["over9000.ogg", "over9000.mp3"]) */}}
 ```
-
-- `src`: an array of audio file paths (mandatory)
 
 #### Output
 

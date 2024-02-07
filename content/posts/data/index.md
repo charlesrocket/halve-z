@@ -8,19 +8,18 @@ tags = ["content", "shortcode"]
 subtitle = "Data loader"
 +++
 
-Display data from internal or external sources.
+## Usage
 
-## Example
+- `src`: the address of the data source (mandatory)
+- `type`: the file type of the data source ([supported types](https://www.getzola.org/documentation/templates/overview/#load-data))
+- `key`: an object in the data to display
 
+### Example
 #### Input
 
 ```
 This theme requires **Zola** version {{/* data(src="../theme.toml" type="toml" key="min_version") */}} or later.
 ```
-
-- `src`: the address of the data source (mandatory)
-- `type`: the file type of the data source ([supported types](https://www.getzola.org/documentation/templates/overview/#load-data))
-- `key`: an object in the data to display
 
 #### Output
 
