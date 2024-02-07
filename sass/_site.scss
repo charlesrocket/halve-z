@@ -459,10 +459,6 @@ a.zola-anchor {
     line-height: 42px;
     margin-bottom: 30px;
   }
-  h2 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
   h1,
   h2,
   h3,
@@ -470,6 +466,8 @@ a.zola-anchor {
   h5,
   h6 {
     font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   p {
     font-size: 12px;
