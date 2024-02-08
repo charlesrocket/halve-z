@@ -717,6 +717,11 @@ a.zola-anchor {
   .content {
     padding: 20px
   }
+  .projects {
+    > h2 {
+      font-size: 20px;
+    }
+  }
   table {
     font-size: 0.90rem;
   }
