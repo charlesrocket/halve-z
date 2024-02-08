@@ -19,7 +19,7 @@
     <div class="inner-post content">
       <div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>
       {% if page.extra.subtitle %}<h1>{{ page.extra.subtitle | safe}}</h1>{% endif %}
-      {% if page.toc %}{% if page.toc | length >= 2 %}
+      {% if config.extra.toc %}{% if page.toc %}{% if page.toc | length >= 2 %}
         <div><ul class="page-toc">
           {% for h2 in page.toc %}
           <li>
@@ -27,7 +27,7 @@
           </li>
           {% endfor %}
         </ul></div>
-      {% endif %}{% endif %}
+      {% endif %}{% endif %}{% endif %}
       {{ page.content | safe }}
       <br>
       {% if page.lower or page.higher %}
