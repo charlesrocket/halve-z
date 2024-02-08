@@ -45,8 +45,10 @@
         </nav>
       {% endif %}
       <br>
+      {% block comments %}
       {% if current_path is starting_with("/posts/") %}{% if config.extra.giscus is defined %}
         {%- include "partials/giscus.html" %}
       {% endif %}{% endif %}
+      {% endblock comments %}
     </div>
   {% endblock right %}
