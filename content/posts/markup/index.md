@@ -32,21 +32,20 @@ A variety of common markup showing how the theme styles them.
 
 ## Tables
 
-| Employee         | Salary |                                                              |
-| --------         | ------ | ------------------------------------------------------------ |
-| [John Doe](#)    | $1     | Because that's all Steve Jobs needed for a salary.           |
-| [Jane Doe](#)    | $100K  | For all the blogging she does.                               |
-| [Fred Bloggs](#) | $100M  | Pictures are worth a thousand words, right? So Jane × 1,000. |
-| [Jane Bloggs](#) | $100B  | With hair like that?! Enough said.                           |
+| OS           | Base        |
+| ------------ | ----------- |
+| [OpenBSD](#) | NetBSD 1.0  |
+| [NetBSD](#)  | 4.3BSD      | 
+| [FreeBSD](#) | 4.4BSD-Lite |
 
-## Large tables within figure
+### Large tables
 
-Surround very Large tables with `<figure></figure>` so they can scroll horizontally.
+Surround large tables with `<figure></figure>` so they can scroll horizontally.
 <figure>
 
-| **Manufacturer** | Volkswagen | Toyota | Ford | Honda | Chevrolet | BMW | Hyundai | Audi | Nissan | Kia | Mercedes | Tesla | Mitsubishi | Suzuki | Volvo | Subaru | Mazda | Jaguar | Buick | Lexus | GMC | Porsche | Cadillac |
-| ---------- | ---- | ---- | ---- | ---- | ---- | ---- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Revenue $B** | $254 | $249 | $127 | $124 | $123 | $113 | $88 | $83 | $74 | $61 | $55 | $54 | $38 | $31 | $30 | $28 | $27 | $22 | $21 | $19 | $17 | $16 | $12 |
+| **Company** | Amstrad | Apparat | Be | Calma | Datapoint | Elxsi | Fortune Systems | Gateway | Noval | Jonos | Kaypro | Lap Power | Léanord | NeXT | Norsk Data | Ohio Scientific | Omnidata | OCC | Psystar | Symbolics | Terak | TRW | Wicat Systems |
+| ----------  | ---- | ---- | ---- | ---- | ---- | ---- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **Defunct** | 2010 | 1988 | 2001 | 1988 | 2000 | 1989 | 2011 | 2007 | 1979 | 1992 | 1992 | 2000 | 1989 | 1997 | 1992 | 1980 | 1988 | 1985 | 2012 | 1996 | 1985 | 2002 | 1992 |
 
 </figure>
 
