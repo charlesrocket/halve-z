@@ -46,7 +46,7 @@
       {% endif %}
       <br>
       {% block comments %}
-      {% if current_path is starting_with("/posts/") %}{% if config.extra.giscus is defined %}
+      {% if current_path is starting_with("/posts/") %}{% if config.extra.giscus.enabled == true %}
         {%- include "partials/giscus.html" %}
       {% endif %}{% endif %}
       {% endblock comments %}

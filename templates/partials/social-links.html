@@ -1,79 +1,79 @@
 <ul>
-         {% if config.extra.email %}
-            <li><a class="social-btn" href="mailto:{{ site.email }}" aria-label="E-Mail" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-envelope"></i></a></li>
+         {% if config.extra.social.email %}
+            <li><a class="social-btn" href="mailto:{{ config.extra.social.email }}" aria-label="E-Mail" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-envelope"></i></a></li>
          {% endif %}
-         {% if config.extra.mastodon %}
-            <li><a class="social-btn" href="https://defcon.social/@{{ config.extra.mastodon }}" aria-label="Mastodon" target="_blank" rel="noopener noreferrer"><i class="fa fa-brands fa-mastodon"></i></a></li>
+         {% if config.extra.social.mastodon %}
+            <li><a class="social-btn" href="https://defcon.social/@{{ config.extra.social.mastodon }}" aria-label="Mastodon" target="_blank" rel="noopener noreferrer"><i class="fa fa-brands fa-mastodon"></i></a></li>
          {% endif %}
-         {% if config.extra.twitter %}
-            <li><a class="social-btn" href="https://twitter.com/{{ config.extra.twitter }}" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-twitter"></i></a></li>
+         {% if config.extra.social.twitter %}
+            <li><a class="social-btn" href="https://twitter.com/{{ config.extra.social.twitter }}" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-twitter"></i></a></li>
          {% endif %}
-         {% if config.extra.facebook %}
-            <li><a class="social-btn" href="https://facebook.com/{{ config.extra.facebook }}" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook"></i></a></li>
+         {% if config.extra.social.facebook %}
+            <li><a class="social-btn" href="https://facebook.com/{{ config.extra.social.facebook }}" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook"></i></a></li>
          {% endif %}
-         {% if config.extra.google_plus %}
-            <li><a class="social-btn" href="https://plus.google.com/+{{ config.extra.google_plus }}" aria-label="Google Plus" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-google-plus"></i></a></li>{% endif %}
-         {% if config.extra.linkedin %}
-            <li><a class="social-btn" href="https://linkedin.com/in/{{ config.extra.linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin"></i></a></li>
+         {% if config.extra.social.google_plus %}
+            <li><a class="social-btn" href="https://plus.google.com/+{{ config.extra.social.google_plus }}" aria-label="Google Plus" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-google-plus"></i></a></li>{% endif %}
+         {% if config.extra.social.linkedin %}
+            <li><a class="social-btn" href="https://linkedin.com/in/{{ config.extra.social.linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin"></i></a></li>
          {% endif %}
-         {% if config.extra.xing %}
-            <li><a class="social-btn" href="https://www.xing.com/profile/{{ config.extra.xing }}" aria-label="Xing" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-xing"></i></a></li>
+         {% if config.extra.social.xing %}
+            <li><a class="social-btn" href="https://www.xing.com/profile/{{ config.extra.social.xing }}" aria-label="Xing" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-xing"></i></a></li>
          {% endif %}
-         {% if config.extra.tumblr %}
-            <li><a class="social-btn" href="https://{{ config.extra.tumblr }}.tumblr.com" aria-label="Tumblr" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-tumblr"></i></a></li>
+         {% if config.extra.social.tumblr %}
+            <li><a class="social-btn" href="https://{{ config.extra.social.tumblr }}.tumblr.com" aria-label="Tumblr" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-tumblr"></i></a></li>
          {% endif %}
-         {% if config.extra.github %}
-            <li><a class="social-btn" href="https://github.com/{{ config.extra.github }}" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i></a></li>
+         {% if config.extra.social.github %}
+            <li><a class="social-btn" href="https://github.com/{{ config.extra.social.github }}" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i></a></li>
          {% endif %}
-         {% if config.extra.stackoverflow %}
-            <li><a class="social-btn" href="https://stackoverflow.com/users/{{ config.extra.stackoverflow }}" aria-label="Stack Overflow" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-stack-overflow"></i></a></li>
+         {% if config.extra.social.stackoverflow %}
+            <li><a class="social-btn" href="https://stackoverflow.com/users/{{ config.extra.social.stackoverflow }}" aria-label="Stack Overflow" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-stack-overflow"></i></a></li>
          {% endif %}
-         {% if config.extra.codepen %}
-            <li><a class="social-btn" href="https://codepen.io/{{ config.extra.codepen }}" aria-label="CodePen" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-codepen"></i></a></li>
+         {% if config.extra.social.codepen %}
+            <li><a class="social-btn" href="https://codepen.io/{{ config.extra.social.codepen }}" aria-label="CodePen" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-codepen"></i></a></li>
          {% endif %}
-         {% if config.extra.keybase %}
-            <li><a class="social-btn" href="https://keybase.io/{{ config.extra.keybase }}" aria-label="Keybase" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-key"></i></a></li>
+         {% if config.extra.social.keybase %}
+            <li><a class="social-btn" href="https://keybase.io/{{ config.extra.social.keybase }}" aria-label="Keybase" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-key"></i></a></li>
          {% endif %}
-         {% if config.extra.lastfm %}
-            <li><a class="social-btn" href="https://last.fm/user/{{ config.extra.lastfm }}" aria-label="Last.fm" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-lastfm"></i></a></li>
+         {% if config.extra.social.lastfm %}
+            <li><a class="social-btn" href="https://last.fm/user/{{ config.extra.social.lastfm }}" aria-label="Last.fm" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-lastfm"></i></a></li>
          {% endif %}
-         {% if config.extra.dribbble %}
-            <li><a class="social-btn" href="https://dribbble.com/{{ config.extra.dribbble }}" aria-label="Dribbble" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-dribbble"></i></a></li>
+         {% if config.extra.social.dribbble %}
+            <li><a class="social-btn" href="https://dribbble.com/{{ config.extra.social.dribbble }}" aria-label="Dribbble" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-dribbble"></i></a></li>
          {% endif %}
-         {% if config.extra.pinterest %}
-            <li><a class="social-btn" href="https://www.pinterest.com/{{ config.extra.pinterest }}" aria-label="Pinterest" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-pinterest"></i></a></li>
+         {% if config.extra.social.pinterest %}
+            <li><a class="social-btn" href="https://www.pinterest.com/{{ config.extra.social.pinterest }}" aria-label="Pinterest" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-pinterest"></i></a></li>
          {% endif %}
-         {% if config.extra.foursquare %}
-            <li><a class="social-btn" href="https://foursquare.com/{{ config.extra.foursquare }}" aria-label="Foursquare" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-foursquare"></i></a></li>
+         {% if config.extra.social.foursquare %}
+            <li><a class="social-btn" href="https://foursquare.com/{{ config.extra.social.foursquare }}" aria-label="Foursquare" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-foursquare"></i></a></li>
          {% endif %}
-         {% if config.extra.steam %}
-            <li><a class="social-btn" href="https://steamcommunity.com/id/{{ config.extra.steam }}" aria-label="Steam" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-steam"></i></a></li>
+         {% if config.extra.social.steam %}
+            <li><a class="social-btn" href="https://steamcommunity.com/id/{{ config.extra.social.steam }}" aria-label="Steam" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-steam"></i></a></li>
          {% endif %}
-         {% if config.extra.youtube %}
-            <li><a class="social-btn" href="https://youtube.com/user/{{ config.extra.youtube }}" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-youtube"></i></a></li>
+         {% if config.extra.social.youtube %}
+            <li><a class="social-btn" href="https://youtube.com/user/{{ config.extra.social.youtube }}" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-youtube"></i></a></li>
          {% endif %}
-         {% if config.extra.soundcloud %}
-            <li><a class="social-btn" href="https://soundcloud.com/{{ config.extra.soundcloud }}" aria-label="Soundcloud" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-soundcloud"></i></a></li>
+         {% if config.extra.social.soundcloud %}
+            <li><a class="social-btn" href="https://soundcloud.com/{{ config.extra.social.soundcloud }}" aria-label="Soundcloud" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-soundcloud"></i></a></li>
          {% endif %}
-         {% if config.extra.weibo %}
-            <li><a class="social-btn" href="https://www.weibo.com/{{ config.extra.weibo }}" aria-label="Weibo" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-weibo"></i></a></li>
+         {% if config.extra.social.weibo %}
+            <li><a class="social-btn" href="https://www.weibo.com/{{ config.extra.social.weibo }}" aria-label="Weibo" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-weibo"></i></a></li>
          {% endif %}
-         {% if config.extra.instagram %}
-            <li><a class="social-btn" href="https://instagram.com/{{ config.extra.instagram }}" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-instagram"></i></a></li>
+         {% if config.extra.social.instagram %}
+            <li><a class="social-btn" href="https://instagram.com/{{ config.extra.social.instagram }}" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-instagram"></i></a></li>
          {% endif %}
-         {% if config.extra.flickr %}
-            <li><a class="social-btn" href="https://www.flickr.com/{{ config.extra.flickr }}" aria-label="Flickr" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-flickr"></i></a></li>
+         {% if config.extra.social.flickr %}
+            <li><a class="social-btn" href="https://www.flickr.com/{{ config.extra.social.flickr }}" aria-label="Flickr" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-flickr"></i></a></li>
          {% endif %}
-         {% if config.extra.behance %}
-            <li><a class="social-btn" href="https://www.behance.net/{{ config.extra.behance }}" aria-label="Behance" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-behance"></i></a></li>
+         {% if config.extra.social.behance %}
+            <li><a class="social-btn" href="https://www.behance.net/{{ config.extra.social.behance }}" aria-label="Behance" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-behance"></i></a></li>
          {% endif %}
-         {% if config.extra.xmpp %}
-            <li><a class="social-btn" href="xmpp:{{ config.extra.xmpp }}" aria-label="XMPP" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
+         {% if config.extra.social.xmpp %}
+            <li><a class="social-btn" href="xmpp:{{ config.extra.social.xmpp }}" aria-label="XMPP" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
          {% endif %}
-         {% if config.extra.reddit %}
-            <li><a class="social-btn" href="https://www.reddit.com/user/{{ config.extra.reddit }}" aria-label="Reddit" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-reddit"></i></a></li>
+         {% if config.extra.social.reddit %}
+            <li><a class="social-btn" href="https://www.reddit.com/user/{{ config.extra.social.reddit }}" aria-label="Reddit" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-reddit"></i></a></li>
          {% endif %}
-         {% if config.extra.hackernews %}
-            <li><a class="social-btn" href="https://news.ycombinator.com/user?id={{ config.extra.hackernews }}" aria-label="Hacker News" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-hacker-news"></i></a></li>
+         {% if config.extra.social.hackernews %}
+            <li><a class="social-btn" href="https://news.ycombinator.com/user?id={{ config.extra.social.hackernews }}" aria-label="Hacker News" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-hacker-news"></i></a></li>
          {% endif %}
          </ul>

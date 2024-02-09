@@ -41,8 +41,8 @@ post_list_image = "https://failsafe.monster/bk-prk.jpg"
 default_post_image = "https://failsafe.monster/bk-prk.jpg"
 csp = true
 toc = true
-#giscus = { repo = "charlesrocket/halve-z", repo_id = "REPO_ID", category = "Comments", category_id = "CAT_ID", mapping = "pathname", strict ="1", reactions ="1", lang = "en" }
 
+[extra.social]
 #email = ""
 mastodon = "charlesrocket"
 twitter = "charlesrocket"
@@ -64,3 +64,14 @@ posts = true
 links = [
     { name = "Code", url = "@/pages/projects.md" },
 ]
+
+[extra.giscus]
+enabled = false
+repo = "charlesrocket/halve-z"
+repo_id = "REPO_ID"
+category = "Comments"
+category_id = "CAT_ID"
+mapping = "pathname"
+strict = "1"
+reactions = "1"
+lang = "en"
