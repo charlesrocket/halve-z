@@ -21,7 +21,7 @@
         <ul class="nav-menu">
         {% block nav %}
           <li><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
-          {% if config.extra.menu.posts %}
+          {% if config.extra.menu.posts == true %}
           <li><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">Posts</a>
             <ul class="dropdown" aria-label="submenu">
               <li><a href="{{ get_url(path="@/posts/_index.md") }}">Index</a></li>
