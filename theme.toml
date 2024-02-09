@@ -34,6 +34,12 @@ toc = true
 #hackernews = ""
 #behance = ""
 
+[extra.menu]
+posts = false
+links = [
+    #{ name = "Code", url = "@/pages/projects.md" },
+]
+
 [author]
 name = "-k"
 homepage = "https://failsafe.monster/"

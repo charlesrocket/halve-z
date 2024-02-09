@@ -19,8 +19,8 @@ taxonomies = [
 highlight_code = true
 highlight_theme = "css"
 highlight_themes_css = [
-  { theme = "base16-ocean-dark", filename = "syntax-theme-dark.css" },
-  { theme = "base16-ocean-light", filename = "syntax-theme-light.css" },
+    { theme = "base16-ocean-dark", filename = "syntax-theme-dark.css" },
+    { theme = "base16-ocean-light", filename = "syntax-theme-light.css" },
 ]
 render_emoji = false
 external_links_target_blank = true
@@ -58,3 +58,9 @@ keybase = "charlesrocket"
 #xmpp = "charlie137@jabber.calyxinstitute.org"
 hackernews = "charlesrocket"
 #behance = "charlesrocket"
+
+[extra.menu]
+posts = true
+links = [
+    { name = "Code", url = "@/pages/projects.md" },
+]
