@@ -21,6 +21,7 @@
         <ul class="nav-menu">
         {% block nav %}
           <li><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
+          {% if config.extra.menu.posts %}
           <li><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">Posts</a>
             <ul class="dropdown" aria-label="submenu">
               <li><a href="{{ get_url(path="@/posts/_index.md") }}">Index</a></li>
@@ -28,7 +29,10 @@
               <li><a href="{{ categories.permalink }}">Categories</a></li>
             </ul>
           </li>
-          <li><a href="{{ get_url(path="@/pages/projects.md") }}">Code</a></li>
+          {% endif %}
+          {% for link in config.extra.menu.links %}
+          <li><a href="{{ get_url(path=link.url) }}">{{ link.name }}</a></li>
+          {% endfor %}
         {% endblock nav %}
         </ul>
       </nav>
