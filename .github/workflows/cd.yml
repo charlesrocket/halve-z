@@ -1,0 +1,23 @@
+---
+
+name: CD
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  create-release:
+    name: Create release
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: taiki-e/create-gh-release-action@v1
+        with:
+          changelog: CHANGELOG.md
+          token: ${{ secrets.GITHUB_TOKEN }}

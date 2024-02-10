@@ -1,0 +1,30 @@
+---
+
+name: CI
+
+permissions:
+  contents: read
+
+"on":
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: taiki-e/install-action@zola
+      - name: Run Zola check
+        run: zola check
+      - name: Run Zola build
+        run: zola build
+
+  release:
+    needs: [build]
+    name: Release
+    permissions:
+      contents: write
+    if: github.repository_owner == 'charlesrocket' && startsWith(github.ref, 'refs/tags/')
+    uses: ./.github/workflows/cd.yml
