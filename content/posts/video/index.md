@@ -3,7 +3,7 @@ title = "Video"
 date = 2023-06-04
 [taxonomies]
 categories = ["media"]
-tags = ["content", "shortcode"]
+tags = ["content", "shortcode", "feature"]
 [extra]
 subtitle = "Shortcodes for videos"
 +++

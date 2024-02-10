@@ -3,7 +3,7 @@ title = "Data"
 date = 2022-10-01
 [taxonomies]
 categories = ["usage"]
-tags = ["content", "shortcode"]
+tags = ["content", "shortcode", "feature"]
 [extra]
 subtitle = "Data loader"
 +++

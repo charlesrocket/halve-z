@@ -3,7 +3,7 @@ title = "Audio"
 date = 2023-06-05
 [taxonomies]
 categories = ["media"]
-tags = ["content", "shortcode"]
+tags = ["content", "shortcode", "feature"]
 [extra]
 subtitle = "Working with audio files"
 +++

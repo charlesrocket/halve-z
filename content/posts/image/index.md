@@ -3,7 +3,7 @@ title = "Image"
 date = 2023-06-03
 [taxonomies]
 categories = ["media"]
-tags = ["content", "csp", "shortcode"]
+tags = ["content", "csp", "shortcode", "feature"]
 [extra]
 subtitle = "Shortcodes for images"
 csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
