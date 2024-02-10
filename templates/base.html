@@ -20,9 +20,9 @@
       <nav class="nav-bar" role="navigation">
         <ul class="nav-menu">
         {% block nav %}
-          <li><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
+          <li{% if current_path | default(value="none") == "/" %} class="nav-active"{% endif %}><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
           {% if config.extra.menu.posts == true %}
-          <li><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">Posts</a>
+          <li{% if current_path | default(value="none") == "/posts/" %} class="nav-active"{% endif %}><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">Posts</a>
             <ul class="dropdown" aria-label="submenu">
               <li><a href="{{ get_url(path="@/posts/_index.md") }}">Index</a></li>
               <li><a href="{{ tags.permalink }}">Tags</a></li>
@@ -31,7 +31,7 @@
           </li>
           {% endif %}
           {% for link in config.extra.menu.links %}
-          <li><a href="{{ get_url(path=link.url) }}">{{ link.name }}</a></li>
+          <li{% if page %}{% if config.base_url ~ current_path == get_url(path=link.url) %} class="nav-active"{% endif %}{% endif %}><a href="{{ get_url(path=link.url) }}">{{ link.name }}</a></li>
           {% endfor %}
         {% endblock nav %}
         </ul>
