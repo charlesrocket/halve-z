@@ -25,7 +25,7 @@ git submodule add https://github.com/charlesrocket/halve-z themes/halve-z
 
 ## Usage
 
-1. Add `theme = "halve-z"` to your project's root config and set required variables (see [config.toml](https://github.com/charlesrocket/halve-z/blob/trunk/config.toml).
+1. Add `theme = "halve-z"` to your project's root config and set required variables (see [config.toml](https://github.com/charlesrocket/halve-z/blob/trunk/config.toml)).
 2. Copy the content to get started:
 
 ```
