@@ -248,7 +248,8 @@ a.zola-anchor {
     flex-wrap: wrap;
     justify-content: center;
     li {
-      display: inline-block;
+      flex: 1 1 1;
+      text-align: center;
       vertical-align: middle;
       margin-right: 10px;
       -webkit-transform: translateZ(0);
