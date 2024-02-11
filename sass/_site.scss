@@ -248,10 +248,8 @@ a.zola-anchor {
     li {
       text-decoration: none;
       display: inline-block;
-      text-align: center;
       vertical-align: middle;
-      padding: 4px;
-      margin-right: 10px;
+      margin-right: 4px;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
       box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -291,14 +289,17 @@ a.zola-anchor {
           transform: scaleY(1);
         }
       }
+      &:first-child {
+        margin-right: 0px;
+      }
       &:last-child {
         margin-right: 0px;
       }
       a {
+        display: inline-block;
         text-decoration: none;
         font-size: 1.3em;
-        padding: 0;
-        margin: 0;
+        padding: 0.3em 0.35em;
         color: $white;
       }
     }
