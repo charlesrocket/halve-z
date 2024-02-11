@@ -23,11 +23,15 @@ Add theme submodule using `git`:
 git submodule add https://github.com/charlesrocket/halve-z themes/halve-z
 ```
 
-## Usage
+## Configuration
 
-1. Add `theme = "halve-z"` to your project's root config and set required variables (see [config.toml](https://github.com/charlesrocket/halve-z/blob/trunk/config.toml)).
+1. Copy theme's [config.toml](https://github.com/charlesrocket/halve-z/blob/trunk/config.toml) in your project's root directory. Set variables as required and add `theme = "halve-z"` at the top of the config file.
 2. Copy the content to get started:
 
 ```
 cp -R themes/halve-z/content content
 ```
+
+## Usage
+
+See demo [posts](https://halve-z.netlify.app/posts/).
