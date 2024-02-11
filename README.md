@@ -17,14 +17,17 @@ A two-column theme for Zola.
 
 ## Installation
 
-### 1: Install
-
-Add the theme as a git submodule:
+Add theme submodule using `git`:
 
 ```sh
 git submodule add https://github.com/charlesrocket/halve-z themes/halve-z
 ```
 
-### 2: Activate
+## Usage
 
-Add `theme = "halve-z"` to your project's root config.
+1. Add `theme = "halve-z"` to your project's root config and set required variables (see [config.toml](https://github.com/charlesrocket/halve-z/blob/trunk/config.toml).
+2. Copy the content to get started:
+
+```
+cp -R themes/halve-z/content content
+```
