@@ -245,16 +245,13 @@ a.zola-anchor {
     filter: drop-shadow(0 1px 7px);
     font-size: 1em;
     display: block;
-    width: 100%;
-    margin: 0;
-    padding: 0;
     li {
       text-decoration: none;
       display: inline-block;
       text-align: center;
-      width: 20%;
+      vertical-align: middle;
       padding: 4px;
-      margin: 0;
+      margin-right: 10px;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
       box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -293,6 +290,9 @@ a.zola-anchor {
           -webkit-transform: scaleY(1);
           transform: scaleY(1);
         }
+      }
+      &:last-child {
+        margin-right: 0px;
       }
       a {
         text-decoration: none;
