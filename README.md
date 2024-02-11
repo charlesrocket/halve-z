@@ -31,7 +31,7 @@ git submodule add https://github.com/charlesrocket/halve-z themes/halve-z
 2. Copy the content to get started:
 
 ```
-cp -R themes/halve-z/content content
+cp -R -f themes/halve-z/content/ content/
 ```
 
 ## Usage
