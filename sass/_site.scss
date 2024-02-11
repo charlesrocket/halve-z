@@ -244,12 +244,13 @@ a.zola-anchor {
     text-decoration: none;
     filter: drop-shadow(0 1px 7px);
     font-size: 1em;
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     li {
-      text-decoration: none;
       display: inline-block;
       vertical-align: middle;
-      margin-right: 4px;
+      margin-right: 10px;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
       box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -288,9 +289,6 @@ a.zola-anchor {
           -webkit-transform: scaleY(1);
           transform: scaleY(1);
         }
-      }
-      &:first-child {
-        margin-right: 0px;
       }
       &:last-child {
         margin-right: 0px;
