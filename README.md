@@ -1,9 +1,11 @@
 # halve-z
 [![Netlify Status](https://api.netlify.com/api/v1/badges/352a12ed-cdba-4545-9256-9fb698f5a94f/deploy-status?branch=trunk)](https://app.netlify.com/sites/halve-z/deploys)
 
-A two-column theme for Zola.
+A two-column theme for **Zola**.
 
 ## Features
+
+This is a _retro_ port of [Halve](https://github.com/TaylanTatli/Halve) for **Jekyll**. It features:
 
 * taxonomies
 * auto color schemes
