@@ -8,14 +8,24 @@ demo = "https://halve-z.netlify.app/"
 [extra]
 locale = "en_US"
 logo = "fireball.gif"
-home_title = "Halve-Z"
-home_subtitle = "Zola theme"
-home_image = "https://failsafe.monster/c1tyh4ll.png"
-home_logo = false
-post_list_image = "https://failsafe.monster/bk-prk.jpg"
-default_post_image = "https://failsafe.monster/bk-prk.jpg"
-csp = false
 toc = true
+csp = false
+
+[extra.home]
+title = "Halve-Z"
+subtitle = "Zola theme"
+logo = false
+
+[extra.images]
+home = "https://failsafe.monster/c1tyh4ll.png"
+post_list = "https://failsafe.monster/bk-prk.jpg"
+default_post = "https://failsafe.monster/bk-prk.jpg"
+
+[extra.menu]
+posts = false
+links = [
+    #{ name = "Code", url = "@/pages/projects.md" },
+]
 
 [extra.social]
 #email = ""
@@ -33,12 +43,6 @@ toc = true
 #xmpp = ""
 #hackernews = ""
 #behance = ""
-
-[extra.menu]
-posts = false
-links = [
-    #{ name = "Code", url = "@/pages/projects.md" },
-]
 
 [extra.giscus]
 enabled = false
