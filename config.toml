@@ -40,6 +40,7 @@ csp = true
 title = "Halve-Z"
 subtitle = "Zola theme"
 logo = false
+glitch = true
 
 [extra.images]
 home = "https://failsafe.monster/c1tyh4ll.png"
