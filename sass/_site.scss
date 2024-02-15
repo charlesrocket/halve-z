@@ -187,7 +187,6 @@ a.zola-anchor {
 }
 
 .home-logo {
-  max-width: 200px;
   display: inline-block;
   height: auto;
   background-size: 100%;
@@ -497,6 +496,9 @@ a.zola-anchor {
   a:not(.btn):not(.pagination_pager):not(.zola-anchor):not(.toc) {
     color: $shamrock-green;
     border-bottom: 1px dotted $green;
+  }
+  img {
+    width: auto;
   }
   ul {
     list-style-type: square;
