@@ -415,7 +415,7 @@ a.zola-anchor {
     }
     h2 {
       font-size: 24px;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
     p {
       color: darken($white, 40);
@@ -426,8 +426,8 @@ a.zola-anchor {
       width: 100%;
       display: block;
       font-size: 14px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: 15px;
+      padding-bottom: 15px;
       text-transform: uppercase;
     }
     .post-title {
@@ -444,7 +444,7 @@ a.zola-anchor {
 }
 
 .post-info {
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   width: 100%;
   font-size: 12px;
   color: darken($white, 50);
