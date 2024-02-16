@@ -64,13 +64,16 @@ nav.nav-bar li {
   float: left;
   text-decoration-line: underline;
   text-decoration-style: dashed;
+  -webkit-text-decoration-style: dashed;
   text-decoration-color: $green;
+  -webkit-text-decoration-color: $green;
   text-decoration-thickness: 2px;
   transition-duration: 0.3s;
 }
 
 nav.nav-bar li.nav-active {
   text-decoration-style: solid;
+  -webkit-text-decoration-style: solid;
 }
 
 nav.nav-bar li a {
