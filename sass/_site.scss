@@ -62,19 +62,19 @@ nav.nav-bar li {
   display: block;
   position: relative;
   float: left;
-  text-decoration-line: underline;
   -webkit-text-decoration-line: underline;
-  text-decoration-style: dashed;
+  text-decoration-line: underline;
   -webkit-text-decoration-style: dashed;
-  text-decoration-color: $green;
+  text-decoration-style: dashed;
   -webkit-text-decoration-color: $green;
+  text-decoration-color: $green;
   text-decoration-thickness: 2px;
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
 }
 
 nav.nav-bar li.nav-active {
-  text-decoration-style: solid;
   -webkit-text-decoration-style: solid;
+  text-decoration-style: solid;
 }
 
 nav.nav-bar li a {
@@ -102,7 +102,7 @@ nav.nav-bar ul li ul {
   opacity: 0;
   min-width: 5rem;
   position: absolute;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   display: none;
 }
 
