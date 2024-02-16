@@ -344,7 +344,7 @@ a.zola-anchor {
       -ms-transform: none;
       -o-transform: none;
       transform: none;
-      background: $green;
+      background: $shamrock-green;
       left: 0;
       width: 200px;
     }
@@ -827,6 +827,14 @@ a.zola-anchor {
 }
 
 @media (prefers-color-scheme: dark) {
+  .about-info {
+    h1,
+    h2 {
+      &:after {
+        background: $green;
+      }
+    }
+  }
   body {
     background-color: $dark-blue;
     color: $overlay-color-dark;
