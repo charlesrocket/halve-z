@@ -63,6 +63,7 @@ nav.nav-bar li {
   position: relative;
   float: left;
   text-decoration-line: underline;
+  -webkit-text-decoration-line: underline;
   text-decoration-style: dashed;
   -webkit-text-decoration-style: dashed;
   text-decoration-color: $green;
