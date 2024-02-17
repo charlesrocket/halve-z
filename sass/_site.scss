@@ -53,7 +53,7 @@ nav.nav-bar ul {
   float: right;
   margin: 0;
   border: 1px solid;
-  border-color: $black;
+  border-color: darken($white, 42);
 }
 
 nav.nav-bar li {
@@ -826,7 +826,7 @@ a.zola-anchor {
     background: $dark-blue;
   }
   nav.nav-bar ul {
-    border-color: $white;
+    border-color: darken($white, 30),
   }
   .frame-p {
     box-shadow: -2px 0 0 0 darken($white, 28%),
