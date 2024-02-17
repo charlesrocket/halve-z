@@ -73,8 +73,10 @@
   <link rel="shortcut icon" type="image/png" href="favicon.png"/>
   <link rel="shortcut icon" href="favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/main.css") }}" integrity="sha512-{{ get_hash(path="/main.css", sha_type=512, base64=true) | safe }}">
-  <link rel="stylesheet" type="text/css" href="{{ get_url(path="/syntax-theme-light.css") }}" integrity="sha512-{{ get_hash(path="/syntax-theme-light.css", sha_type=512, base64=true) | safe }}">
-  <link rel="stylesheet" type="text/css" href="{{ get_url(path="/syntax-theme-dark.css") }}" integrity="sha512-{{ get_hash(path="/syntax-theme-dark.css", sha_type=512, base64=true) | safe }}">
+  {% if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}
+  <link rel="stylesheet" type="text/css" href="{{ get_url(path="/syntax-theme-light.css") }}" media="(prefers-color-scheme: light)" integrity="sha512-{{ get_hash(path="/syntax-theme-light.css", sha_type=512, base64=true) | safe }}">
+  <link rel="stylesheet" type="text/css" href="{{ get_url(path="/syntax-theme-dark.css") }}" media="(prefers-color-scheme: dark)" integrity="sha512-{{ get_hash(path="/syntax-theme-dark.css", sha_type=512, base64=true) | safe }}">
+  {% endif %}
   <script defer src="{{ get_url(path='sw-load.js', trailing_slash=false, cachebust=true) | safe }}" integrity="sha512-{{ get_hash(path='sw-load.js', sha_type=512, base64=true) | safe }}"></script>
   {% if page.extra.image %}
     <style>{{ macros::image_style(url=page.extra.image) }}</style>
