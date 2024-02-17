@@ -11,6 +11,9 @@
          {% if config.extra.social.facebook %}
             <li><a class="social-btn" href="https://facebook.com/{{ config.extra.social.facebook }}" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook"></i></a></li>
          {% endif %}
+         {% if config.extra.social.twitch %}
+            <li><a class="social-btn" href="https://www.twitch.tv/{{ config.extra.social.twitch }}" aria-label="Twitch" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-twitch"></i></a></li>
+         {% endif %}
          {% if config.extra.social.google_plus %}
             <li><a class="social-btn" href="https://plus.google.com/+{{ config.extra.social.google_plus }}" aria-label="Google Plus" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-google-plus"></i></a></li>{% endif %}
          {% if config.extra.social.linkedin %}
