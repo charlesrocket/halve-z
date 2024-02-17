@@ -4,9 +4,9 @@
 {%- else %}
   {%- set page_url = get_url(path="404.html", trailing_slash=true) %}
 {%- endif %}
-{% if config.extra.images.home is starting_with("https://") %}{% set home_image = config.extra.images.home %}{% else %}{% set home_image = get_url(path=config.extra.images.home, cachebust=true) %}{% endif %}
-{% if config.extra.images.post_list is starting_with("https://") %}{% set post_list_image = config.extra.images.post_list %}{% else %}{% set post_list_image = get_url(path=config.extra.images.post_list, cachebust=true) %}{% endif %}
-{% if config.extra.images.default_post is starting_with("https://") %}{% set default_post_image = config.extra.images.default_post %}{% else %}{% set default_post_image = get_url(path=config.extra.images.default_post, cachebust=true) %}{% endif %}
+{% if config.extra.images.home is matching("^http[s]?://") %}{% set home_image = config.extra.images.home %}{% else %}{% set home_image = get_url(path=config.extra.images.home, cachebust=true) %}{% endif %}
+{% if config.extra.images.post_list is matching("^http[s]?://") %}{% set post_list_image = config.extra.images.post_list %}{% else %}{% set post_list_image = get_url(path=config.extra.images.post_list, cachebust=true) %}{% endif %}
+{% if config.extra.images.default_post is matching("^http[s]?://") %}{% set default_post_image = config.extra.images.default_post %}{% else %}{% set default_post_image = get_url(path=config.extra.images.default_post, cachebust=true) %}{% endif %}
 {% if config.extra.csp == true %}{% if page.extra.image %}
   {% set page_image_hash = get_hash(literal=macros::image_style(url=page.extra.image), base64=true, sha_type=512) %}
 {% else %}
@@ -18,7 +18,7 @@
   <meta name="base" content="{{ config.base_url | safe }}"/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   {% if config.extra.csp == true %}
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self'; img-src 'self' {% if page.extra.image %}{% if page.extra.image is starting_with("https://") %}{{ page.extra.image }}{% endif %}{% endif %} {% if config.extra.images.home is starting_with("https://") %}{{ config.extra.images.home }}{% endif %} {% if config.extra.images.post_list is starting_with("https://") %}{{ config.extra.images.post_list }}{% endif %} {% if config.extra.images.default_post is starting_with("https://") %}{{ config.extra.images.default_post }}{% endif %}{% if page.extra.csp_img %}{%for url in page.extra.csp_img %} {{ url }}{% endfor %}{% endif %}{% if section.extra.csp_img %}{%for url in section.extra.csp_img %} {{ url }}{% endfor %}{% endif %}; script-src 'self' {% if config.extra.giscus.enabled == true %}giscus.app/client.js{% endif %}; manifest-src 'self'; style-src 'self' {% if page_image_hash %}'sha512-{{ page_image_hash | safe }}'{% else %}'sha512-{{ default_post_image_hash | safe }}'{% endif %} 'sha512-{{ main_images_hash | safe }}' {% if config.extra.giscus.enabled == true %}giscus.app/default.css{% endif %}; media-src 'self'; frame-src 'self' https://player.vimeo.com/ https://www.youtube.com/ https://www.youtube-nocookie.com/ {% if config.extra.giscus.enabled == true %}giscus.app{% endif %}; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self'; img-src 'self' {% if page.extra.image %}{% if page.extra.image is matching("^http[s]?://") %}{{ page.extra.image }}{% endif %}{% endif %} {% if config.extra.images.home is matching("^http[s]?://") %}{{ config.extra.images.home }}{% endif %} {% if config.extra.images.post_list is matching("^http[s]?://") %}{{ config.extra.images.post_list }}{% endif %} {% if config.extra.images.default_post is matching("^http[s]?://") %}{{ config.extra.images.default_post }}{% endif %}{% if page.extra.csp_img %}{%for url in page.extra.csp_img %} {{ url }}{% endfor %}{% endif %}{% if section.extra.csp_img %}{%for url in section.extra.csp_img %} {{ url }}{% endfor %}{% endif %}; script-src 'self' {% if config.extra.giscus.enabled == true %}giscus.app/client.js{% endif %}; manifest-src 'self'; style-src 'self' {% if page_image_hash %}'sha512-{{ page_image_hash | safe }}'{% else %}'sha512-{{ default_post_image_hash | safe }}'{% endif %} 'sha512-{{ main_images_hash | safe }}' {% if config.extra.giscus.enabled == true %}giscus.app/default.css{% endif %}; media-src 'self'; frame-src 'self' https://player.vimeo.com/ https://www.youtube.com/ https://www.youtube-nocookie.com/ {% if config.extra.giscus.enabled == true %}giscus.app{% endif %}; object-src 'none'; base-uri 'self'; form-action 'self'">
   {% endif %}
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#2C2D32"/>
@@ -52,7 +52,7 @@
   <meta property="og:url" content="{{ page_url | safe }}">
   <meta property="og:site_name" content="{{ config.title }}">
   <link rel="canonical" href="{{ page_url | safe }}"/>
-  {% if page.extra.image %}{% if page.extra.image is starting_with("https://") %}{% set image = page.extra.image %}{% else %}{% set image = page.path ~ page.extra.image %}{% endif %}
+  {% if page.extra.image %}{% if page.extra.image is matching("^http[s]?://") %}{% set image = page.extra.image %}{% else %}{% set image = page.path ~ page.extra.image %}{% endif %}
   <meta property="og:image" content="{{ image | safe }}">
   <meta name="twitter:card" content="{{ image | safe }}">
   <meta name="twitter:image" content="{{ image | safe }}">
