@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.0] - 2024-02-20
+
+### Bug Fixes
+
+- Change home logo size
+- Adjust post list layout
+- Add `about-info` dark mode colors
+- Add `nav-bar` webkit properties
+- Set `nav-bar` text decoration for webkit
+- Speed up `nav-bar` transitions
+- Remove old property prefixes
+- Add syntax theme files
+- Adjust `nav-bar` borders
+- Improve taxonomy layout
+
+### Features
+
+- Add `extra.home.logo` settings
+- Add `nav-bar` border
+- Support HTTP URLs
+- Add Twitch button
+
+### Miscellaneous tasks
+
+- Enable home logo
+- Set Cache-Control
+
+### Performance
+
+- Move syntax theme import
+- Conditionally include syntax highlight files
+
 ## [0.5.0] - 2024-02-13
 
 ### Bug Fixes
