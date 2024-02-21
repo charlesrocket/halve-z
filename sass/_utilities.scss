@@ -85,9 +85,12 @@ a.btn {
   padding: 1em;
   font-size: 0.9em !important;
   text-indent: initial;
-  background-color: mix(#fff, $notice-color, 90%);
+  background-color: mix(#ddd, $notice-color, 73%);
   border-radius: 0;
   box-shadow: 0 1px 1px rgba($notice-color, 0.25);
+  @media (prefers-color-scheme: dark) {
+    background-color: mix(#333, $notice-color, 65%);
+  }
   h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em;
@@ -105,10 +108,16 @@ a.btn {
     color: $notice-color;
     &:hover {
       color: mix(#000, $notice-color, 40%);
+      @media (prefers-color-scheme: dark) {
+        color: mix(#fff, $notice-color, 40%);
+      }
     }
   }
   code {
-    background-color: mix(#fff, $notice-color, 95%)
+    background-color: mix(#fff, $notice-color, 73%);
+    @media (prefers-color-scheme: dark) {
+      background-color: mix(#111, $notice-color, 65%);
+    }
   }
   ul {
     &:last-child {
@@ -118,7 +127,12 @@ a.btn {
 }
 
 .notice {
-  @include notice(darken($white, 30%));
+  @media (prefers-color-scheme: light) {
+    @include notice(darken($white, 30%));
+  }
+  @media (prefers-color-scheme: dark) {
+    @include notice(lighten($black, 40%));
+  }
   &_info {
     @include notice($aqua);
   }

@@ -90,6 +90,18 @@ Surround large tables with `<figure></figure>` so they can scroll horizontally.
   </dd>
 </dl>
 
+### Notices
+
+<p class="notice"><strong>Attention! <a href="#">Link!</a> </strong>This is <strong>notice</strong>.</p>
+
+<p class="notice_info"><strong>Attention!</strong> This is <code>info</code> <strong>notice</strong>.</p>
+
+<p class="notice_warning"><strong>Attention!</strong> This is <code>warning</code> <strong>notice</strong>.</p>
+
+<p class="notice_success"><strong>Attention!</strong> This is <code>success</code> <strong>notice</strong>.</p>
+
+<p class="notice_danger"><strong>Attention!</strong> This is <code>danger</code> <strong>notice</strong>.</p>
+
 ### Address Tag
 
 <address>
