@@ -13,6 +13,8 @@ Use **Markdown** and **HTML** to style the content:
 
 # Header one
 
+*Reserved for post title/subtitle.*
+
 ## Header two
 
 ### Header three
