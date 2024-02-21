@@ -2,14 +2,14 @@
 title = "Markup"
 date = 2023-06-12
 [taxonomies]
-categories = ["markup"]
-tags = ["content", "style", "formatting", "html"]
+categories = ["usage"]
+tags = ["content", "style", "html"]
 [extra]
 subtitle = "HTML tags and formatting"
 image = "https://raw.githubusercontent.com/bearcott/8bit-art/master/cities/urban.gif"
 +++
 
-A variety of common markup showing how the theme styles them.
+Use **Markdown** and **HTML** to style the content:
 
 # Header one
 
