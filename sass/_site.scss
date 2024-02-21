@@ -843,10 +843,10 @@ a.zola-anchor {
   .frame-dim p {
     color: $overlay-color-dark;
   }
-  table, td, th, tr {
+  table, td, th, tr, dd {
     border-color: lighten($black, 42%);
   }
-  thead {
+  thead, dt {
     background-color: lighten($black, 15%);
     border-color: lighten($black, 42%);
   }

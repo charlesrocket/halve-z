@@ -81,6 +81,15 @@ Surround large tables with `<figure></figure>` so they can scroll horizontally.
 
 ## HTML Tags
 
+### Definition Lists
+
+<dl>
+  <dt>Nmap</dt>
+  <dd>
+    Nmap is a tool for network discovery and security scanning.
+  </dd>
+</dl>
+
 ### Address Tag
 
 <address>
