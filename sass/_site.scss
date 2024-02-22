@@ -850,15 +850,8 @@ a.zola-anchor {
     background-color: lighten($black, 15%);
     border-color: lighten($black, 42%);
   }
-  .btn {
-    background-color: lighten($black, 7%);
-    color: darken($white, 20%);
-  }
-  a.btn {
-    color: darken($white, 30%);
-  }
   .block-right {
-    a:not(.zola-anchor):not(.toc):not(.title-tag) {
+    a:not(.zola-anchor):not(.toc):not(.title-tag):not(.btn) {
       color: $overlay-color-dark;
     }
   }

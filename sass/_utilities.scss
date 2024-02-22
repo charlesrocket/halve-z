@@ -24,9 +24,9 @@
 
 .btn {
   display: inline-block;
-  padding: 0.5em 0.75em;
-  margin-bottom: 0.5em;
-  font-size: 0.8em;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
   font-weight: 400;
   background-color: darken($white, 7%);
   color: lighten($black, 20%);
@@ -75,9 +75,43 @@
     }
   }
 }
-a.btn {
-  text-decoration: none;
-  color: lighten($black, 30%);
+
+@media (prefers-color-scheme: dark) {
+  .btn {
+    background-color: lighten($black, 30%);
+    color: lighten($white, 20%);
+    &:hover {
+      color: lighten($black, 5%);
+    }
+    &_info {
+      background-color: darken($aqua, 5%);
+      &:hover {
+        background-color: darken($aqua, 10%);
+        border-color: darken($aqua, 10%);
+      }
+    }
+    &_warning {
+      background-color: darken($yellow, 5%);
+      &:hover {
+        background-color: darken($yellow, 10%);
+        border-color: darken($yellow, 10%);
+      }
+    }
+    &_success{
+      background-color: darken($green, 5%);
+      &:hover {
+        background-color: darken($green, 10%);
+        border-color: darken($green, 10%);
+      }
+    }
+    &_danger {
+      background-color: darken($red, 5%);
+      &:hover {
+        background-color: darken($red, 10%);
+        border-color: darken($red, 10%);
+      }
+    }
+  }
 }
 
 @mixin notice($notice-color) {
@@ -103,15 +137,6 @@ a.btn {
   h4 + p {
     margin-top: 0;
     padding-top: 0;
-  }
-  a {
-    color: $notice-color;
-    &:hover {
-      color: mix(#000, $notice-color, 40%);
-      @media (prefers-color-scheme: dark) {
-        color: mix(#fff, $notice-color, 40%);
-      }
-    }
   }
   code {
     background-color: mix(#fff, $notice-color, 73%);
