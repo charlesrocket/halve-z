@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.1] - 2024-02-22
+
+### Bug Fixes
+
+- Set definition lists
+- Set dark mode notices
+- Switch `notice` to rem
+- Improve dark mode colors
+
+### Miscellaneous tasks
+
+- Fix markup post
+- Note `h1` usage
+- Add buttons to markup post
+
 ## [0.6.0] - 2024-02-20
 
 ### Bug Fixes
