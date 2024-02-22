@@ -83,6 +83,14 @@ Surround large tables with `<figure></figure>` so they can scroll horizontally.
 
 ## HTML Tags
 
+### Buttons
+
+<a href="#" class="btn">Primary Button</a>
+<a href="#" class="btn btn_info">Info Button</a>
+<a href="#" class="btn btn_warning">Warning Button</a>
+<a href="#" class="btn btn_success">Success Button</a>
+<a href="#" class="btn btn_danger">Danger Button</a>
+
 ### Definition Lists
 
 <dl>
