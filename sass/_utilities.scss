@@ -81,9 +81,9 @@ a.btn {
 }
 
 @mixin notice($notice-color) {
-  margin: 2em 0 !important;
-  padding: 1em;
-  font-size: 0.9em !important;
+  margin: 2rem 0 !important;
+  padding: 1rem;
+  font-size: 0.9rem !important;
   text-indent: initial;
   background-color: mix(#ddd, $notice-color, 73%);
   border-radius: 0;
@@ -93,7 +93,7 @@ a.btn {
   }
   h4 {
     margin-top: 0 !important;
-    margin-bottom: 0.75em;
+    margin-bottom: 0.75rem;
   }
   p {
     &:last-child {
