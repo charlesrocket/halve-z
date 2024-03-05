@@ -8,6 +8,7 @@ demo = "https://halve-z.netlify.app/"
 [extra]
 locale = "en_US"
 logo = "fireball.gif"
+footer = true
 toc = true
 csp = false
 

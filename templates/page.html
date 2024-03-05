@@ -43,8 +43,8 @@
           <a href="#" class="pagination_pager disabled" >&gt;&gt;&gt;</a>
         {% endif %}
         </nav>
+        <br>
       {% endif %}
-      <br>
       {% block comments %}
       {% if current_path is starting_with("/posts/") %}{% if config.extra.giscus.enabled == true %}
         {%- include "partials/giscus.html" %}

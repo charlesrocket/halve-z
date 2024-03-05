@@ -346,3 +346,13 @@ kbd {
   background-color: darken($white, 15%);
   font-family: $base-font;
 }
+
+footer {
+  margin-bottom: 19px;
+  text-align: center;
+  font-size: 12px;
+  width: 100%;
+  > a {
+    color: $shamrock-green;
+  }
+}
