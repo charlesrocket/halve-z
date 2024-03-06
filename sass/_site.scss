@@ -643,11 +643,6 @@ a.zola-anchor {
   margin-bottom: 35px;
 }
 
-.footer-line {
-  float: right;
-  margin-bottom: 50px;
-}
-
 @media screen and (max-height: 605px) {
   .post-title-section .section-title {
     font-size: 45px;
@@ -809,6 +804,7 @@ a.zola-anchor {
   position: relative;
   display: flex;
   justify-content: center;
+  line-height: 1.1rem;
   bottom: 0;
 }
 
