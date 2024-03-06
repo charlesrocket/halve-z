@@ -351,8 +351,10 @@ a.zola-anchor {
 #posts {
   .block-right {
     display: block;
+    height: 100%;
     .content {
       height: auto;
+      min-height: 95%;
       display: block;
       max-width: 800px;
     }
@@ -803,6 +805,23 @@ a.zola-anchor {
   }
 }
 
+.footer-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+}
+
+#footer-index {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  margin: 0 auto;
+}
+
 @media (prefers-color-scheme: dark) {
   .about-info {
     h1,
@@ -849,6 +868,11 @@ a.zola-anchor {
   thead, dt {
     background-color: lighten($black, 15%);
     border-color: lighten($black, 42%);
+  }
+  #footer-block {
+    a {
+      color: $green;
+    }
   }
   .block-right {
     a:not(.zola-anchor):not(.toc):not(.title-tag):not(.btn) {
