@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.7.0] - 2024-03-06
+
+### Bug Fixes
+
+- Correct taxonomy divs
+- Move closing div
+- Adjust footer layout
+- Edit footer margin
+
+### Features
+
+- Add `footer`
+
 ## [0.6.1] - 2024-02-22
 
 ### Bug Fixes
@@ -162,8 +175,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-- Set main images
 - Adjust table colors for dark mode
+- Set main images
 - Update theme config
 - Add image cache busting
 - Improve `image` output
@@ -278,4 +291,5 @@ All notable changes to this project will be documented in this file.
 - Update project page content
 - Add .gitignore
 - Disable comments
+
 
