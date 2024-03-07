@@ -812,8 +812,7 @@ a.zola-anchor {
   width: 100%;
   position: absolute;
   bottom: 0;
-  display: flex;
-  justify-content: center;
+  display: table-row;
   left: 0;
   margin: 0 auto;
 }
