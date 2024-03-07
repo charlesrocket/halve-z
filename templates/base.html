@@ -47,7 +47,7 @@
     <section class="footer-content"{% if current_path | default(value="none") == "/" %} id="footer-index"{% endif %}>
       {%- set current_year = now() | date(format="%Y") %}
       <footer id="footer-block">
-        © {{ current_year }} <b>{{ config.author }}</b><br>Powered by <a href="https://www.getzola.org">Zola</a> & <a href="https://halve-z.netlify.app">Halve-Z</a>
+        © {{ current_year }} <b>{{ config.author }}</b><br>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a>
       </footer>
     </section>
     {% endif %}
