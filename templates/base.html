@@ -44,7 +44,7 @@
   {% endblock right %}
   {% block footer %}
     {%- if config.extra.footer == true %}
-    <section class="footer-content"{% if current_path | default(value="none") == "/" %} id="footer-index"{% endif %}>
+    <section class="footer-content">
       {%- set current_year = now() | date(format="%Y") %}
       <footer id="footer-block">
         © {{ current_year }} <b>{{ config.author }}</b><br>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a>

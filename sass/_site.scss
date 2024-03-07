@@ -21,8 +21,18 @@
     display: table-cell;
     vertical-align: middle;
   }
-  .content {
-    height: 100%;
+}
+
+#homepage {
+  .block-right {
+    display: block;
+    > div {
+      display: flex;
+      align-items: center;
+    }
+    .content {
+      min-height: 94%;
+    }
   }
 }
 
@@ -806,15 +816,6 @@ a.zola-anchor {
   justify-content: center;
   line-height: 1.1rem;
   bottom: 0;
-}
-
-#footer-index {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  display: table-row;
-  left: 0;
-  margin: 0 auto;
 }
 
 @media (prefers-color-scheme: dark) {
