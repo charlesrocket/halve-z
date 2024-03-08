@@ -3,7 +3,7 @@ title = "Information"
 date = 2024-01-01
 [taxonomies]
 categories = ["usage"]
-tags = ["content"]
+tags = ["content", "configuration"]
 [extra]
 subtitle = "Usage guide"
 +++
@@ -34,3 +34,11 @@ csp_img = ["example.com/", "foo.org/example"]
 ```
 
 `h1` headers are reserved for page title (left/top block) and subtitle (optional, right/bottom block).
+
+## Configuration
+
+Set `theme` to `halve-z` and adjust options according to the example below:
+
+```toml
+{{ data(src="../config.toml" type="plain") }}
+```
