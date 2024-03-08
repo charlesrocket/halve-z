@@ -1,22 +1,22 @@
-{%- if src and key and type %}
-  {%- if src is matching("^http[s]?://") %}
-    {% set loaded_data = load_data(url=src, format=type) %}
-  {%- else %}
-    {% set loaded_data = load_data(path=src, format=type) %}
-  {%- endif %}
+{%- if src and key and type -%}
+  {%- if src is matching("^http[s]?://") -%}
+    {%- set loaded_data = load_data(url=src, format=type) %}
+  {%- else -%}
+    {%- set loaded_data = load_data(path=src, format=type) %}
+  {%- endif -%}
   {{ loaded_data[key] | safe }}
-{%- elif src and type %}
+{%- elif src and type -%}
   {%- if src is matching("^http[s]?://") %}
-    {% set loaded_data = load_data(url=src, format=type) %}
-  {%- else %}
+    {%- set loaded_data = load_data(url=src, format=type) %}
+  {%- else -%}
     {% set loaded_data = load_data(path=src, format=type) %}
-  {%- endif %}
+  {%- endif -%}
   {{ loaded_data | safe }}
-{%- else %}
+{%- else -%}
   {%- if src is matching("^http[s]?://") %}
-    {% set loaded_data = load_data(url=src) %}
-  {%- else %}
-    {% set loaded_data = load_data(path=src) %}
-  {%- endif %}
+    {%- set loaded_data = load_data(url=src) %}
+  {%- else -%}
+    {%- set loaded_data = load_data(path=src) %}
+  {%- endif -%}
   {{ loaded_data | safe }}
-{%- endif %}
+{%- endif -%}
