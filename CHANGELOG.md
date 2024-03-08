@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.7.1] - 2024-03-08
+
+### Bug Fixes
+
+- Set footer link attributes
+- Change index footer layout
+- Make index page scrollable
+- Set `dl` font size
+- Adjust `notice` font size
+- Set `table` font size
+- Set `address` font size
+
+### Miscellaneous tasks
+
+- Update index page
+- Add giscus source link
+- Update docs link
+
+### Performance
+
+- Move `glitch` style
+- Move language color codes
+- Move giscus style
+
 ## [0.7.0] - 2024-03-06
 
 ### Bug Fixes
