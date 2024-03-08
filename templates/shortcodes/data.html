@@ -5,6 +5,13 @@
     {% set loaded_data = load_data(path=src, format=type) %}
   {%- endif %}
   {{ loaded_data[key] }}
+{%- elif src and type %}
+  {%- if src is matching("^http[s]?://") %}
+    {% set loaded_data = load_data(url=src, format=type) %}
+  {%- else %}
+    {% set loaded_data = load_data(path=src, format=type) %}
+  {%- endif %}
+  {{ loaded_data }}
 {%- else %}
   {%- if src is matching("^http[s]?://") %}
     {% set loaded_data = load_data(url=src) %}
