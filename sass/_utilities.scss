@@ -117,7 +117,7 @@
 @mixin notice($notice-color) {
   margin: 2rem 0 !important;
   padding: 1rem;
-  font-size: 0.9rem !important;
+  font-size: 12px !important;
   text-indent: initial;
   background-color: mix(#ddd, $notice-color, 73%);
   border-radius: 0;
