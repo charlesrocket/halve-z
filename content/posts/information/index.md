@@ -37,7 +37,7 @@ csp_img = ["example.com/", "foo.org/example"]
 
 ## Configuration
 
-Set `theme` to `halve-z` and adjust options according to the example below:
+Set `theme` to `halve-z` in your project's `config.toml` and adjust options according to the example below:
 
 ```toml
 {{ data(src="../config.toml" type="plain") }}
