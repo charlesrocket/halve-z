@@ -4,6 +4,7 @@ title = "Halve-Z Zola theme"
 description = "Two-column retro theme for Zola"
 default_language = "en"
 author = "-k"
+#theme = "halve-z"
 
 compile_sass = true
 minify_html = false
