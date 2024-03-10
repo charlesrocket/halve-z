@@ -130,6 +130,10 @@ nav.nav-bar ul li ul li {
   width: 100%;
 }
 
+.toc {
+  font-size: 15px;
+}
+
 a.toc {
   color: $shamrock-green;
 }
@@ -499,11 +503,18 @@ a.zola-anchor {
   ul {
     list-style-type: square;
   }
+  dt {
+    font-size: 14px;
+  }
+  dd {
+    font-size: 12px;
+  }
   ul,
   ol {
     list-style-position: inside;
     padding-left: 30px;
     > li {
+      font-size: 12px;
       position: relative;
       margin-bottom: 20px;
       &:first-child {
