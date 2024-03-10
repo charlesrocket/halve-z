@@ -36,6 +36,7 @@
     {%- endif %}
   {% endblock title %}
   </title>
+  <meta name="author" content="{{ config.author }}">
   {% if page.extra.subtitle %}
     <meta name="description" content="{{ page.extra.subtitle | striptags | safe }}">
   {% else %}
