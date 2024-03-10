@@ -1,6 +1,7 @@
 {%- import "macros/macros.html" as macros %}
 {% set categories = get_taxonomy(kind="categories") %}
 {% set tags = get_taxonomy(kind="tags") %}
+{% set active_path = current_path | default(value="none") %}
 
 <!DOCTYPE html>
 <html lang="{{ config.default_language }}">
@@ -10,7 +11,7 @@
   {% block body %}<body id="posts">{% endblock body %}
     <div class="block-left">
       <div class="content">
-        {% if current_path | default(value="none") != "/" %}<a href="{{ config.base_url }}" class="logo"><img src="{{ get_url(path=config.extra.logo, cachebust=true) }}", alt="logo" width="64" height="64"></a>{% endif %}
+        {% if active_path != "/" %}<a href="{{ config.base_url }}" class="logo"><img src="{{ get_url(path=config.extra.logo, cachebust=true) }}", alt="logo" width="64" height="64"></a>{% endif %}
   {% block left %}
         <h1 class="section-title">{%- block page_title %}{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% elif term.name %}{{ '#' ~ term.name }}{% else %}{% endif %}{% endblock page_title %}</h1>
   {% endblock left %}
@@ -20,9 +21,9 @@
       <nav class="nav-bar" role="navigation">
         <ul class="nav-menu">
         {% block nav %}
-          <li{% if current_path | default(value="none") == "/" %} class="nav-active"{% endif %}><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
+          <li{% if active_path == "/" %} class="nav-active"{% endif %}><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
           {% if config.extra.menu.posts == true %}
-          <li{% if current_path | default(value="none") == "/posts/" %} class="nav-active"{% endif %}><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">Posts</a>
+          <li{% if active_path is starting_with("/posts/") or active_path is starting_with("/tags/") or active_path is starting_with("/categories/")%} class="nav-active"{% endif %}><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">Posts</a>
             <ul class="dropdown" aria-label="submenu">
               <li><a href="{{ get_url(path="@/posts/_index.md") }}">Index</a></li>
               <li><a href="{{ tags.permalink }}">Tags</a></li>
