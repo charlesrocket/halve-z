@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.7.2] - 2024-03-10
+
+### Bug Fixes
+
+- Properly handle data types
+- Filter `loaded_data`
+- Improve `data` whitespace control
+- Set `author` meta element
+- Allow csp overrides
+- Correct `head` blocks
+- Set `lang` attribute
+- Allow live reloads
+- Adjust `ul`/`ol` font size
+- Improve `nav-bar` indications
+- Adjust `inner-post` fonts
+- Improve `project` layout
+
+### Documentation
+
+- Add config example
+- Improve config guide
+
+### Miscellaneous tasks
+
+- Add `theme` setting
+
 ## [0.7.1] - 2024-03-08
 
 ### Bug Fixes
