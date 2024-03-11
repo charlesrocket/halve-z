@@ -1,6 +1,7 @@
 {%- import "macros/macros.html" as macros %}
 
 {% if page.taxonomies.categories %}
+  {% if page.taxonomies.categories | length > 1 %}{{ throw(message="'" ~ page.title ~ "' page has more than one category") }}{% endif %}
   {% for category in config.extra.images.categories %}
     {% if category.name is containing(page["taxonomies"]["categories"][0]) %}
       {% if category.image is matching("^http[s]?://") %}
