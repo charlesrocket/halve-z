@@ -22,6 +22,7 @@ logo = { enabled = false, height = "100", width = "100" }
 home = "https://failsafe.monster/c1tyh4ll.png"
 post_list = "https://failsafe.monster/bk-prk.jpg"
 default_post = "https://failsafe.monster/bk-prk.jpg"
+categories = []
 
 [extra.menu]
 posts = false
