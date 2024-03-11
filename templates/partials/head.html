@@ -1,4 +1,16 @@
 {%- import "macros/macros.html" as macros %}
+
+{% if page.taxonomies.categories %}
+  {% for category in config.extra.images.categories %}
+    {% if category.name is containing(page["taxonomies"]["categories"][0]) %}
+      {% if category.image is matching("^http[s]?://") %}
+        {% set_global category_image = category.image %}
+      {% else %}
+        {% set_global category_image = get_url(path=category.image, cachebust=true) %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 {%- if current_url %}
   {%- set page_url = current_url %}
 {%- else %}
@@ -7,18 +19,22 @@
 {% if config.extra.images.home is matching("^http[s]?://") %}{% set home_image = config.extra.images.home %}{% else %}{% set home_image = get_url(path=config.extra.images.home, cachebust=true) %}{% endif %}
 {% if config.extra.images.post_list is matching("^http[s]?://") %}{% set post_list_image = config.extra.images.post_list %}{% else %}{% set post_list_image = get_url(path=config.extra.images.post_list, cachebust=true) %}{% endif %}
 {% if config.extra.images.default_post is matching("^http[s]?://") %}{% set default_post_image = config.extra.images.default_post %}{% else %}{% set default_post_image = get_url(path=config.extra.images.default_post, cachebust=true) %}{% endif %}
-{% if config.extra.csp == true %}{% if page.extra.image %}
-  {% set page_image_hash = get_hash(literal=macros::image_style(url=page.extra.image), base64=true, sha_type=512) %}
-{% else %}
-  {% set default_post_image_hash = get_hash(literal=macros::image_style(url=default_post_image), base64=true, sha_type=512) %}
+{% if config.extra.csp == true %}
+  {% if page.extra.image %}
+    {% set page_image_hash = get_hash(literal=macros::image_style(url=page.extra.image), base64=true, sha_type=512) %}
+  {% elif category_image %}
+    {% set category_image_hash = get_hash(literal=macros::image_style(url=category_image), base64=true, sha_type=512) %}
+  {% else %}
+    {% set default_post_image_hash = get_hash(literal=macros::image_style(url=default_post_image), base64=true, sha_type=512) %}
+  {% endif %}
+  {% set main_images_hash = get_hash(literal=macros::main_images_style(home_url=home_image, posts_url=post_list_image), base64=true, sha_type=512) %}
 {% endif %}
-{% set main_images_hash = get_hash(literal=macros::main_images_style(home_url=home_image, posts_url=post_list_image), base64=true, sha_type=512) %}{% endif %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="base" content="{{ config.base_url | safe }}"/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   {% if config.extra.csp == true %}{% block csp %}
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self'; img-src 'self' {% if page.extra.image %}{% if page.extra.image is matching("^http[s]?://") %}{{ page.extra.image }}{% endif %}{% endif %} {% if config.extra.images.home is matching("^http[s]?://") %}{{ config.extra.images.home }}{% endif %} {% if config.extra.images.post_list is matching("^http[s]?://") %}{{ config.extra.images.post_list }}{% endif %} {% if config.extra.images.default_post is matching("^http[s]?://") %}{{ config.extra.images.default_post }}{% endif %}{% if page.extra.csp_img %}{%for url in page.extra.csp_img %} {{ url }}{% endfor %}{% endif %}{% if section.extra.csp_img %}{%for url in section.extra.csp_img %} {{ url }}{% endfor %}{% endif %}; script-src 'self' {% if config.extra.giscus.enabled == true %}giscus.app/client.js{% endif %}; manifest-src 'self'; style-src 'self' {% if page_image_hash %}'sha512-{{ page_image_hash | safe }}'{% else %}'sha512-{{ default_post_image_hash | safe }}'{% endif %} 'sha512-{{ main_images_hash | safe }}' {% if config.extra.giscus.enabled == true %}giscus.app/default.css{% endif %}; media-src 'self'; frame-src 'self' https://player.vimeo.com/ https://www.youtube.com/ https://www.youtube-nocookie.com/ {% if config.extra.giscus.enabled == true %}giscus.app{% endif %}; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src {% if config.base_url == "http://127.0.0.1:1111" %}ws://127.0.0.1:1024/livereload{% else %}'none'{% endif %}">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self'; img-src 'self' {% if page.extra.image %}{% if page.extra.image is matching("^http[s]?://") %}{{ page.extra.image }}{% endif %}{% endif %} {% if config.extra.images.home is matching("^http[s]?://") %}{{ config.extra.images.home }}{% endif %} {% if config.extra.images.post_list is matching("^http[s]?://") %}{{ config.extra.images.post_list }}{% endif %} {% if category_image %}{% if category_image is matching("^http[s]?://") %} {{ category_image }}{% endif %}{% endif %}{% if config.extra.images.default_post is matching("^http[s]?://") %} {{ config.extra.images.default_post }}{% endif %}{% if page.extra.csp_img %}{%for url in page.extra.csp_img %} {{ url }}{% endfor %}{% endif %}{% if section.extra.csp_img %}{%for url in section.extra.csp_img %} {{ url }}{% endfor %}{% endif %}; script-src 'self' {% if config.extra.giscus.enabled == true %}giscus.app/client.js{% endif %}; manifest-src 'self'; style-src 'self' {% if page_image_hash %}'sha512-{{ page_image_hash | safe }}'{% elif category_image %}'sha512-{{ category_image_hash |safe }}'{% else %}'sha512-{{ default_post_image_hash | safe }}'{% endif %} 'sha512-{{ main_images_hash | safe }}' {% if config.extra.giscus.enabled == true %}giscus.app/default.css{% endif %}; media-src 'self'; frame-src 'self' https://player.vimeo.com/ https://www.youtube.com/ https://www.youtube-nocookie.com/ {% if config.extra.giscus.enabled == true %}giscus.app{% endif %}; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src {% if config.base_url == "http://127.0.0.1:1111" %}ws://127.0.0.1:1024/livereload{% else %}'none'{% endif %}">
   {% endblock csp %}{% endif %}
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#2C2D32"/>
@@ -86,6 +102,8 @@
   <script defer src="{{ get_url(path='sw-load.js', trailing_slash=false, cachebust=true) | safe }}" integrity="sha512-{{ get_hash(path='sw-load.js', sha_type=512, base64=true) | safe }}"></script>
   {% if page.extra.image %}
     <style>{{ macros::image_style(url=page.extra.image) }}</style>
+  {% elif category_image %}
+    <style>{{ macros::image_style(url=category_image) }}</style>
   {% else %}
     <style>{{ macros::image_style(url=default_post_image) }}</style>
   {% endif %}
