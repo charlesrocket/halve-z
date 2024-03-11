@@ -31,7 +31,8 @@
       {{ section.title }} • {{ config.title }}
     {% elif term.name %}
       {{ '#' ~ term.name }} • {{ config.title }}
-    {% else %}
+    {% elif taxonomy.name %}
+      {{ taxonomy.name | title }} • {{ config.title }}
 	  {{ config.title }}
     {%- endif %}
   {% endblock title %}
