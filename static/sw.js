@@ -57,6 +57,10 @@ self.addEventListener('install', (event) => {
       './atom.xml',
       './sitemap.xml',
       './main.css',
+      './glitch.css',
+      './syntax-theme-light.css',
+      './syntax-theme-dark.css',
+      './langs.css',
       './robots.txt',
       './offline/index.html',
       './webfonts/fa-brands-400.ttf',
@@ -74,9 +78,6 @@ self.addEventListener('install', (event) => {
       './vendor/font-awesome/brands.css',
       './vendor/font-awesome/fontawesome.css',
       './vendor/font-awesome/v4-shims.css',
-      './css/giscus.css',
-      './syntax-theme-dark.css',
-      './syntax-theme-dark.css',
     ])
   );
 });
