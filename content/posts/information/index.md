@@ -18,7 +18,9 @@ Available (`extra`) options:
 * `subtitle`
 * `image`
 * `csp_img`
- 
+
+In addition to default variables, a page can have an image, a subtitle, a category, CSP strings, and multiple tags.
+
 ```
 +++
 title = "Example"
