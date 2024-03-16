@@ -48,7 +48,11 @@ links = [
 #hackernews = ""
 #behance = ""
 
-[extra.giscus]
+[extra.comments.cactus]
+enabled = false
+site = ""
+
+[extra.comments.giscus]
 enabled = false
 repo = ""
 repo_id = ""

@@ -77,7 +77,11 @@ xmpp = "charlie137@jabber.calyxinstitute.org"
 hackernews = "charlesrocket"
 #behance = "charlesrocket"
 
-[extra.giscus]
+[extra.comments.cactus]
+enabled = true
+site = "halve-z-theme"
+
+[extra.comments.giscus]
 enabled = false
 repo = "charlesrocket/halve-z"
 repo_id = "REPO_ID"
