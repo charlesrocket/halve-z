@@ -1,16 +1,26 @@
 ---
 
 template:
-  - 'templates/**/*'
+- changed-files:
+  - any-glob-to-any-file: 'templates/**/*'
 
 static:
-  - 'static/**/*'
+- changed-files:
+  - any-glob-to-any-file: 'static/**/*'
 
 content:
-  - 'content/**/*'
+- changed-files:
+  - any-glob-to-any-file: 'content/**/*'
 
 style:
-  - 'sass/**/*'
+- changed-files:
+  - any-glob-to-any-file: 'sass/**/*'
+  - any-glob-to-any-file: '**/*.css'
+
+javascript:
+- changed-files:
+  - any-glob-to-any-file: '**/*.js'
 
 ci:
-  - '.github/**/*'
+- changed-files:
+  - any-glob-to-any-file: '.github/**/*'
