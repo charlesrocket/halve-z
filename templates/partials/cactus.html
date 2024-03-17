@@ -4,6 +4,9 @@
         data-server-name="cactus.chat"
         data-site-name="{{ config.extra.comments.cactus.site | safe }}"
         data-comment-section-id="{{ page.slug | safe }}"
+        data-page-size="{{ config.extra.comments.cactus.page_size }}"
+        data-guest-posting-enabled="{{ config.extra.comments.cactus.guest_posting }}"
+        data-update-interval="{{ config.extra.comments.cactus.update_interval }}"
         crossorigin="anonymous"
         defer>
 </script>

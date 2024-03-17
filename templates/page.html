@@ -47,9 +47,9 @@
       {% endif %}
       {% block comments %}
       {% if current_path is starting_with("/posts/") %}
-        {% if config.extra.comments.cactus.enabled == true %}
+        {% if config.extra.comments.system == "cactus" %}
           {%- include "partials/cactus.html" %}
-        {% elif config.extra.comments.giscus.enabled == true %}
+        {% elif config.extra.comments.system == "giscus" %}
           {%- include "partials/giscus.html" %}
         {% endif %}
       <noscript><div class="frame-dim"><p>Activate <code>JavaScript</code> to load <u>comments</u>.</p></div></noscript>
