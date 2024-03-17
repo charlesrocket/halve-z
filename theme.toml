@@ -48,8 +48,16 @@ links = [
 #hackernews = ""
 #behance = ""
 
-[extra.giscus]
-enabled = false
+[extra.comments]
+system = ""
+
+[extra.comments.cactus]
+site = ""
+page_size = 10
+guest_posting = true
+update_interval = 0
+
+[extra.comments.giscus]
 repo = ""
 repo_id = ""
 category = ""

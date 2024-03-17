@@ -77,9 +77,17 @@ xmpp = "charlie137@jabber.calyxinstitute.org"
 hackernews = "charlesrocket"
 #behance = "charlesrocket"
 
-[extra.giscus]
-enabled = false
-repo = "charlesrocket/halve-z"
+[extra.comments]
+system = ""
+
+[extra.comments.cactus]
+site = ""
+page_size = 10
+guest_posting = true
+update_interval = 0
+
+[extra.comments.giscus]
+repo = ""
 repo_id = "REPO_ID"
 category = "Comments"
 category_id = "CAT_ID"
