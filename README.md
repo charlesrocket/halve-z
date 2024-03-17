@@ -14,7 +14,7 @@ This is a _retro_ port of [Halve](https://github.com/TaylanTatli/Halve) for **Je
 * SEO
 * CSP
 * project cards
-* comments ([giscus](http://giscus.app))
+* comments ([Cactus](https://gitlab.com/cactus-comments/)/[Giscus](https://github.com/giscus/giscus))
 * read time
 
 ## Installation
