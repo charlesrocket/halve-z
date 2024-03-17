@@ -293,12 +293,14 @@
 }
 .cactus-comment-displayname {
     font-weight: 700;
+    font-size: 12px;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
 }
 .cactus-comment-time {
     color: var(--cactus-text-color--soft);
+    font-size: 12px;
 }
 .cactus-message-text > :first-child {
     margin-block-start: 0;
