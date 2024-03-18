@@ -18,6 +18,16 @@
       </div>
     </div>
     <div class="block-right">
+      {% if config.build_search_index == true %}
+      <script type="text/javascript" src="{{ get_url(path="/elasticlunr.min.js", cachebust=true) }}" async></script>
+      <script type="text/javascript" src="{{ get_url(path="/search.js", cachebust=true) }}" defer></script>
+      <nav class="search-container" id="search-nav">
+        <input id="search" type="search" placeholder="Search" aria-label="Search">
+        <div class="search-results">
+          <div class="search-results__items"></div>
+        </div>
+      </nav>
+      {% endif %}
       <nav class="nav-bar" role="navigation">
         <ul class="nav-menu">
         {% block nav %}
