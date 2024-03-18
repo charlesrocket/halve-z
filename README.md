@@ -7,6 +7,7 @@ A two-column theme for **Zola**.
 
 This is a _retro_ port of [Halve](https://github.com/TaylanTatli/Halve) for **Jekyll**. It features:
 
+* search
 * taxonomies
 * auto color schemes
 * ToC
