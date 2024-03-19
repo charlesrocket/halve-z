@@ -2,8 +2,8 @@
   position: absolute;
   font-size: 12px;
   top: 20px;
-  left: 20px;
-  width: 23vw;
+  left: 26px;
+  width: 20vw;
   max-width: 300px;
   z-index: 2;
   input {
@@ -61,7 +61,7 @@
 
 @media screen and (max-width: 960px) {
   .search-container {
-    width: 40vw;
+    width: 30vw;
   }
 
   .search-results {
