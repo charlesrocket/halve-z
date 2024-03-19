@@ -15,13 +15,13 @@ csp = false
 [extra.home]
 title = "Halve-Z"
 subtitle = "Zola theme"
-glitch = true
-logo = { enabled = false, height = "100", width = "100" }
+glitch = false
+logo = { enabled = true, height = "100", width = "100" }
 
 [extra.images]
-home = "https://failsafe.monster/c1tyh4ll.png"
-post_list = "https://failsafe.monster/bk-prk.jpg"
-default_post = "https://failsafe.monster/bk-prk.jpg"
+home = ""
+post_list = ""
+default_post = ""
 categories = []
 
 [extra.menu]
