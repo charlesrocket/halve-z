@@ -9,6 +9,9 @@
 .block-right {
   float: right;
   overflow-y: auto;
+  .content {
+    padding: 120px 60px 60px;
+  }
 }
 
 .block-left,
@@ -728,6 +731,11 @@ a.zola-anchor {
   }
   .content {
     padding: 20px
+  }
+  .block-right {
+    .content {
+      padding: 145px 20px 40px;
+    }
   }
   .projects {
     > h2 {
