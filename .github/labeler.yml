@@ -17,6 +17,10 @@ style:
   - any-glob-to-any-file: 'sass/**/*'
   - any-glob-to-any-file: '**/*.css'
 
+config:
+- changed-files:
+  - any-glob-to-any-file: ['config.toml', 'theme.toml']
+
 javascript:
 - changed-files:
   - any-glob-to-any-file: '**/*.js'
