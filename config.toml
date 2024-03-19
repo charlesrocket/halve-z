@@ -9,12 +9,19 @@ author = "-k"
 compile_sass = true
 minify_html = false
 generate_feed = true
-build_search_index = false
+build_search_index = true
 
 taxonomies = [
     { name = "categories", feed = true },
     { name = "tags", feed = true },
 ]
+
+[search]
+include_title = true
+include_description = true
+include_path = false
+include_content = true
+index_format = "elasticlunr_json"
 
 [markdown]
 highlight_code = true
