@@ -1,4 +1,4 @@
-# halve-z
+# `halve-z`
 [![Netlify Status](https://api.netlify.com/api/v1/badges/352a12ed-cdba-4545-9256-9fb698f5a94f/deploy-status?branch=trunk)](https://app.netlify.com/sites/halve-z/deploys)
 
 A two-column theme for **Zola**.
