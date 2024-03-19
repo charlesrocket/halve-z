@@ -41,7 +41,6 @@ anchors = "safe"
 [extra]
 locale = "en_US"
 logo = "fireball.gif"
-footer = true
 toc = true
 csp = true
 
@@ -65,6 +64,11 @@ posts = true
 links = [
     { name = "Code", url = "@/pages/projects.md" },
 ]
+
+[extra.footer]
+enabled = true
+copyright = true
+stack = true
 
 [extra.social]
 #email = ""

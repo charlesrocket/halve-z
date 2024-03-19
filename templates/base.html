@@ -54,11 +54,11 @@
       </div>
   {% endblock right %}
   {% block footer %}
-    {%- if config.extra.footer == true %}
+    {%- if config.extra.footer.enabled == true %}
     <section class="footer-content">
       {%- set current_year = now() | date(format="%Y") %}
       <footer id="footer-block">
-        © {{ current_year }} <b>{{ config.author }}</b><br>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a>
+        {% if config.extra.footer.copyright == true %}<b>©</b> {{ current_year }} <b>{{ config.author }}</b>{% endif %}{% if config.extra.footer.stack == true%}<br>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a>{% endif %}
       </footer>
     </section>
     {% endif %}
