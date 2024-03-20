@@ -2,6 +2,69 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.8.0] - 2024-03-20
+
+### Bug Fixes
+
+- Change `h3` font size
+- Do not cache giscus style
+- Fix taxonomy titles
+- Fix title conditionals
+- Adjust cactus fonts
+- Fix CSP string
+- Update `connect-src` directive
+- Fix `content` padding
+- Fix `date-highlight` margin
+- Drop invalid `none`
+- Adjust `search-container` layout
+- Realign footer text
+- Set footer paragraphs
+- Handle `NOASSERTION` case
+- Reduce motion if requested
+
+### Documentation
+
+- Fix `sup` description
+- Update front matter description
+- Update comment system info
+- Add code blocks
+- Update `features`
+- Update theme description
+- Update header
+
+### Features
+
+- Add category images
+- [**breaking**] Error if more than one category is present
+- [**breaking**] Add cactus comments
+- [**breaking**] Update `extra.comments` settings
+- Improve `kbd` tag
+- Add search
+- Use responsive search containers
+- [**breaking**] Add `footer` options
+- Control comments via `page.extra.disable_comments`
+
+### Miscellaneous tasks
+
+- Update projects
+- Update default settings
+- Disable glitch
+- Add placeholders
+
+### Operations
+
+- Bump `labeler` to v5
+- Add `feature` label
+- Add `config` label
+
+### Performance
+
+- Convert `Pixeboy` to WOFF2
+
+### Refactor
+
+- Merge taxonomy templates
+
 ## [0.7.2] - 2024-03-10
 
 ### Bug Fixes
