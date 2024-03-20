@@ -1,18 +1,21 @@
-{% if config.base_url != "http://127.0.0.1:1111" %}
+{%- if config.base_url != "http://127.0.0.1:1111" %}
 {%- if link is starting_with("https://github.com") %}
   {%- set gh_token = get_env(name="GITHUB_TOKEN", default="notoken") %}
   {%- set gh_repo_link = link | replace(from="https://github.com", to="https://api.github.com/repos") %}
   {%- if gh_token is matching("^notoken") %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json") %}{% else %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json", headers=["accept=application/vnd.github.v4.idl", "authorization=Bearer " ~ gh_token]) %}{% endif %}
 {%- endif %}
 {%- else %}
-  {% set gh_repo_data = load_data(literal='{"language": "APL", "html_url": "none", "name": "foobar", "description": "Test description test description test description", "license": {"spdx_id": "FOO"}, "topics": ["foo", "bar", "test"]}', format="json") %}
+  {%- set gh_repo_data = load_data(literal='{"language": "APL", "html_url": "none", "name": "foobar", "description": "Test description test description test description", "license": {"spdx_id": "FOO"}, "topics": ["foo", "bar", "test"]}', format="json") %}
 {%- endif %}
+{%- set gh_language = gh_repo_data["language"] | default(value="") %}
+{%- set gh_license = gh_repo_data["license"]["spdx_id"] | replace(from="NOASSERTION", to="") | default(value="") %}
+{%- set gh_description = gh_repo_data["description"] | default(value="") | regex_replace(pattern='\p{Emoji}', rep='') %}
 <div class="projects frame-dim">
   <h2><a href="{{ gh_repo_data['html_url'] | safe }}" target="_blank">{{ gh_repo_data["name"] }}</a></h3>
   <ul class="project-list">
-    <li><b><span class="project-lang">{{ gh_repo_data["language"] | default(value="") | safe }}</b></span> <span class="project-lang {{ gh_repo_data["language"] | default(value="") | replace(from="#", to="-Sharp") | replace(from="++", to="pp") | replace(from="-", to="") | replace(from=" ", to="") | safe }}"><b>&#42;</b></span></li>
-    <li><span class="project-license">{{ gh_repo_data["license"]["spdx_id"] | default(value="") | safe }}</span></li>
-    <li><span class="project-description">{{ gh_repo_data["description"] | default(value="") | regex_replace(pattern='\p{Emoji}', rep='') | safe }}</span></li>
+    <li><b><span class="project-lang">{{ gh_language | safe }}</b></span> <span class="project-lang {{ gh_language | replace(from="#", to="-Sharp") | replace(from="++", to="pp") | replace(from="-", to="") | replace(from=" ", to="") | safe }}"><b>&#42;</b></span></li>
+    <li><span class="project-license">{{ gh_license | safe }}</span></li>
+    <li><span class="project-description">{{ gh_description | safe }}</span></li>
     <li><ul class="tags project-tags">
     {%- for topic in gh_repo_data["topics"] %}
       <li>{{ topic }}</li>
