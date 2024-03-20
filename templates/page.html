@@ -46,7 +46,7 @@
         <br>
       {% endif %}
       {% block comments %}
-      {% if current_path is starting_with("/posts/") %}
+      {% if current_path is starting_with("/posts/") and not page.extra.disable_comments %}
         {% if config.extra.comments.system == "cactus" %}
           {%- include "partials/cactus.html" %}
         {% elif config.extra.comments.system == "giscus" %}
