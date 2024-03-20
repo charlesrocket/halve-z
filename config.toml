@@ -71,37 +71,37 @@ copyright = true
 stack = true
 
 [extra.social]
-#email = ""
-mastodon = "charlesrocket"
-twitter = "charlesrocket"
-facebook = "charlesrocket"
-github = "charlesrocket"
-stackoverflow = "9899362/charlie137"
-linkedin = "charlesrocket"
-instagram = "charlesrocket"
-lastfm = "charlesrocket"
-#twitch = "charlesrocket"
-reddit = "charlesrocket"
-flickr = "charlesrocket"
-keybase = "charlesrocket"
-xmpp = "charlie137@jabber.calyxinstitute.org"
-hackernews = "charlesrocket"
-#behance = "charlesrocket"
+email = "user_email"
+mastodon = "user_name"
+twitter = "user_name"
+facebook = "user_name"
+github = "user_name"
+stackoverflow = "int/user_name"
+linkedin = "user_name"
+instagram = "user_name"
+lastfm = "user_name"
+twitch = "user_name"
+reddit = "user_name"
+flickr = "user_name"
+keybase = "user_name"
+xmpp = "user_name@user_domain"
+hackernews = "user_name"
+behance = "user_name"
 
 [extra.comments]
 system = ""
 
 [extra.comments.cactus]
-site = ""
+site = "site_name"
 page_size = 10
 guest_posting = true
 update_interval = 0
 
 [extra.comments.giscus]
-repo = ""
-repo_id = "REPO_ID"
+repo = "user_name/repo"
+repo_id = ""
 category = "Comments"
-category_id = "CAT_ID"
+category_id = ""
 mapping = "pathname"
 strict = "1"
 reactions = "1"
