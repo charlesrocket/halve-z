@@ -47,7 +47,7 @@ csp = true
 [extra.home]
 title = "Halve-Z"
 subtitle = "Zola theme"
-glitch = true
+glitch = false
 logo = { enabled = true, height = "100", width = "100" }
 
 
