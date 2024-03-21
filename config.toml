@@ -41,6 +41,7 @@ anchors = "safe"
 [extra]
 locale = "en_US"
 logo = "fireball.gif"
+read_time = true
 toc = true
 csp = true
 

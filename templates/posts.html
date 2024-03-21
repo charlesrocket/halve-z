@@ -11,7 +11,9 @@
               <span class="date">{{ page.date | date(format="%d %b %Y") }}</span>
             </h2>
             <div class="post-info">
+              {% if config.extra.read_time == true %}
               <span class="word-count">{{ page.word_count ~ "w"}}</span>&nbsp;<span class="read-time">{{ page.reading_time ~ "m"}}</span>
+              {% endif %}
             </div>
             <p>{% if page.extra.subtitle %}{{ page.extra.subtitle | striptags | truncate(length=150) | safe }}{% endif %}</p>
             <ul class="tags title-tags">

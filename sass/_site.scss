@@ -527,6 +527,20 @@ a.zola-anchor {
   }
 }
 
+.inner-post-info {
+  margin-bottom: 32px;
+}
+
+.post-ext-info {
+  padding: 6px 10px;
+  display: inline-block;
+  border: 1px solid;
+  border-color: darken($white, 42);
+  > p {
+    margin-bottom: unset;
+  }
+}
+
 .post-title-section {
   position: absolute;
   bottom: 50px;
@@ -667,10 +681,6 @@ a.zola-anchor {
     }
 }
 
-.page-toc {
-  margin-bottom: 35px;
-}
-
 @media screen and (max-height: 605px) {
   .post-title-section .section-title {
     font-size: 45px;
@@ -713,6 +723,9 @@ a.zola-anchor {
     ul > li {
       margin-top: 20px;
       margin-bottom: 20px;
+    }
+    .post-ext-info > p {
+      font-size: 12px;
     }
   }
   .date-highlight {
@@ -906,7 +919,10 @@ a.zola-anchor {
     p {
       color: $overlay-color-dark;
     }
-  } 
+  }
+  .post-ext-info {
+    border-color: darken($white, 30);
+  }
   .inner-post {
     h1,
     h2,

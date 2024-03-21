@@ -1,6 +1,7 @@
 +++
 title = "Information"
 date = 2024-01-01
+updated = 2024-02-01
 [taxonomies]
 categories = ["usage"]
 tags = ["content", "configuration"]

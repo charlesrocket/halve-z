@@ -19,15 +19,24 @@
     <div class="inner-post content">
       <div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>
       {% if page.extra.subtitle %}<h1>{{ page.extra.subtitle | safe}}</h1>{% endif %}
+      <div class="inner-post-info"><div class="post-ext-info">
+        {% if config.extra.read_time == true %}
+        <p>{{ page.reading_time }}</u> minute{{ page.reading_time | pluralize }} reading time</p>
+        {% endif %}
+        <p>{% if page.updated  %}Updated {{ page.updated | date(format="%d %b %Y") }}{% endif %}</p>
+      </div>
       {% if config.extra.toc == true %}{% if page.toc %}{% if page.toc | length >= 2 %}
-        <div><ul class="page-toc">
+      <div>
+        <ul>
           {% for h2 in page.toc %}
           <li>
             <a class="toc" href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
           </li>
           {% endfor %}
-        </ul></div>
+        </ul>
+      </div>
       {% endif %}{% endif %}{% endif %}
+      </div>
       {{ page.content | safe }}
       <br>
       {% if page.lower or page.higher %}
