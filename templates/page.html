@@ -19,6 +19,7 @@
     <div class="inner-post content">
       <div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>
       {% if page.extra.subtitle %}<h1>{{ page.extra.subtitle | safe}}</h1>{% endif %}
+      {% if current_path is starting_with("/posts/") %}
       <div class="inner-post-info"><div class="post-ext-info">
         {% if config.extra.read_time == true %}
         <p>{{ page.reading_time }}</u> minute{{ page.reading_time | pluralize }} reading time</p>
@@ -34,9 +35,8 @@
           </li>
           {% endfor %}
         </ul>
-      </div>
-      {% endif %}{% endif %}{% endif %}
-      </div>
+      </div></div>
+      {% endif %}{% endif %}{% endif %}{% endif %}
       {{ page.content | safe }}
       <br>
       {% if page.lower or page.higher %}
