@@ -12,9 +12,12 @@ subtitle = "Project cards"
 
 Use `GITHUB_TOKEN` environment variable to authenticate **GitHub** requests (optional).
 
-- `link`: the address of the repository (mandatory)
+- `link`: the address of the repository
 
 ### Example
+
+<p class="notice_info">When building with <code>zola serve</code>, project cards are rendered with placeholder text. Use <code>zola build</code> to preview the actual output.</p>
+
 #### Input
 
 ```rs
