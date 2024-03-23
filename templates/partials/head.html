@@ -97,8 +97,10 @@
   <link rel="shortcut icon" type="image/png" href="favicon.png"/>
   <link rel="shortcut icon" href="favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/main.css") }}" integrity="sha512-{{ get_hash(path="/main.css", sha_type=512, base64=true) | safe }}">
+  {% if config.extra.home.glitch == true %}
   {% if current_path | default(value="none") == "/" %}
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/glitch.css") }}" integrity="sha512-{{ get_hash(path="/glitch.css", sha_type=512, base64=true) | safe }}">
+  {% endif %}
   {% endif %}
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/langs.css") }}" integrity="sha512-{{ get_hash(path="/langs.css", sha_type=512, base64=true) | safe }}">
   {% if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}
