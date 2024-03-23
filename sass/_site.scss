@@ -26,6 +26,11 @@
   }
 }
 
+.hero {
+  z-index: 2;
+  filter: drop-shadow(0 0px 4px);
+}
+
 #homepage {
   .block-right {
     display: block;
