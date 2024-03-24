@@ -525,19 +525,13 @@ a.zola-anchor {
       font-size: 12px;
       position: relative;
       margin-bottom: 20px;
-      &:first-child {
-        margin-top: 20px;
-      }
     }
   }
 }
 
-.inner-post-info {
-  margin-bottom: 32px;
-}
-
 .post-ext-info {
   padding: 6px 10px;
+  margin-bottom: 20px;
   display: inline-block;
   border: 2px dashed;
   border-color: darken($white, 42);

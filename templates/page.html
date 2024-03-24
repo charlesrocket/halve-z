@@ -20,7 +20,7 @@
       {% block date %}{{ super() }}{% endblock date %}
       {% if page.extra.subtitle %}<h1>{{ page.extra.subtitle | safe}}</h1>{% endif %}
       {% if current_path is starting_with("/posts/") %}
-      <div class="inner-post-info"><div class="post-ext-info">
+      <div class="post-ext-info">
         {% if config.extra.read_time == true %}
         <p>{{ page.reading_time }}</u> minute{{ page.reading_time | pluralize }} reading time</p>
         {% endif %}
@@ -35,7 +35,7 @@
           </li>
           {% endfor %}
         </ul>
-      </div></div>
+      </div>
       {% endif %}{% endif %}{% endif %}{% endif %}
       {{ page.content | safe }}
       <br>
