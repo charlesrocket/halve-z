@@ -2,7 +2,7 @@
 
 {% block right %}
     <div class="inner-post content">
-      <div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>
+      {% block date %}{{ super() }}{% endblock date%}
       <div>
         <u><h2>{{ term.name }}</h2></u>
         {%- for year, posts in term.pages | group_by(attribute="year") %}

@@ -2,7 +2,7 @@
 
 {% block right %}
     <div class="inner-post content">
-      <div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>
+      {% block date %}{{ super() }}{% endblock date%}
       <div class="entry-meta">
         <p>{% for term in terms %}#<a href="{{ config.base_url ~ "/" ~ taxonomy.name ~ "/" ~ term.name }}">{{ term.name }}</a><sup>{{ term.pages | length }}</sup> {% endfor %}</p>
       </div>

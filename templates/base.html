@@ -49,7 +49,7 @@
       </nav>
   {% block right %}
       <div class="content">
-        <div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>
+        {% block date %}<div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>{% endblock date %}
         {% block content %}{% endblock content %}
       </div>
   {% endblock right %}

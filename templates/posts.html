@@ -2,7 +2,7 @@
 
 {% block right %}
     <div class="content">
-      <div class="date-highlight">x</div>
+      {% block date %}{{ super() }}{% endblock date%}
       <ul class="posts-list">
         {% for page in section.pages %}
           <li>
