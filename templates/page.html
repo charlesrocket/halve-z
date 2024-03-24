@@ -20,18 +20,20 @@
       {% block date %}{{ super() }}{% endblock date %}
       {% if page.extra.subtitle %}<h1>{{ page.extra.subtitle | safe}}</h1>{% endif %}
       {% if current_path is starting_with("/posts/") %}
+      {% if config.extra.read_time == true or page.updated %}
       <div class="post-ext-info">
         {% if config.extra.read_time == true %}
         <p>{{ page.reading_time }}</u> minute{{ page.reading_time | pluralize }} reading time</p>
         {% endif %}
-        <p>{% if page.updated  %}Updated {{ page.updated | date(format="%d %b %Y") }}{% endif %}</p>
+        {% if page.updated %}<p>Updated {{ page.updated | date(format="%d %b %Y") }}</p>{% endif %}
       </div>
+      {% endif %}
       {% if config.extra.toc == true %}{% if page.toc %}{% if page.toc | length >= 2 %}
       <div>
         <ul>
           {% for h2 in page.toc %}
-          <li>
-            <a class="toc" href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+          <li id="toc">
+            <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
           </li>
           {% endfor %}
         </ul>

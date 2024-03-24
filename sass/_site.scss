@@ -138,12 +138,11 @@ nav.nav-bar ul li ul li {
   width: 100%;
 }
 
-.toc {
+#toc {
   font-size: 15px;
-}
-
-a.toc {
-  color: $shamrock-green;
+  > a {
+    color: $shamrock-green;
+  }
 }
 
 a.zola-anchor {
@@ -525,6 +524,9 @@ a.zola-anchor {
       font-size: 12px;
       position: relative;
       margin-bottom: 20px;
+      &:first-child:not(#toc) {
+        margin-top: 20px;
+      }
     }
   }
 }
@@ -971,7 +973,7 @@ a.zola-anchor {
     }
   }
   a.zola-anchor,
-  a.toc {
+  #toc > a {
     color: $green;
   }
   .entry-info {
