@@ -4,7 +4,7 @@ oninstall = (event) => {
   event.waitUntil(
     (async () => {
       const cache = await caches.open(cacheName);
-      await cache.add("/offline/index.html");
+      await cache.add("/offline/");
       console.log("Service worker added offline page");
     })(),
   );
@@ -43,7 +43,7 @@ onfetch = (event) => {
             }
 
             return response;
-          });
+          }).catch(() => caches.match("/offline/"));
         })
         .catch((error) => {
           console.error("Error in service worker fetch handler:", error);
