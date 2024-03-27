@@ -9,6 +9,7 @@ This is a _retro_ port of [Halve](https://github.com/TaylanTatli/Halve) (**Jekyl
 
 * search
 * taxonomies
+* PWA
 * auto color schemes
 * ToC
 * media shortcodes
