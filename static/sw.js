@@ -12,45 +12,22 @@ oninstall = (event) => {
 
 onfetch = (event) => {
   console.log("Service worker fetching", event.request.url);
-  event.respondWith(
-    caches.open(cacheName).then((cache) => {
-      return cache
-        .match(event.request)
-        .then((response) => {
-          if (response) {
-            console.log("Service worker found response in cache:", response);
-            return response;
-          }
+  event.respondWith(caches.open(cacheName).then((cache) => {
+    return cache.match(event.request).then((cachedResponse) => {
+      const fetchedResponse = fetch(event.request).then((networkResponse) => {
+        if (networkResponse.status < 400) {
+          console.log("Caching the response to", event.request.url);
+          cache.put(event.request, networkResponse.clone());
+        } else {
+          console.log("Service worker not caching the response to", event.request.url);
+        }
 
-          console.log(
-            "No response for %s found in service worker cache. Fetching " +
-              "from network",
-            event.request.url,
-          );
+        return networkResponse;
+      }).catch(() => caches.match("/offline/"));
 
-          return fetch(event.request.clone()).then((response) => {
-            console.log(
-              "Service worker got response for %s from network: %O",
-              event.request.url,
-              response,
-            );
-
-            if (response.status < 400) {
-              console.log("Caching the response to", event.request.url);
-              cache.put(event.request, response.clone());
-            } else {
-              console.log("Service worker not caching the response to", event.request.url);
-            }
-
-            return response;
-          }).catch(() => caches.match("/offline/"));
-        })
-        .catch((error) => {
-          console.error("Error in service worker fetch handler:", error);
-          throw error;
-        });
-    }),
-  );
+      return cachedResponse || fetchedResponse;
+    });
+  }));
 };
 
 self.onactivate = (event) =>  {
