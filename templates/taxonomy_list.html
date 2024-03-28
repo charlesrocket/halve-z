@@ -10,7 +10,7 @@
         <h2 class="entry-title"><a href="{{ config.base_url ~ "/" ~ taxonomy.name ~ "/" ~ term.name }}">#</a>{{ term.name | safe}}</h2>
         <ul>
         {%- for page in term.pages %}
-          <li class="entry-info"><a href="{{ page.permalink | safe }}">{{ page.title }}</a> <time datetime="{{ page.date }}">{{ page.date | date(format="%F") }}</time></li>
+          <li class="entry-info"><a href="{{ page.permalink | safe }}">{{ page.title | safe }}</a> <time datetime="{{ page.date }}">{{ page.date | date(format="%F") }}</time></li>
         {%- endfor %}
         </ul>
       {%- endfor %}

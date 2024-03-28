@@ -8,7 +8,7 @@
         {%- for year, posts in term.pages | group_by(attribute="year") %}
           <h3>{{ year }}</h3>
           {%- for page in posts %}
-            <h4><a href="{{ page.permalink | safe }}">{{ page.title }}</a> <time datetime="{{ page.date }}">{{ page.date | date(format="%F") }}</time></h4>
+            <h4><a href="{{ page.permalink | safe }}">{{ page.title | safe }}</a> <time datetime="{{ page.date }}">{{ page.date | date(format="%F") }}</time></h4>
           {%- endfor %}
         {%- endfor %}
       </div>
