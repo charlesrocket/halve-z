@@ -43,7 +43,9 @@
   {% endblock csp %}{% endif %}
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#2C2D32"/>
-  <link rel="manifest" href="manifest.json">
+  {% if config.extra.manifest %}
+  <link rel="manifest" href="/{{ config.extra.manifest }}">
+  {% endif %}
   <title>
   {% block title %}
     {% if page.title %}
