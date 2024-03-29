@@ -96,8 +96,9 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
-  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ config.base_url | safe }}/apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ config.base_url | safe }}/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ config.base_url | safe }}/favicon-16x16.png"/>
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/main.css", cachebust=true) }}" integrity="sha512-{{ get_hash(path="/main.css", sha_type=512, base64=true) | safe }}">
   {% if config.extra.home.glitch == true %}
   {% if current_path | default(value="none") == "/" %}
