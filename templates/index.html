@@ -3,12 +3,12 @@
 {% block body %}<body id="homepage">{% endblock body %}
   {% block left %}
         <div class="main-info">
-          {% if config.extra.home.logo.enabled == true %}<a href="{{ config.base_url | safe }}" class="home-logo"><img src="{{ get_url(path=config.extra.logo, cachebust=true) }}", alt="logo" width="{{ config.extra.home.logo.width }}" height="{{ config.extra.home.logo.height }}"></a>{% endif %}
+          {% if config.extra.home.logo.enabled == true %}<a href="{{ config.base_url | safe }}" class="home-logo"><img src="{{ get_url(path=config.extra.logo, cachebust=true) }}" alt="logo" width="{{ config.extra.home.logo.width }}" height="{{ config.extra.home.logo.height }}"></a>{% endif %}
           <h1>
-            <i class="hero {% if config.extra.home.glitch == true %}glitch-h1 layers" data-text="{{ config.extra.home.title | safe }}{% endif %}"><span>{{ config.extra.home.title }}</span></i>
+            <i class="hero {% if config.extra.home.glitch == true %}glitch-h1 layers" data-text="{{ config.extra.home.title | safe }}{% endif %}"><span>{{ config.extra.home.title | safe }}</span></i>
           </h1>
           <h2>
-            <i class="hero {% if config.extra.home.glitch == true %}glitch-h2 layers" data-text="{{ config.extra.home.subtitle | safe }}{% endif %}"><span>{{ config.extra.home.subtitle }}</span></i>
+            <i class="hero {% if config.extra.home.glitch == true %}glitch-h2 layers" data-text="{{ config.extra.home.subtitle | safe }}{% endif %}"><span>{{ config.extra.home.subtitle | safe }}</span></i>
           </h2>
           <br />
           {% include "partials/social-links.html" %}
