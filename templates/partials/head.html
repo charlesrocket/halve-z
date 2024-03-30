@@ -110,7 +110,9 @@
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/syntax-theme-light.css", cachebust=true) }}" media="(prefers-color-scheme: light)" integrity="sha512-{{ get_hash(path="/syntax-theme-light.css", sha_type=512, base64=true) | safe }}">
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/syntax-theme-dark.css", cachebust=true) }}" media="(prefers-color-scheme: dark)" integrity="sha512-{{ get_hash(path="/syntax-theme-dark.css", sha_type=512, base64=true) | safe }}">
   {% endif %}
+  {% if config.extra.manifest %}
   <script defer src="{{ get_url(path='sw-load.js', trailing_slash=false, cachebust=true) | safe }}" integrity="sha512-{{ get_hash(path='sw-load.js', sha_type=512, base64=true) | safe }}"></script>
+  {% endif %}
   {% if page.extra.image %}
     <style>{{ macros::image_style(url=page.extra.image) }}</style>
   {% elif category_image %}
