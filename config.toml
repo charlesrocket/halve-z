@@ -41,7 +41,7 @@ anchors = "safe"
 [extra]
 locale = "en_US"
 logo = "fireball.gif"
-manifest = ""
+manifest = "manifest.json"
 read_time = true
 toc = true
 csp = true
