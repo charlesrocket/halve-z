@@ -31,7 +31,7 @@ onfetch = (event) => {
   }));
 };
 
-self.onactivate = (event) =>  {
+onactivate = (event) =>  {
   event.waitUntil(
     (async () => {
       const keys = await caches.keys();
