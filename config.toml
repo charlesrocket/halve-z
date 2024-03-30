@@ -40,7 +40,7 @@ anchors = "safe"
 
 [extra]
 locale = "en_US"
-logo = "icon-512x512.png"
+logo = "icon-192x192.png"
 manifest = "manifest.json"
 read_time = true
 toc = true
