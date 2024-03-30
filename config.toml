@@ -50,7 +50,7 @@ csp = true
 title = "Halve-Z"
 subtitle = "Zola theme"
 glitch = false
-logo = { enabled = false, height = "100", width = "100" }
+logo = { enabled = true, height = "100", width = "100" }
 
 
 [extra.images]
