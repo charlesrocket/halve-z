@@ -111,7 +111,8 @@
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/syntax-theme-dark.css", cachebust=true) }}" media="(prefers-color-scheme: dark)" integrity="sha512-{{ get_hash(path="/syntax-theme-dark.css", sha_type=512, base64=true) | safe }}">
   {% endif %}
   {% if config.extra.manifest %}
-  <script defer src="{{ get_url(path='sw-load.js', trailing_slash=false, cachebust=true) | safe }}" integrity="sha512-{{ get_hash(path='sw-load.js', sha_type=512, base64=true) | safe }}"></script>
+  {% set posts = get_section(path="posts/_index.md") %}
+  <script defer src="{{ get_url(path='sw-load.js', trailing_slash=false, cachebust=true) | safe }}" integrity="sha512-{{ get_hash(path='sw-load.js', sha_type=512, base64=true) | safe }}" data-cache="{% for post in posts.pages %}{{ post.permalink | safe }} {% if post.assets %}{% for asset in post.assets %}{{ config.base_url ~ asset | safe }} {% endfor %}{%endif%}{% endfor %}/ {% for link in config.extra.menu.links %}{{ get_url(path=link.url) | safe }}{% endfor %}"></script>
   {% endif %}
   {% if page.extra.image %}
     <style>{{ macros::image_style(url=page.extra.image) }}</style>

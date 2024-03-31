@@ -5,7 +5,6 @@ oninstall = (event) => {
     (async () => {
       const cache = await caches.open(cacheName);
       await cache.add("/offline/");
-      console.log("Service worker added offline page");
     })(),
   );
 };
@@ -29,6 +28,18 @@ onfetch = (event) => {
         return cachedResponse || fetchedResponse;
       });
   }));
+};
+
+onmessage = (event) => {
+  const data = event.data;
+  console.log("Service worker started precache", data);
+  event.waitUntil(
+    (async () => {
+      const cache = await caches.open(cacheName);
+      await cache.addAll(data)
+        .catch((error) => console.log("Service worker failed precache", error));
+    })(),
+  );
 };
 
 onactivate = (event) =>  {

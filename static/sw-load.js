@@ -1,3 +1,5 @@
+const data = new String(document.currentScript.getAttribute('data-cache'));
+const cacheList = data.split(" ");
 const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
     try {
@@ -11,6 +13,7 @@ const registerServiceWorker = async () => {
         console.log("Service worker installed");
       } else if (registration.active) {
         console.log("Service worker active");
+        registration.active.postMessage(cacheList);
       }
     } catch (error) {
       console.error(`Registration failed with ${error}`);
