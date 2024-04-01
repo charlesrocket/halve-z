@@ -5,4 +5,4 @@ template = "page.html"
 draft = false
 +++
 
-## No internet
+## No cache/page found
