@@ -69,15 +69,17 @@ onfetch = (event) => {
 };
 
 onmessage = (event) => {
-  const data = event.data;
-  console.log("Service worker started precache", data);
-  event.waitUntil(
-    (async () => {
-      const cache = await caches.open(cacheName);
-      await cache.addAll(data)
-        .catch((error) => console.log("Service worker failed precache", error));
-    })(),
-  );
+  if (event.data.type === "PRECACHE") {
+    const data = event.data.payload;
+    console.log("Service worker started precache", data);
+    event.waitUntil(
+      (async () => {
+        const cache = await caches.open(cacheName);
+        await cache.addAll(data)
+          .catch((error) => console.log("Service worker failed precache", error));
+      })(),
+    );
+  }
 };
 
 onactivate = (event) =>  {
@@ -86,7 +88,7 @@ onactivate = (event) =>  {
       const keys = await caches.keys();
       return keys.map(async (cache) => {
         if(cache !== cacheName) {
-          console.log('Removing old service worker cache '+cache);
+          console.log("Removing old service worker cache", cache);
           return await caches.delete(cache);
         }
       })

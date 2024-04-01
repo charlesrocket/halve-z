@@ -1,5 +1,5 @@
 const data = new String(document.currentScript.getAttribute('data-cache'));
-const precache = data.split(" ");
+const precacheList = data.split(" ");
 const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
     try {
@@ -10,8 +10,11 @@ const registerServiceWorker = async () => {
       if (registration.installing) {
         console.log("Service worker installing");
         navigator.serviceWorker.ready.then((registration) => {
-          registration.active.postMessage(precache);
           console.log("Service worker requesting precache");
+          registration.active.postMessage({
+            payload: precacheList,
+            type: "PRECACHE",
+          });
         });
 
       } else if (registration.waiting) {
