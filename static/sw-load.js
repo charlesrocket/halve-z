@@ -9,19 +9,19 @@ const registerServiceWorker = async () => {
 
       if (registration.installing) {
         console.log("Service worker installing");
+        navigator.serviceWorker.ready.then((registration) => {
+          registration.active.postMessage(precache);
+          console.log("Service worker requesting precache");
+        });
+
       } else if (registration.waiting) {
         console.log("Service worker installed");
       } else if (registration.active) {
         console.log("Service worker active");
       }
 
-      navigator.serviceWorker.ready.then((registration) => {
-        registration.active.postMessage(precache);
-        console.log("Requesting precache");
-      });
-
     } catch (error) {
-      console.error(`Registration failed with ${error}`);
+      console.error("Service worker registration failed", error);
     }
   }
 };
