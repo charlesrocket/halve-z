@@ -2,6 +2,66 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.0] - 2024-04-01
+
+### Bug Fixes
+
+- Fix post info conditionals
+- Check if glitch style is needed
+- Fix homepage shadows
+- Improve post info borders
+- Fix post info layout
+- Fix ToC layout
+- Update cache list
+- Fix `ul`/`ol` margins
+- Fix service worker handlers
+- Fix fallback page
+- Fix CSP string filters
+- Add cachebust to styles
+- Add `safe` filter
+- Fix logo tag
+- Correct element tags
+- Fix `main-info` tags
+- Load service worker via manifest string
+- Add logo shadow
+- Resolve `onactivate` typo
+- Fix term links
+- Update offline message
+- Precache during installation
+
+### Documentation
+
+- Add comments post
+- Fix `project` description
+- Add PWA
+- Add pwa post
+
+### Features
+
+- Add detailed post info
+- Add `date` block
+- Add `comments` block
+- Revalidate current cache
+- [**breaking**] Add `manifest` option
+- Add browser favicons
+- Implement precache
+- Precache all content
+
+### Miscellaneous tasks
+
+- Bump cache to v3
+- Update offline message
+- Add shortcut icon
+- Add pwa icons
+- Add pwa manifest
+- Update icon
+- Enable logo
+- Use small icon file
+
+### Styling
+
+- Reformat `onfetch`
+
 ## [0.8.0] - 2024-03-20
 
 ### Bug Fixes
