@@ -3,6 +3,8 @@
 
 A two-column theme for **Zola**.
 
+![logo](https://raw.githubusercontent.com/charlesrocket/halve-z/trunk/static/favicon-32x32.png)
+
 ## Features
 
 This is a _retro_ port of [Halve](https://github.com/TaylanTatli/Halve) (**Jekyll**). It features:
