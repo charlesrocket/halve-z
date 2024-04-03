@@ -526,7 +526,7 @@ a.zola-anchor {
       position: relative;
       line-height: 1.4em;
       margin-bottom: 15px;
-      &:first-child:not(#toc) {
+      &:first-child:not(#toc):not(#info-tag) {
         margin-top: 15px;
       }
     }

@@ -18,7 +18,7 @@
     <li><span class="project-description">{{ gh_description | safe }}</span></li>
     <li><ul class="tags project-tags">
     {%- for topic in gh_repo_data["topics"] %}
-      <li>{{ topic }}</li>
+      <li id="info-tag">{{ topic }}</li>
         {%- if not loop.last %}
         {%- endif %}
     {%- endfor %}
