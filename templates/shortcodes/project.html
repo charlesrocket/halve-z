@@ -11,14 +11,14 @@
 {%- set gh_license = gh_repo_data["license"]["spdx_id"] | replace(from="NOASSERTION", to="") | default(value="") %}
 {%- set gh_description = gh_repo_data["description"] | default(value="") | regex_replace(pattern='\p{Emoji}', rep='') %}
 <div class="projects frame-dim">
-  <h2><a href="{{ gh_repo_data['html_url'] | safe }}" target="_blank">{{ gh_repo_data["name"] }}</a></h2>
+  <h2><a href="{{ gh_repo_data['html_url'] | safe }}" target="_blank">{{ gh_repo_data["name"] | safe }}</a></h2>
   <ul class="project-list">
     <li><b><span class="project-lang">{{ gh_language | safe }}</span></b> <span class="project-lang {{ gh_language | replace(from="#", to="-Sharp") | replace(from="++", to="pp") | replace(from="-", to="") | replace(from=" ", to="") | safe }}"><b>&#42;</b></span></li>
     <li><span class="project-license">{{ gh_license | safe }}</span></li>
     <li><span class="project-description">{{ gh_description | safe }}</span></li>
     <li><ul class="tags project-tags">
     {%- for topic in gh_repo_data["topics"] %}
-      <li id="info-tag">{{ topic }}</li>
+      <li id="info-tag">{{ topic | safe }}</li>
         {%- if not loop.last %}
         {%- endif %}
     {%- endfor %}
