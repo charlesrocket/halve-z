@@ -524,9 +524,10 @@ a.zola-anchor {
     > li {
       font-size: 12px;
       position: relative;
-      margin-bottom: 20px;
+      line-height: 1.4em;
+      margin-bottom: 15px;
       &:first-child:not(#toc) {
-        margin-top: 20px;
+        margin-top: 15px;
       }
     }
   }
