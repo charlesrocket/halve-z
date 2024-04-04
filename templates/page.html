@@ -23,7 +23,7 @@
       {% if config.extra.read_time == true or page.updated %}
       <div class="post-ext-info">
         {% if config.extra.read_time == true %}
-        <p>{{ page.reading_time }}</u> minute{{ page.reading_time | pluralize }} reading time</p>
+        <p>{{ page.reading_time }} minute{{ page.reading_time | pluralize }} reading time</p>
         {% endif %}
         {% if page.updated %}<p>Updated {{ page.updated | date(format="%d %b %Y") }}</p>{% endif %}
       </div>
