@@ -36,13 +36,13 @@
 {% endif %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  <meta name="base" content="{{ config.base_url | safe }}"/>
-  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+  <meta name="base" content="{{ config.base_url | safe }}">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   {% if config.extra.csp == true %}{% block csp %}
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self'; img-src 'self' {% if page.extra.image %}{% if page.extra.image is matching("^http[s]?://") %}{{ page.extra.image | safe }}{% endif %}{% endif %} {% if config.extra.images.home is matching("^http[s]?://") %}{{ config.extra.images.home | safe }}{% endif %} {% if config.extra.images.post_list is matching("^http[s]?://") %}{{ config.extra.images.post_list | safe }}{% endif %} {% if category_image_match %}{% if category_image_match is matching("^http[s]?://") %} {{ category_image | safe }}{% endif %}{% endif %}{% if config.extra.images.default_post is matching("^http[s]?://") %} {{ config.extra.images.default_post | safe }}{% endif %}{% if page.extra.csp_img %}{%for url in page.extra.csp_img %} {{ url | safe }}{% endfor %}{% endif %}{% if section.extra.csp_img %}{%for url in section.extra.csp_img %} {{ url | safe }}{% endfor %}{% endif %}; script-src 'self' {% if config.extra.comments.system == "giscus" %}giscus.app/client.js{% endif %}{% if config.extra.comments.system == "cactus" %} 'sha512-{{ cactus_hash | safe }}'{% endif %}; manifest-src 'self'; style-src 'self' {% if page_image_hash %}'sha512-{{ page_image_hash | safe }}'{% elif category_image %}'sha512-{{ category_image_hash | safe }}'{% else %}'sha512-{{ default_post_image_hash | safe }}'{% endif %} 'sha512-{{ main_images_hash | safe }}' {% if config.extra.comments.system == "giscus" %}giscus.app/default.css{% endif %}; media-src 'self'; frame-src 'self' https://player.vimeo.com/ https://www.youtube.com/ https://www.youtube-nocookie.com/ {% if config.extra.comments.system == "giscus" %}giscus.app{% endif %}; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src {% if config.build_search_index == true %}{{ config.base_url | safe }} {% endif %}{% if config.extra.comments.system == "cactus" %}https://matrix.cactus.chat/ {% endif %}{% if config.mode == "serve" %} ws://127.0.0.1:1024/livereload{% endif %}{% if config.mode != "serve" and config.build_search_index != true and config.extra.comments.system != "cactus" and config.extra.comments.system != "giscus" %}'none'{% endif %}">
   {% endblock csp %}{% endif %}
   <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#2C2D32"/>
+  <meta name="theme-color" content="#2C2D32">
   {% if config.extra.manifest %}
   <link rel="manifest" href="/{{ config.extra.manifest }}">
   {% endif %}
@@ -77,7 +77,7 @@
   {% if page.extra.subtitle %}<meta property="og:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
   <meta property="og:url" content="{{ page_url | safe }}">
   <meta property="og:site_name" content="{{ config.title }}">
-  <link rel="canonical" href="{{ page_url | safe }}"/>
+  <link rel="canonical" href="{{ page_url | safe }}">
   {% if page.extra.image %}{% if page.extra.image is matching("^http[s]?://") %}{% set image = page.extra.image %}{% else %}{% set image = page.path ~ page.extra.image %}{% endif %}
   <meta property="og:image" content="{{ image | safe }}">
   <meta name="twitter:card" content="{{ image | safe }}">
@@ -96,9 +96,9 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ config.base_url | safe }}/apple-touch-icon.png"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ config.base_url | safe }}/favicon-32x32.png"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ config.base_url | safe }}/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ config.base_url | safe }}/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ config.base_url | safe }}/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ config.base_url | safe }}/favicon-16x16.png">
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/main.css", cachebust=true) }}" integrity="sha512-{{ get_hash(path="/main.css", sha_type=512, base64=true) | safe }}">
   {% if config.extra.home.glitch == true %}
   {% if current_path | default(value="none") == "/" %}
