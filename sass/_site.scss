@@ -464,11 +464,15 @@ a.zola-anchor {
   > li {
     display: inline-block;
     background: darken($white, 5%);
-    padding: 7px 10px;
+    padding: 7px 8px;
     margin-bottom: 10px;
     color: lighten($black, 28%);
     font-size: 8px;
     text-transform: uppercase;
+    margin-right: 12px;
+    &:last-child {
+      margin-right: 0;
+    }
     > a {
       color: $white;
     }

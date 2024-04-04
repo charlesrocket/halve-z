@@ -5,13 +5,13 @@
       <div class="post-title-section">
         <h1 class="section-title">{{ page.title | safe }}</h1>
         {% if page.taxonomies["tags"] %}
-        <ul class="tags">
-          {% for tag in page.taxonomies["tags"] %}
-            <li><a href="{{ config.base_url | safe }}/tags/{{ tag | slugify }}">{{ tag }}</a></li>
-            {% if not loop.last %}
-            {% endif %}
+        <ul class="tags"
+          {%-for tag in page.taxonomies["tags"] %}
+          ><li><a href="{{ config.base_url | safe }}/tags/{{ tag | slugify }}">{{ tag }}</a></li
+            {%- if not loop.last %}
+            {%- endif -%}
           {% endfor %}
-        </ul>
+        ></ul>
         {% endif %}
       </div>
   {% endblock left %}
