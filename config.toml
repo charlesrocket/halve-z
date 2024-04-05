@@ -7,7 +7,7 @@ author = "-k"
 #theme = "halve-z"
 
 compile_sass = true
-minify_html = false
+minify_html = true
 generate_feed = true
 build_search_index = true
 
