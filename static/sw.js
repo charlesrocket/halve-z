@@ -1,4 +1,4 @@
-const cacheName = "v3";
+const cacheName = "v4";
 const cacheList = [
   "/",
   "/offline/",
@@ -9,6 +9,7 @@ const cacheList = [
   "/elasticlunr.min.js",
   "/glitch.css",
   "/langs.css",
+  "/unstyle.css",
   "/syntax-theme-light.css",
   "/syntax-theme-dark.css",
   "/robots.txt",
