@@ -99,6 +99,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="{{ config.base_url | safe }}/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ config.base_url | safe }}/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ config.base_url | safe }}/favicon-16x16.png">
+  <link rel="stylesheet" type="text/css" href="{{ get_url(path="/unstyle.css", cachebust=true) }}" integrity="sha512-{{ get_hash(path="/unstyle.css", sha_type=512, base64=true) | safe }}">
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/main.css", cachebust=true) }}" integrity="sha512-{{ get_hash(path="/main.css", sha_type=512, base64=true) | safe }}">
   {%- if config.extra.home.glitch == true %}
   {%- if current_path | default(value="none") == "/" %}

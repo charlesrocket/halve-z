@@ -104,27 +104,27 @@ h6 {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 1.6em;
 }
 
 h2 {
-  font-size: 1.25em;
-}
-
-h3 {
-  font-size: 1.1em;
-}
-
-h4 {
   font-size: 1em;
 }
 
+h3 {
+  font-size: 0.86em;
+}
+
+h4 {
+  font-size: 0.8em;
+}
+
 h5 {
-  font-size: 0.9em;
+  font-size: 0.72em;
 }
 
 h6 {
-  font-size: 0.8em;
+  font-size: 0.65em;
 }
 
 figure {
@@ -137,7 +137,7 @@ figure {
   figcaption {
     margin-bottom: 0.5em;
     color: lighten($black, 40);
-    font-size: 0.85em;
+    font-size: 12px;
     width: 100%;
     text-align: center;
   }
@@ -223,6 +223,14 @@ cite {
   font-size: 0.85em;
 }
 
+ul > li {
+  list-style: square;
+}
+
+ol > li {
+  list-style: inside decimal;
+}
+
 dt {
   border: 1px solid darken($white, 7%);
   padding: 0.5em;
@@ -280,6 +288,18 @@ td:last-child {
   }
 }
 
+sup, sub {
+  font-size: 75%;
+}
+
+sup {
+  top: -0.6em
+}
+
+sub {
+  bottom: -0.2em
+}
+
 var {
   font-weight: bold;
 }
@@ -334,9 +354,12 @@ figure > table {
 pre,
 kbd {
   overflow-x: auto;
-  padding: 1rem;
-  line-height: 1.5;
+  padding: 0.9rem;
   margin: 0;
+}
+
+pre > code {
+  font-size: 13px;
 }
  
 p > code,
@@ -345,8 +368,8 @@ li > code,
 figcaption > code,
 td > code,
 kbd {
-  padding: 0.1rem 0.2rem;
-  font-size: 0.9em;
+  padding: 0.1rem 0.15rem;
+  font-size: 12px;
   background-color: darken($white, 15%);
   font-family: $base-font;
 }
@@ -361,6 +384,7 @@ footer {
   margin-bottom: 23px;
   text-align: center;
   font-size: 12px;
+  line-height: 17px;
   width: 100%;
   > a {
     color: $shamrock-green;
