@@ -1,13 +1,13 @@
 {%- import "macros/macros.html" as macros %}
 
-{% if page.taxonomies.categories %}
-  {% if page.taxonomies.categories | length > 1 %}{{ throw(message="'" ~ page.title ~ "' page has more than one category") }}{% endif %}
-  {% for category in config.extra.images.categories %}
-    {% if category.name is containing(page["taxonomies"]["categories"][0]) %}
-        {% set_global category_image_match = category.image %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
+{%- if page.taxonomies.categories -%}
+  {%- if page.taxonomies.categories | length > 1 %}{{ throw(message="'" ~ page.title ~ "' page has more than one category") }}{% endif %}
+  {%- for category in config.extra.images.categories %}
+    {%- if category.name is containing(page["taxonomies"]["categories"][0]) %}
+        {%- set_global category_image_match = category.image -%}
+    {%- endif %}
+  {%- endfor %}
+{%- endif %}
 {%- if current_url %}
   {%- set page_url = current_url %}
 {%- else %}
@@ -16,24 +16,24 @@
 {% if category_image_match %}{% if category_image_match is matching("^http[s]?://") %}
   {% set category_image = category_image_match %}
 {% else %}
-  {% set category_image = get_url(path=category_image_match, cachebust=true) %}
-{% endif %}{% endif %}
-{% if config.extra.images.home is matching("^http[s]?://") %}{% set home_image = config.extra.images.home %}{% else %}{% set home_image = get_url(path=config.extra.images.home, cachebust=true) %}{% endif %}
-{% if config.extra.images.post_list is matching("^http[s]?://") %}{% set post_list_image = config.extra.images.post_list %}{% else %}{% set post_list_image = get_url(path=config.extra.images.post_list, cachebust=true) %}{% endif %}
-{% if config.extra.images.default_post is matching("^http[s]?://") %}{% set default_post_image = config.extra.images.default_post %}{% else %}{% set default_post_image = get_url(path=config.extra.images.default_post, cachebust=true) %}{% endif %}
-{% if config.extra.csp == true %}
-  {% if config.extra.comments.system == "cactus" %}
-    {% set cactus_hash = get_hash(path="/cactus.js", base64=true, sha_type=512) %}
-  {% endif %}
-  {% if page.extra.image %}
-    {% set page_image_hash = get_hash(literal=macros::image_style(url=page.extra.image), base64=true, sha_type=512) %}
-  {% elif category_image %}
-    {% set category_image_hash = get_hash(literal=macros::image_style(url=category_image), base64=true, sha_type=512) %}
-  {% else %}
-    {% set default_post_image_hash = get_hash(literal=macros::image_style(url=default_post_image), base64=true, sha_type=512) %}
-  {% endif %}
-  {% set main_images_hash = get_hash(literal=macros::main_images_style(home_url=home_image, posts_url=post_list_image), base64=true, sha_type=512) %}
-{% endif %}
+  {%- set category_image = get_url(path=category_image_match, cachebust=true) %}
+{%- endif %}{% endif %}
+{%- if config.extra.images.home is matching("^http[s]?://") %}{% set home_image = config.extra.images.home %}{% else %}{% set home_image = get_url(path=config.extra.images.home, cachebust=true) %}{% endif %}
+{%- if config.extra.images.post_list is matching("^http[s]?://") %}{% set post_list_image = config.extra.images.post_list %}{% else %}{% set post_list_image = get_url(path=config.extra.images.post_list, cachebust=true) %}{% endif %}
+{%- if config.extra.images.default_post is matching("^http[s]?://") %}{% set default_post_image = config.extra.images.default_post %}{% else %}{% set default_post_image = get_url(path=config.extra.images.default_post, cachebust=true) %}{% endif %}
+{%- if config.extra.csp == true %}
+  {%- if config.extra.comments.system == "cactus" %}
+    {%- set cactus_hash = get_hash(path="/cactus.js", base64=true, sha_type=512) %}
+  {%- endif %}
+  {%- if page.extra.image %}
+    {%- set page_image_hash = get_hash(literal=macros::image_style(url=page.extra.image), base64=true, sha_type=512) %}
+  {%- elif category_image %}
+    {%- set category_image_hash = get_hash(literal=macros::image_style(url=category_image), base64=true, sha_type=512) %}
+  {%- else %}
+    {%- set default_post_image_hash = get_hash(literal=macros::image_style(url=default_post_image), base64=true, sha_type=512) %}
+  {%- endif %}
+  {%- set main_images_hash = get_hash(literal=macros::main_images_style(home_url=home_image, posts_url=post_list_image), base64=true, sha_type=512) %}
+{%- endif %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="base" content="{{ config.base_url | safe }}">
@@ -62,34 +62,34 @@
   {%- endblock title -%}
   </title>
   <meta name="author" content="{{ config.author }}">
-  {% if page.extra.subtitle %}
-    <meta name="description" content="{{ page.extra.subtitle | striptags | safe }}">
-  {% else %}
-    <meta name="description" content="{{ config.description }}">
-  {% endif %}
-  {% if page.taxonomies["tags"] %}<meta name="keywords" content="{{ page.taxonomies["tags"] | as_str | replace(from=" ", to="") | replace(from="[", to="") |  replace(from="]", to="") }}">{% endif %}
+  {%- if page.extra.subtitle %}
+  <meta name="description" content="{{ page.extra.subtitle | striptags | safe }}">
+  {%- else %}
+  <meta name="description" content="{{ config.description }}">
+  {%- endif %}
+  {%- if page.taxonomies["tags"] %}<meta name="keywords" content="{{ page.taxonomies["tags"] | as_str | replace(from=" ", to="") | replace(from="[", to="") |  replace(from="]", to="") }}">{% endif %}
   {%- if config.generate_feed %}
-    <link rel="alternate" type="{% if config.feed_filename is containing('atom') %}application/atom+xml{% else %}application/rss+xml{% endif %}" title="{{ config.title }} Atom/RSS Feed" href="{{ get_url(path=config.feed_filename, trailing_slash=false, lang=lang) | safe }}">
+  <link rel="alternate" type="{% if config.feed_filename is containing('atom') %}application/atom+xml{% else %}application/rss+xml{% endif %}" title="{{ config.title }} Atom/RSS Feed" href="{{ get_url(path=config.feed_filename, trailing_slash=false, lang=lang) | safe }}">
   {%- endif %}
   <meta property="og:locale" content="{{ config.extra.locale }}">
   <meta property="og:type" content="article">
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
-  {% if page.extra.subtitle %}<meta property="og:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
+  {%- if page.extra.subtitle %}<meta property="og:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
   <meta property="og:url" content="{{ page_url | safe }}">
   <meta property="og:site_name" content="{{ config.title }}">
   <link rel="canonical" href="{{ page_url | safe }}">
-  {% if page.extra.image %}{% if page.extra.image is matching("^http[s]?://") %}{% set image = page.extra.image %}{% else %}{% set image = page.path ~ page.extra.image %}{% endif %}
+  {%- if page.extra.image %}{% if page.extra.image is matching("^http[s]?://") %}{% set image = page.extra.image %}{% else %}{% set image = page.path ~ page.extra.image %}{% endif %}
   <meta property="og:image" content="{{ image | safe }}">
   <meta name="twitter:card" content="{{ image | safe }}">
   <meta name="twitter:image" content="{{ image | safe }}">
-  {% else %}
+  {%- else %}
   <meta name="twitter:card" content="{{ config.base_url ~ "/" ~ config.extra.logo }}">
   <meta name="twitter:image" content="{{ config.base_url ~ "/" ~ config.extra.logo }}">
   <meta property="og:image" content="{{ config.base_url ~ "/" ~ config.extra.logo }}">
-  {% endif %}
+  {%- endif %}
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
-  {% if page.extra.subtitle %}<meta name="twitter:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
-  {% if config.extra.twitter %}<meta name="twitter:site" content="@{{ config.extra.twitter }}">
+  {%- if page.extra.subtitle %}<meta name="twitter:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
+  {%- if config.extra.twitter %}<meta name="twitter:site" content="@{{ config.extra.twitter }}">
   <meta name="twitter:creator" content="@{{ config.extra.twitter }}">{% endif %}
   <meta name="MobileOptimized" content="320">
   <meta name="HandheldFriendly" content="True">
@@ -100,25 +100,25 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{{ config.base_url | safe }}/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ config.base_url | safe }}/favicon-16x16.png">
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/main.css", cachebust=true) }}" integrity="sha512-{{ get_hash(path="/main.css", sha_type=512, base64=true) | safe }}">
-  {% if config.extra.home.glitch == true %}
-  {% if current_path | default(value="none") == "/" %}
+  {%- if config.extra.home.glitch == true %}
+  {%- if current_path | default(value="none") == "/" %}
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/glitch.css", cachebust=true) }}" integrity="sha512-{{ get_hash(path="/glitch.css", sha_type=512, base64=true) | safe }}">
   {% endif %}
   {% endif %}
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/langs.css", cachebust=true) }}" integrity="sha512-{{ get_hash(path="/langs.css", sha_type=512, base64=true) | safe }}">
-  {% if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}
+  {%- if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/syntax-theme-light.css", cachebust=true) }}" media="(prefers-color-scheme: light)" integrity="sha512-{{ get_hash(path="/syntax-theme-light.css", sha_type=512, base64=true) | safe }}">
   <link rel="stylesheet" type="text/css" href="{{ get_url(path="/syntax-theme-dark.css", cachebust=true) }}" media="(prefers-color-scheme: dark)" integrity="sha512-{{ get_hash(path="/syntax-theme-dark.css", sha_type=512, base64=true) | safe }}">
-  {% endif %}
-  {% if config.extra.manifest %}
-  {% set posts = get_section(path="posts/_index.md") %}
+  {%- endif %}
+  {%- if config.extra.manifest %}
+  {%- set posts = get_section(path="posts/_index.md") %}
   <script defer src="{{ get_url(path='sw-load.js', trailing_slash=false, cachebust=true) | safe }}" integrity="sha512-{{ get_hash(path='sw-load.js', sha_type=512, base64=true) | safe }}" data-cache="{% if config.taxonomies %}{% for taxonomy in config.taxonomies %}{% set inner_taxonomy = get_taxonomy(kind=taxonomy.name) %}{{ inner_taxonomy.permalink | safe }} {% for term in inner_taxonomy.items %}{{ term.permalink | safe }} {% endfor %}{% endfor %}{% endif %}{% for post in posts.pages %}{{ post.permalink | safe }} {% if post.assets %}{% for asset in post.assets %}{{ config.base_url ~ asset | safe }} {% endfor %}{%endif%}{% endfor %}{% for link in config.extra.menu.links %}{{ get_url(path=link.url) | safe }} {% endfor %}{% if config.extra.menu.posts == true %} {{ config.base_url ~ "/posts/" | safe }}{% endif %}{% for link in config.extra.images.categories %}{% if link.image is not matching("^http[s]?://") %} {{ link.image | safe }}{% endif %}{% endfor %}{% if config.extra.images.home is not matching("^http[s]?://") %} {{ config.extra.images.home | safe }}{% endif %}{% if config.extra.images.post_list is not matching("^http[s]?://") %} {{ config.extra.images.post_list | safe }}{% endif %}{% if config.extra.images.default_post is not matching("^http[s]?://") %} {{ config.extra.images.default_post | safe }}{% endif %} {{ get_url(path="/main.css", cachebust=true) }} {{ get_url(path=config.extra.logo, cachebust=true) }}"></script>
-  {% endif %}
-  {% if page.extra.image %}
-    <style>{{ macros::image_style(url=page.extra.image) }}</style>
-  {% elif category_image %}
-    <style>{{ macros::image_style(url=category_image) }}</style>
-  {% else %}
-    <style>{{ macros::image_style(url=default_post_image) }}</style>
-  {% endif %}
+  {%- endif %}
+  {%- if page.extra.image %}
+  <style>{{ macros::image_style(url=page.extra.image) }}</style>
+  {%- elif category_image %}
+  <style>{{ macros::image_style(url=category_image) }}</style>
+  {%- else %}
+  <style>{{ macros::image_style(url=default_post_image) }}</style>
+  {%- endif %}
   <style>{{ macros::main_images_style(home_url=home_image, posts_url=post_list_image) }}</style>
