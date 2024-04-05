@@ -97,7 +97,7 @@ nav.nav-bar li.nav-active {
 
 nav.nav-bar li a {
   display: flex;
-  padding: 0.5rem;
+  padding: 0.4rem;
   color: $black;
 }
 
@@ -270,10 +270,9 @@ a.zola-anchor {
     }
   }
   ul {
-    list-style-type: none;
     text-decoration: none;
     filter: drop-shadow(0 1px 7px);
-    font-size: 1em;
+    font-size: 0.8em;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -290,6 +289,7 @@ a.zola-anchor {
       position: relative;
       transition-property: color;
       transition-duration: 0.2s;
+      list-style: none;
       &:before {
         content: "";
         position: absolute;
@@ -426,6 +426,7 @@ a.zola-anchor {
       margin-bottom: 18px;
     }
     p {
+      font-size: 16px;
       color: darken($white, 40);
     }
     .date {
@@ -617,6 +618,7 @@ a.zola-anchor {
 
 .date-highlight {
   text-align: center;
+  font-size: 16px;
   margin: 0 0 50px;
   color: $overlay-color;
   display: -webkit-box;
@@ -667,6 +669,7 @@ a.zola-anchor {
       > li {
         margin-bottom: 14px;
         padding-left: 20px;
+        list-style-type: none;
       }
     }
     .tags {
@@ -675,6 +678,7 @@ a.zola-anchor {
       padding-left: 0;
       > li {
         text-transform: lowercase;
+        list-style-type: none;
       }
     }
     .tags:is(.project-tags) > ul {
@@ -708,7 +712,7 @@ a.zola-anchor {
     overflow: auto;
   }
   .block-right {
-    overflow-y: inherit;
+    overflow-y: unset;
   }
 }
 
@@ -763,7 +767,7 @@ a.zola-anchor {
     }
   }
   table {
-    font-size: 0.90rem;
+    font-size: 14px;
   }
 }
 
@@ -817,9 +821,9 @@ a.zola-anchor {
   margin-top: 1em;
   &_pager {
     display: inline-block;
-    padding: 0.75em;
+    padding: 0.32em 0.1em;
     min-width: 5.5em;
-    font-size: 0.8em;
+    font-size: 16px;
     font-weight: 400;
     background-color: darken($white, 5%);
     color: darken($white, 35%) !important;

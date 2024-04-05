@@ -24,9 +24,9 @@
 
 .btn {
   display: inline-block;
-  padding: 0.5rem 0.75rem;
+  padding: 0.4rem 0.7rem;
   margin-bottom: 0.5rem;
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   font-weight: 400;
   background-color: darken($white, 7%);
   color: lighten($black, 20%);
@@ -115,9 +115,7 @@
 }
 
 @mixin notice($notice-color) {
-  margin: 2rem 0 !important;
-  padding: 1rem;
-  font-size: 12px !important;
+  padding: 0.75rem;
   text-indent: initial;
   background-color: mix(#ddd, $notice-color, 73%);
   border-radius: 0;
