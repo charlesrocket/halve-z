@@ -16,12 +16,12 @@
     <li><b><span class="project-lang">{{ gh_language | safe }}</span></b> <span class="project-lang {{ gh_language | replace(from="#", to="-Sharp") | replace(from="++", to="pp") | replace(from="-", to="") | replace(from=" ", to="") | safe }}"><b>&#42;</b></span></li>
     <li><span class="project-license">{{ gh_license | safe }}</span></li>
     <li><span class="project-description">{{ gh_description | safe }}</span></li>
-    <li><ul class="tags project-tags">
+    <li><ul class="tags project-tags"
     {%- for topic in gh_repo_data["topics"] %}
-      <li id="info-tag">{{ topic | safe }}</li>
+      ><li id="info-tag">{{ topic | safe }}</li
         {%- if not loop.last %}
         {%- endif %}
     {%- endfor %}
-    </ul></li>
+    ></ul></li>
   </ul>
 </div>

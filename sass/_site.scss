@@ -684,7 +684,11 @@ a.zola-anchor {
       margin: 0;
       font-size: 8px;
       padding: 4px;
+      margin-right: 10px;
       margin-bottom: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
     }
 }
 
