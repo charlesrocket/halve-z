@@ -47,19 +47,19 @@
   <link rel="manifest" href="/{{ config.extra.manifest }}">
   {% endif %}
   <title>
-  {% block title %}
-    {% if page.title %}
+  {%- block title -%}
+    {%- if page.title -%}
       {{ page.title }} • {{ config.title }}
-    {% elif section.title %}
+    {%- elif section.title -%}
       {{ section.title }} • {{ config.title }}
-    {% elif term.name %}
+    {%- elif term.name -%}
       {{ '#' ~ term.name }} • {{ config.title }}
-    {% elif taxonomy.name %}
+    {%- elif taxonomy.name -%}
       {{ taxonomy.name | title }} • {{ config.title }}
-    {% else %}
+    {%- else -%}
       {{ config.title }}
-    {%- endif %}
-  {% endblock title %}
+    {%- endif -%}
+  {%- endblock title -%}
   </title>
   <meta name="author" content="{{ config.author }}">
   {% if page.extra.subtitle %}
