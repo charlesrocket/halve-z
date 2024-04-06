@@ -64,7 +64,7 @@ onfetch = (event) => {
 
 onmessage = (event) => {
   if (event.data.type === "PRECACHE") {
-    const data = event.data.payload;
+    const data = [...new Set(event.data.payload)];
     console.log("Service worker started precache", data);
     event.waitUntil(
       (async () => {
