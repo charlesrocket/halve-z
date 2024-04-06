@@ -1,13 +1,4 @@
 @font-face {
-  font-family: 'LiberationMonoRegular';
-  src: url('../webfonts/liberation-mono-webfont.eot');
-  src: url('../webfonts/liberation-mono-webfont.eot?#iefix') format('embedded-opentype'), url('../webfonts/liberation-mono-webfont.woff') format('woff'), url('../webfonts/liberation-mono-webfont.ttf') format('truetype'), url('../webfonts/liberation-mono-webfont.svg#LiberationMonoRegular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'Press Start 2P';
   font-style: normal;
   font-weight: 400;
@@ -57,5 +48,37 @@
   src: url('../webfonts/Pixeboy.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hack';
+  src: url('../webfonts/hack-regular.woff2?sha=3114f1256') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hack';
+  src: url('../webfonts/hack-bold.woff2?sha=3114f1256') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hack';
+  src: url('../webfonts/hack-italic.woff2?sha=3114f1256') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hack';
+  src: url('../webfonts/hack-bolditalic.woff2?sha=3114f1256') format('woff2');
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }
