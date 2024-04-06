@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.1] - 2024-04-06
+
+### Bug Fixes
+
+- Move precache request
+- Cache site icons
+- Adjust `inner-post`-`li` size
+- Fix project tag spacing
+- Filter project variables
+- Remove read time stray tag
+- Remove trailing slashes
+- Correct line break tag
+- Fix atom link
+- Remove tag list whitespaces
+- Minimy style strings
+- Remove `title` whitespaces
+- Improve whitespace control
+- Adjust project margins
+- Switch to `unstyle.css`
+- Update style rulesets
+- Adjust pager padding
+- Drop `btn` borders
+- Update code font
+- Add asset checksums
+
+### Documentation
+
+- Add logo
+
+### Miscellaneous tasks
+
+- Disable demo logo
+- Minify HTML
+- Update cache list
+
+### Refactor
+
+- Add `postMessage()` type
+- Move `unstyle`
+
 ## [0.9.0] - 2024-04-01
 
 ### Bug Fixes
