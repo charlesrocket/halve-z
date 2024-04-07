@@ -29,6 +29,14 @@ Add theme submodule using `git`:
 git submodule add https://github.com/charlesrocket/halve-z themes/halve-z
 ```
 
+### Update
+
+Use the following command to update theme to the latest version:
+
+```
+git submodule update --recursive --remote
+```
+
 ## Configuration
 
 1. Copy theme's [config.toml](https://github.com/charlesrocket/halve-z/blob/trunk/config.toml) into your project's root directory. Set variables as required and add `theme = "halve-z"` at the **top** of the config file.
