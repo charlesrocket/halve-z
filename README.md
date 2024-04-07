@@ -29,7 +29,7 @@ Add theme submodule using `git`:
 git submodule add https://github.com/charlesrocket/halve-z themes/halve-z
 ```
 
-### Update
+### Updates
 
 Use the following command to update theme to the latest version:
 
