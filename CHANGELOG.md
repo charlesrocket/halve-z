@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.2] - 2024-04-08
+
+### Bug Fixes
+
+- Fix precache string whitespaces
+- Filter duplicated cache links
+- Update cactus box elements
+
+### Documentation
+
+- Describe updates
+- Fix update header
+- Update PWA features
+
 ## [0.9.1] - 2024-04-06
 
 ### Bug Fixes
