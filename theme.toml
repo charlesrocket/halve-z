@@ -18,6 +18,7 @@ title = "Halve-Z"
 subtitle = "Zola theme"
 glitch = false
 logo = { enabled = true, height = "100", width = "100" }
+footer = true
 
 [extra.images]
 home = ""

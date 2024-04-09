@@ -21,3 +21,6 @@
         </div>
       </div>
   {% endblock right %}
+  {% block footer %}
+  {% if config.extra.home.footer == true %}{{ super() }}{% endif %}
+  {% endblock footer %}
