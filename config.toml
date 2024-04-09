@@ -78,8 +78,8 @@ mastodon = "user_name"
 twitter = "user_name"
 facebook = "user_name"
 github = "user_name"
-hackthebox = "int"
-stackoverflow = "int/user_name"
+hackthebox = "12345"
+stackoverflow = "12345/user_name"
 linkedin = "user_name"
 instagram = "user_name"
 lastfm = "user_name"
@@ -91,7 +91,7 @@ xmpp = "user_name@user_domain"
 hackernews = "user_name"
 
 [extra.comments]
-system = ""
+system = "none"
 
 [extra.comments.cactus]
 site = "site_name"
