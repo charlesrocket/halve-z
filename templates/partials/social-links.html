@@ -11,6 +11,9 @@
          {% if config.extra.social.facebook %}
             <li><a class="social-btn" href="https://facebook.com/{{ config.extra.social.facebook }}" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook"></i></a></li>
          {% endif %}
+         {% if config.extra.social.hackthebox %}
+            <li><a class="social-btn" href="https://app.hackthebox.com/profile/{{ config.extra.social.hackthebox }}" aria-label="Hack The Box" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-cube"></i></a></li>
+         {% endif %}
          {% if config.extra.social.twitch %}
             <li><a class="social-btn" href="https://www.twitch.tv/{{ config.extra.social.twitch }}" aria-label="Twitch" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-twitch"></i></a></li>
          {% endif %}
@@ -28,14 +31,14 @@
          {% if config.extra.social.github %}
             <li><a class="social-btn" href="https://github.com/{{ config.extra.social.github }}" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i></a></li>
          {% endif %}
+         {% if config.extra.social.keybase %}
+            <li><a class="social-btn" href="https://keybase.io/{{ config.extra.social.keybase }}" aria-label="Keybase" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-key"></i></a></li>
+         {% endif %}
          {% if config.extra.social.stackoverflow %}
             <li><a class="social-btn" href="https://stackoverflow.com/users/{{ config.extra.social.stackoverflow }}" aria-label="Stack Overflow" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-stack-overflow"></i></a></li>
          {% endif %}
          {% if config.extra.social.codepen %}
             <li><a class="social-btn" href="https://codepen.io/{{ config.extra.social.codepen }}" aria-label="CodePen" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-codepen"></i></a></li>
-         {% endif %}
-         {% if config.extra.social.keybase %}
-            <li><a class="social-btn" href="https://keybase.io/{{ config.extra.social.keybase }}" aria-label="Keybase" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-key"></i></a></li>
          {% endif %}
          {% if config.extra.social.lastfm %}
             <li><a class="social-btn" href="https://last.fm/user/{{ config.extra.social.lastfm }}" aria-label="Last.fm" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-lastfm"></i></a></li>
@@ -66,9 +69,6 @@
          {% endif %}
          {% if config.extra.social.flickr %}
             <li><a class="social-btn" href="https://www.flickr.com/{{ config.extra.social.flickr }}" aria-label="Flickr" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-flickr"></i></a></li>
-         {% endif %}
-         {% if config.extra.social.behance %}
-            <li><a class="social-btn" href="https://www.behance.net/{{ config.extra.social.behance }}" aria-label="Behance" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-behance"></i></a></li>
          {% endif %}
          {% if config.extra.social.xmpp %}
             <li><a class="social-btn" href="xmpp:{{ config.extra.social.xmpp }}" aria-label="XMPP" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
