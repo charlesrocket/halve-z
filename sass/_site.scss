@@ -653,6 +653,9 @@ a.zola-anchor {
       font-size: 22px;
       padding-top: 20px;
       padding-left: 20px;
+      #project-archived {
+        text-decoration: line-through;
+      }
     }
     .project-lang {
       font-size: 16px;

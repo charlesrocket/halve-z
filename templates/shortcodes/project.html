@@ -5,13 +5,14 @@
   {%- if gh_token is matching("^notoken") %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json") %}{% else %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json", headers=["accept=application/vnd.github.v4.idl", "authorization=Bearer " ~ gh_token]) %}{% endif %}
 {%- endif %}
 {%- else %}
-  {%- set gh_repo_data = load_data(literal='{"language": "APL", "html_url": "none", "name": "foobar", "description": "Test description test description test description", "license": {"spdx_id": "FOO"}, "topics": ["foo", "bar", "test"]}', format="json") %}
+  {%- set gh_repo_data = load_data(literal='{"archived": false, "language": "APL", "html_url": "none", "name": "foobar", "description": "Test description test description test description", "license": {"spdx_id": "FOO"}, "topics": ["foo", "bar", "test"]}', format="json") %}
 {%- endif %}
+{%- set gh_archive = gh_repo_data["archived"] | default(value="") %}
 {%- set gh_language = gh_repo_data["language"] | default(value="") %}
 {%- set gh_license = gh_repo_data["license"]["spdx_id"] | replace(from="NOASSERTION", to="") | default(value="") %}
 {%- set gh_description = gh_repo_data["description"] | default(value="") | regex_replace(pattern='\p{Emoji}', rep='') %}
 <div class="projects frame-dim">
-  <h2><a href="{{ gh_repo_data['html_url'] | safe }}" target="_blank">{{ gh_repo_data["name"] | safe }}</a></h2>
+  <h2><a {% if gh_archive == true %}id="project-archived" {% endif %}href="{{ gh_repo_data['html_url'] | safe }}" target="_blank">{{ gh_repo_data["name"] | safe }}</a></h2>
   <ul class="project-list">
     <li><b><span class="project-lang">{{ gh_language | safe }}</span></b> <span class="project-lang {{ gh_language | replace(from="#", to="-Sharp") | replace(from="++", to="pp") | replace(from="-", to="") | replace(from=" ", to="") | safe }}"><b>&#42;</b></span></li>
     <li><span class="project-license">{{ gh_license | safe }}</span></li>
