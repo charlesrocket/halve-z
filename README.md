@@ -14,6 +14,7 @@ This is a _retro_ port of [Halve](https://github.com/TaylanTatli/Halve) (**Jekyl
 * PWA (dynamic cache/offline mode)
 * auto color schemes
 * ToC
+* pagination
 * media shortcodes
 * SEO
 * CSP
