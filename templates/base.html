@@ -51,6 +51,22 @@
       <div class="content">
         {% block date %}<div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>{% endblock date %}
         {% block content %}{% endblock content %}
+      {% block paginator %}
+      {% if paginator.previous or paginator.next %}
+      <nav class="pagination">
+        {% if paginator.previous %}
+        <a class="pagination_pager" href="{{ paginator.previous }}">&lt;&lt;&lt;</a>
+        {% else %}
+        <a href="#" class="pagination_pager disabled">&lt;&lt;&lt;</a>
+        {% endif %}
+        {% if paginator.next %}
+        <a class="pagination_pager" href="{{ paginator.next }}">&gt;&gt;&gt;</a>
+        {% else %}
+        <a href="#" class="pagination_pager disabled" >&gt;&gt;&gt;</a>
+        {% endif %}
+      </nav>
+      {% endif %}
+      {% endblock paginator %}
       </div>
   {% endblock right %}
   {% block footer %}

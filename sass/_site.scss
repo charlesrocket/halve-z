@@ -699,6 +699,100 @@ a.zola-anchor {
     }
 }
 
+.entry-meta {
+  font-size: .75rem;
+  text-transform: uppercase;
+  padding-left: 0;
+  display: none;
+  padding-bottom: 15px;
+  @media screen and (min-width: $small) {
+    display: block;
+  }
+  a,
+  p {
+    color: lighten($black, 35);
+  }
+  li {
+    list-style-type: none;
+    display: inline;
+  }
+  .tag,
+  .category {
+    display: inline-block;
+    background-color: darken($white, 3%);
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    margin: 2px 5px;
+    font-size: 0.7rem;
+    border: none !important;
+    span {
+      float: left;
+      padding: 2px 6px;
+    }
+    .count {
+      background-color: darken($white, 8%);
+    }
+    &:hover {
+      background-color: darken($white, 8%);
+    }
+  }
+}
+.entry-info {
+  color: lighten($black, 50) !important;
+}
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1em;
+  &_pager {
+    display: inline-block;
+    padding: 0.32em 0.65em;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: darken($white, 5%);
+    color: darken($white, 35%) !important;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &:first-child {
+      border-radius: 0;
+    }
+    &:last-child {
+      border-radius: 0;
+    }
+    &:hover {
+      background-color: $green;
+      color: $white !important;
+    }
+    &.disabled {
+      background-color: darken($white, 3%);
+      color:darken($white, 15%) !important;
+      &:hover {
+        background-color: darken($white, 3%);
+        color:darken($white, 15%) !important;
+      }
+    }
+  }
+}
+
+.footer-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  line-height: 1.1rem;
+  bottom: 0;
+}
+
 @media screen and (max-height: 605px) {
   .post-title-section .section-title {
     font-size: 45px;
@@ -756,7 +850,7 @@ a.zola-anchor {
   .section-title {
     font-size: 42px;
   }
-  .content {
+  .content, .pagination {
     padding: 20px
   }
   .block-right {
@@ -772,101 +866,6 @@ a.zola-anchor {
   table {
     font-size: 14px;
   }
-}
-
-.entry-meta {
-  font-size: .75rem;
-  text-transform: uppercase;
-  padding-left: 0;
-  display: none;
-  padding-bottom: 15px;
-  @media screen and (min-width: $small) {
-    display: block;
-  }
-  a,
-  p {
-    color: lighten($black, 35);
-  }
-  li {
-    list-style-type: none;
-    display: inline;
-  }
-  .tag,
-  .category {
-    display: inline-block;
-    background-color: darken($white, 3%);
-    border-radius: 0;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-    margin: 2px 5px;
-    font-size: 0.7rem;
-    border: none !important;
-    span {
-      float: left;
-      padding: 2px 6px;
-    }
-    .count {
-      background-color: darken($white, 8%);
-    }
-    &:hover {
-      background-color: darken($white, 8%);
-    }
-  }
-}
-.entry-info {
-  color: lighten($black, 50) !important;
-}
-.pagination {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 1em;
-  &_pager {
-    display: inline-block;
-    padding: 0.32em 0.65em;
-    font-size: 16px;
-    font-weight: 400;
-    background-color: darken($white, 5%);
-    color: darken($white, 35%) !important;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    transition: all 0.2s linear;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    &:first-child {
-      border-radius: 0;
-    }
-    &:last-child {
-      border-radius: 0;
-    }
-    &:hover {
-      background-color: $green;
-      color: $white !important;
-    }
-    &.disabled {
-      background-color: darken($white, 3%);
-      color:darken($white, 15%) !important;
-      &:hover {
-        background-color: darken($white, 3%);
-        color:darken($white, 15%) !important;
-      }
-    }
-  }
-}
-
-.footer-content {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  line-height: 1.1rem;
-  bottom: 0;
 }
 
 @media (prefers-color-scheme: dark) {

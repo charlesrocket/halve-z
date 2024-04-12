@@ -15,4 +15,7 @@
         </ul>
       {%- endfor %}
     </div>
+    {% block paginator %}
+      {{ super() }}
+    {% endblock paginator %}
 {% endblock right %}

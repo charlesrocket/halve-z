@@ -2,6 +2,7 @@
 
       {% block comments %}
       {% if not page.extra.disable_comments %}
+      <br>
         {% if config.extra.comments.system == "cactus" %}
           {%- include "partials/cactus.html" %}
         {% elif config.extra.comments.system == "giscus" %}

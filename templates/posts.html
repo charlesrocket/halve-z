@@ -4,7 +4,7 @@
     <div class="content">
       {% block date %}{{ super() }}{% endblock date%}
       <ul class="posts-list">
-        {% for page in section.pages %}
+        {% for page in paginator.pages %}
           <li>
             <h2>
               <a href="{{ page.permalink | safe }}" class="post-title"><span>{{ page.title | safe }}</span></a>
@@ -26,5 +26,8 @@
           </li>
         {% endfor %}
       </ul>
+    {% block paginator %}
+      {{ super() }}
+    {% endblock paginator %}
     </div>
 {% endblock right %}
