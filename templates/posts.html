@@ -4,7 +4,12 @@
     <div class="content">
       {% block date %}{{ super() }}{% endblock date%}
       <ul class="posts-list">
-        {% for page in paginator.pages %}
+        {% if section.pages %}
+          {% set posts = section.pages %}
+        {% elif paginator.pages %}
+          {% set posts = paginator.pages %}
+        {% endif %}
+        {% for page in posts %}
           <li>
             <h2>
               <a href="{{ page.permalink | safe }}" class="post-title"><span>{{ page.title | safe }}</span></a>
