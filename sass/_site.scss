@@ -426,6 +426,7 @@ a.zola-anchor {
       margin-bottom: 18px;
     }
     p {
+      margin-top: 15px;
       font-size: 16px;
       color: darken($white, 40);
     }
@@ -435,29 +436,26 @@ a.zola-anchor {
       width: 100%;
       display: block;
       font-size: 14px;
-      padding-top: 15px;
-      padding-bottom: 15px;
       text-transform: uppercase;
+      margin-bottom: 10px;
     }
     .post-title {
+      margin-bottom: 20px;
       display: inline-block;
       max-width: 100%;
       &:hover span {
         border-bottom: 1px dotted $green;
       }
     }
+    .word-count,
+    .read-time {
+      color: darken($white, 50);
+      font-size: 12px;
+    }
   }
   .tags li > a {
     color: lighten($black, 28%);
   }
-}
-
-.post-info {
-  padding-bottom: 15px;
-  width: 100%;
-  font-size: 12px;
-  color: darken($white, 50);
-  float: left;
 }
 
 .tags {
@@ -989,9 +987,6 @@ a.zola-anchor {
     .tags li > a {
       color: darken($white, 28%);
     }
-  }
-  .post-info {
-    color: darken($white, 50);
   }
   .tags:is(.project-tags) > li,
   .tags:is(.title-tags) > li {

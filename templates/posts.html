@@ -15,12 +15,10 @@
               <a href="{{ page.permalink | safe }}" class="post-title"><span>{{ page.title | safe }}</span></a>
               <span class="date">{{ page.date | date(format="%d %b %Y") }}</span>
             </h2>
-            <div class="post-info">
               {% if config.extra.read_time == true %}
               <span class="word-count">{{ page.word_count ~ "w"}}</span>&nbsp;<span class="read-time">{{ page.reading_time ~ "m"}}</span>
               {% endif %}
-            </div>
-            <p>{% if page.extra.subtitle %}{{ page.extra.subtitle | striptags | truncate(length=150) | safe }}{% endif %}</p>
+            {% if page.extra.subtitle %}<p>{{ page.extra.subtitle | striptags | truncate(length=150) | safe }}</p>{% endif %}
             {% if page.taxonomies["tags"] %}
             <ul class="tags title-tags"
               {%- for tag in page.taxonomies["tags"] %}
