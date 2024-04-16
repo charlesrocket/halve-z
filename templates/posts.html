@@ -21,6 +21,7 @@
               {% endif %}
             </div>
             <p>{% if page.extra.subtitle %}{{ page.extra.subtitle | striptags | truncate(length=150) | safe }}{% endif %}</p>
+            {% if page.taxonomies["tags"] %}
             <ul class="tags title-tags"
               {%- for tag in page.taxonomies["tags"] %}
               ><li><a class="title-tag" href="{{ config.base_url | safe }}/tags/{{ tag | slugify }}">{{ tag }}</a></li
@@ -28,6 +29,7 @@
                 {%- endif -%}
               {% endfor %}
             ></ul>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>
