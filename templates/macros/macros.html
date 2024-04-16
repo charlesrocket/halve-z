@@ -5,3 +5,16 @@
 {%- macro image_style(url) -%}
 #posts.inner-post-page .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{{ url | safe }}") no-repeat;background-size:cover}
 {%- endmacro image_style -%}
+
+{%- macro song(artist, track) -%}
+{%- set api_key = get_env(name="LASTFM_KEY", default="nokey") %}
+{%- if api_key != "nokey" %}
+  {% set data_url = "https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=" ~ api_key ~ "&artist=" ~ artist ~ "&track=" ~ track ~ "&format=json&autocorrect=1" %}
+  {% set track_info = load_data(url=data_url, format="json", headers=['User-Agent=config.title ~ " site"'], required=true) %}
+  {% set artist = "<a href=" ~ track_info.track.artist.url ~ ">" ~ track_info["track"]["artist"]["name"] ~ "</a>" %}
+  {% set track = "<a href=" ~ track_info.track.url ~ ">" ~ track_info["track"]["name"] ~ "</a>" %}
+{% endif %}
+<div class="post-song">
+  <p>{{ artist | safe }} — {{ track | safe }}</p>
+</div>
+{%- endmacro song -%}

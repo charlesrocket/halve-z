@@ -541,7 +541,22 @@ a.zola-anchor {
 .post-ext-info {
   padding: 6px 10px;
   margin-bottom: 20px;
+  margin-right: 20px;
   display: inline-block;
+  border: 2px dashed;
+  border-color: darken($white, 42);
+  > p {
+    margin-bottom: unset;
+  }
+}
+
+.post-song {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  padding: 6px 10px;
+  display: inline-flex;
   border: 2px dashed;
   border-color: darken($white, 42);
   > p {
@@ -931,6 +946,9 @@ a.zola-anchor {
     p {
       color: $overlay-color-dark;
     }
+  }
+  .post-song {
+    border-color: darken($white, 30);
   }
   .post-ext-info {
     border-color: darken($white, 30);
