@@ -138,13 +138,6 @@ nav.nav-bar ul li ul li {
   width: 100%;
 }
 
-#toc {
-  font-size: 15px;
-  > a {
-    color: $shamrock-green;
-  }
-}
-
 a.zola-anchor {
   color: $shamrock-green;
   margin-right: 6px;
@@ -504,7 +497,7 @@ a.zola-anchor {
     margin-bottom: 10px;
     display: block;
   }
-  a:not(.btn):not(.pagination_pager):not(.zola-anchor):not(.toc) {
+  a:not(.btn):not(.pagination_pager):not(.zola-anchor) {
     color: $shamrock-green;
     border-bottom: 1px dotted $green;
   }
@@ -529,7 +522,7 @@ a.zola-anchor {
       position: relative;
       line-height: 1.4em;
       margin-bottom: 15px;
-      &:first-child:not(#toc):not(#info-tag) {
+      &:first-child:not(#info-tag) {
         margin-top: 15px;
       }
     }
@@ -796,6 +789,10 @@ a.zola-anchor {
   }
 }
 
+.toc-anchor {
+  font-size: 15px;
+}
+
 .footer-content {
   position: relative;
   display: flex;
@@ -932,7 +929,7 @@ a.zola-anchor {
     }
   }
   .block-right {
-    a:not(.zola-anchor):not(.toc):not(.title-tag):not(.btn) {
+    a:not(.zola-anchor):not(.title-tag):not(.btn) {
       color: $overlay-color-dark;
     }
   }
@@ -964,7 +961,7 @@ a.zola-anchor {
     small {
       color: lighten($black, 40);
     }
-    a:not(.btn):not(.pagination_pager):not(.zola-anchor):not(.toc) {
+    a:not(.btn):not(.pagination_pager):not(.zola-anchor) {
       color: $green;
       border-bottom: 1px dotted $shamrock-green;
     }
@@ -994,8 +991,7 @@ a.zola-anchor {
       color: $black;
     }
   }
-  a.zola-anchor,
-  #toc > a {
+  a.zola-anchor {
     color: $green;
   }
   .entry-info {

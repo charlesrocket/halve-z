@@ -37,8 +37,8 @@
       <div>
         <ul>
           {% for h2 in page.toc %}
-          <li id="toc">
-            <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+          <li>
+            <a class="toc-anchor" href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
           </li>
           {% endfor %}
         </ul>
