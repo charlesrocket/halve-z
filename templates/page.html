@@ -49,14 +49,14 @@
       {% if page.lower or page.higher %}
         <nav class="pagination">
         {% if page.higher %}
-          <a class="pagination_pager" href="{{ page.higher.permalink }}">&lt;&lt;&lt;</a>
+          <a class="pagination_pager" href="{{ page.higher.permalink }}">prev</a>
         {% else %}
-          <a href="#" class="pagination_pager disabled">&lt;&lt;&lt;</a>
+          <a href="#" class="pagination_pager disabled">prev</a>
         {% endif %}
         {% if page.lower %}
-          <a class="pagination_pager" href="{{ page.lower.permalink }}">&gt;&gt;&gt;</a>
+          <a class="pagination_pager" href="{{ page.lower.permalink }}">next</a>
         {% else %}
-          <a href="#" class="pagination_pager disabled" >&gt;&gt;&gt;</a>
+          <a href="#" class="pagination_pager disabled" >next</a>
         {% endif %}
         </nav>
       {% endif %}

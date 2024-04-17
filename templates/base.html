@@ -55,14 +55,14 @@
       {% if paginator.previous or paginator.next %}
       <nav class="pagination">
         {% if paginator.previous %}
-        <a class="pagination_pager" href="{{ paginator.previous }}">&lt;&lt;&lt;</a>
+        <a class="pagination_pager" href="{{ paginator.previous }}">prev</a>
         {% else %}
-        <a href="#" class="pagination_pager disabled">&lt;&lt;&lt;</a>
+        <a href="#" class="pagination_pager disabled">prev</a>
         {% endif %}
         {% if paginator.next %}
-        <a class="pagination_pager" href="{{ paginator.next }}">&gt;&gt;&gt;</a>
+        <a class="pagination_pager" href="{{ paginator.next }}">next</a>
         {% else %}
-        <a href="#" class="pagination_pager disabled" >&gt;&gt;&gt;</a>
+        <a href="#" class="pagination_pager disabled" >next</a>
         {% endif %}
       </nav>
       {% endif %}
