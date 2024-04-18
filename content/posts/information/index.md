@@ -35,6 +35,7 @@ categories = ["general"]
 tags = ["tag"]
 [extra]
 subtitle = "Example subtitle"
+disable_comments = true
 image = "https://example.com/image.png"
 csp_img = ["example.com/", "foo.org/example"]
 song = ["Michael Pitt", "Death to Birth"]
