@@ -20,6 +20,7 @@ Available (`extra`) options:
 * `image`
 * `csp_img`
 * `disable_comments`
+* `disable_toc`
 * `song`
 
 <p class="notice_info"><code>h1</code> headers are reserved for page title (left/top block) and subtitle (optional, right/bottom block).</p>
