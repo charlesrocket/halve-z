@@ -33,7 +33,7 @@
         {{ macros::song(artist=page.extra.song[0], track=page.extra.song[1]) }}
       {% endif %}
       {% endblock song %}
-      {% if config.extra.toc == true %}{% if page.toc %}{% if page.toc | length >= 2 %}
+      {% if config.extra.toc == true and not page.extra.disable_toc %}{% if page.toc %}{% if page.toc | length >= 2 %}
       <div>
         <ul>
           {% for h2 in page.toc %}
