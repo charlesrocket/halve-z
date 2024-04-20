@@ -247,6 +247,7 @@ a.zola-anchor {
       transform: translatex(-50%);
     }
   }
+
   p {
     font-size: 21px;
     line-height: 30px;
@@ -254,6 +255,7 @@ a.zola-anchor {
     padding-top: 25px;
 
   }
+
   a {
     text-decoration-line: underline;
     text-decoration-style: dashed;
@@ -262,13 +264,14 @@ a.zola-anchor {
       text-decoration-color: $green;
     }
   }
+
   ul {
     text-decoration: none;
     filter: drop-shadow(0 1px 7px);
     font-size: 0.8em;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
     li {
       flex: 1 1 1;
@@ -281,7 +284,7 @@ a.zola-anchor {
       -moz-osx-font-smoothing: grayscale;
       position: relative;
       transition-property: color;
-      transition-duration: 0.2s;
+      transition-duration: 0.1s;
       list-style: none;
       &:before {
         content: "";
@@ -295,9 +298,10 @@ a.zola-anchor {
         transform: scaleY(0);
         transform-origin: 50% 100%;
         transition-property: transform;
-        transition-duration: 0.2s;
+        transition-duration: 0.1s;
         transition-timing-function: ease-out;
       }
+
       &:hover,
       &:focus,
       &:focus-within {
@@ -305,6 +309,7 @@ a.zola-anchor {
           transform: scaleY(1);
         }
       }
+
       a {
         display: inline-block;
         text-decoration: none;
