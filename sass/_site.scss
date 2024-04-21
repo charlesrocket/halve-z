@@ -268,13 +268,13 @@ a.zola-anchor {
   ul {
     text-decoration: none;
     filter: drop-shadow(0 1px 7px);
-    font-size: 0.8em;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 0;
     justify-content: center;
+    max-width: 380px;
+    margin: 0 auto;
     li {
-      flex: 1 1 1;
       text-align: center;
       vertical-align: middle;
       transform: translateZ(0);
@@ -313,7 +313,6 @@ a.zola-anchor {
       a {
         display: inline-block;
         text-decoration: none;
-        font-size: 1.3em;
         padding: 0.3em 0.35em;
         color: $white;
       }
