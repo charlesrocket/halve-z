@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.10.0] - 2024-04-22
+
+### Bug Fixes
+
+- Handle disabled pagination
+- Improve `video` whitespace control
+- Improve `image` whitespace control
+- Allow untagged posts
+- Update `posts-list` layout
+- Pagination padding
+- `post-song` font
+- `post-ext-info` font
+- Drop `#toc`
+- Change pager buttons
+- Fix social icons width
+- Fix posts index pager
+- Adjust social links spacing/transition
+- Adjust social links font size
+- Always keep two rows of social icons
+- Set social icons block width
+- Three rows of social icons on small screens
+- Use square social icons block on small screens
+- Fix mastodon link
+
+### Documentation
+
+- Add pagination
+- Add `disable_comments`
+- Add `disable_toc`
+
+### Features
+
+- Add hackthebox link
+- Add `footer` option
+- Indicate archived repositories
+- Add `paginator` block
+- Add `song` variable
+- Add `disable_toc` option
+- Add gitlab icon
+- Add bitbucket icon
+
+### Miscellaneous tasks
+
+- Update placeholders
+- Update `extra.social`
+
 ## [0.9.2] - 2024-04-08
 
 ### Bug Fixes
