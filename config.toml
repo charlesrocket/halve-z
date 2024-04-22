@@ -74,7 +74,7 @@ stack = true
 
 [extra.social]
 email = "user_email"
-mastodon = "user_name"
+mastodon = "server/@user_name"
 twitter = "user_name"
 facebook = "user_name"
 github = "user_name"
