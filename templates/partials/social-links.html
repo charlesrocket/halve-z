@@ -34,6 +34,9 @@
          {% if config.extra.social.gitlab %}
             <li><a class="social-btn" href="https://gitlab.com/{{ config.extra.social.gitlab }}" aria-label="GitLab" target="_blank" rel="noopener noreferrer"><i class="fa fa-gitlab fa-fw"></i></a></li>
          {% endif %}
+         {% if config.extra.social.bitbucket %}
+            <li><a class="social-btn" href="https://bitbucket.org/{{ config.extra.social.bitbucket }}" aria-label="Bitbucket" target="_blank" rel="noopener noreferrer"><i class="fa fa-bitbucket fa-fw"></i></a></li>
+         {% endif %}
          {% if config.extra.social.keybase %}
             <li><a class="social-btn" href="https://keybase.io/{{ config.extra.social.keybase }}" aria-label="Keybase" target="_blank" rel="noopener noreferrer"><i class="fa fa-key fa-fw"></i></a></li>
          {% endif %}
