@@ -31,6 +31,9 @@
          {% if config.extra.social.github %}
             <li><a class="social-btn" href="https://github.com/{{ config.extra.social.github }}" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-github fa-fw"></i></a></li>
          {% endif %}
+         {% if config.extra.social.gitlab %}
+            <li><a class="social-btn" href="https://gitlab.com/{{ config.extra.social.gitlab }}" aria-label="GitLab" target="_blank" rel="noopener noreferrer"><i class="fa fa-gitlab fa-fw"></i></a></li>
+         {% endif %}
          {% if config.extra.social.keybase %}
             <li><a class="social-btn" href="https://keybase.io/{{ config.extra.social.keybase }}" aria-label="Keybase" target="_blank" rel="noopener noreferrer"><i class="fa fa-key fa-fw"></i></a></li>
          {% endif %}
