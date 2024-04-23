@@ -29,6 +29,9 @@
          {% if config.extra.social.tumblr %}
             <li><a class="social-btn" href="https://{{ config.extra.social.tumblr }}.tumblr.com" aria-label="Tumblr" target="_blank" rel="noopener noreferrer"><i class="nf nf-fa-tumblr"></i></a></li>
          {% endif %}
+         {% if config.extra.social.codeberg %}
+            <li><a class="social-btn" href="https://codeberg.org/{{ config.extra.social.codeberg }}" aria-label="Codeberg" target="_blank" rel="noopener noreferrer"><i class="nf nf-linux-codeberg"></i></a></li>
+         {% endif %}
          {% if config.extra.social.github %}
             <li><a class="social-btn" href="https://github.com/{{ config.extra.social.github }}" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="nf nf-fa-github"></i></a></li>
          {% endif %}
