@@ -503,7 +503,9 @@ a.zola-anchor {
   }
   a:not(.btn):not(.pagination_pager):not(.zola-anchor) {
     color: $shamrock-green;
-    border-bottom: 1px dotted $green;
+    &:not(.toc) {
+      border-bottom: 1px dotted $green;
+    }
   }
   img {
     width: auto;
@@ -973,7 +975,9 @@ a.zola-anchor {
     }
     a:not(.btn):not(.pagination_pager):not(.zola-anchor) {
       color: $green;
-      border-bottom: 1px dotted $shamrock-green;
+      &:not(.toc) {
+        border-bottom: 1px dotted $shamrock-green;
+      }
     }
   }
   .page-image {
