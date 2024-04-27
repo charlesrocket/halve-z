@@ -27,8 +27,8 @@ index_format = "elasticlunr_json"
 highlight_code = true
 highlight_theme = "css"
 highlight_themes_css = [
-    { theme = "base16-ocean-dark", filename = "syntax-theme-dark.css" },
-    { theme = "base16-ocean-light", filename = "syntax-theme-light.css" },
+    { theme = "OneHalfDark", filename = "syntax-theme-dark.css" },
+    { theme = "OneHalfLight", filename = "syntax-theme-light.css" },
 ]
 render_emoji = false
 external_links_target_blank = true
