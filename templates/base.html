@@ -11,7 +11,7 @@
   {% block body %}<body id="posts">{% endblock body %}
     <div class="block-left">
       <div class="content">
-        {% if active_path != "/" %}<a href="{{ config.base_url | safe }}" class="logo"><img src="{{ get_url(path=config.extra.logo, cachebust=true) }}" alt="logo" width="64" height="64"></a>{% endif %}
+        {% if active_path != "/" %}<a href="/" class="logo"><img src="{{ "/" ~ config.extra.logo }}" alt="logo" width="64" height="64"></a>{% endif %}
   {% block left %}
         <h1 class="section-title">{%- block page_title %}{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% elif term.name %}{{ '#' ~ term.name }}{% elif taxonomy.name %}{{ taxonomy.name | title }}{% endif %}{% endblock page_title %}</h1>
   {% endblock left %}
@@ -19,8 +19,8 @@
     </div>
     <div class="block-right">
       {% if config.build_search_index == true %}
-      <script type="text/javascript" src="{{ get_url(path="/elasticlunr.min.js", cachebust=true) }}" async></script>
-      <script type="text/javascript" src="{{ get_url(path="/search.js", cachebust=true) }}" defer></script>
+      <script type="text/javascript" src="/elasticlunr.min.js" async></script>
+      <script type="text/javascript" src="/search.js" defer></script>
       <nav class="search-container" id="search-nav">
         <input id="search" type="search" placeholder="Search" aria-label="Search">
         <div class="search-results">
