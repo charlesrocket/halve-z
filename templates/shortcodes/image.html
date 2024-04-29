@@ -1,12 +1,11 @@
 {%- if src is matching("^http[s]?://") %}
   {%- set image = src %}
 {%- elif src is starting_with("/") %}
-  {%- set image = get_url(path=src, cachebust=true) %}
+  {%- set image = src %}
   {%- set meta = get_image_metadata(path=src) %}
 {%- else %}
-  {%- set file = page.path ~ src %}
-  {%- set image = get_url(path=file, cachebust=true) %}
-  {%- set meta = get_image_metadata(path=file) %}
+  {%- set image = page.path ~ src %}
+  {%- set meta = get_image_metadata(path=image) %}
 {%- endif -%}
 <figure>
   {%- if link %}
