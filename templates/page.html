@@ -34,7 +34,7 @@
       {% endif %}
       {% endblock song %}
       {% if config.extra.toc == true and not page.extra.disable_toc %}{% if page.toc %}{% if page.toc | length >= 2 %}
-      <div>
+      <div class="toc-block">
         <ul>
           {% for h2 in page.toc %}
           <li>
