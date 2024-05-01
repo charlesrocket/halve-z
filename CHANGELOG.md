@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.11.0] - 2024-05-01
+
+### Bug Fixes
+
+- Update htb icon
+- Cache post list paginator
+- Check `posts.pages`
+- Drop ToC underlines
+- Replace syntax highlight theme
+- Drop absolute urls
+- Cache search index
+- Use relative media paths
+- Set `toc-block` margin
+
+### Features
+
+- Add codeberg icon
+
+### Miscellaneous tasks
+
+- Bump cache to v5
+- Paginate post list
+
+### Refactor
+
+- Switch to `nerd-fonts`
+- Rename `page_count`
+- Move style files to cache list
+
 ## [0.10.0] - 2024-04-22
 
 ### Bug Fixes
