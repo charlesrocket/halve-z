@@ -10,6 +10,8 @@ subtitle = "Build a Progressive Web App"
 
 ## Setup
 
+<p class="notice_warning">PWA cannot cache external assets.</p>
+
 To deploy the site as a **PWA**, set the filename in `config.extra.manifest` and configure the manifest in the project's `static` directory:
 
 ```json
