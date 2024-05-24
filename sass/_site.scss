@@ -826,6 +826,13 @@ a.zola-anchor {
 }
 
 @media screen and (max-width: 960px) {
+  #homepage {
+    .block-left,
+    .block-right {
+      float: none;
+      width: 100%;
+    }
+  }
   .block-left,
   .block-right {
     float: none;
