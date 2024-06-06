@@ -35,6 +35,7 @@ links = [
 [extra.footer]
 enabled = true
 copyright = true
+hash = false
 stack = true
 
 [extra.social]

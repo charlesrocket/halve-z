@@ -70,6 +70,7 @@ links = [
 [extra.footer]
 enabled = true
 copyright = true
+hash = true
 stack = true
 
 [extra.social]

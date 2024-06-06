@@ -1,7 +1,20 @@
 {%- import "macros/macros.html" as macros %}
 {% set categories = get_taxonomy(kind="categories") %}
-{% set tags = get_taxonomy(kind="tags") %}
-{% set active_path = current_path | default(value="none") %}
+{%- set tags = get_taxonomy(kind="tags") %}
+{%- set active_path = current_path | default(value="none") %}
+{%- set hash = "" %}
+
+{%- if config.extra.footer.hash == true%}
+  {%- set head_branch = load_data(path=".git/HEAD") | replace(from="ref: ", to="") %}
+  {#- load_data(path=head_branch_path)v is not working #}
+  {%- if head_branch is containing("refs/heads/trunk") %}
+    {%- set_global hash = load_data(path=".git/refs/heads/trunk") %}
+  {%- elif head_branch is containing("refs/heads/main") %}
+    {%- set_global hash = load_data(path=".git/refs/heads/main") %}
+  {%- elif head_branch is containing("refs/heads/master") %}
+    {%- set_global hash = load_data(path=".git/refs/heads/master") %}
+  {%- endif %}
+{%- endif %}
 
 <!DOCTYPE html>
 <html lang="{{ config.default_language }}">
@@ -74,9 +87,7 @@
     <section class="footer-content">
       {% set current_year = now() | date(format="%Y") %}
       <footer id="footer-block">
-        {% if config.extra.footer.copyright == true %}
-          <p><b>©</b> {{ current_year }} <b>{{ config.author }}</b></p>
-        {% endif %}
+          <p>{% if config.extra.footer.hash == true %}{{ hash | truncate(length=7, end="") }} {% endif %}{% if config.extra.footer.copyright == true %}<b>©</b> {{ current_year }} <b>{{ config.author }}</b>{% endif %}</p>
         {% if config.extra.footer.stack == true %}
           <p>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a></p>
         {% endif %}
