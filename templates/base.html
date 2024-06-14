@@ -32,8 +32,8 @@
     </div>
     <div class="block-right">
       {% if config.build_search_index == true %}
-      <script type="text/javascript" src="/elasticlunr.min.js" async></script>
-      <script type="text/javascript" src="/search.js" defer></script>
+      <script type="text/javascript" src="{{ get_url(path='elasticlunr.min.js') | safe }}" async></script>
+      <script type="text/javascript" src="{{ get_url(path='search.js') | safe }}" defer></script>
       <nav class="search-container" id="search-nav">
         <input id="search" type="search" placeholder="Search" aria-label="Search">
         <div class="search-results">
