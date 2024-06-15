@@ -4,7 +4,7 @@
 {%- set active_path = current_path | default(value="none") %}
 {%- set hash = "" %}
 
-{%- if config.extra.footer.hash == true%}
+{%- if config.extra.footer.hash == true %}
   {%- set head_branch = load_data(path=".git/HEAD") | replace(from="ref: ", to="") %}
   {#- load_data(path=head_branch_path)v is not working #}
   {%- if head_branch is containing("refs/heads/trunk") %}
@@ -13,6 +13,14 @@
     {%- set_global hash = load_data(path=".git/refs/heads/main") %}
   {%- elif head_branch is containing("refs/heads/master") %}
     {%- set_global hash = load_data(path=".git/refs/heads/master") %}
+  {% else %}
+    {% if get_env(name="GITHUB_SHA", default="NONE") != "NONE" %}
+      {%- set_global hash =  get_env(name="GITHUB_SHA") %}
+    {% elif get_env(name="COMMIT_REF", default="NONE") != "NONE" %}
+      {%- set_global hash =  get_env(name="COMMIT_REF") %}
+    {% elif get_env(name="CI_COMMIT_SHA", default="NONE") != "NONE" %}
+      {%- set_global hash =  get_env(name="CI_COMMIT_SHA") %}
+    {% endif %}
   {%- endif %}
 {%- endif %}
 
