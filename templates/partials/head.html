@@ -18,6 +18,13 @@
 {% else %}
   {%- set category_image = "/" ~ category_image_match %}
 {%- endif %}{% endif %}
+{%- if page.extra.image %}
+  {%- if page.extra.image is matching("^http[s]?://") %}
+    {% set page_image = page.extra.image %}
+  {% else %}
+    {% set page_image = page.path ~ page.extra.image %}
+  {% endif %}
+{%- endif %}
 {%- if config.extra.images.home is matching("^http[s]?://") %}{% set home_image = config.extra.images.home %}{% else %}{% set home_image = "/" ~ config.extra.images.home %}{% endif %}
 {%- if config.extra.images.post_list is matching("^http[s]?://") %}{% set post_list_image = config.extra.images.post_list %}{% else %}{% set post_list_image = "/" ~ config.extra.images.post_list %}{% endif %}
 {%- if config.extra.images.default_post is matching("^http[s]?://") %}{% set default_post_image = config.extra.images.default_post %}{% else %}{% set default_post_image = "/" ~ config.extra.images.default_post %}{% endif %}
@@ -26,11 +33,6 @@
     {%- set cactus_hash = get_hash(path="/cactus.js", base64=true, sha_type=512) %}
   {%- endif %}
   {%- if page.extra.image %}
-    {%- if page.extra.image is matching("^http[s]?://") %}
-      {% set page_image = page.extra.image %}
-    {% else %}
-      {% set page_image = page.path ~ page.extra.image %}
-    {% endif %}
     {%- set page_image_hash = get_hash(literal=macros::image_style(url=page_image), base64=true, sha_type=512) %}
   {%- elif category_image %}
     {%- set category_image_hash = get_hash(literal=macros::image_style(url=category_image), base64=true, sha_type=512) %}
