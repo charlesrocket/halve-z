@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.12.0] - 2024-06-17
+
+### Bug Fixes
+
+- Set `homepage` media query
+- Adjust `homepage` padding
+- Build site with CSP disabled
+- Allow serving from subdirectory
+- Handle detached `HEAD`
+
+### Documentation
+
+- Note pwa cache scope
+
+### Features
+
+- Add Zig color code
+- Switch to 65/35 layout
+- Add commit hash
+
+### Refactor
+
+- Move `page_image`
+
 ## [0.11.0] - 2024-05-01
 
 ### Bug Fixes
