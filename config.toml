@@ -8,7 +8,7 @@ author = "-k"
 
 compile_sass = true
 minify_html = true
-generate_feed = true
+generate_feeds = true
 build_search_index = true
 
 taxonomies = [
