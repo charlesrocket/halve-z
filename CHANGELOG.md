@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.13.0] - 2024-07-16
+
+### Bug Fixes
+
+- Set `generate_feeds`
+- Update `font-src` directive
+- Update social icons set
+- Update rss link
+
+### Features
+
+- Loop `config.feed_filenames`
+
+### Miscellaneous tasks
+
+- Bump cache to v6
+
+### Refactor
+
+- Subset nerd fonts
+- Move nerd fonts
+
 ## [0.12.0] - 2024-06-17
 
 ### Bug Fixes
