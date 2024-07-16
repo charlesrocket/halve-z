@@ -58,7 +58,6 @@ stack = true
 #github = ""
 #gitlab = ""
 #bitbucket = ""
-#hackthebox = ""
 #stackoverflow = ""
 #linkedin = ""
 #instagram = ""
@@ -67,7 +66,6 @@ stack = true
 #twitch = ""
 #flickr = ""
 #keybase = ""
-#xmpp = ""
 #hackernews = ""
 
 [extra.comments]
