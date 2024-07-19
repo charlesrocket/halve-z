@@ -34,6 +34,7 @@ links = [
 
 [extra.footer]
 enabled = true
+author = true
 copyright = true
 hash = false
 stack = true
