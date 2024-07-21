@@ -13,6 +13,10 @@ read_time = false
 toc = true
 csp = false
 
+[extra.placeholders]
+tags = false
+subtitle = false
+
 [extra.home]
 title = "Halve-Z"
 subtitle = "Zola theme"
