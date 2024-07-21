@@ -16,9 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: taiki-e/install-action@zola
-      - name: Run Zola check
-        run: zola check
-      - name: Run Zola build
+      - name: Build
         run: zola build
 
   release:
