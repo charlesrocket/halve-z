@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.14.0] - 2024-08-02
+
+### Features
+
+- [**breaking**] Add `extra.footer.author` option
+- Add `extra.placeholders` options
+
+### Miscellaneous tasks
+
+- Bump zola to 0.19.1
+- Bump cache to v7
+
+### Operations
+
+- Configure dependabot
+- Update `build` job
+
+### Refactor
+
+- Drop `page_title`
+
+### Styling
+
+- Fix nerd fonts syntax
+- Reformat nerd fonts
+- Minify nerd fonts
+- Fix nerd fonts unicode range
+
 ## [0.13.0] - 2024-07-16
 
 ### Bug Fixes
