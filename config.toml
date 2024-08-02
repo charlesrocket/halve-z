@@ -58,9 +58,9 @@ logo = { enabled = false, height = "100", width = "100" }
 footer = true
 
 [extra.images]
-home = "https://failsafe.monster/c1tyh4ll.png"
-post_list = "https://failsafe.monster/bk-prk.jpg"
-default_post = "https://failsafe.monster/bk-prk.jpg"
+home = "c1tyh4ll.png" #https://failsafe.monster/c1tyh4ll.png
+post_list = "bk-prk.png" #https://failsafe.monster/bk-prk.jpg
+default_post = "bk-prk.png" #https://failsafe.monster/bk-prk.jpg
 categories = [
     { name = "media", image = "https://raw.githubusercontent.com/bearcott/8bit-art/master/cities/urban.gif" },
 ]
