@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.14.1] - 2024-08-06
+
+### Miscellaneous tasks
+
+- Oxipng files
+- Bump cache to v8
+
 ## [0.14.0] - 2024-08-02
 
 ### Features
