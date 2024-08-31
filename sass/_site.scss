@@ -815,8 +815,26 @@ a.zola-anchor {
   justify-content: center;
   align-items: center;
   height: auto;
-  line-height: 1.1rem;
+  line-height: 0.6rem;
   bottom: 0;
+}
+
+.footer-links {
+  li {
+    display: inline-block;
+    &:after {
+      content: '|';
+      padding: 0 0.4rem;
+    }
+  }
+}
+
+.footer-links {
+  li {
+    &:last-child:after {
+      content: '';
+    }
+  }
 }
 
 @media screen and (max-height: 605px) {

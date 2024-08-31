@@ -42,6 +42,10 @@ author = true
 copyright = true
 hash = false
 stack = true
+links = [
+    #{ name = "posts", url = "@/posts/_index.md" },
+    #{ name = "example", url = "@/pages/projects.md" },
+]
 
 [extra.social]
 #email = ""
