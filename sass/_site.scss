@@ -832,7 +832,7 @@ a.zola-anchor {
 .footer-links {
   li {
     &:last-child:after {
-      content: '';
+      content: unset;
     }
   }
 }
