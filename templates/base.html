@@ -95,19 +95,19 @@
     <section class="footer-content">
       {% set current_year = now() | date(format="%Y") %}
       <footer id="footer-block">
-          <p>{% if config.extra.footer.hash %}{{ hash | truncate(length=7, end="") }} {% endif %}{% if config.extra.footer.copyright %}<b>©</b> {{ current_year }}{% endif %} {% if config.extra.footer.author %}<b>{{ config.author }}</b>{% endif %}</p>
-            {% if config.extra.footer.links %}
-            <nav class="nav-footer" role="navigation">
-              <ul class="footer-links" aria-label="footer links">
-                <li><a href="{{ get_url(path="@/_index.md") }}">index</a></li>
-                {% for link in config.extra.footer.links %}
-                <li{% if page %}{% if config.base_url ~ current_path == get_url(path=link.url) %} class="nav-active"{% endif %}{% endif %}><a href="{{ get_url(path=link.url) }}">{{ link.name }}</a></li>
-                {% endfor %}
-              </ul>
-            </nav>
-            {% endif %}
+        {% if config.extra.footer.links %}
+        <nav class="nav-footer" role="navigation">
+          <ul class="footer-links" aria-label="footer links">
+            <li><a href="{{ get_url(path="@/_index.md") }}">index</a></li>
+            {% for link in config.extra.footer.links %}
+            <li{% if page %}{% if config.base_url ~ current_path == get_url(path=link.url) %} class="nav-active"{% endif %}{% endif %}><a href="{{ get_url(path=link.url) }}">{{ link.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+        {% endif %}
+        <p>{% if config.extra.footer.hash %}{{ hash | truncate(length=7, end="") }} {% endif %}{% if config.extra.footer.copyright %}<b>©</b> {{ current_year }}{% endif %} {% if config.extra.footer.author %}<b>{{ config.author }}</b>{% endif %}</p>
         {% if config.extra.footer.stack == true %}
-          <p>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a></p>
+        <p>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a></p>
         {% endif %}
       </footer>
     </section>
