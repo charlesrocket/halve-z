@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.15.0] - 2024-09-01
+
+### Bug Fixes
+
+- Remove footer link whitespace
+- Change footer separator
+
+### Features
+
+- Add footer links
+- Add sitemap link
+
+### Miscellaneous tasks
+
+- Bump zola to 0.19.2
+- Update author
+- Bump cache to v9
+
+### Refactor
+
+- Move footer links
+
 ## [0.14.1] - 2024-08-06
 
 ### Miscellaneous tasks
