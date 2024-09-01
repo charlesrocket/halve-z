@@ -78,8 +78,8 @@ copyright = true
 hash = true
 stack = true
 links = [
+    { name = "sitemap", url = "sitemap.xml" },
     { name = "posts", url = "@/posts/_index.md" },
-    { name = "example", url = "@/pages/projects.md" },
 ]
 
 [extra.social]
