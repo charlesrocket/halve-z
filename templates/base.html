@@ -54,7 +54,7 @@
         {% block nav %}
           <li{% if active_path == "/" %} class="nav-active"{% endif %}><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
           {% if config.extra.menu.posts == true %}
-          <li{% if active_path is starting_with("/posts/") or active_path is starting_with("/tags/") or active_path is starting_with("/categories/")%} class="nav-active"{% endif %}><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">Posts</a>
+          <li{% if active_path is starting_with("/posts/") or active_path is starting_with("/tags/") or active_path is starting_with("/categories/")%} class="nav-active"{% endif %}><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">          {{ config.extra.menu.posts_label }}</a>
             <ul class="dropdown" aria-label="submenu">
               <li><a href="{{ get_url(path="@/posts/_index.md") }}">Index</a></li>
               <li><a href="{{ tags.permalink | safe }}">Tags</a></li>

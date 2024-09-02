@@ -67,6 +67,7 @@ categories = [
 
 [extra.menu]
 posts = true
+posts_label = "Posts"
 links = [
     { name = "Code", url = "@/pages/projects.md" },
 ]
