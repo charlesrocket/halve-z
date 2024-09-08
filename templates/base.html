@@ -105,7 +105,7 @@
           </ul>
         </nav>
         {% endif %}
-        <p>{% if config.extra.footer.hash %}{{ hash | truncate(length=7, end="") }} {% endif %}{% if config.extra.footer.copyright %}<b>©</b> {{ current_year }}{% endif %} {% if config.extra.footer.author %}<b>{{ config.author }}</b>{% endif %}</p>
+        <p>{% if config.extra.footer.hash %}{{ hash | truncate(length=7, end="") }} {% endif %}{% if config.extra.footer.copyright %}<b>©</b> {{ current_year }}{% endif %} {% if config.extra.footer.author %}{{ config.author }}{% endif %}</p>
         {% if config.extra.footer.stack == true %}
         <p>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a></p>
         {% endif %}
