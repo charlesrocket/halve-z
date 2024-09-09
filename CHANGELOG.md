@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.16.0] - 2024-09-09
+
+### Bug Fixes
+
+- Reset weight for `author`
+
+### Features
+
+- Add posts label option
+
 ## [0.15.0] - 2024-09-01
 
 ### Bug Fixes
