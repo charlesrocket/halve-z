@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.16.1] - 2024-09-19
+
+### Bug Fixes
+
+- Cache footer links
+- Cache sitemap
+- Fix asset string
+- Update cache list
+
 ## [0.16.0] - 2024-09-09
 
 ### Bug Fixes
