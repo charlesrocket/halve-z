@@ -10,6 +10,7 @@ compile_sass = true
 minify_html = true
 generate_feeds = true
 build_search_index = true
+generate_sitemap = true
 
 taxonomies = [
     { name = "categories", feed = true },
@@ -79,7 +80,6 @@ copyright = true
 hash = true
 stack = true
 links = [
-    { name = "sitemap", url = "sitemap.xml" },
     { name = "posts", url = "@/posts/_index.md" },
 ]
 

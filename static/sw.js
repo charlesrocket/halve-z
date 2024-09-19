@@ -16,7 +16,6 @@ const cacheList = [
   "/langs.css",
   "/syntax-theme-light.css",
   "/syntax-theme-dark.css",
-  "/webfonts/NerdFontsSymbols.woff2",
   "/webfonts/Pixeboy.woff2",
   "/webfonts/PressStart2P-latin-v15.woff2",
   "/webfonts/PressStart2P-latin-ext-v15.woff2",
