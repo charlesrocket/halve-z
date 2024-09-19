@@ -1,11 +1,8 @@
-const cacheName = "v9";
+const cacheName = "v10";
 const cacheList = [
   "/",
   "/offline/",
   "/404.html",
-  "/atom.xml",
-  "/sitemap.xml",
-  "/robots.txt",
   "/favicon.ico",
   "/apple-touch-icon.png",
   "/favicon-16x16.png",
