@@ -1,3 +1,4 @@
+const broadcast = new BroadcastChannel('sw-channel');
 const cacheName = "v10";
 const cacheList = [
   "/",
@@ -30,7 +31,12 @@ oninstall = (event) => {
     (async () => {
       const cache = await caches.open(cacheName);
       await cache.addAll(cacheList)
-        .catch((error) => console.log("Service worker failed", error));
+        .catch((error) => {
+          broadcast.postMessage({type: 'SW_INSTALL_ERR'});
+          console.log("Service worker failed", error);
+        });
+
+      broadcast.postMessage({type: 'SW_INSTALL_FINISH'});
     })(),
   );
 };
@@ -59,12 +65,18 @@ onfetch = (event) => {
 onmessage = (event) => {
   if (event.data.type === "PRECACHE") {
     const data = [...new Set(event.data.payload)];
+    broadcast.postMessage({type: 'SW_PRECACHE'});
     console.log("Service worker started precache", data);
     event.waitUntil(
       (async () => {
         const cache = await caches.open(cacheName);
         await cache.addAll(data)
-          .catch((error) => console.log("Service worker failed precache", error));
+          .catch((error) => {
+            broadcast.postMessage({type: 'SW_PRECACHE_ERR'});
+            console.log("Service worker failed precache", error);
+          });
+
+        broadcast.postMessage({type: 'SW_PRECACHE_FINISH'});
       })(),
     );
   }
@@ -76,9 +88,12 @@ onactivate = (event) =>  {
       const keys = await caches.keys();
       return keys.map(async (cache) => {
         if(cache !== cacheName) {
+          broadcast.postMessage({type: 'SW_CLEAR_CACHE'});
           console.log("Removing old service worker cache", cache);
           return await caches.delete(cache);
         }
+
+        broadcast.postMessage({type: 'SW_ACTIVATED'});
       })
     })()
   )

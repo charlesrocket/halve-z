@@ -1,0 +1,111 @@
+.toastBox {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 4px;
+  z-index: 3;
+}
+
+.toast {
+  width: auto;
+  height: auto;
+  padding: 6px 26px 6px 6px;
+  margin: 8px;
+  color: black;
+  font-family: Pixeboy;
+  font-size: 18px;
+  background: whitesmoke;
+  border: 1px solid darkslategrey;
+  box-shadow: 0 0 13px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  position: relative;
+  transform: translateX(100%);
+  animation: moveleft 0.1s ease-in-out forwards;
+}
+
+@keyframes moveleft {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.toast span {
+  margin: 0 5px;
+  font-family: "Press Start 2P";
+  font-size: 20px;
+}
+
+.toast.info span {
+  color: #19b5fe;
+}
+
+.toast.success span {
+  color: #72cc96;
+}
+
+.toast.error span {
+  color: red;
+}
+
+.toast.warning span {
+  color: orange;
+}
+
+.toast::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  animation: anim 5s ease-out forwards;
+}
+
+@keyframes anim {
+  100% {
+    width: 0;
+  }
+}
+
+.toast.info::after {
+  background: #19b5fe;
+}
+
+.toast.success::after {
+  background: #72cc96;
+}
+
+.toast.error::after {
+  background: red;
+}
+
+.toast.warning::after {
+  background: orange;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.close-btn i {
+  color: black;
+  font-family: "Pixeboy";
+  font-size: 12px;
+}

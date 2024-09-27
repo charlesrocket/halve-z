@@ -129,6 +129,7 @@
   <link rel="stylesheet" type="text/css" href="{{ get_url(path='syntax-theme-dark.css') | safe }}" media="(prefers-color-scheme: dark)" integrity="sha512-{{ get_hash(path='/syntax-theme-dark.css', sha_type=512, base64=true) | safe }}">
     {%- endif %}
   {%- if config.extra.manifest %}
+  <link rel="stylesheet" type="text/css" href="{{ get_url(path='sw-style.css') | safe }}" integrity="sha512-{{ get_hash(path='/sw-style.css', sha_type=512, base64=true) | safe }}">
   {% if config.extra.menu.posts == true %}
     {% set posts = get_section(path="posts/_index.md") %}
     {% set raw_posts_config =  load_data(path="/posts/_index.md", format="plain") | replace(from="+++", to="") %}
