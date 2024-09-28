@@ -35,10 +35,10 @@ oninstall = (event) => {
           broadcast.postMessage({type: 'SW_INSTALL_ERR'});
           console.log("Service worker failed", error);
         });
-
-      broadcast.postMessage({type: 'SW_INSTALL_FINISH'});
     })(),
   );
+
+  broadcast.postMessage({type: 'SW_INSTALL_FINISH'});
 };
 
 onfetch = (event) => {
@@ -88,7 +88,6 @@ onactivate = (event) =>  {
       const keys = await caches.keys();
       return keys.map(async (cache) => {
         if(cache !== cacheName) {
-          broadcast.postMessage({type: 'SW_CLEAR_CACHE'});
           console.log("Removing old service worker cache", cache);
           return await caches.delete(cache);
         }

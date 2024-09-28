@@ -56,9 +56,7 @@ registerServiceWorker();
 
 const broadcast = new BroadcastChannel('sw-channel');
 broadcast.onmessage = (event) => {
-  if (event.data && event.data.type === 'SW_CLEAR_CACHE') {
-    showToast("Cleaning cache", "warning");
-  } else if (event.data && event.data.type === 'SW_PRECACHE') {
+  if (event.data && event.data.type === 'SW_PRECACHE') {
     showToast("Precache started", "warning");
   } else if (event.data && event.data.type === 'SW_PRECACHE_FINISH') {
     showToast("Precache completed ", "success");
