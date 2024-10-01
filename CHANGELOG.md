@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.17.0] - 2024-10-01
+
+### Bug Fixes
+
+- Move post-install notification
+
+### Documentation
+
+- Set `zero` timezone
+
+### Features
+
+- Implement service worker notifications
+
 ## [0.16.1] - 2024-09-19
 
 ### Bug Fixes
