@@ -1,6 +1,6 @@
 +++
 title = "Data"
-date = 2022-10-01
+date = 2022-10-01T15:00:00Z
 [taxonomies]
 categories = ["usage"]
 tags = ["content", "shortcode", "feature"]

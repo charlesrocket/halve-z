@@ -1,7 +1,7 @@
 +++
 title = "Information"
-date = 2024-01-01
-updated = 2024-02-01
+date = 2024-01-01T15:00:00Z
+updated = 2024-02-01T13:00:00Z
 [taxonomies]
 categories = ["usage"]
 tags = ["content", "configuration"]

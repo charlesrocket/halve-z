@@ -1,6 +1,6 @@
 +++
 title = "Markup"
-date = 2023-06-12
+date = 2023-06-12T15:00:00Z
 [taxonomies]
 categories = ["usage"]
 tags = ["content", "style", "html"]

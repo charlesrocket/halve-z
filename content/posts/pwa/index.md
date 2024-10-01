@@ -1,6 +1,6 @@
 +++
 title = "PWA"
-date = 2023-06-07
+date = 2023-06-07T15:00:00Z
 [taxonomies]
 categories = ["usage"]
 tags = ["feature", "configuration"]
