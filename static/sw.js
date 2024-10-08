@@ -1,5 +1,5 @@
 const broadcast = new BroadcastChannel('sw-channel');
-const cacheName = "v10";
+const cacheName = "v11";
 const cacheList = [
   "/",
   "/offline/",
