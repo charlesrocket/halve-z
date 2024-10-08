@@ -28,11 +28,11 @@
         {% if page.updated %}<p>Updated {{ page.updated | date(format="%d %b %Y") }}</p>{% endif %}
       </div>
       {% endif %}
-      {% block song %}
-      {% if page.extra.song %}
-        {{ macros::song(artist=page.extra.song[0], track=page.extra.song[1]) }}
+      {% block music %}
+      {% if page.extra.music %}
+        {{ macros::music(artist=page.extra.music[0], track=page.extra.music[1]) }}
       {% endif %}
-      {% endblock song %}
+      {% endblock music %}
       {% if config.extra.toc == true and not page.extra.disable_toc %}{% if page.toc %}{% if page.toc | length >= 2 %}
       <div class="toc-block">
         <ul>

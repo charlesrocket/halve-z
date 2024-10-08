@@ -21,7 +21,7 @@ Available (`extra`) options:
 * `csp_img`
 * `disable_comments`
 * `disable_toc`
-* `song`
+* `music`
 
 <p class="notice_info"><code>h1</code> headers are reserved for page title (left/top block) and subtitle (optional, right/bottom block).</p>
 
@@ -40,11 +40,11 @@ disable_comments = true
 disable_toc = true
 image = "https://example.com/image.png"
 csp_img = ["example.com/", "foo.org/example"]
-song = ["Michael Pitt", "Death to Birth"]
+music = ["Michael Pitt", "Death to Birth"]
 +++
 ```
 
-`song` variable takes an array that includes an artist and a track name. If `LASTFM_KEY` environment variable is present, names are autocorrected and linked to the [Last.fm](https://www.last.fm/) website.
+`music` variable takes an array that includes an artist and a track name. If `LASTFM_KEY` environment variable is present, names are autocorrected and linked to the [Last.fm](https://www.last.fm/) website.
 
 ## Configuration
 

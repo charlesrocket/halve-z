@@ -552,7 +552,7 @@ a.zola-anchor {
   }
 }
 
-.post-song {
+.post-music {
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -890,7 +890,7 @@ a.zola-anchor {
       font-size: 14px;
     }
     .post-ext-info > p,
-    .post-song > p {
+    .post-music > p {
       font-size: 12px;
     }
   }
@@ -987,7 +987,7 @@ a.zola-anchor {
       color: $overlay-color-dark;
     }
   }
-  .post-song {
+  .post-music {
     border-color: darken($white, 30);
   }
   .post-ext-info {
