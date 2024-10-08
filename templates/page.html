@@ -30,6 +30,7 @@
       {% endif %}
       {% block music %}
       {% if page.extra.music %}
+        {%- if page.extra.music | length != 2 %}{{ throw(message="'" ~ page.title ~ "' page has invalid 'music' variable") }}{% endif %}
         {{ macros::music(artist=page.extra.music[0], track=page.extra.music[1]) }}
       {% endif %}
       {% endblock music %}
