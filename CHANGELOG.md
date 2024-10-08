@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.18.0] - 2024-10-08
+
+### Bug Fixes
+
+- Validate `page.extra.music`
+
+### Features
+
+- [**breaking**] `song` -> `music`
+
+### Miscellaneous tasks
+
+- Bump cache to v11
+
 ## [0.17.0] - 2024-10-01
 
 ### Bug Fixes
