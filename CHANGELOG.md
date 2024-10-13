@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.18.1] - 2024-10-13
+
+### Bug Fixes
+
+- Remove `base_url` from paths
+- Use relative paths
+
+### Documentation
+
+- Edit service worker notice
+
 ## [0.18.0] - 2024-10-08
 
 ### Bug Fixes
