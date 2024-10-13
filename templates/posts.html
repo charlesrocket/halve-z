@@ -12,7 +12,7 @@
         {% for page in posts %}
           <li>
             <h2>
-              <a href="{{ page.permalink | safe }}" class="post-title"><span>{{ page.title | safe }}</span></a>
+              <a href="{{ "/posts/" ~ page.slug ~ "/" | safe }}" class="post-title"><span>{{ page.title | safe }}</span></a>
               <span class="date">{{ page.date | date(format="%d %b %Y") }}</span>
             </h2>
               {% if config.extra.read_time == true %}
@@ -22,7 +22,7 @@
             {% if page.taxonomies["tags"] %}
             <ul class="tags title-tags"
               {%- for tag in page.taxonomies["tags"] %}
-              ><li><a class="title-tag" href="{{ config.base_url | safe }}/tags/{{ tag | slugify }}">{{ tag }}</a></li
+              ><li><a class="title-tag" href="/tags/{{ tag | slugify}}/">{{ tag }}</a></li
                 {%- if not loop.last -%}
                 {%- endif -%}
               {% endfor %}

@@ -7,7 +7,7 @@
         {% if page.taxonomies["tags"] %}
         <ul class="tags"
           {%-for tag in page.taxonomies["tags"] %}
-          ><li><a href="{{ config.base_url | safe }}/tags/{{ tag | slugify }}">{{ tag }}</a></li
+          ><li><a href="/tags/{{ tag | slugify }}/">{{ tag }}</a></li
             {%- if not loop.last %}
             {%- endif -%}
           {% endfor %}
@@ -50,12 +50,12 @@
       {% if page.lower or page.higher %}
         <nav class="pagination">
         {% if page.higher %}
-          <a class="pagination_pager" href="{{ page.higher.permalink }}">prev</a>
+          <a class="pagination_pager" href="{{ "/posts/" ~ page.higher.slug ~ "/" | safe }}">prev</a>
         {% else %}
           <a href="#" class="pagination_pager disabled">prev</a>
         {% endif %}
         {% if page.lower %}
-          <a class="pagination_pager" href="{{ page.lower.permalink }}">next</a>
+          <a class="pagination_pager" href="{{ "/posts/" ~ page.lower.slug ~ "/" | safe }}">next</a>
         {% else %}
           <a href="#" class="pagination_pager disabled" >next</a>
         {% endif %}

@@ -40,8 +40,8 @@
     </div>
     <div class="block-right">
       {% if config.build_search_index == true %}
-      <script type="text/javascript" src="{{ get_url(path='elasticlunr.min.js') | safe }}" async></script>
-      <script type="text/javascript" src="{{ get_url(path='search.js') | safe }}" defer></script>
+      <script type="text/javascript" src="{{ '/elasticlunr.min.js' | safe }}" async></script>
+      <script type="text/javascript" src="{{ '/search.js' | safe }}" defer></script>
       <nav class="search-container" id="search-nav">
         <input id="search" type="search" placeholder="Search" aria-label="Search">
         <div class="search-results">
@@ -52,18 +52,18 @@
       <nav class="nav-bar" role="navigation">
         <ul class="nav-menu">
         {% block nav %}
-          <li{% if active_path == "/" %} class="nav-active"{% endif %}><a href="{{ get_url(path="@/_index.md") }}">Home</a></li>
+          <li{% if active_path == "/" %} class="nav-active"{% endif %}><a href="{{ "/" | safe }}">Home</a></li>
           {% if config.extra.menu.posts == true %}
-          <li{% if active_path is starting_with("/posts/") or active_path is starting_with("/tags/") or active_path is starting_with("/categories/")%} class="nav-active"{% endif %}><a href="{{ get_url(path="@/posts/_index.md") }}" aria-haspopup="true">          {{ config.extra.menu.posts_label }}</a>
+          <li{% if active_path is starting_with("/posts/") or active_path is starting_with("/tags/") or active_path is starting_with("/categories/")%} class="nav-active"{% endif %}><a href="{{ "/posts/" | safe }}" aria-haspopup="true">{{ config.extra.menu.posts_label }}</a>
             <ul class="dropdown" aria-label="submenu">
-              <li><a href="{{ get_url(path="@/posts/_index.md") }}">Index</a></li>
-              <li><a href="{{ tags.permalink | safe }}">Tags</a></li>
-              <li><a href="{{ categories.permalink | safe }}">Categories</a></li>
+              <li><a href="{{ "/posts/" | safe }}">Index</a></li>
+              <li><a href="{{ "/tags/" | safe }}">Tags</a></li>
+              <li><a href="{{ "/categories/" | safe }}">Categories</a></li>
             </ul>
           </li>
           {% endif %}
           {% for link in config.extra.menu.links %}
-          <li{% if page %}{% if config.base_url ~ current_path == get_url(path=link.url) %} class="nav-active"{% endif %}{% endif %}><a href="{{ get_url(path=link.url) }}">{{ link.name }}</a></li>
+          <li{% if page %}{% if active_path is starting_with(link.url) %} class="nav-active"{% endif %}{% endif %}><a href="{% if link.url is starting_with("@") %}{{ get_url(path=link.url, trailing_slash=true) | safe }}{% else %}{{ link.url | safe }}{% endif %}">{{ link.name }}</a></li>
           {% endfor %}
         {% endblock nav %}
         </ul>
@@ -98,10 +98,10 @@
         {% if config.extra.footer.links %}
         <nav class="nav-footer" role="navigation">
           <ul class="footer-links" aria-label="footer links">
-            <li><a href="{{ get_url(path="@/_index.md") }}">index</a></li>
+            <li><a href="{{ "/" | safe }}">index</a></li>
             {% if config.generate_sitemap %}<li><a href="/sitemap.xml">sitemap</a></li>{% endif %}
             {% for link in config.extra.footer.links %}
-            <li{% if page %}{% if config.base_url ~ current_path == get_url(path=link.url) %} class="nav-active"{% endif %}{% endif %}><a href="{{ get_url(path=link.url) }}">{{ link.name }}</a></li>
+            <li><a href="{% if link.url is starting_with("@") %}{{ get_url(path=link.url, trailing_slash=true) | safe }}{% else %}{{ link.url | safe }}{% endif %}">{{ link.name }}</a></li>
             {% endfor %}
           </ul>
         </nav>

@@ -4,13 +4,13 @@
     <div class="inner-post content">
       {% block date %}{{ super() }}{% endblock date%}
       <div class="entry-meta">
-        <p>{% for term in terms %}#<a href="{{ config.base_url ~ "/" ~ taxonomy.name ~ "/" ~ term.name ~ "/" | safe }}">{{ term.name }}</a><sup>{{ term.pages | length }}</sup> {% endfor %}</p>
+        <p>{% for term in terms %}#<a href="{{ "/" ~ taxonomy.name ~ "/" ~ term.name ~ "/" | safe }}">{{ term.name }}</a><sup>{{ term.pages | length }}</sup> {% endfor %}</p>
       </div>
       {%- for term in terms %}
-        <h2 class="entry-title"><a href="{{ config.base_url ~ "/" ~ taxonomy.name ~ "/" ~ term.name ~ "/" | safe }}">#</a>{{ term.name | safe}}</h2>
+        <h2 class="entry-title"><a href="{{ "/" ~ taxonomy.name ~ "/" ~ term.name ~ "/" | safe }}">#</a>{{ term.name | safe}}</h2>
         <ul>
         {%- for page in term.pages %}
-          <li class="entry-info"><a href="{{ page.permalink | safe }}">{{ page.title | safe }}</a> <time datetime="{{ page.date }}">{{ page.date | date(format="%F") }}</time></li>
+          <li class="entry-info"><a href="{{ "/posts/" ~ page.slug ~ "/" | safe }}">{{ page.title | safe }}</a> <time datetime="{{ page.date }}">{{ page.date | date(format="%F") }}</time></li>
         {%- endfor %}
         </ul>
       {%- endfor %}

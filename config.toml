@@ -70,7 +70,7 @@ categories = [
 posts = true
 posts_label = "Posts"
 links = [
-    { name = "Code", url = "@/pages/projects.md" },
+    { name = "Code", url = "/projects/" },
 ]
 
 [extra.footer]
@@ -80,7 +80,7 @@ copyright = true
 hash = true
 stack = true
 links = [
-    { name = "posts", url = "@/posts/_index.md" },
+    { name = "posts", url = "/posts/" },
 ]
 
 [extra.social]

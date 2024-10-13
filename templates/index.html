@@ -3,7 +3,7 @@
 {% block body %}<body id="homepage">{% endblock body %}
   {% block left %}
         <div class="main-info">
-          {% if config.extra.home.logo.enabled == true %}<a href="{{ config.base_url | safe }}" class="home-logo"><img src="{{ get_url(path=config.extra.logo, cachebust=true) }}" alt="logo" width="{{ config.extra.home.logo.width }}" height="{{ config.extra.home.logo.height }}"></a>{% endif %}
+          {% if config.extra.home.logo.enabled == true %}<a href="{{ "/" | safe }}" class="home-logo"><img src="{{ "/" ~ config.extra.logo | safe }}" alt="logo" width="{{ config.extra.home.logo.width }}" height="{{ config.extra.home.logo.height }}"></a>{% endif %}
           <h1>
             <span class="hero {% if config.extra.home.glitch == true %}glitch-h1 layers" data-text="{{ config.extra.home.title | safe }}{% endif %}"><span>{{ config.extra.home.title | safe }}</span></span>
           </h1>

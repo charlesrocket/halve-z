@@ -34,7 +34,7 @@ categories = []
 posts = false
 posts_label = "Posts"
 links = [
-    #{ name = "Code", url = "@/pages/projects.md" },
+    #{ name = "Code", url = "/projects/" },
 ]
 
 [extra.footer]
@@ -44,8 +44,7 @@ copyright = true
 hash = false
 stack = true
 links = [
-    #{ name = "sitemap", url = "sitemap.xml" },
-    #{ name = "posts", url = "@/posts/_index.md" },
+    #{ name = "posts", url = "/posts/" },
 ]
 
 [extra.social]
