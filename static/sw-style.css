@@ -15,10 +15,11 @@
   height: auto;
   padding: 6px 26px 6px 6px;
   margin: 8px;
-  color: black;
+  color: whitesmoke;
   font-family: Pixeboy;
   font-size: 18px;
-  background: whitesmoke;
+  background: rgba(32, 32, 32, 0.5);
+  backdrop-filter: blur(8px);
   border: 1px solid darkslategrey;
   box-shadow: 0 0 13px rgba(0, 0, 0, 0.4);
   display: flex;
