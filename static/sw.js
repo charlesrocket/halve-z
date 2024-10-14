@@ -1,5 +1,5 @@
 const broadcast = new BroadcastChannel('sw-channel');
-const cacheName = "v12";
+const cacheName = "v13";
 const cacheList = [
   "/",
   "/offline/",
@@ -33,7 +33,8 @@ oninstall = (event) => {
       await cache.addAll(cacheList)
         .catch((error) => {
           broadcast.postMessage({type: 'SW_INSTALL_ERR'});
-          console.log("Service worker failed", error);
+          console.error("Service worker failed", error);
+          return;
         });
     })(),
   );
@@ -65,6 +66,7 @@ onfetch = (event) => {
 onmessage = (event) => {
   if (event.data.type === "PRECACHE") {
     const data = [...new Set(event.data.payload)];
+    var success = true;
     broadcast.postMessage({type: 'SW_PRECACHE'});
     console.log("Service worker started precache", data);
     event.waitUntil(
@@ -73,12 +75,14 @@ onmessage = (event) => {
         await cache.addAll(data)
           .catch((error) => {
             broadcast.postMessage({type: 'SW_PRECACHE_ERR'});
-            console.log("Service worker failed precache", error);
+            console.error("Service worker error", error);
+            success = false;
           });
 
-        broadcast.postMessage({type: 'SW_PRECACHE_FINISH'});
+        if (success) broadcast.postMessage({type: 'SW_PRECACHE_FINISH'});
       })(),
     );
+
   }
 };
 

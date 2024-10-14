@@ -61,9 +61,9 @@ broadcast.onmessage = (event) => {
   } else if (event.data && event.data.type === 'SW_PRECACHE_FINISH') {
     showToast("Precache completed ", "success");
   } else if (event.data && event.data.type === 'SW_PRECACHE_ERR') {
-    showToast("Precache failed", "error");
+    showToast("Precache error", "error");
   } else if (event.data && event.data.type === 'SW_ACTIVATED') {
-    showToast("Service Worker activated", "success");
+    showToast("Service Worker activated", "info");
   } else if (event.data && event.data.type === 'SW_INSTALL_FINISH') {
     showToast("Service Worker deployed", "success");
   } else if (event.data && event.data.type === 'SW_INSTALL_ERR') {
