@@ -1,24 +1,6 @@
-const toastBox = document.querySelector('.toastBox');
-function showToast(message, type) {
-  const toast = document.createElement('div');
-  toast.classList.add('toast', type);
-  toast.innerHTML =
-    '<button class="close-btn">X</button>'
-                   + '<span>•</span>' + message;
+import {showToast} from "./notifications.js";
 
-  toastBox.appendChild(toast);
-
-  const closeButton = toast.querySelector('.close-btn');
-  closeButton.addEventListener('click', () => {
-    toast.remove();
-  });
-
-  setTimeout(() => {
-    toast.remove();
-  }, 5000);
-}
-
-const data = new String(document.currentScript.getAttribute('data-cache'));
+const data = new URL(import.meta.url).searchParams.get('data-cache');
 const precacheList = data.split(" ");
 const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
