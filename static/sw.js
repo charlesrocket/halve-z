@@ -20,10 +20,10 @@ const cacheList = [
   "/webfonts/PressStart2P-greek-v15.woff2",
   "/webfonts/PressStart2P-cyrillic-v15.woff2",
   "/webfonts/PressStart2P-cyrillic-ext-v15.woff2",
-  "/webfonts/hack-bold.woff2?sha=3114f1256",
-  "/webfonts/hack-bolditalic.woff2?sha=3114f1256",
-  "/webfonts/hack-italic.woff2?sha=3114f1256",
-  "/webfonts/hack-regular.woff2?sha=3114f1256",
+  "/webfonts/hack-bold.woff2",
+  "/webfonts/hack-bolditalic.woff2",
+  "/webfonts/hack-italic.woff2",
+  "/webfonts/hack-regular.woff2",
 ];
 
 oninstall = (event) => {
@@ -44,23 +44,45 @@ oninstall = (event) => {
 
 onfetch = (event) => {
   console.log("Service worker fetching", event.request.url);
-  event.respondWith(caches.open(cacheName).then((cache) => {
-    return cache.match(event.request)
-      .then((cachedResponse) => {
-        const fetchedResponse = fetch(event.request).then((networkResponse) => {
-          if (networkResponse.status < 400) {
-            console.log("Caching the response to", event.request.url);
-            cache.put(event.request, networkResponse.clone());
-          } else {
-            console.log("Service worker not caching the response to", event.request.url);
-          }
+  const destination = event.request.destination;
+  switch (destination) {
+    case 'scrypt':
+    case 'style':
+    case 'image':
+    case 'document': {
+      event.respondWith(caches.open(cacheName).then((cache) => {
+        return cache.match(event.request)
+          .then((cachedResponse) => {
+            const fetchedResponse = fetch(event.request).then((networkResponse) => {
+              if (networkResponse.status < 400) {
+                console.log("Caching the response to", event.request.url);
+                cache.put(event.request, networkResponse.clone());
+              } else {
+                console.log("Service worker not caching the response to", event.request.url);
+              }
 
-          return networkResponse;
-        }).catch(() => caches.match("/offline/"));
+              return networkResponse;
+            }).catch(() => caches.match("/offline/"));
 
-        return cachedResponse || fetchedResponse;
-      });
-  }));
+            return cachedResponse || fetchedResponse;
+          });
+      }));
+      return;
+    }
+    case 'font': {
+      const url = new URL(event.request.url);
+      const PrecachedRequest = cacheList.includes(url.pathname);
+      if (PrecachedRequest) {
+        event.respondWith(caches.open(cacheName).then((cache) => {
+          return cache.match(event.request.url);
+        }));
+      } else {
+        return;
+      }
+    }
+    default:
+      return;
+  }
 };
 
 onmessage = (event) => {
