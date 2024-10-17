@@ -6,11 +6,11 @@ const cacheList = [
   "/offline/",
   "/404.html",
   "/favicon.ico",
-  "/apple-touch-icon.png",
   "/favicon-16x16.png",
   "/favicon-32x32.png",
   "/icon-192x192.png",
   "/icon-512x512.png",
+  "/apple-touch-icon.png",
   "/main.css",
   "/nerd-fonts.css",
   "/unstyle.css",
@@ -67,7 +67,6 @@ onfetch = (event) => {
 
               return networkResponse;
             }).catch(() => caches.match("/offline/"));
-
             return cachedResponse || fetchedResponse;
           });
       }));
