@@ -119,9 +119,9 @@ onactivate = (event) =>  {
           console.log("Removing old service worker cache", cache);
           return await caches.delete(cache);
         }
-
-        broadcast.postMessage({type: 'SW_ACTIVATED'});
       })
     })()
-  )
+  );
+
+  broadcast.postMessage({type: 'SW_ACTIVATED'});
 };
