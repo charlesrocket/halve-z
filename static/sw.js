@@ -1,5 +1,6 @@
 const broadcast = new BroadcastChannel('sw-channel');
-const cacheName = "v13";
+const version = new URL(location).searchParams.get("version");
+const cacheName = "v13-" + version;
 const cacheList = [
   "/",
   "/offline/",
@@ -14,6 +15,7 @@ const cacheList = [
   "/langs.css",
   "/syntax-theme-light.css",
   "/syntax-theme-dark.css",
+  "/sw-style.css",
   "/webfonts/Pixeboy.woff2",
   "/webfonts/PressStart2P-latin-v15.woff2",
   "/webfonts/PressStart2P-latin-ext-v15.woff2",

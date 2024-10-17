@@ -1,11 +1,12 @@
 import {showToast} from "./notifications.js";
 
 const data = new URL(import.meta.url).searchParams.get('data-cache');
+const version = new URL(import.meta.url).searchParams.get('version');
 const precacheList = data.split(" ");
 const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
     try {
-      const registration = await navigator.serviceWorker.register("/sw.js", {
+      const registration = await navigator.serviceWorker.register("/sw.js?version=" + version, {
         scope: '/',
         type: 'module',
       });
