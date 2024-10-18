@@ -6,7 +6,8 @@ categories = ["media"]
 tags = ["content", "csp", "shortcode", "feature"]
 [extra]
 subtitle = "Shortcodes for images"
-csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
+csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/",
+           "https://halve-z.netlify.app/fireball.gif"]
 +++
 
 ## Usage
