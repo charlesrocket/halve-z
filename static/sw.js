@@ -18,6 +18,7 @@ const cacheList = [
   "/syntax-theme-light.css",
   "/syntax-theme-dark.css",
   "/sw-style.css",
+  "/notifications.js",
   "/webfonts/Pixeboy.woff2",
   "/webfonts/PressStart2P-latin-v15.woff2",
   "/webfonts/PressStart2P-latin-ext-v15.woff2",
@@ -47,12 +48,11 @@ oninstall = (event) => {
 };
 
 onfetch = (event) => {
-  console.log("Service worker fetching", event.request.url);
+  console.log("Fetching", event.request.url);
   const destination = event.request.destination;
   switch (destination) {
     case 'scrypt':
     case 'style':
-    case 'image':
     case 'document': {
       event.respondWith(caches.open(cacheName).then((cache) => {
         return cache.match(event.request)
@@ -61,10 +61,10 @@ onfetch = (event) => {
               if ((networkResponse.status < 400)
                   && (cachedResponse.headers.get("Last-Modified")
                       !== networkResponse.headers.get("Last-Modified"))) {
-                console.log("Caching the response to", event.request.url);
+                console.log("Caching the page at", event.request.url);
                 cache.put(event.request, networkResponse.clone());
               } else {
-                console.log("Service worker not caching the response to", event.request.url);
+                console.log("Not caching the page at", event.request.url);
               }
 
               return networkResponse;
@@ -74,19 +74,30 @@ onfetch = (event) => {
       }));
       return;
     }
-    case 'font': {
-      const url = new URL(event.request.url);
-      const PrecachedRequest = cacheList.includes(url.pathname);
-      if (PrecachedRequest) {
-        event.respondWith(caches.open(cacheName).then((cache) => {
-          return cache.match(event.request.url);
-        }));
-      } else {
-        return;
-      }
-    }
-    default:
+    case 'image':
+    case 'font':
+    default: {
+      event.respondWith(caches.open(cacheName).then((cache) => {
+        return cache.match(event.request.url).then((cachedResponse) => {
+          if (cachedResponse) {
+            console.log("Cache match for", event.request.url);
+            return cachedResponse;
+          }
+
+          return fetch(event.request).then((fetchedResponse) => {
+            if (fetchedResponse.ok) {
+              console.log("Caching the response to", event.request.url);
+              cache.put(event.request, fetchedResponse.clone());
+            } else {
+              console.log("Not caching the response to", event.request.url);
+            }
+
+            return fetchedResponse;
+          });
+        });
+      }));
       return;
+    }
   }
 };
 
@@ -95,14 +106,14 @@ onmessage = (event) => {
     const data = [...new Set(event.data.payload)];
     var success = true;
     broadcast.postMessage({type: 'SW_PRECACHE'});
-    console.log("Service worker started precache", data);
+    console.log("Precache started", data);
     event.waitUntil(
       (async () => {
         const cache = await caches.open(cacheName);
         await cache.addAll(data)
           .catch((error) => {
             broadcast.postMessage({type: 'SW_PRECACHE_ERR'});
-            console.error("Service worker error", error);
+            console.error("Precache error", error);
             success = false;
           });
 
@@ -119,7 +130,7 @@ onactivate = (event) =>  {
       const keys = await caches.keys();
       return keys.map(async (cache) => {
         if(cache !== cacheName) {
-          console.log("Removing old service worker cache", cache);
+          console.log("Removing old cache", cache);
           return await caches.delete(cache);
         }
       })
