@@ -58,7 +58,9 @@ onfetch = (event) => {
         return cache.match(event.request)
           .then((cachedResponse) => {
             const fetchedResponse = fetch(event.request).then((networkResponse) => {
-              if (networkResponse.status < 400) {
+              if ((networkResponse.status < 400)
+                  && (cachedResponse.headers.get("Last-Modified")
+                      !== networkResponse.headers.get("Last-Modified"))) {
                 console.log("Caching the response to", event.request.url);
                 cache.put(event.request, networkResponse.clone());
               } else {
