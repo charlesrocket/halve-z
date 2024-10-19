@@ -6,6 +6,7 @@ const cacheList = [
   "/",
   "/offline/",
   "/404.html",
+  "/notifications.js",
   "/manifest.json",
   "/webfonts/Pixeboy.woff2",
   "/webfonts/PressStart2P-latin-v15.woff2",
