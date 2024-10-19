@@ -2,15 +2,13 @@
 import {showToast} from "./notifications.js";
 
 const data = document.getElementById("precache-payload").textContent;
-const version = new URL(import.meta.url).searchParams.get('version');
 const precacheList = data.split(" ");
 if ("serviceWorker" in navigator) {
   window.addEventListener('load', async () => {
     try {
       const registration = await navigator.serviceWorker.register(
-        "/sw.js?version=" + version, {
-          scope: '/',
-          type: 'module',
+        "/sw.js", {
+          scope: '/', type: 'module',
         }
       );
 
