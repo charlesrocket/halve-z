@@ -22,7 +22,7 @@
   {%- if page.extra.image is matching("^http[s]?://") %}
     {% set page_image = page.extra.image %}
   {% else %}
-    {% set page_image = page.path ~ page.extra.image ~ "?v=" ~ get_hash(path=page.extra.image, sha_type=512, base64=false) %}
+    {% set page_image = page.path ~ page.extra.image ~ "?v=" ~ get_hash(path=page.path ~ page.extra.image, sha_type=512, base64=false) %}
   {% endif %}
 {%- endif %}
 {%- if config.extra.images.home is matching("^http[s]?://") %}{% set home_image = config.extra.images.home %}{% else %}{% set home_image = "/" ~ config.extra.images.home ~ "?v=" ~ get_hash(path=config.extra.images.home, sha_type=512, base64=false) %}{% endif %}
