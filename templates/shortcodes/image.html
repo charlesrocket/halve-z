@@ -1,7 +1,7 @@
 {%- if src is matching("^http[s]?://") %}
   {%- set image = src %}
 {%- elif src is starting_with("/") %}
-  {%- set image = src ~ "?v=" ~ get_hash(path=src, sha_type=512, base64=false) %}
+  {%- set image = src %}
   {%- set meta = get_image_metadata(path=src) %}
 {%- else %}
   {%- set image = page.path ~ src %}
@@ -11,7 +11,7 @@
   {%- if link %}
   <a href={{ link | safe }}>
   {%- endif %}
-    <img class="align-center page-image" src="{{ image | safe }}"{% if meta %} width="{{ meta.width }}" height="{{ meta.height }}"{% endif %}{% if alt %} alt="{{ alt | safe }}"{% endif %}/>
+    <img class="align-center page-image" src="{% if src is matching("^http[s]?://") %}{{ image | safe }}{% else %}{{ image ~ "?v=" ~ get_hash(path=image, sha_type=512, base64=false) | safe }}{% endif %}"{% if meta %} width="{{ meta.width }}" height="{{ meta.height }}"{% endif %}{% if alt %} alt="{{ alt | safe }}"{% endif %}/>
   {%- if link %}</a>{% endif %}
   {%- if caption %}<figcaption>{{ caption | safe }}</figcaption>{% endif %}
 </figure>
