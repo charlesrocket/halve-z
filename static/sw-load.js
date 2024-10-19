@@ -1,7 +1,7 @@
 import {showToast} from "./notifications.js";
 
-const data = new URL(import.meta.url).searchParams.get('data-cache');
-const version = new URL(import.meta.url).searchParams.get('v');
+const data = document.getElementById("precache-payload").textContent;
+const version = new URL(import.meta.url).searchParams.get('version');
 const precacheList = data.split(" ");
 const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {

@@ -16,18 +16,18 @@
 {% if category_image_match %}{% if category_image_match is matching("^http[s]?://") %}
   {% set category_image = category_image_match %}
 {% else %}
-  {%- set category_image = "/" ~ category_image_match %}
+  {%- set category_image = "/" ~ category_image_match ~ "?v=" ~ get_hash(path=category_image_match, sha_type=512, base64=false) %}
 {%- endif %}{% endif %}
 {%- if page.extra.image %}
   {%- if page.extra.image is matching("^http[s]?://") %}
     {% set page_image = page.extra.image %}
   {% else %}
-    {% set page_image = page.path ~ page.extra.image %}
+    {% set page_image = page.path ~ page.extra.image ~ "?v=" ~ get_hash(path=page.extra.image, sha_type=512, base64=false) %}
   {% endif %}
 {%- endif %}
-{%- if config.extra.images.home is matching("^http[s]?://") %}{% set home_image = config.extra.images.home %}{% else %}{% set home_image = "/" ~ config.extra.images.home %}{% endif %}
-{%- if config.extra.images.post_list is matching("^http[s]?://") %}{% set post_list_image = config.extra.images.post_list %}{% else %}{% set post_list_image = "/" ~ config.extra.images.post_list %}{% endif %}
-{%- if config.extra.images.default_post is matching("^http[s]?://") %}{% set default_post_image = config.extra.images.default_post %}{% else %}{% set default_post_image = "/" ~ config.extra.images.default_post %}{% endif %}
+{%- if config.extra.images.home is matching("^http[s]?://") %}{% set home_image = config.extra.images.home %}{% else %}{% set home_image = "/" ~ config.extra.images.home ~ "?v=" ~ get_hash(path=config.extra.images.home, sha_type=512, base64=false) %}{% endif %}
+{%- if config.extra.images.post_list is matching("^http[s]?://") %}{% set post_list_image = config.extra.images.post_list %}{% else %}{% set post_list_image = "/" ~ config.extra.images.post_list ~ "?v=" ~ get_hash(path=config.extra.images.post_list, sha_type=512, base64=false) %}{% endif %}
+{%- if config.extra.images.default_post is matching("^http[s]?://") %}{% set default_post_image = config.extra.images.default_post %}{% else %}{% set default_post_image = "/" ~ config.extra.images.default_post ~ "?v=" ~ get_hash(path=config.extra.images.default_post, sha_type=512, base64=false) %}{% endif %}
 {%- if config.extra.csp == true %}
   {%- if config.extra.comments.system == "cactus" %}
     {%- set cactus_hash = get_hash(path="/cactus.js", base64=true, sha_type=512) %}
