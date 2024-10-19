@@ -20,6 +20,17 @@ const cacheList = [
   "/webfonts/hack-regular.woff2",
 ];
 
+function fetchedResponse(response, event, cache) {
+  if (response.ok) {
+    console.log("Caching the response to", event.request.url);
+    cache.put(event.request, response.clone());
+  } else {
+    console.log("Not caching the response to", event.request.url);
+  }
+
+  return networkResponse;
+}
+
 oninstall = (event) => {
   event.waitUntil(
     (async () => {
@@ -47,14 +58,7 @@ onfetch = (event) => {
         return cache.match(event.request)
           .then((cachedResponse) => {
             const fetchedResponse = fetch(event.request).then((networkResponse) => {
-              if (networkResponse.ok) {
-                console.log("Caching the response to", event.request.url);
-                cache.put(event.request, networkResponse.clone());
-              } else {
-                console.log("Not caching the response to", event.request.url);
-              }
-
-              return networkResponse;
+              return fetchedResponse(networkResponse, event, cache);
             }).catch(() => caches.match("/offline/"));
             return cachedResponse || fetchedResponse;
           });
@@ -71,15 +75,8 @@ onfetch = (event) => {
             return cachedResponse;
           }
 
-          return fetch(event.request).then((fetchedResponse) => {
-            if (fetchedResponse.ok) {
-              console.log("Caching the response to", event.request.url);
-              cache.put(event.request, fetchedResponse.clone());
-            } else {
-              console.log("Not caching the response to", event.request.url);
-            }
-
-            return fetchedResponse;
+          return fetch(event.request).then((networkResponse) => {
+            return fetchedResponse(networkResponse, event, cache);
           });
         });
       }));
