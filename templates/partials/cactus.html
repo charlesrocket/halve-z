@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/cactus.css" type="text/css">
-<script type="text/javascript" src="/cactus.js" integrity="sha512-{{ get_hash(path="/cactus.js", base64=true, sha_type=512) | safe }}"
+<script type="text/javascript" src="{{ '/cactus.js?v=' ~  get_hash(path='/cactus.js', sha_type=512, base64=false) | safe }}"
         data-default-homeserver-url="https://matrix.cactus.chat",
         data-server-name="cactus.chat"
         data-site-name="{{ config.extra.comments.cactus.site | safe }}"

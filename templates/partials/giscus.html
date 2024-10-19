@@ -8,7 +8,7 @@
         data-reactions-enabled="{{ config.extra.comments.giscus.reactions }}"
         data-emit-metadata="0"
         data-input-position="top"
-        data-theme="{{ config.base_url ~ "/giscus.css" }}"
+        data-theme="{{ config.base_url ~ '/giscus.css?v='  ~ get_hash(path='/giscus.css', sha_type=512, base64=false) | safe  }}"
         data-lang="{{ config.extra.comments.giscus.lang }}"
         data-loading="lazy"
         crossorigin="anonymous"

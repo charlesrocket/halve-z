@@ -1,10 +1,10 @@
 <div class="video-local">
   <video controls{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %}{% if autoplay %} autoplay{% endif %}{% if loop %} loop=true{% endif %}{% if muted %} muted=true{% endif %}>
     {%- for source in src -%}
-      {%- set video = page.path ~ source -%}
+      {%- set video = page.path ~ source ~ "?v=" ~ get_hash(path=page.path ~ source, sha_type=512, base64=false)-%}
       {%- set type = source | split(pat=".") | last -%}
       {% if type is matching("^mov$") %}{% set type = "quicktime" %}{% endif %}
-      <source src="{{ get_url(path=video) | safe }}" type="{{ 'video/' ~ type }}"/>
+      <source src="{{ video | safe }}" type="{{ 'video/' ~ type }}"/>
     {%- endfor %}
       Your browser does not support the video formats in use.
   </video>

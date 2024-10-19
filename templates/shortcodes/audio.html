@@ -1,7 +1,7 @@
 <audio controls>
   {% for source in src -%}
     {% set type = source | split(pat=".") | last -%}
-    <source src="{{ page.path | safe }}{{ source | safe }}" type="{{ 'audio/' ~ type }}" />
+    <source src="{{ page.path | safe }}{{ source ~ "?v=" ~ get_hash(path=page.path ~ source, sha_type=512, base64=false) | safe }}" type="{{ 'audio/' ~ type }}" />
   {% endfor -%}
   Your browser does not support the audio formats in use.
 </audio>

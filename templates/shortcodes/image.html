@@ -1,7 +1,7 @@
 {%- if src is matching("^http[s]?://") %}
   {%- set image = src %}
 {%- elif src is starting_with("/") %}
-  {%- set image = src %}
+  {%- set image = src ~ "?v=" ~ get_hash(path=src, sha_type=512, base64=false) %}
   {%- set meta = get_image_metadata(path=src) %}
 {%- else %}
   {%- set image = page.path ~ src %}

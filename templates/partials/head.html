@@ -96,9 +96,9 @@
   <meta name="twitter:card" content="{{ image | safe }}">
   <meta name="twitter:image" content="{{ image | safe }}">
   {%- else %}
-  <meta name="twitter:card" content="{{ "/" ~ config.extra.logo }}">
-  <meta name="twitter:image" content="{{ "/" ~ config.extra.logo }}">
-  <meta property="og:image" content="{{ "/" ~ config.extra.logo }}">
+  <meta name="twitter:card" content="{{ "/" ~ config.extra.logo | safe }}">
+  <meta name="twitter:image" content="{{ "/" ~ config.extra.logo | safe }}">
+  <meta property="og:image" content="{{ "/" ~ config.extra.logo | safe }}">
   {%- endif %}
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
   {%- if page.extra.subtitle %}<meta name="twitter:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
@@ -110,25 +110,25 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | safe }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | safe }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | safe }}">
-  <link rel="stylesheet" type="text/css" href="{{ '/unstyle.css' | safe }}" integrity="sha512-{{ get_hash(path='/unstyle.css', sha_type=512, base64=true) | safe }}">
-  <link rel="stylesheet" type="text/css" href="{{ '/main.css' | safe }}" integrity="sha512-{{ get_hash(path='/main.css', sha_type=512, base64=true) | safe }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v={{ get_hash(path='/favicon-32x32.png', sha_type=512, base64=false) }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v={{ get_hash(path='/favicon-16x16.png', sha_type=512, base64=false) }}">
+  <link rel="stylesheet" type="text/css" href="/unstyle.css?v={{ get_hash(path='/unstyle.css', sha_type=512, base64=false) | safe }}">
+  <link rel="stylesheet" type="text/css" href="/main.css?v={{ get_hash(path='/main.css', sha_type=512, base64=false) | safe }}">
   {% if active_path == "/" %}
-  <link rel="stylesheet" type="text/css" href="{{ '/nerd-fonts.css' | safe }}" integrity="sha512-{{ get_hash(path='/nerd-fonts.css', sha_type=512, base64=true) | safe }}">
+  <link rel="stylesheet" type="text/css" href="/nerd-fonts.css?v={{ get_hash(path='/nerd-fonts.css', sha_type=512, base64=false) | safe }}">
   {% endif %}
   {%- if config.extra.home.glitch == true %}
   {%- if current_path | default(value="none") == "/" %}
-  <link rel="stylesheet" type="text/css" href="{{ '/glitch.css' | safe }}" integrity="sha512-{{ get_hash(path='/glitch.css', sha_type=512, base64=true) | safe }}">
+  <link rel="stylesheet" type="text/css" href="/glitch.css?v={{ get_hash(path='/glitch.css', sha_type=512, base64=false) | safe }}">
   {% endif %}
   {% endif %}
-  <link rel="stylesheet" type="text/css" href="{{ '/langs.css' | safe }}" integrity="sha512-{{ get_hash(path='/langs.css', sha_type=512, base64=true) | safe }}">
+  <link rel="stylesheet" type="text/css" href="/langs.css?v={{ get_hash(path='/langs.css', sha_type=512, base64=false) | safe }}">
   {%- if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}
-  <link rel="stylesheet" type="text/css" href="{{ '/syntax-theme-light.css' | safe }}" media="(prefers-color-scheme: light)" integrity="sha512-{{ get_hash(path='/syntax-theme-light.css', sha_type=512, base64=true) | safe }}">
-  <link rel="stylesheet" type="text/css" href="{{ '/syntax-theme-dark.css' | safe }}" media="(prefers-color-scheme: dark)" integrity="sha512-{{ get_hash(path='/syntax-theme-dark.css', sha_type=512, base64=true) | safe }}">
+  <link rel="stylesheet" type="text/css" href="/syntax-theme-light.css?v={{ get_hash(path='/syntax-theme-light.css', sha_type=512, base64=false) | safe }}" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css?v={{ get_hash(path='/syntax-theme-dark.css', sha_type=512, base64=false) | safe }}" media="(prefers-color-scheme: dark)">
   {%- endif %}
   {%- if config.extra.manifest %}
-  <link rel="stylesheet" type="text/css" href="{{ '/sw-style.css' | safe }}" integrity="sha512-{{ get_hash(path='/sw-style.css', sha_type=512, base64=true) | safe }}">
+  <link rel="stylesheet" type="text/css" href="/sw-style.css?v={{ get_hash(path='/sw-style.css', sha_type=512, base64=false) | safe }}">
   {%- endif %}
   {%- if page_image %}
   <style>{{ macros::image_style(url=page_image) }}</style>
