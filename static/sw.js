@@ -1,3 +1,5 @@
+"use strict";
+
 const broadcast = new BroadcastChannel('sw-channel');
 const cacheName =  new URL(location).searchParams.get("version");;
 const cacheList = [

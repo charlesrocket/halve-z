@@ -1,3 +1,5 @@
+"use strict";
+
 const toastBox = document.querySelector('.toastBox');
 export function showToast(message, type) {
   const toast = document.createElement('div');

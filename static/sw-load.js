@@ -1,3 +1,4 @@
+"use strict";
 import {showToast} from "./notifications.js";
 
 const data = document.getElementById("precache-payload").textContent;
