@@ -1,6 +1,5 @@
 const broadcast = new BroadcastChannel('sw-channel');
-const version = new URL(location).searchParams.get("version");
-const cacheName = "v13-" + version;
+const cacheName =  new URL(location).searchParams.get("version");;
 const cacheList = [
   "/",
   "/offline/",
