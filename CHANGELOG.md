@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.19.0] - 2024-10-19
+
+### Bug Fixes
+
+- Remove `base` element
+- Return on error
+- Switch on `request.destination`
+- Move activation message
+- Cache app icons
+- Improve default cache strategy
+- Cache-bust assets for precache
+- Move asset integrity into url parameter
+- Resolve extensive header length
+- Cache web app assets
+- Delay service worker registration
+- Move `image` cache bust
+- Fix `page_image` path
+- Do not cache service worker
+- Use strict mode
+- Update `sw-load` cache url
+- Switch to hardcoded cache version
+- Relax `networkResponse` check
+
+### Documentation
+
+- Fix `image` csp urls
+
+### Features
+
+- Blur `toast` background
+- Export `showToast()`
+- Use dynamic cache name
+- Add `VERSION`
+
+### Performance
+
+- Store updated content only
+
+### Refactor
+
+- Convert service worker into module
+- Move notifications cache
+- Add `fetchedResponse()`
+
+### Styling
+
+- Reformat service worker
+
 ## [0.18.1] - 2024-10-13
 
 ### Bug Fixes
