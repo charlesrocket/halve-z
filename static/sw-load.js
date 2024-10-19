@@ -3,13 +3,15 @@ import {showToast} from "./notifications.js";
 const data = document.getElementById("precache-payload").textContent;
 const version = new URL(import.meta.url).searchParams.get('version');
 const precacheList = data.split(" ");
-const registerServiceWorker = async () => {
-  if ("serviceWorker" in navigator) {
+if ("serviceWorker" in navigator) {
+  window.addEventListener('load', async () => {
     try {
-      const registration = await navigator.serviceWorker.register("/sw.js?version=" + version, {
-        scope: '/',
-        type: 'module',
-      });
+      const registration = await navigator.serviceWorker.register(
+        "/sw.js?version=" + version, {
+          scope: '/',
+          type: 'module',
+        }
+      );
 
       if (registration.installing) {
         showToast("Installing Sevice Worker", "warning");
@@ -33,10 +35,8 @@ const registerServiceWorker = async () => {
       showToast("Sevice Worker registration failed", "error");
       console.error("Service worker registration failed", error);
     }
-  }
-};
-
-registerServiceWorker();
+  })
+}
 
 const broadcast = new BroadcastChannel('sw-channel');
 broadcast.onmessage = (event) => {
