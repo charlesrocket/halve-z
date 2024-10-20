@@ -94,17 +94,14 @@ onmessage = (event) => {
     event.waitUntil(
       (async () => {
         const cache = await caches.open(cacheName);
-        await cache.addAll(data)
-          .catch((error) => {
-            broadcast.postMessage({type: 'SW_PRECACHE_ERR'});
-            console.error("Precache error", error);
-            success = false;
-          });
-
+        await cache.addAll(data).catch((error) => {
+          broadcast.postMessage({type: 'SW_PRECACHE_ERR'});
+          console.error("Precache error", error);
+          success = false;
+        });
         if (success) broadcast.postMessage({type: 'SW_PRECACHE_FINISH'});
       })(),
     );
-
   }
 };
 
