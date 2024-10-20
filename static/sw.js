@@ -21,7 +21,7 @@ const cacheList = [
 ];
 
 function fetchedResponse(response, event, cache) {
-  if (response.ok) {
+  if (response.status < 400) {
     console.log("Caching the response to", event.request.url);
     cache.put(event.request, response.clone());
   } else {
