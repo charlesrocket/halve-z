@@ -28,7 +28,7 @@ function fetchedResponse(response, event, cache) {
     console.log("Not caching the response to", event.request.url);
   }
 
-  return networkResponse;
+  return response;
 }
 
 oninstall = (event) => {
