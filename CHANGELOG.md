@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.19.1] - 2024-10-21
+
+### Bug Fixes
+
+- Fix `fetchedResponse()` return
+- Fix search cache
+- Fix offline mode
+- Update `fetchedResponse` log message
+- Handle navigation request
+- Set 404 title
+
+### Miscellaneous tasks
+
+- Bump cache to v15
+
+### Styling
+
+- Reformat `onmessage` event
+
 ## [0.19.0] - 2024-10-19
 
 ### Bug Fixes
