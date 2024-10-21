@@ -62,6 +62,8 @@
       {{ '#' ~ term.name }} • {{ config.title }}
     {%- elif taxonomy.name -%}
       {{ taxonomy.name | title }} • {{ config.title }}
+    {%- elif page_url == '/404.html' -%}
+      {{ "404 • " ~ config.title }}
     {%- else -%}
       {{ config.title }}
     {%- endif -%}
