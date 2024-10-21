@@ -26,7 +26,7 @@ function fetchedResponse(event, cache) {
       console.log("Caching the response to", event.request.url);
       cache.put(event.request, networkResponse.clone());
     } else {
-      console.log("Service worker not caching the response to", event.request.url);
+      console.log("Not caching the response to", event.request.url);
     }
 
     return networkResponse;
