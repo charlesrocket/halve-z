@@ -61,7 +61,16 @@ onfetch = (event) => {
           .then((cachedResponse) => {
             return cachedResponse || fetchedResponse(
               event, cache).catch(
-                () => caches.match("/offline/")
+                () => {
+                  if (event.request.mode === 'navigate') {
+                    console.log(
+                      "Returning offline page; no cache found for",
+                      event.request.url
+                    );
+
+                    return cache.match("/offline/");
+                  }
+                }
               );
           });
       }));
