@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.0] - 2025-01-06
+
+### Bug Fixes
+
+- Ignore cactus requests
+- Use width only
+
+### Features
+
+- Add `img` dimensions
+
+### Miscellaneous tasks
+
+- Update LICENSE
+- Bump cache to v16
+
+### Build
+
+- Bump required version to 0.19.2
+
 ## [0.19.2] - 2024-11-11
 
 ### Bug Fixes
