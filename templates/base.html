@@ -39,19 +39,10 @@
       </div>
     </div>
     <div class="block-right">
-      {% if config.build_search_index == true %}
-      <script defer src="{{ '/elasticlunr.min.js?v=' ~ get_hash(path='/elasticlunr.min.js', sha_type=512, base64=false) | safe }}"></script>
-      <script defer src="/search.js", integrity="sha512-{{ get_hash(path='/search.js', sha_type=512, base64=true) | safe }}"></script>
-      <nav class="search-container" id="search-nav">
-        <input id="search" type="search" placeholder="Search" aria-label="Search">
-        <div class="search-results">
-          <div class="search-results__items"></div>
-        </div>
-      </nav>
-      {% endif %}
+      {% block nav %}
+      <div id="nav-container">
       <nav class="nav-bar" role="navigation">
         <ul class="nav-menu">
-        {% block nav %}
           <li{% if active_path == "/" %} class="nav-active"{% endif %}><a href="{{ "/" | safe }}">Home</a></li>
           {% if config.extra.menu.posts == true %}
           <li{% if active_path is starting_with("/posts/") or active_path is starting_with("/tags/") or active_path is starting_with("/categories/")%} class="nav-active"{% endif %}><a href="{{ "/posts/" | safe }}" aria-haspopup="true">{{ config.extra.menu.posts_label }}</a>
@@ -65,9 +56,20 @@
           {% for link in config.extra.menu.links %}
           <li{% if page %}{% if active_path is starting_with(link.url) %} class="nav-active"{% endif %}{% endif %}><a href="{% if link.url is starting_with("@") %}{{ get_url(path=link.url, trailing_slash=true) | safe }}{% else %}{{ link.url | safe }}{% endif %}">{{ link.name }}</a></li>
           {% endfor %}
-        {% endblock nav %}
         </ul>
       </nav>
+      {% if config.build_search_index == true %}
+      <script defer src="{{ '/elasticlunr.min.js?v=' ~ get_hash(path='/elasticlunr.min.js', sha_type=512, base64=false) | safe }}"></script>
+      <script defer src="/search.js", integrity="sha512-{{ get_hash(path='/search.js', sha_type=512, base64=true) | safe }}"></script>
+      <nav class="search-container" id="search-nav">
+        <input id="search" type="search" placeholder="Search" aria-label="Search">
+        <div class="search-results">
+          <div class="search-results__items"></div>
+        </div>
+      </nav>
+      {% endif %}
+      </div>
+      {% endblock nav %}
   {% block right %}
       <div class="content">
         {% block date %}<div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>{% endblock date %}

@@ -1,9 +1,8 @@
 .search-container {
-  position: absolute;
   font-size: 12px;
   top: 20px;
   left: 26px;
-  width: 20vw;
+  width: 42%;
   max-width: 300px;
   z-index: 2;
   input {
@@ -56,38 +55,6 @@
       text-decoration-color: $green;
       text-decoration-thickness: 2px;
     }
-  }
-}
-
-@media screen and (max-width: 960px) {
-  .search-container {
-    width: 30vw;
-  }
-
-  .search-results {
-    width: 65vw;
-    right: unset;
-    margin-right: -50%;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .search-container {
-    width: 65vw;
-    max-width: 325px;
-    top: 70px;
-    left: 50%;
-    right: unset;
-    margin-right: -50%;
-    transform: translate(-50%, 0);
-  }
-
-  .search-results {
-    width: 75vw;
-    left: 25%;
-    right: unset;
-    margin-right: -25%;
-    transform: translate(-30%, 0);
   }
 }
 

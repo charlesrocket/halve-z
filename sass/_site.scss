@@ -11,8 +11,10 @@
   width: 65%;
   float: right;
   overflow-y: auto;
+  text-align: justify;
   .content {
-    padding: 120px 10% 60px;
+    margin-bottom: auto;
+    padding: 0px 10% 0px;
   }
 }
 
@@ -44,9 +46,8 @@
       align-items: center;
     }
     .content {
-      padding: 120px 60px 60px;
+      padding: 0px 60px 0px;
       max-width: 600px;
-      min-height: 94%;
     }
   }
 }
@@ -62,10 +63,21 @@
 }
 
 nav.nav-bar {
-  position: absolute;
+  display: flex;
+  gap: 20px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1 1 22px;
   top: 20px;
-  right: 26px;
   z-index: 2;
+}
+
+#nav-container {
+  margin: 20px;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 nav.nav-bar ul {
@@ -807,13 +819,14 @@ a.zola-anchor {
 }
 
 .footer-content {
+  vertical-align: bottom;
+  margin-top: auto;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: auto;
   line-height: 0.6rem;
-  bottom: 0;
 }
 
 .footer-links {
@@ -868,12 +881,6 @@ a.zola-anchor {
       grid-template-rows: repeat(4, auto);
     }
   }
-  nav.nav-bar {
-    left: 50%;
-    right: unset;
-    margin-right: -50%;
-    transform: translate(-50%, 0);
-  }
   .inner-post {
     h1 {
       line-height: 36px;
@@ -907,7 +914,8 @@ a.zola-anchor {
   }
   .block-right {
     .content {
-      padding: 145px 20px 40px;
+      height: 100%;
+      padding: 0px 20px 0px;
     }
   }
   .projects {
