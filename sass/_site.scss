@@ -13,6 +13,7 @@
   overflow-y: auto;
   text-align: justify;
   .content {
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: auto;
