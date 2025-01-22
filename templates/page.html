@@ -21,7 +21,7 @@
       {% if page.extra.subtitle %}<h1>{{ page.extra.subtitle | safe}}</h1>{% endif %}
       {% if current_path is starting_with("/posts/") %}
       {% if config.extra.read_time == true or page.updated %}
-      <div class="post-ext-info">
+      <div class="post-info"><div class="post-ext-info">
         {% if config.extra.read_time == true %}
         <p>{{ page.reading_time }} minute{{ page.reading_time | pluralize }} reading time</p>
         {% endif %}
@@ -34,6 +34,7 @@
         {{ macros::music(artist=page.extra.music[0], track=page.extra.music[1]) }}
       {% endif %}
       {% endblock music %}
+      </div>
       {% if config.extra.toc == true and not page.extra.disable_toc %}{% if page.toc %}{% if page.toc | length >= 2 %}
       <div class="toc-block">
         <ul>

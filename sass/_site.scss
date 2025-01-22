@@ -13,8 +13,10 @@
   overflow-y: auto;
   text-align: justify;
   .content {
+    display: flex;
+    flex-direction: column;
     margin-bottom: auto;
-    padding: 0px 10% 0px;
+    padding: 0px 10% 52px;
   }
 }
 
@@ -43,11 +45,15 @@
     display: block;
     > div {
       display: flex;
+      text-align: justify;
       align-items: center;
     }
     .content {
-      padding: 0px 60px 0px;
-      max-width: 600px;
+      display: flex;
+      padding: 0px 10% 52px;
+      margin-bottom: auto;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
@@ -58,7 +64,7 @@
 }
 
 .content {
-  margin: 0 auto;
+  margin: 0 20px;
   overflow-wrap: break-word;
 }
 
@@ -384,14 +390,21 @@ a.zola-anchor {
   }
 }
 
+.post-info {
+  text-align: start;
+  display: flex;
+  align-items: flex-start;
+}
+
 #posts {
   .block-right {
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     .content {
       height: auto;
-      min-height: 94%;
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
   }
   .logo {
@@ -425,7 +438,6 @@ a.zola-anchor {
 }
 
 .posts-list {
-  margin: 50px 0;
   > li {
     margin-bottom: 23px;
     padding-bottom: 20px;
@@ -564,7 +576,6 @@ a.zola-anchor {
 .post-music {
   justify-content: center;
   align-items: center;
-  height: 100%;
   position: relative;
   padding: 6px 10px;
   display: inline-flex;
@@ -646,7 +657,7 @@ a.zola-anchor {
 .date-highlight {
   text-align: center;
   font-size: 16px;
-  margin: 0 0 50px;
+  margin: 50px 0 50px;
   color: $overlay-color;
   display: -webkit-box;
   display: -moz-box;
@@ -808,10 +819,6 @@ a.zola-anchor {
       }
     }
   }
-}
-
-.toc-block {
-  margin-bottom: 26px;
 }
 
 .toc-anchor {
