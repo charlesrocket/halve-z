@@ -42,16 +42,12 @@
   }
   .block-right {
     width: 50%;
-    display: block;
-    > div {
-      display: flex;
-      text-align: justify;
-      align-items: center;
-    }
+    display: flex;
+    flex-direction: column;
     .content {
       display: flex;
+      flex: 1;
       padding: 0px 10% 52px;
-      margin-bottom: auto;
       align-items: center;
       justify-content: center;
     }
