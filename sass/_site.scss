@@ -877,6 +877,9 @@ a.zola-anchor {
   .block-right {
     overflow-y: unset;
   }
+  .post-info {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 640px) {
