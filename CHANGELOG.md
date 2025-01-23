@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.1] - 2025-01-23
+
+### Bug Fixes
+
+- Improve navigation container
+- Improve content layout
+- Improve `homepage` layout
+- Limit content width
+- Update `.projects`
+- Drop text wrapping
+- Set `#nav-container` gaps
+- Adjust `.search-container` width
+- Edit pagination margin
+- Responsive `#nav-container`
+- Realign search results
+- Move `toastBox` layer
+- Responsive `.post-info`
+
+### Documentation
+
+- Update data post
+
+### Miscellaneous tasks
+
+- Bump cache to v17
+
 ## [0.20.0] - 2025-01-06
 
 ### Bug Fixes
