@@ -880,6 +880,10 @@ a.zola-anchor {
 }
 
 @media screen and (max-width: 640px) {
+  #nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .main-info,
   .about-info {
     ul {
