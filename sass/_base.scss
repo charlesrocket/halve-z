@@ -323,13 +323,13 @@ video {
   overflow: hidden;
 }
 
-.video-local {
-  text-align: center;
-}
-
 .video-local,
 .video-embedded {
+  display: flex;
   margin: 20px 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 embed,
