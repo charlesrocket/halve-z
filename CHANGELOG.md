@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.2] - 2025-02-01
+
+### Bug Fixes
+
+- Set `#homepage` content margin
+- Change `.date-highlight` margin
+- Update `figure` margin
+- Center video elements
+
+### Miscellaneous tasks
+
+- Bump cache to v18
+
 ## [0.20.1] - 2025-01-23
 
 ### Bug Fixes
