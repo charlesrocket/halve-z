@@ -420,7 +420,7 @@ a.zola-anchor {
 }
 
 .section-title {
-  font-size: 45px;
+  font-size: 34px;
   position: absolute;
   bottom: 50px;
   overflow-wrap: anywhere;
@@ -594,7 +594,7 @@ a.zola-anchor {
     position: relative;
     left: auto;
     bottom: auto;
-    font-size: 40px;
+    font-size: 32px;
     filter: drop-shadow(0 1px 3px);
   }
   .tags > li {
@@ -853,12 +853,6 @@ a.zola-anchor {
   }
 }
 
-@media screen and (max-height: 605px) {
-  .post-title-section .section-title {
-    font-size: 45px;
-  }
-}
-
 @media screen and (max-width: 960px) {
   #homepage {
     .block-left,
@@ -919,11 +913,11 @@ a.zola-anchor {
       display: none;
     }
     .section-title {
-      font-size: 40px;
+      font-size: 30px;
     }
   }
   .section-title {
-    font-size: 42px;
+    font-size: 32px;
   }
   .block-right {
     .content {
@@ -938,6 +932,12 @@ a.zola-anchor {
   }
   table {
     font-size: 14px;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .post-title-section .section-title {
+    font-size: 28px;
   }
 }
 
