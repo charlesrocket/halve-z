@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.3] - 2025-02-09
+
+### Bug Fixes
+
+- Fix nerd fonts syntax
+- Change section title font size
+
 ## [0.20.2] - 2025-02-01
 
 ### Bug Fixes
