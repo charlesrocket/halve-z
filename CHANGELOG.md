@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.4] - 2025-04-02
+
+### Bug Fixes
+
+- Fix block quotes spacing
+- Adjust paragraph margins
+
+### Miscellaneous tasks
+
+- Bump zola to 0.20.0
+
 ## [0.20.3] - 2025-02-09
 
 ### Bug Fixes
