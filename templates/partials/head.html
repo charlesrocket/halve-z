@@ -133,7 +133,7 @@
   <link rel="stylesheet" type="text/css" href="/sw-style.css?v={{ get_hash(path='/sw-style.css', sha_type=512, base64=false) | safe }}">
   {%- endif %}
   {%- if config.extra.social.mastodon %}
-  <link ref="me" href="https://{{ config.extra.social.mastodon }}">
+  <link rel="me" href="https://{{ config.extra.social.mastodon }}">
   {%- endif %}
   {%- if page_image %}
   <style>{{ macros::image_style(url=page_image) }}</style>
