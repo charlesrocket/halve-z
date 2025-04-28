@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.21.0] - 2025-04-28
+
+### Bug Fixes
+
+- Drop `btn` borders
+- Set `btn` margin
+- Move mastodon verification
+- Link tag typo
+- Fix `data-category-id`
+- Filter mastodon link
+- Remove footer whitespaces
+
+### Documentation
+
+- Update `Buttons` example
+
+### Features
+
+- Add mastodon verification
+
 ## [0.20.4] - 2025-04-02
 
 ### Bug Fixes
