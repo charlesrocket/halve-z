@@ -111,6 +111,11 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+  {%- if config.extra.social.mastodon %}
+  {%- if "posts" in active_path %}
+  <meta name="fediverse:creator" content="{{ config.extra.mastodon.author | safe }}">
+  {%- endif %}
+  {%- endif %}
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | safe }}">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v={{ get_hash(path='/favicon-32x32.png', sha_type=512, base64=false) }}">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v={{ get_hash(path='/favicon-16x16.png', sha_type=512, base64=false) }}">

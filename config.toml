@@ -102,6 +102,9 @@ reddit = "user_name"
 keybase = "user_name"
 hackernews = "user_name"
 
+[extra.mastodon]
+author = "@user@server"
+
 [extra.comments]
 system = "none"
 
