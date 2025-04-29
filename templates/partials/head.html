@@ -111,7 +111,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-  {%- if config.extra.social.mastodon %}
+  {%- if config.extra.mastodon.author %}
   {%- if "posts" in active_path %}
   <meta name="fediverse:creator" content="{{ config.extra.mastodon.author | safe }}">
   {%- endif %}
