@@ -942,6 +942,9 @@ a.zola-anchor {
 }
 
 @media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
   .about-info {
     h1,
     h2 {
