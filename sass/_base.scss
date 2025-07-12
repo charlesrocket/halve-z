@@ -13,14 +13,14 @@
 
 html {
   line-height: 1;
-  &.no-scroll {
-    overflow: hidden;
-  }
 }
 
 html,
 body {
   overflow: auto;
+  &.no-scroll {
+    overflow: hidden;
+  }
   height: 100%;
   line-height: 1.2
 }
