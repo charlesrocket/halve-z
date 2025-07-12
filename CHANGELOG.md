@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.22.0] - 2025-07-12
+
+### Bug Fixes
+
+- Check attribution variable
+- Set `color-scheme`
+- Fix double scroll bar
+- Move `no-scroll`
+
+### Features
+
+- Add mastodon attribution
+
 ## [0.21.0] - 2025-04-28
 
 ### Bug Fixes
