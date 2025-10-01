@@ -37,7 +37,12 @@ oninstall = (event) => {
 };
 
 onfetch = (event) => {
-  if (event.request.url.startsWith("https://matrix.cactus.chat")) {
+  try {
+    const reqUrl = new URL(event.request.url);
+    if (reqUrl.hostname === "matrix.cactus.chat") {
+      return;
+    }
+  } catch (e) {
     return;
   }
 
