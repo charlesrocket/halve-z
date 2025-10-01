@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.22.1] - 2025-10-01
+
+### Bug Fixes
+
+- Improve `onfetch` check
+
+### Miscellaneous tasks
+
+- Bump zola to 0.21.0
+
+### Operations
+
+- Bump actions/checkout from 4 to 5
+- Bump actions/labeler from 5 to 6
+
 ## [0.22.0] - 2025-07-12
 
 ### Bug Fixes
