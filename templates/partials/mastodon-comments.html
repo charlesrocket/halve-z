@@ -1,0 +1,6 @@
+<section id="comments" class="comments">
+  <p>Comment by replying to <a href="https://{{ config.extra.comments.mastodon.server }}/@{{ config.extra.comments.mastodon.username }}/{{ page.extra.mastodon_id }}">this</a> post using a <b>Mastodon</b> or other ActivityPub/Fediverse account.</p>
+  <div id="mastodon-comments"></div>
+  <script src="/purify.min.js"></script>
+  <script>{{ macros::mastodon_comments(server=config.extra.comments.mastodon.server, id=page.extra.mastodon_id) }}</script>
+</section>

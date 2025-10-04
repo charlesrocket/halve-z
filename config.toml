@@ -106,7 +106,11 @@ hackernews = "user_name"
 author = "@user@server"
 
 [extra.comments]
-system = "none"
+system = ""
+
+[extra.comments.mastodon]
+username = "user"
+server = "server"
 
 [extra.comments.cactus]
 site = "site_name"

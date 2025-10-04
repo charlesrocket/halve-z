@@ -20,7 +20,7 @@ This is a _retro_ port of [Halve](https://github.com/TaylanTatli/Halve) (**Jekyl
 * SEO
 * CSP
 * project cards
-* comments ([Cactus](https://gitlab.com/cactus-comments/)/[Giscus](https://github.com/giscus/giscus))
+* comments ([Mastodon](https://mastodon.social)/[Cactus](https://gitlab.com/cactus-comments/)/[Giscus](https://github.com/giscus/giscus))
 * read time
 
 ## Installation

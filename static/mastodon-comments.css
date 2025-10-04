@@ -1,0 +1,26 @@
+#mastodon-comments {
+    font-size: 14px;
+    article {
+        margin-top: 20px;
+    }
+    .meta {
+        padding-left: 10px;
+        border-left: solid 2px gray;
+    }
+    main {
+        border-bottom: dashed 2px gray;
+        margin: 12px 0;
+        padding-left: 12px;
+        padding-bottom: 6px;
+    }
+    .author {
+        margin: 10px 0;
+        font-size: 14px;
+    }
+    .m-comment .m-comment {
+        margin-left: 24px;
+    }
+    .m-comment .m-comment .m-comment .m-comment .m-comment {
+        margin-left: 0;
+    }
+}

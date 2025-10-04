@@ -77,8 +77,15 @@ links = [
 #keybase = ""
 #hackernews = ""
 
+[extra.mastodon]
+author = ""
+
 [extra.comments]
 system = ""
+
+[extra.comments.mastodon]
+username = ""
+server = ""
 
 [extra.comments.cactus]
 site = ""

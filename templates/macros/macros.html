@@ -6,6 +6,140 @@
 #posts.inner-post-page .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{{ url | safe }}") no-repeat;background-size:cover}
 {%- endmacro image_style -%}
 
+{%- macro mastodon_comments(server, id) -%}
+loadComments();
+function loadComments() {
+    const commentsWrapper = document.getElementById("mastodon-comments");
+    const postUrl = "https://{{ server | safe }}/api/v1/statuses/{{ id | safe }}";
+
+    fetch(postUrl)
+        .then(res => res.json())
+        .then(op => {
+
+            const statsBar = document.createElement("div");
+            statsBar.className = "toot-stats";
+
+            statsBar.innerHTML = `
+                <div class="frame-dim">
+                    <p title="replies/boosts/favourites">${op.replies_count}•${op.reblogs_count}•${op.favourites_count}</p>
+                </div>
+            `;
+
+            commentsWrapper.prepend(statsBar);
+
+            fetch(postUrl + "/context")
+                .then(res => res.json())
+                .then(data => {
+                    const descendants = data.descendants || [];
+                    
+                    if (!Array.isArray(descendants) || descendants.length === 0) {
+                        statsBar.innerHTML = `<p><small>No comments yet.</small></p>`;
+                        return;
+                    }
+                
+                    commentsWrapper.innerHTML += "";
+                    const commentMap = {};
+                    descendants.forEach(status => {
+                        commentMap[status.id] = { ...status, children: [] };
+                    });
+
+                    const roots = [];
+                    descendants.forEach(status => {
+                        const parentId = status.in_reply_to_id;
+                        if (parentId && commentMap[parentId]) {
+                            commentMap[parentId].children.push(commentMap[status.id]);
+                        } else {
+                            roots.push(commentMap[status.id]);
+                        }
+                    });
+
+                    function renderComment(status, depth = 0) {
+                        const instance = "{{ server | safe }}";
+                        const comment = document.createElement("article");
+                        comment.id = `comment-${status.id}`;
+                        comment.className = "m-comment";
+                        comment.setAttribute("itemprop", "comment");
+                        comment.setAttribute("itemtype", "http://schema.org/Comment");
+
+                        const instanceBadge = document.createElement("a");
+                        instanceBadge.className = "instance";
+                        instanceBadge.href = status.account.url;
+                        instanceBadge.title = `@${status.account.username}@${instance}`;
+                        instanceBadge.rel = "external nofollow";
+                        instanceBadge.textContent = instance;
+
+                        const account = document.createElement("a");
+                        account.className = "account";
+                        account.href = status.account.url;
+                        account.itemprop = "author";
+                        account.itemtype = "http://schema.org/Person";
+                        account.rel = "external nofollow";
+                        account.textContent = `@${status.account.username}@`;
+
+                        const header = document.createElement("h5");
+                        header.className = "author";
+                        header.appendChild(account);
+                        header.appendChild(instanceBadge);
+
+                        const permalink = document.createElement("a");
+                        permalink.href = status.url;
+                        permalink.itemprop = "url";
+                        permalink.title = `View comment at ${instance}`;
+                        permalink.rel = "external nofollow";
+                        permalink.textContent = new Date(status.created_at).toLocaleString('en-US', {
+                            dateStyle: "long",
+                            timeStyle: "long",
+                            hour12: false
+                        });
+
+                        const timestamp = document.createElement("time");
+                        timestamp.datetime = status.created_at;
+                        timestamp.appendChild(permalink);
+
+                        const meta = document.createElement("div");
+                        meta.className = "meta";
+                        meta.appendChild(header);
+                        meta.appendChild(timestamp);
+
+                        const main = document.createElement("main");
+                        main.itemprop = "text";
+
+                        const tempDiv = document.createElement("div");
+                        tempDiv.innerHTML = status.content;
+                        Array.from(tempDiv.childNodes).forEach(node => {
+                            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== "") {
+                                const p = document.createElement("p");
+                                p.textContent = node.textContent;
+                                main.appendChild(p);
+                            } else {
+                                main.appendChild(node.cloneNode(true));
+                            }
+                        });
+
+                        comment.appendChild(meta);
+                        comment.appendChild(main);
+
+                        if (status.children && status.children.length > 0) {
+                            status.children.forEach(child => {
+                                comment.appendChild(renderComment(child, depth + 1));
+                            });
+                        }
+
+                        return comment;
+                    }
+
+                    roots.forEach(root => {
+                        commentsWrapper.appendChild(renderComment(root));
+                    });
+                });
+        });
+}
+
+function escapeHtml(unsafe) {
+    return unsafe.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&apos;").replace(/"/g, "&quot;")
+}
+{%- endmacro mastodon_comments -%}
+
 {%- macro music(artist, track) -%}
 {%- set api_key = get_env(name="LASTFM_KEY", default="nokey") %}
 {%- if api_key != "nokey" %}
