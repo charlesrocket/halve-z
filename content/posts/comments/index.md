@@ -8,7 +8,9 @@ tags = ["content", "feature", "cactus", "giscus"]
 subtitle = "Enabling the comment system"
 +++
 
- **Halve-Z** supports the [Cactus](https://cactus.chat) and [Giscus](https://giscus.app) comment systems. Set the `extra.comments.system` setting to `cactus` or `giscus` to enable the corresponding system on the post pages.
+ **Halve-Z** supports [Mastodon](https://mastodon.social), [Cactus](https://cactus.chat), and [Giscus](https://giscus.app) comment systems. Set the `extra.comments.system` setting to `mastodon`/`cactus`/`giscus` to enable the corresponding system on the post pages.
+
+ <p class="notice_warning"><strong>Mastodon</strong> requires <code>extra.mastodon_id</code> variable to be set to a related status/post ID.</p>
 
 To disable comments on a specific page, set `disable_comments` to `true` in the page's **front matter**:
 
@@ -21,6 +23,7 @@ categories = ["usage"]
 tags = ["content", "configuration"]
 [extra]
 subtitle = "Usage guide"
+mastodon_id = "114633405176781965"
 disable_comments = true
 +++
 ```
