@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.23.0] - 2025-10-04
+
+### Bug Fixes
+
+- Update landing page
+- Do not render empty stats
+- Sanitize comments
+
+### Documentation
+
+- Update `comments`
+
+### Features
+
+- Add mastodon comments
+
+### Build
+
+- Bump MSZV to 0.21.0
+
 ## [0.22.1] - 2025-10-01
 
 ### Bug Fixes
