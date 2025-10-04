@@ -5,6 +5,7 @@
 .z-code {
  color: #383a42;
  background-color: #fafafa;
+ border: solid 1px #d3d3d3;
 }
 
 .z-comment {
