@@ -35,7 +35,6 @@ function loadComments() {
                     `;
 
                     commentsWrapper.prepend(statsBar);
-                    commentsWrapper.innerHTML += "";
                     const commentMap = {};
                     descendants.forEach(status => {
                         commentMap[status.id] = { ...status, children: [] };
@@ -102,8 +101,23 @@ function loadComments() {
                         const main = document.createElement("main");
                         main.itemprop = "text";
 
+                        const sanitizedContent = DOMPurify.sanitize(status.content, {
+                            ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'a', 'span', 'code', 'pre', 'blockquote', 'ul', 'ol', 'li'],
+                            ALLOWED_ATTR: ['href', 'rel', 'class', 'target'],
+                            ALLOW_DATA_ATTR: false,
+                            ADD_ATTR: ['target', 'rel'],
+                            RETURN_TRUSTED_TYPE: true,
+                            FORCE_BODY: true
+                        });
+
                         const tempDiv = document.createElement("div");
-                        tempDiv.innerHTML = status.content;
+                        tempDiv.innerHTML = sanitizedContent;
+
+                        tempDiv.querySelectorAll('a').forEach(link => {
+                            link.rel = 'nofollow noopener noreferrer';
+                            link.target = '_blank';
+                        });
+
                         Array.from(tempDiv.childNodes).forEach(node => {
                             if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== "") {
                                 const p = document.createElement("p");
