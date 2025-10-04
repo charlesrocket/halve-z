@@ -15,28 +15,26 @@ function loadComments() {
     fetch(postUrl)
         .then(res => res.json())
         .then(op => {
-
-            const statsBar = document.createElement("div");
-            statsBar.className = "toot-stats";
-
-            statsBar.innerHTML = `
-                <div class="frame-dim">
-                    <p title="replies/boosts/favourites">${op.replies_count}•${op.reblogs_count}•${op.favourites_count}</p>
-                </div>
-            `;
-
-            commentsWrapper.prepend(statsBar);
-
             fetch(postUrl + "/context")
                 .then(res => res.json())
                 .then(data => {
                     const descendants = data.descendants || [];
                     
-                    if (!Array.isArray(descendants) || descendants.length === 0) {
-                        statsBar.innerHTML = `<p><small>No comments yet.</small></p>`;
+                    if (descendants.length === 0) {
+                        const noComments = document.createElement("p");
+                        noComments.innerHTML = "<small>No comments yet.</small>";
+                        commentsWrapper.appendChild(noComments);
                         return;
                     }
-                
+
+                    const statsBar = document.createElement("div");
+                    statsBar.innerHTML = `
+                        <div class="frame-dim">
+                        <p title="replies/boosts/favourites">${op.replies_count}•${op.reblogs_count}•${op.favourites_count}</p>
+                        </div>
+                    `;
+
+                    commentsWrapper.prepend(statsBar);
                     commentsWrapper.innerHTML += "";
                     const commentMap = {};
                     descendants.forEach(status => {
