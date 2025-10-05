@@ -7,9 +7,32 @@
 {%- endmacro image_style -%}
 
 {%- macro mastodon_comments(server, id) -%}
-loadComments();
+const commentsSection = document.getElementById("mastodon-comments");
+let commentsLoaded = false;
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !commentsLoaded) {
+            commentsLoaded = true;
+            loadComments();
+            observer.disconnect();
+        }
+    });
+}, {
+    rootMargin: '100px'
+});
+
+observer.observe(commentsSection);
+
 function loadComments() {
     const commentsWrapper = document.getElementById("mastodon-comments");
+    const loadingMsg = document.createElement("p");
+    const loadingSmall = document.createElement("small");
+    loadingSmall.textContent = "Loading comments...";
+    loadingMsg.appendChild(loadingSmall);
+    commentsWrapper.appendChild(loadingMsg);
+    console.log('Loading comments');
+
     const postUrl = "https://{{ server | safe }}/api/v1/statuses/{{ id | safe }}";
 
     fetch(postUrl)
@@ -19,6 +42,10 @@ function loadComments() {
                 .then(res => res.json())
                 .then(data => {
                     const descendants = data.descendants || [];
+
+                    while (commentsWrapper.firstChild) {
+                        commentsWrapper.removeChild(commentsWrapper.firstChild);
+                    }
                     
                     if (descendants.length === 0) {
                         const noComments = document.createElement("p");
@@ -144,6 +171,18 @@ function loadComments() {
                         commentsWrapper.appendChild(renderComment(root));
                     });
                 });
+        })
+        .catch(error => {
+            while (commentsWrapper.firstChild) {
+                commentsWrapper.removeChild(commentsWrapper.firstChild);
+            }
+
+            const errorMsg = document.createElement("p");
+            const errorSmall = document.createElement("small");
+            errorSmall.textContent = "Failed to load comments.";
+            errorMsg.appendChild(errorSmall);
+            commentsWrapper.appendChild(errorMsg);
+            console.error('Failed to load comments:', error);
         });
 }
 
