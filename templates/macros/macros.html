@@ -92,7 +92,7 @@ function loadComments() {
                         account.itemprop = "author";
                         account.itemtype = "http://schema.org/Person";
                         account.rel = "external nofollow";
-                        account.title = `@${status.account.username}`
+                        account.title = `View profile ${status.account.username}`
                         account.textContent = `@${status.account.username}@${host}`;
 
                         const verifiedFields = (status.account.fields || []).filter(field => field.verified_at !== null);
@@ -102,7 +102,6 @@ function loadComments() {
 
                         if (verifiedFields.length > 0) {
                             const verifiedBadge = document.createElement("span");
-                            verifiedBadge.className = "verified-badge";
                             verifiedBadge.title = "Verified account";
                             verifiedBadge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" width="23" height="23" shape-rendering="crispEdges">
                                 <rect x="5" y="14" width="2" height="2"/>
