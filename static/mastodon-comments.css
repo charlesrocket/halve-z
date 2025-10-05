@@ -6,19 +6,39 @@
     .meta {
         padding-left: 10px;
         border-left: solid 2px gray;
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 10px;
+    }
+    .avatar {
+        width: 48px;
+        height: 48px;
+        border: solid 1px #72cc96;
+        display: block;
+    }
+    .author {
+        display: flex;
+        align-items: center;
+        margin: 0 0 8px 0;
+        font-size: 14px;
+        height: 23px;
+    }
+    .author svg {
+        flex-shrink: 0;
+    }
+    time {
+        display: block;
+        margin-top: 0;
+        font-size: 13px;
+    }
+    .account {
+        margin-right: 4px;
     }
     main {
         border-bottom: dashed 2px gray;
         margin: 12px 0;
         padding-left: 12px;
         padding-bottom: 6px;
-    }
-    .author {
-        margin: 10px 0;
-        font-size: 14px;
-    }
-    .account {
-        margin-right: 4px;
     }
     .m-comment .m-comment {
         margin-left: 24px;

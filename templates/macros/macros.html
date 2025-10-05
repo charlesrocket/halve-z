@@ -95,6 +95,19 @@ function loadComments() {
                         account.title = `View profile ${status.account.username}`
                         account.textContent = `@${status.account.username}@${host}`;
 
+                        let avatarSource = document.createElement("source");
+                        avatarSource.setAttribute("srcset", escapeHtml(status.account.avatar));
+                        avatarSource.setAttribute("media", "(prefers-reduced-motion: no-preference)");
+
+                        let avatarImg = document.createElement("img");
+                        avatarImg.className = "avatar";
+                        avatarImg.setAttribute("src", escapeHtml(status.account.avatar_static));
+                        avatarImg.setAttribute("alt", `Avatar for @${ status.account.acct }`);
+
+                        let avatarPicture = document.createElement("picture");
+                        avatarPicture.appendChild(avatarSource);
+                        avatarPicture.appendChild(avatarImg);
+
                         const verifiedFields = (status.account.fields || []).filter(field => field.verified_at !== null);
                         const header = document.createElement("h5");
                         header.className = "author";
@@ -104,17 +117,16 @@ function loadComments() {
                             const verifiedBadge = document.createElement("span");
                             verifiedBadge.title = "Verified account";
                             verifiedBadge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" width="23" height="23" shape-rendering="crispEdges">
-                                <rect x="5" y="14" width="2" height="2"/>
-                                <rect x="7" y="16" width="2" height="2"/>
-                                <rect x="9" y="18" width="2" height="2"/>
-                                <rect x="11" y="16" width="2" height="2"/>
-                                <rect x="13" y="14" width="2" height="2"/>
-                                <rect x="15" y="12" width="2" height="2"/>
-                                <rect x="17" y="10" width="2" height="2"/>
-                                <rect x="19" y="8"  width="2" height="2"/>
+                                <rect x="5" y="11" width="2" height="2"/>
+                                <rect x="7" y="13" width="2" height="2"/>
+                                <rect x="9" y="15" width="2" height="2"/>
+                                <rect x="11" y="13" width="2" height="2"/>
+                                <rect x="13" y="11" width="2" height="2"/>
+                                <rect x="15" y="9" width="2" height="2"/>
+                                <rect x="17" y="7" width="2" height="2"/>
+                                <rect x="19" y="5"  width="2" height="2"/>
                                 </svg>
                             `;
-
                             header.appendChild(verifiedBadge);
                         }
 
@@ -139,8 +151,12 @@ function loadComments() {
 
                         const meta = document.createElement("div");
                         meta.className = "meta";
-                        meta.appendChild(header);
-                        meta.appendChild(timestamp);
+
+                        const textContainer = document.createElement("div");
+                        textContainer.appendChild(header);
+                        textContainer.appendChild(timestamp);
+                        meta.appendChild(avatarPicture);
+                        meta.appendChild(textContainer);
 
                         const main = document.createElement("main");
                         main.itemprop = "text";
