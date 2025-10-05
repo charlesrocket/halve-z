@@ -130,6 +130,14 @@ function loadComments() {
                             header.appendChild(verifiedBadge);
                         }
 
+                        if (status.account.bot) {
+                            const botBadge = document.createElement("span");
+                            botBadge.className = "bot-badge";
+                            botBadge.title = "Automated account";
+                            botBadge.textContent = "BOT";
+                            header.appendChild(botBadge);
+                        }
+
                         const permalink = document.createElement("a");
                         permalink.href = status.url;
                         permalink.itemprop = "url";

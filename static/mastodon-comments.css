@@ -34,6 +34,10 @@
     .account {
         margin-right: 4px;
     }
+    .bot-badge {
+        color: #9932cc;
+        margin-left: 10px;
+    }
     main {
         border-bottom: dashed 2px gray;
         margin: 12px 0;
