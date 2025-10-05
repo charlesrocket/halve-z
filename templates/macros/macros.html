@@ -78,37 +78,51 @@ function loadComments() {
                     });
 
                     function renderComment(status, depth = 0) {
-                        const instance = "{{ server | safe }}";
                         const comment = document.createElement("article");
                         comment.id = `comment-${status.id}`;
                         comment.className = "m-comment";
                         comment.setAttribute("itemprop", "comment");
                         comment.setAttribute("itemtype", "http://schema.org/Comment");
 
-                        const instanceBadge = document.createElement("a");
-                        instanceBadge.className = "instance";
-                        instanceBadge.href = status.account.url;
-                        instanceBadge.title = `@${status.account.username}@${instance}`;
-                        instanceBadge.rel = "external nofollow";
-                        instanceBadge.textContent = instance;
-
                         const account = document.createElement("a");
+                        var domain = new URL(status.account.url);
+                        const host = domain.host;
                         account.className = "account";
                         account.href = status.account.url;
                         account.itemprop = "author";
                         account.itemtype = "http://schema.org/Person";
                         account.rel = "external nofollow";
-                        account.textContent = `@${status.account.username}@`;
+                        account.title = `@${status.account.username}`
+                        account.textContent = `@${status.account.username}@${host}`;
 
+                        const verifiedFields = (status.account.fields || []).filter(field => field.verified_at !== null);
                         const header = document.createElement("h5");
                         header.className = "author";
                         header.appendChild(account);
-                        header.appendChild(instanceBadge);
+
+                        if (verifiedFields.length > 0) {
+                            const verifiedBadge = document.createElement("span");
+                            verifiedBadge.className = "verified-badge";
+                            verifiedBadge.title = "Verified account";
+                            verifiedBadge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" width="23" height="23" shape-rendering="crispEdges">
+                                <rect x="5" y="14" width="2" height="2"/>
+                                <rect x="7" y="16" width="2" height="2"/>
+                                <rect x="9" y="18" width="2" height="2"/>
+                                <rect x="11" y="16" width="2" height="2"/>
+                                <rect x="13" y="14" width="2" height="2"/>
+                                <rect x="15" y="12" width="2" height="2"/>
+                                <rect x="17" y="10" width="2" height="2"/>
+                                <rect x="19" y="8"  width="2" height="2"/>
+                                </svg>
+                            `;
+
+                            header.appendChild(verifiedBadge);
+                        }
 
                         const permalink = document.createElement("a");
                         permalink.href = status.url;
                         permalink.itemprop = "url";
-                        permalink.title = `View comment at ${instance}`;
+                        permalink.title = `View comment at ${host}`;
                         permalink.rel = "external nofollow";
                         permalink.textContent = new Date(status.created_at).toLocaleString('en-US', {
                             dateStyle: "long",
