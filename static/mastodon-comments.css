@@ -17,6 +17,9 @@
         margin: 10px 0;
         font-size: 14px;
     }
+    .account {
+        margin-right: 4px;
+    }
     .m-comment .m-comment {
         margin-left: 24px;
     }
