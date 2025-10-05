@@ -3,7 +3,7 @@ title = "Comments"
 date = 2023-06-09T15:00:00Z
 [taxonomies]
 categories = ["usage"]
-tags = ["content", "feature", "cactus", "giscus"]
+tags = ["content", "feature", "mastodon", "cactus", "giscus"]
 [extra]
 subtitle = "Enabling the comment system"
 +++
