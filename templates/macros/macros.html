@@ -124,8 +124,12 @@ function loadComments() {
                         permalink.title = `View comment at ${host}`;
                         permalink.rel = "external nofollow";
                         permalink.textContent = new Date(status.created_at).toLocaleString('en-US', {
-                            dateStyle: "long",
-                            timeStyle: "long",
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                            hour: "numeric",
+                            minute: "numeric",
+                            timeZoneName: "short",
                             hour12: false
                         });
 
