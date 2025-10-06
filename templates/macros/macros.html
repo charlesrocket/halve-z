@@ -169,10 +169,11 @@ function loadComments() {
 
                         const main = document.createElement("main");
                         main.itemprop = "text";
+                        status.content = emojify(status.content, status.emojis);
 
                         const sanitizedContent = DOMPurify.sanitize(status.content, {
-                            ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'a', 'span', 'code', 'pre', 'blockquote', 'ul', 'ol', 'li'],
-                            ALLOWED_ATTR: ['href', 'rel', 'class', 'target'],
+                            ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'a', 'span', 'code', 'pre', 'blockquote', 'ul', 'ol', 'li', 'picture', 'source', 'img'],
+                            ALLOWED_ATTR: ['href', 'rel', 'class', 'target', 'src', 'srcset', 'alt', 'title', 'width', 'height', 'media'],
                             ALLOW_DATA_ATTR: false,
                             ADD_ATTR: ['target', 'rel'],
                             RETURN_TRUSTED_TYPE: true,
@@ -226,6 +227,32 @@ function loadComments() {
             commentsWrapper.appendChild(errorMsg);
             console.error('Failed to load comments:', error);
         });
+}
+
+function emojify(input, emojis) {
+    let output = input;
+
+    emojis.forEach(emoji => {
+        let picture = document.createElement("picture");
+        let source = document.createElement("source");
+        source.setAttribute("srcset", escapeHtml(emoji.url));
+        source.setAttribute("media", "(prefers-reduced-motion: no-preference)");
+
+        let img = document.createElement("img");
+        img.className = "emoji";
+        img.setAttribute("src", escapeHtml(emoji.static_url));
+        img.setAttribute("alt", `:${ emoji.shortcode }:`);
+        img.setAttribute("title", `:${ emoji.shortcode }:`);
+        img.setAttribute("width", "20");
+        img.setAttribute("height", "20");
+
+        picture.appendChild(source);
+        picture.appendChild(img);
+
+        output = output.replace(`:${ emoji.shortcode }:`, picture.outerHTML);
+    });
+
+    return output;
 }
 
 function escapeHtml(unsafe) {

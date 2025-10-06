@@ -38,6 +38,9 @@
         color: #9932cc;
         margin-left: 10px;
     }
+    .emoji, picture:has(.emoji) {
+        display: inline;
+    }
     main {
         border-bottom: dashed 2px gray;
         margin: 12px 0;
