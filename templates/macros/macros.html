@@ -87,13 +87,14 @@ function loadComments() {
                         const account = document.createElement("a");
                         var domain = new URL(status.account.url);
                         const host = domain.host;
+                        const accountFull = `@${status.account.username}@${host}`;
                         account.className = "account";
                         account.href = status.account.url;
                         account.itemprop = "author";
                         account.itemtype = "http://schema.org/Person";
                         account.rel = "external nofollow";
                         account.title = `View profile ${status.account.username}`
-                        account.textContent = `@${status.account.username}@${host}`;
+                        account.textContent = `${accountFull}`;
 
                         let avatarSource = document.createElement("source");
                         avatarSource.setAttribute("srcset", escapeHtml(status.account.avatar));
@@ -102,7 +103,7 @@ function loadComments() {
                         let avatarImg = document.createElement("img");
                         avatarImg.className = "avatar";
                         avatarImg.setAttribute("src", escapeHtml(status.account.avatar_static));
-                        avatarImg.setAttribute("alt", `Avatar for @${ status.account.acct }`);
+                        avatarImg.setAttribute("alt", `Avatar for ${accountFull}`);
 
                         let avatarPicture = document.createElement("picture");
                         avatarPicture.appendChild(avatarSource);
@@ -141,7 +142,7 @@ function loadComments() {
                         const permalink = document.createElement("a");
                         permalink.href = status.url;
                         permalink.itemprop = "url";
-                        permalink.title = `View comment at ${host}`;
+                        permalink.title = `View comment on ${host}`;
                         permalink.rel = "external nofollow";
                         permalink.textContent = new Date(status.created_at).toLocaleString('en-US', {
                             year: "numeric",
