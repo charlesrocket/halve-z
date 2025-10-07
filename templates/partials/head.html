@@ -129,7 +129,7 @@
   <link rel="stylesheet" type="text/css" href="/nerd-fonts.css?v={{ get_hash(path='/nerd-fonts.css', sha_type=512, base64=false) | safe }}">
   {% endif %}
   {% if page.extra.mastodon_id %}
-  <link rel="stylesheet" type="text/css" href="/mastodon-comments.css?v={{ get_hash(path='/nerd-fonts.css', sha_type=512, base64=false) | safe }}">
+  <link rel="stylesheet" type="text/css" href="/mastodon-comments.css?v={{ get_hash(path='/mastodon-comments.css', sha_type=512, base64=false) | safe }}">
   {% endif %}
   {%- if config.extra.home.glitch == true %}
   {%- if current_path | default(value="none") == "/" %}
