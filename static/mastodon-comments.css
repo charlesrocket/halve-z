@@ -1,56 +1,69 @@
 #mastodon-comments {
-    font-size: 14px;
-    article {
-        margin-top: 20px;
-    }
-    .meta {
-        padding-left: 10px;
-        border-left: solid 2px gray;
-        display: grid;
-        grid-template-columns: 48px 1fr;
-        gap: 10px;
-    }
-    .avatar {
-        width: 48px;
-        height: 48px;
-        border: solid 1px #72cc96;
-        display: block;
-    }
-    .author {
-        display: flex;
-        align-items: center;
-        margin: 0 0 8px 0;
-        font-size: 14px;
-        height: 23px;
-    }
-    .author svg {
-        flex-shrink: 0;
-    }
-    time {
-        display: block;
-        margin-top: 0;
-        font-size: 13px;
-    }
-    .account {
-        margin-right: 4px;
-    }
-    .bot-badge {
-        color: #9932cc;
-        margin-left: 10px;
-    }
-    .emoji, picture:has(.emoji) {
-        display: inline;
-    }
-    main {
-        border-bottom: dashed 2px gray;
-        margin: 12px 0;
-        padding-left: 12px;
-        padding-bottom: 6px;
-    }
-    .m-comment .m-comment {
-        margin-left: 24px;
-    }
-    .m-comment .m-comment .m-comment .m-comment .m-comment {
-        margin-left: 0;
-    }
+  font-size: 14px;
+}
+#mastodon-comments article {
+  margin-top: 20px;
+}
+#mastodon-comments .meta {
+  padding-left: 10px;
+  border-left: solid 2px gray;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+#mastodon-comments .avatar {
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px;
+  max-width: 48px;
+  max-height: 48px;
+  border: solid 1px #72cc96;
+  display: block;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+#mastodon-comments .content-wrapper {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+#mastodon-comments .author {
+  display: flex;
+  align-items: center;
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  min-height: 23px;
+}
+#mastodon-comments .author svg {
+  flex-shrink: 0;
+}
+#mastodon-comments time {
+  display: block;
+  margin-top: 0;
+  font-size: 13px;
+}
+#mastodon-comments .account {
+  margin-right: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#mastodon-comments .bot-badge {
+  color: #9932cc;
+  margin-left: 10px;
+}
+#mastodon-comments .emoji,
+#mastodon-comments picture:has(.emoji) {
+  display: inline;
+}
+#mastodon-comments main {
+  border-bottom: dashed 2px gray;
+  margin: 12px 0;
+  padding-left: 12px;
+  padding-bottom: 6px;
+}
+#mastodon-comments .m-comment .m-comment {
+  margin-left: 24px;
+}
+#mastodon-comments .m-comment .m-comment .m-comment .m-comment .m-comment {
+  margin-left: 0;
 }
