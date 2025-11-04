@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.23.1] - 2025-11-04
+
+### Bug Fixes
+
+- Add syntax box borders
+- Lazy load comments
+- Verify account
+- Fix `account.title`
+- Move verification badge
+- Adjust date string
+- Show avatars
+- Show bot accounts
+- Fix text strings
+- Update post stats title
+- Render emojis
+- Fix post stats title
+- Set `purify.min.js` version
+- Replace mastodon file hash
+- Improve mobile layout
+
+### Documentation
+
+- Fix `comments` tags
+
+### Miscellaneous tasks
+
+- Bump cache to v19
+
 ## [0.23.0] - 2025-10-04
 
 ### Bug Fixes
