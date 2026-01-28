@@ -25,14 +25,13 @@ include_content = true
 index_format = "elasticlunr_json"
 
 [markdown]
-highlight_code = true
-highlight_theme = "css"
-highlight_themes_css = [
-    { theme = "OneHalfDark", filename = "syntax-theme-dark.css" },
-    { theme = "OneHalfLight", filename = "syntax-theme-light.css" },
-]
 render_emoji = false
 external_links_target_blank = true
+
+[markdown.highlighting]
+style = "class"
+error_on_missing_language = false
+theme = "one-dark-pro"
 
 [slugify]
 paths = "safe"
