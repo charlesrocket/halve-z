@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.24.0] - 2026-01-28
+
+### Features
+
+- Support codeberg projects
+- Switch to `giallo`
+
+### Miscellaneous tasks
+
+- Update LICENSE
+- Bump zola to 0.22.1
+
+### Operations
+
+- Bump actions/checkout from 5 to 6
+
 ## [0.23.1] - 2025-11-04
 
 ### Bug Fixes
