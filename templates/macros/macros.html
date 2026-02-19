@@ -3,7 +3,7 @@
 {%- endmacro main_images_style -%}
 
 {%- macro image_style(url) -%}
-#posts.inner-post-page .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{{ url | safe }}") no-repeat;background-size:cover}
+#posts.inner-post-page .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{{ url | safe }}") no-repeat center center;background-size:cover}
 {%- endmacro image_style -%}
 
 {%- macro mastodon_comments(server, id) -%}
@@ -46,7 +46,7 @@ function loadComments() {
                     while (commentsWrapper.firstChild) {
                         commentsWrapper.removeChild(commentsWrapper.firstChild);
                     }
-                    
+
                     if (descendants.length === 0) {
                         const noComments = document.createElement("p");
                         noComments.innerHTML = "<small>No comments yet.</small>";
