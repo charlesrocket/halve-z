@@ -206,23 +206,18 @@ blockquote {
   padding-right: 1em;
   font-style: italic;
   border-left: 0.25em solid $gray;
-  cite {
-    font-style: italic;
-    font-size: 0.85em;
-    &:before {
-      content: "\2014";
-      padding-right: 5px;
-    }
+}
+
+cite {
+  font-style: italic;
+  &:before {
+    content: "—";
+    padding-right: 5px;
   }
 }
 
 address {
   font-size: 20px;
-}
-
-cite {
-  font-style: italic;
-  font-size: 0.85em;
 }
 
 ul > li {

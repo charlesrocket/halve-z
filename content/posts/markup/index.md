@@ -135,7 +135,7 @@ This is an example of a [link](https://www.getzola.org "Zola").
 
 ### Cite Tag
 
-"Code is poetry." --- <cite>Automattic</cite>
+"Code is poetry." <cite>Automattic</cite>
 
 ### Code Tag
 
