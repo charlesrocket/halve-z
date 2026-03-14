@@ -1,40 +1,40 @@
 pre {
-    padding: 1rem;
-    overflow: auto;
-    margin: 1.5em 0;
-    font-family: $code-font;
-    font-size: 13px;
-    line-height: 20px;
+  padding: 1rem;
+  overflow: auto;
+  margin: 1.5em 0;
+  font-family: $code-font;
+  font-size: 13px;
+  line-height: 20px;
 }
 
 pre[data-linenos] {
-    padding: 1rem 0;
+  padding: 1rem 0;
 }
 
 pre table td {
-    padding: 0;
+  padding: 0;
 }
 
 pre table td:nth-of-type(1) {
-    text-align: center;
-    user-select: none;
+  text-align: center;
+  user-select: none;
 }
 
 pre mark {
-    display: block;
-    background-color: rgba(254, 252, 232, 0.9);
+  display: block;
+  background-color: rgba(254, 252, 232, 0.9);
 }
 
 pre table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .giallo-l {
-    font-family: $code-font;
-    display: inline-block;
+  font-family: $code-font;
+  display: inline-block;
 }
 .giallo-ln {
-    font-family: $code-font;
-    display: inline-block;
+  font-family: $code-font;
+  display: inline-block;
 }

@@ -86,6 +86,7 @@ nav.nav-bar {
 
 nav.nav-bar ul {
   font-size: 12px;
+  font-family: $base-font;
   text-transform: uppercase;
   background: $white;
   list-style: none;
@@ -128,7 +129,7 @@ nav.nav-bar ul > li:focus-within {
   cursor: pointer;
 }
 
-nav.nav-bar ul:not([class=nav-menu]) > li {
+nav.nav-bar ul:not([class="nav-menu"]) > li {
   text-decoration: none;
 }
 
@@ -149,9 +150,9 @@ nav.nav-bar ul li:hover > ul,
 nav.nav-bar ul li:focus-within > ul,
 nav.nav-bar ul li ul:hover,
 nav.nav-bar ul li ul:focus {
-   visibility: visible;
-   opacity: 1;
-   display: block;
+  visibility: visible;
+  opacity: 1;
+  display: block;
 }
 
 nav.nav-bar ul li ul li {
@@ -170,15 +171,16 @@ a.zola-anchor {
   margin: 20px auto;
   position: relative;
   display: table;
-  box-shadow: -2px 0 0 0 $overlay-color,
-               2px 0 0 0 $overlay-color,
-               0 -2px 0 0 $overlay-color,
-               0 2px 0 0 $overlay-color;
+  box-shadow:
+    -2px 0 0 0 $overlay-color,
+    2px 0 0 0 $overlay-color,
+    0 -2px 0 0 $overlay-color,
+    0 2px 0 0 $overlay-color;
 }
 
 .frame-p p {
-  display: table-cell; 
-  vertical-align: middle; 
+  display: table-cell;
+  vertical-align: middle;
   text-align: center;
   padding: 20px;
 }
@@ -189,15 +191,16 @@ a.zola-anchor {
   margin: 20px auto;
   position: relative;
   display: table;
-  box-shadow: -2px 0 0 0 darken($white, 30),
-               2px 0 0 0 darken($white, 30),
-               0 -2px 0 0 darken($white, 30),
-               0 2px 0 0 darken($white, 30);
+  box-shadow:
+    -2px 0 0 0 darken($white, 30),
+    2px 0 0 0 darken($white, 30),
+    0 -2px 0 0 darken($white, 30),
+    0 2px 0 0 darken($white, 30);
 }
 
 .frame-dim p {
-  display: table-cell; 
-  vertical-align: middle; 
+  display: table-cell;
+  vertical-align: middle;
   text-align: center;
   color: $overlay-color;
   padding: 10px;
@@ -274,7 +277,6 @@ a.zola-anchor {
     line-height: 30px;
     margin: 10px 0;
     padding-top: 25px;
-
   }
 
   a {
@@ -378,6 +380,7 @@ a.zola-anchor {
   }
   p {
     color: $overlay-color;
+    font-family: $base-font;
     font-size: 14px;
     margin: 10px 0;
     padding-top: 0;
@@ -391,6 +394,7 @@ a.zola-anchor {
 .post-info {
   text-align: start;
   display: flex;
+  font-family: $base-font;
   align-items: flex-start;
 }
 
@@ -517,9 +521,9 @@ a.zola-anchor {
     margin-bottom: 20px;
   }
   p {
-    font-size: 14px;
+    font-size: 22px;
     margin: 0.5em 0;
-    line-height: 1.6;
+    line-height: 1.2;
   }
   small {
     color: darken($white, 40);
@@ -537,22 +541,22 @@ a.zola-anchor {
     list-style-type: square;
   }
   dt {
-    font-size: 14px;
+    font-size: 22px;
   }
   dd {
-    font-size: 12px;
+    font-size: 22px;
   }
   ul,
   ol {
     list-style-position: inside;
     padding-left: 30px;
     > li {
-      font-size: 12px;
+      font-size: 22px;
       position: relative;
-      line-height: 1.4em;
-      margin-bottom: 15px;
+      line-height: 1.1em;
+      margin-bottom: 12px;
       &:first-child:not(#info-tag) {
-        margin-top: 15px;
+        margin-top: 12px;
       }
     }
   }
@@ -600,7 +604,9 @@ a.zola-anchor {
   .tags > li {
     background: none;
     border: 1px solid rgba($white, 0.4);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    box-shadow:
+      rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+      rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     color: $white;
     font-size: 12px;
     filter: drop-shadow(0 1px 3px);
@@ -616,7 +622,7 @@ a.zola-anchor {
     font-size: 25px;
     margin-bottom: 20px;
     &:after {
-      content: '';
+      content: "";
       -webkit-box-flex: 1;
       -moz-box-flex: 1;
       flex: 1;
@@ -637,7 +643,7 @@ a.zola-anchor {
     &.reverse {
       margin-top: 40px;
       &:before {
-        content: '';
+        content: "";
         -webkit-box-flex: 1;
         -moz-box-flex: 1;
         flex: 1;
@@ -655,6 +661,7 @@ a.zola-anchor {
 .date-highlight {
   text-align: center;
   font-size: 16px;
+  font-family: $base-font;
   margin: 50px 0 50px;
   color: $overlay-color;
   display: -webkit-box;
@@ -663,7 +670,7 @@ a.zola-anchor {
   display: flex;
   align-items: center;
   &:before {
-    content: '';
+    content: "";
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     flex: 1;
@@ -672,7 +679,7 @@ a.zola-anchor {
     margin-right: 10px;
   }
   &:after {
-    content: '';
+    content: "";
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     flex: 1;
@@ -684,6 +691,7 @@ a.zola-anchor {
 
 .projects {
   width: 100%;
+  font-family: $base-font;
   padding-right: 20px;
   display: block;
   > h2 {
@@ -737,7 +745,7 @@ a.zola-anchor {
 }
 
 .entry-meta {
-  font-size: .75rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   padding-left: 0;
   display: none;
@@ -779,6 +787,7 @@ a.zola-anchor {
   color: lighten($black, 50) !important;
 }
 .pagination {
+  font-family: $base-font;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -811,10 +820,10 @@ a.zola-anchor {
     }
     &.disabled {
       background-color: darken($white, 3%);
-      color:darken($white, 15%) !important;
+      color: darken($white, 15%) !important;
       &:hover {
         background-color: darken($white, 3%);
-        color:darken($white, 15%) !important;
+        color: darken($white, 15%) !important;
       }
     }
   }
@@ -824,11 +833,16 @@ a.zola-anchor {
   font-size: 15px;
 }
 
+.toc-block {
+  font-family: $base-font;
+}
+
 .footer-content {
   vertical-align: bottom;
   margin-top: auto;
   position: relative;
   display: flex;
+  font-family: $base-font;
   justify-content: center;
   align-items: center;
   height: auto;
@@ -839,7 +853,7 @@ a.zola-anchor {
   li {
     display: inline-block;
     &:after {
-      content: '•';
+      content: "•";
       padding: 0 0.4rem;
     }
   }
@@ -898,7 +912,7 @@ a.zola-anchor {
     }
     p,
     li {
-      font-size: 14px;
+      font-size: 22px;
     }
     .post-ext-info > p,
     .post-music > p {
@@ -963,31 +977,39 @@ a.zola-anchor {
   nav.nav-bar li a {
     color: $white;
   }
-  nav.nav-bar li, nav.nav-bar ul {
+  nav.nav-bar li,
+  nav.nav-bar ul {
     background: $dark-blue;
   }
   nav.nav-bar ul {
-    border-color: darken($white, 30),
+    border-color: darken($white, 30);
   }
   .frame-p {
-    box-shadow: -2px 0 0 0 darken($white, 28%),
-                 2px 0 0 0 darken($white, 28%),
-                 0 -2px 0 0 darken($white, 28%),
-                 0 2px 0 0 darken($white, 28%);
+    box-shadow:
+      -2px 0 0 0 darken($white, 28%),
+      2px 0 0 0 darken($white, 28%),
+      0 -2px 0 0 darken($white, 28%),
+      0 2px 0 0 darken($white, 28%);
   }
   .frame-dim {
-    box-shadow: -2px 0 0 0 lighten($black, 30),
-                 2px 0 0 0 lighten($black, 30),
-                 0 -2px 0 0 lighten($black, 30),
-                 0 2px 0 0 lighten($black, 30);
+    box-shadow:
+      -2px 0 0 0 lighten($black, 30),
+      2px 0 0 0 lighten($black, 30),
+      0 -2px 0 0 lighten($black, 30),
+      0 2px 0 0 lighten($black, 30);
   }
   .frame-dim p {
     color: $overlay-color-dark;
   }
-  table, td, th, tr, dd {
+  table,
+  td,
+  th,
+  tr,
+  dd {
     border-color: lighten($black, 42%);
   }
-  thead, dt {
+  thead,
+  dt {
     background-color: lighten($black, 15%);
     border-color: lighten($black, 42%);
   }
@@ -1040,6 +1062,7 @@ a.zola-anchor {
     border: 1px solid darken($white, 75);
   }
   .posts-list {
+    font-family: $base-font;
     > li {
       border-bottom: 1px solid lighten($black, 40);
       .date {
@@ -1074,7 +1097,7 @@ a.zola-anchor {
     }
     &:after {
       background: lighten($black, 30);
-    } 
+    }
   }
   p > code,
   a > code,
@@ -1092,7 +1115,7 @@ a.zola-anchor {
     .tag,
     .category {
       background-color: lighten($black, 3%);
-    } 
+    }
     .count {
       background-color: lighten($black, 8%);
     }
@@ -1106,10 +1129,10 @@ a.zola-anchor {
       color: lighten($black, 55%) !important;
       &.disabled {
         background-color: lighten($black, 17%);
-        color:lighten($black, 30%) !important;
+        color: lighten($black, 30%) !important;
         &:hover {
           background-color: lighten($black, 23%);
-          color:lighten($black, 35%) !important;
+          color: lighten($black, 35%) !important;
         }
       }
     }
