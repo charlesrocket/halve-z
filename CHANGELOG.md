@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.24.1] - 2026-03-14
+
+### Bug Fixes
+
+- Center post images
+- Change body font
+- Update cache
+
 ## [0.24.0] - 2026-01-28
 
 ### Features
