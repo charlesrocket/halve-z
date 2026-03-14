@@ -1,4 +1,4 @@
-document.getElementById('search-nav').style.display='block';
+document.getElementById("search-nav").style.display = "block";
 
 function debounce(func, wait) {
   var timeout;
@@ -113,10 +113,12 @@ function makeTeaser(body, terms) {
 }
 
 function formatSearchResultItem(item, terms) {
-  return '<div class="search-results__item">'
-  + `<a href="${item.ref}">${item.doc.title}</a>`
-  + `<div>${makeTeaser(item.doc.body, terms)}</div>`
-  + '</div>';
+  return (
+    '<div class="search-results__item">' +
+    `<a href="${item.ref}">${item.doc.title}</a>` +
+    `<div>${makeTeaser(item.doc.body, terms)}</div>` +
+    "</div>"
+  );
 }
 
 function initSearch() {
@@ -128,65 +130,68 @@ function initSearch() {
   var options = {
     bool: "AND",
     fields: {
-      title: {boost: 2},
-      body: {boost: 1},
-    }
+      title: { boost: 2 },
+      body: { boost: 1 },
+    },
   };
 
   var currentTerm = "";
   var index;
-  
+
   var initIndex = async function () {
     if (index === undefined) {
-      index = fetch("/search_index.en.json")
-        .then(
-          async function(response) {
-            return await elasticlunr.Index.load(await response.json());
-        }
-      );
+      index = fetch("/search_index.en.json").then(async function (response) {
+        return await elasticlunr.Index.load(await response.json());
+      });
     }
 
     let res = await index;
     return res;
-  }
+  };
 
-  $searchInput.addEventListener("keyup", debounce(async function() {
-    var term = $searchInput.value.trim();
-    if (term === currentTerm) {
-      return;
-    }
+  $searchInput.addEventListener(
+    "keyup",
+    debounce(async function () {
+      var term = $searchInput.value.trim();
+      if (term === currentTerm) {
+        return;
+      }
 
-    $searchResults.style.display = term === "" ? "none" : "block";
-    $searchResultsItems.innerHTML = "";
-    currentTerm = term;
+      $searchResults.style.display = term === "" ? "none" : "block";
+      $searchResultsItems.innerHTML = "";
+      currentTerm = term;
 
-    if (term === "") {
-      return;
-    }
+      if (term === "") {
+        return;
+      }
 
-    var results = (await initIndex()).search(term, options);
-    if (results.length === 0) {
-      $searchResults.style.display = "none";
-      return;
-    }
+      var results = (await initIndex()).search(term, options);
+      if (results.length === 0) {
+        $searchResults.style.display = "none";
+        return;
+      }
 
-    for (var i = 0; i < Math.min(results.length, MAX_ITEMS); i++) {
-      var item = document.createElement("li");
-      item.innerHTML = formatSearchResultItem(results[i], term.split(" "));
-      $searchResultsItems.appendChild(item);
-    }
-  }, 150));
+      for (var i = 0; i < Math.min(results.length, MAX_ITEMS); i++) {
+        var item = document.createElement("li");
+        item.innerHTML = formatSearchResultItem(results[i], term.split(" "));
+        $searchResultsItems.appendChild(item);
+      }
+    }, 150),
+  );
 
-  window.addEventListener('click', function(e) {
-    if ($searchResults.style.display == "block" && !$searchResults.contains(e.target)) {
+  window.addEventListener("click", function (e) {
+    if (
+      $searchResults.style.display == "block" &&
+      !$searchResults.contains(e.target)
+    ) {
       $searchResults.style.display = "none";
     }
   });
 }
 
-
-if (document.readyState === "complete" ||
-    (document.readyState !== "loading" && !document.documentElement.doScroll)
+if (
+  document.readyState === "complete" ||
+  (document.readyState !== "loading" && !document.documentElement.doScroll)
 ) {
   initSearch();
 } else {
