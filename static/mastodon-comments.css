@@ -26,7 +26,6 @@
 #mastodon-comments .content-wrapper {
   flex: 1;
   min-width: 0;
-  overflow: hidden;
 }
 #mastodon-comments .author {
   display: flex;
@@ -45,10 +44,17 @@
   margin-top: 0;
   font-size: 20px;
 }
+#mastodon-comments time a {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 #mastodon-comments .account {
   margin-right: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 0;
 }
 #mastodon-comments .bot-badge {
   color: #9932cc;
