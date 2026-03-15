@@ -111,12 +111,6 @@ system = ""
 username = "user"
 server = "server"
 
-[extra.comments.cactus]
-site = "site_name"
-page_size = 10
-guest_posting = true
-update_interval = 0
-
 [extra.comments.giscus]
 repo = "user_name/repo"
 repo_id = ""

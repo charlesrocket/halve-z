@@ -11,7 +11,7 @@ subtitle = "Usage guide"
 
 ## Features
 
-[Halve-Z](https://github.com/charlesrocket/halve-z) is a retro two-column theme for [Zola](https://github.com/getzola/zola). It features search, taxonomies, automatic color schemes, media shortcodes, project cards, and a comment system ([Cactus](https://cactus.chat)/[Giscus](https://giscus.app)).
+[Halve-Z](https://github.com/charlesrocket/halve-z) is a retro two-column theme for [Zola](https://github.com/getzola/zola). It features search, taxonomies, automatic color schemes, media shortcodes, project cards, and a comment system ([Mastodon](https://mastodon.social)/[Giscus](https://giscus.app)).
 
 ## Front matter
 
