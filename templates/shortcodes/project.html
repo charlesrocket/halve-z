@@ -18,7 +18,7 @@
 <div class="projects frame-dim">
   <h2><a {% if gh_archive == true %}id="project-archived" {% endif %}href="{{ gh_repo_data['html_url'] | safe }}" target="_blank">{{ gh_repo_data["name"] | safe }}</a></h2>
   <ul class="project-list">
-    <li><b><span class="project-lang">{{ gh_language | safe }}</span></b> <span class="project-lang {{ gh_language | replace(from="#", to="-Sharp") | replace(from="++", to="pp") | replace(from="-", to="") | replace(from=" ", to="") | safe }}"><b>&#42;</b></span></li>
+    <li><b><span class="project-lang">{{ gh_language | safe }}</span></b><span class="project-lang {{ gh_language | replace(from="#", to="-Sharp") | replace(from="++", to="pp") | replace(from="-", to="") | replace(from=" ", to="") | safe }}"><b>&#42;</b></span></li>
     <li><span class="project-license">{{ gh_license | safe }}</span></li>
     <li><span class="project-description">{{ gh_description | safe }}</span></li>
     <li><ul class="tags project-tags"
