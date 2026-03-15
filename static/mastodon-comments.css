@@ -1,10 +1,6 @@
-#mastodon-comments {
-  font-family: "Jersey10";
-  font-size: 14px;
-}
 #mastodon-comments .frame-dim p {
   font-family: "Press Start 2P";
-  font-size: 16px;
+  font-size: 14px;
 }
 #mastodon-comments article {
   margin-top: 20px;
@@ -13,16 +9,16 @@
   padding-left: 10px;
   border-left: solid 2px gray;
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: flex-start;
 }
 #mastodon-comments .avatar {
-  width: 60px !important;
-  height: 60px !important;
-  min-width: 60px;
-  max-width: 60px;
-  max-height: 60px;
-  border: solid 1px #72cc96;
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  max-width: 58px;
+  max-height: 58px;
+  border: solid 1px gray;
   display: block;
   flex-shrink: 0;
   object-fit: cover;
@@ -37,7 +33,9 @@
   align-items: center;
   margin: 0 0 0 0;
   font-family: "Jersey10";
-  font-size: 24px;
+  font-size: 22px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 #mastodon-comments .author svg {
   flex-shrink: 0;
@@ -45,7 +43,7 @@
 #mastodon-comments time {
   display: block;
   margin-top: 0;
-  font-size: 22px;
+  font-size: 20px;
 }
 #mastodon-comments .account {
   margin-right: 4px;
@@ -62,7 +60,6 @@
 }
 #mastodon-comments main {
   border-bottom: dashed 2px gray;
-  margin: 12px 0;
   padding-left: 12px;
   padding-bottom: 6px;
 }
