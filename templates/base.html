@@ -5,22 +5,37 @@
 {%- set hash = "NA" %}
 
 {%- if config.extra.footer.hash or config.extra.manifest %}
-  {%- set head_branch = load_data(path=".git/HEAD") | replace(from="ref: ", to="") %}
-  {#- load_data(path=head_branch_path)v is not working #}
-  {%- if head_branch is containing("refs/heads/trunk") %}
-    {%- set_global hash = load_data(path=".git/refs/heads/trunk") %}
-  {%- elif head_branch is containing("refs/heads/main") %}
-    {%- set_global hash = load_data(path=".git/refs/heads/main") %}
-  {%- elif head_branch is containing("refs/heads/master") %}
-    {%- set_global hash = load_data(path=".git/refs/heads/master") %}
-  {% else %}
-    {% if get_env(name="GITHUB_SHA", default="NONE") != "NONE" %}
-      {%- set_global hash =  get_env(name="GITHUB_SHA") %}
-    {% elif get_env(name="COMMIT_REF", default="NONE") != "NONE" %}
-      {%- set_global hash =  get_env(name="COMMIT_REF") %}
-    {% elif get_env(name="CI_COMMIT_SHA", default="NONE") != "NONE" %}
-      {%- set_global hash =  get_env(name="CI_COMMIT_SHA") %}
-    {% endif %}
+  {%- set head_branch = load_data(path=".git/HEAD") | replace(from="ref: ", to="") | trim %}
+  {%- set branch_names = ["trunk", "main", "master"] %}
+  {%- set_global hash = "" %}
+  {%- for branch in branch_names %}
+    {%- if hash == "" and head_branch is containing("refs/heads/" ~ branch) %}
+      {%- set loose_path = ".git/refs/heads/" ~ branch %}
+      {%- set loose = load_data(path=loose_path, required=false) %}
+      {%- if loose %}
+        {%- set_global hash = loose | trim %}
+      {%- else %}
+        {%- set packed = load_data(path=".git/packed-refs", required=false) %}
+        {%- if packed %}
+          {%- set target = "refs/heads/" ~ branch %}
+          {%- for line in packed | split(pat="\n") %}
+            {%- if hash == "" and line is containing(target) and line is not starting_with("#") %}
+              {%- set parts = line | split(pat=" ") %}
+              {%- set_global hash = parts | first | trim %}
+            {%- endif %}
+          {%- endfor %}
+        {%- endif %}
+      {%- endif %}
+    {%- endif %}
+  {%- endfor %}
+  {%- if hash == "" %}
+    {%- if get_env(name="GITHUB_SHA", default="NONE") != "NONE" %}
+      {%- set_global hash = get_env(name="GITHUB_SHA") %}
+    {%- elif get_env(name="COMMIT_REF", default="NONE") != "NONE" %}
+      {%- set_global hash = get_env(name="COMMIT_REF") %}
+    {%- elif get_env(name="CI_COMMIT_SHA", default="NONE") != "NONE" %}
+      {%- set_global hash = get_env(name="CI_COMMIT_SHA") %}
+    {%- endif %}
   {%- endif %}
 {%- endif %}
 
