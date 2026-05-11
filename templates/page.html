@@ -46,7 +46,13 @@
         </ul>
       </div>
       {% endif %}{% endif %}{% endif %}{% endif %}
+      {% if page.extra.series %}
+        {% include "partials/series_nav.html" %}
+      {% endif %}
       {{ page.content | safe }}
+      {% if page.extra.series %}
+        {% include "partials/series_roadmap.html" %}
+      {% endif %}
       <br>
       {% if page.lower or page.higher %}
         <nav class="pagination">
