@@ -1140,3 +1140,127 @@ a.zola-anchor {
     }
   }
 }
+
+// Series styling
+.series-nav-top {
+  display: block !important;
+  width: 100% !important;
+  margin: 2rem 0 !important;
+  padding-bottom: 1.5rem !important;
+  border-bottom: 1px dashed rgba($green, 0.2) !important;
+  clear: both !important;
+}
+
+.series-nav-info {
+  display: block !important;
+  font-family: $caps-font !important;
+  font-size: 0.9rem !important;
+  color: $green !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  margin-bottom: 1.5rem !important;
+  opacity: 0.6 !important;
+  text-align: center !important;
+}
+
+.series-nav-buttons {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.series-nav-left, .series-nav-right {
+  flex: 1 !important;
+  display: flex !important;
+}
+
+.series-nav-left { justify-content: flex-start !important; }
+.series-nav-right { justify-content: flex-end !important; }
+
+.series-nav-btn {
+  text-decoration: none !important;
+  border-bottom: 1px dotted transparent !important;
+  color: $shamrock-green !important;
+  font-family: $caps-font !important;
+  font-size: 1.3rem !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+  
+  &:hover {
+    border-bottom-color: $shamrock-green !important;
+    opacity: 0.8 !important;
+  }
+}
+
+.series-roadmap-bottom {
+  margin: 4rem 0 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba($green, 0.15);
+  font-family: $body-font;
+}
+
+.series-roadmap-header {
+  font-family: $caps-font;
+  font-size: 1.2rem;
+  color: $green;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  display: block;
+  opacity: 0.8;
+}
+
+.series-roadmap-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid rgba($green, 0.2);
+  padding-left: 1.5rem;
+  
+  li {
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.7;
+    border-bottom: 1px dotted transparent;
+    transition: all 0.2s;
+    
+    &:hover {
+      opacity: 1;
+      border-bottom-color: $shamrock-green;
+    }
+  }
+  
+  .current {
+    color: $shamrock-green;
+    font-weight: bold;
+    
+    &::after {
+      content: " (Current Post)";
+      font-size: 0.8rem;
+      opacity: 0.5;
+      font-weight: normal;
+      margin-left: 0.5rem;
+      font-family: $caps-font;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .series-nav-btn { 
+    color: $green !important; 
+    &:hover { border-bottom-color: $green !important; }
+  }
+  
+  .series-roadmap-list {
+    .current { color: $green; }
+    a:hover { border-bottom-color: $green; }
+  }
+}
