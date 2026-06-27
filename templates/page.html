@@ -35,32 +35,17 @@
       {% endif %}
       {% endblock music %}
       </div>
-      {% set show_toc = false %}
-      {% if config.extra.toc == true and not page.extra.disable_toc %}
-        {% if page.toc %}
-          {% if page.toc | length >= 2 %}
-            {% set show_toc = true %}
-          {% endif %}
-        {% endif %}
-      {% endif %}
-
-      {% if show_toc or page.extra.series %}
+      {% if config.extra.toc == true and not page.extra.disable_toc %}{% if page.toc %}{% if page.toc | length >= 2 %}
       <div class="toc-block">
         <ul>
-          {% if page.extra.series %}
-            {% include "partials/series_nav.html" %}
-          {% endif %}
-          {% if show_toc %}
-            {% for h2 in page.toc %}
-            <li>
-              <a class="toc-anchor toc" href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
-            </li>
-            {% endfor %}
-          {% endif %}
+          {% for h2 in page.toc %}
+          <li>
+            <a class="toc-anchor toc" href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+          </li>
+          {% endfor %}
         </ul>
       </div>
-      {% endif %}
-      {% endif %}
+      {% endif %}{% endif %}{% endif %}{% endif %}
       {{ page.content | safe }}
       {% if page.extra.series %}
         {% include "partials/series_roadmap.html" %}
