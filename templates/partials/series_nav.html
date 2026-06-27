@@ -18,25 +18,19 @@
             {% endif %}
         {% endfor %}
 
-        <div class="series-nav-top">
-            <span class="series-nav-info">Part {{ current_index + 1 }} of "{{ page.extra.series }}" series</span>
-            <div class="series-nav-buttons">
-                <div class="series-nav-left">
-                    {% if current_index > 0 %}
-                        {% set prev_idx = current_index - 1 %}
-                        {% set prev_p = series_posts[prev_idx] %}
-                        <a class="series-nav-btn prev" href="{{ prev_p.permalink }}">← Previous Part</a>
-                    {% endif %}
-                </div>
-                
-                <div class="series-nav-right">
-                    {% if current_index < max_index %}
-                        {% set next_idx = current_index + 1 %}
-                        {% set next_p = series_posts[next_idx] %}
-                        <a class="series-nav-btn next" href="{{ next_p.permalink }}">Next Part →</a>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+        <li>
+            <span class="toc-anchor toc">Part {{ current_index + 1 }} of "{{ page.extra.series }}" series
+            {% if current_index > 0 %}
+                {% set prev_idx = current_index - 1 %}
+                {% set prev_p = series_posts[prev_idx] %}
+                [<a href="{{ prev_p.permalink }}">← Prev</a>]
+            {% endif %}
+            {% if current_index < max_index %}
+                {% set next_idx = current_index + 1 %}
+                {% set next_p = series_posts[next_idx] %}
+                [<a href="{{ next_p.permalink }}">Next →</a>]
+            {% endif %}
+            </span>
+        </li>
     {% endif %}
 {% endif %}

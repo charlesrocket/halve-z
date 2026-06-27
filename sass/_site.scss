@@ -531,7 +531,7 @@ a.zola-anchor {
     margin-bottom: 10px;
     display: block;
   }
-  a:not(.btn):not(.pagination_pager):not(.zola-anchor):not(.series-nav-btn) {
+  a:not(.btn):not(.pagination_pager):not(.zola-anchor) {
     color: $shamrock-green;
     &:not(.toc) {
       border-bottom: 1px dotted $green;
@@ -1142,58 +1142,7 @@ a.zola-anchor {
 }
 
 // Series styling
-.series-nav-top {
-  display: block;
-  width: 100%;
-  margin: 1rem 0;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px dashed rgba($green, 0.2);
-  clear: both;
-}
 
-.series-nav-info {
-  display: block;
-  font-family: $caps-font;
-  font-size: 0.9rem;
-  color: $green;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 0.75rem;
-  opacity: 0.6;
-  text-align: center;
-}
-
-.series-nav-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.series-nav-left,
-.series-nav-right {
-  flex: 1;
-  display: flex;
-}
-
-.series-nav-left { justify-content: flex-start; }
-.series-nav-right { justify-content: flex-end; }
-
-.series-nav-btn {
-  text-decoration: none;
-  border-bottom: 1px dotted transparent;
-  color: $shamrock-green;
-  font-family: $caps-font;
-  font-size: 1.3rem;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-
-  &:hover {
-    border-bottom-color: $shamrock-green;
-    opacity: 0.8;
-  }
-}
 
 .series-roadmap-bottom {
   margin: 4rem 0 2rem;
@@ -1255,12 +1204,6 @@ a.zola-anchor {
 }
 
 @media (prefers-color-scheme: dark) {
-  .series-nav-btn {
-    color: $green;
-
-    &:hover { border-bottom-color: $green; }
-  }
-
   .series-roadmap-list {
     .current { color: $green; }
     a:hover { border-bottom-color: $green; }
