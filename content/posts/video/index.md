@@ -6,6 +6,8 @@ categories = ["media"]
 tags = ["content", "shortcode", "feature"]
 [extra]
 subtitle = "Shortcodes for videos"
+series = "Media"
+series_order = ["/image", "/audio", "/video"]
 +++
 
 ## Video

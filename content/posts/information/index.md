@@ -22,6 +22,7 @@ Available (`extra`) options:
 * `disable_comments`
 * `disable_toc`
 * `music`
+* `series`
 
 <p class="notice_info"><code>h1</code> headers are reserved for page title (left/top block) and subtitle (optional, right/bottom block).</p>
 
@@ -41,6 +42,8 @@ disable_toc = true
 image = "https://example.com/image.png"
 csp_img = ["example.com/", "foo.org/example"]
 music = ["Michael Pitt", "Death to Birth"]
+series = "Examples"
+series_order = ["/example1", "/example2", "/example3"]
 +++
 ```
 

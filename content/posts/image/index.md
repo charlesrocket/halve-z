@@ -6,6 +6,8 @@ categories = ["media"]
 tags = ["content", "csp", "shortcode", "feature"]
 [extra]
 subtitle = "Shortcodes for images"
+series = "Media"
+series_order = ["/image", "/audio", "/video"]
 csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/",
            "https://halve-z.netlify.app/fireball.gif"]
 +++

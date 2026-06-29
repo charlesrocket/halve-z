@@ -6,6 +6,8 @@ categories = ["media"]
 tags = ["content", "shortcode", "feature"]
 [extra]
 subtitle = "Working with audio files"
+series = "Media"
+series_order = ["/image", "/audio", "/video"]
 +++
 
 ## Usage

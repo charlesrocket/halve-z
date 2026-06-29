@@ -16,6 +16,7 @@ This is a _retro_ port of [Halve](https://github.com/TaylanTatli/Halve) (**Jekyl
 * auto color schemes
 * ToC
 * pagination
+* series
 * media shortcodes
 * SEO
 * CSP
