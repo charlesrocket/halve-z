@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.25.0] - 2026-06-30
+
+### Bug Fixes
+
+- Set `strong` tag
+- Adjust post tags
+- Increase bold letter spacing
+- Update `cite`
+- Fix `dl`
+- Increase body font size
+- Fix `var` tag
+- Improve quotes
+- [**breaking**] Remove cactus comment system
+- Change mastodon fonts
+- Adjust comment layout
+- Fix content wrapper
+- Adjust language symbol gap
+- Support packed refs
+- Remove !important overrides from series styles
+- Move series nav between post info and toc, reduce spacing
+- Integrate top series nav into table of contents
+- Restore missing endif in page template
+- Remove top series navigation entirely, keeping only the bottom roadmap
+
+### Documentation
+
+- Remove cactus comments
+- Drop `cactus` tag
+- Add series
+- Update order
+- Move `music`
+
+### Features
+
+- Add series roadmap and navigation feature
+
+### Styling
+
+- Fix series formatting
+- Fix site formatting
+
 ## [0.24.1] - 2026-03-14
 
 ### Bug Fixes
