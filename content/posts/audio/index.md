@@ -7,7 +7,7 @@ tags = ["content", "shortcode", "feature"]
 [extra]
 subtitle = "Working with audio files"
 series = "Media"
-series_order = ["/image", "/audio", "/video"]
+series_order = 2
 +++
 
 ## Usage

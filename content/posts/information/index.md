@@ -43,7 +43,7 @@ image = "https://example.com/image.png"
 csp_img = ["example.com/", "foo.org/example"]
 music = ["Michael Pitt", "Death to Birth"]
 series = "Examples"
-series_order = ["/example1", "/example2", "/example3"]
+series_order = 1
 +++
 ```
 
