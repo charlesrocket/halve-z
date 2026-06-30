@@ -41,9 +41,9 @@ disable_comments = true
 disable_toc = true
 image = "https://example.com/image.png"
 csp_img = ["example.com/", "foo.org/example"]
-music = ["Michael Pitt", "Death to Birth"]
 series = "Examples"
 series_order = 1
+music = ["Michael Pitt", "Death to Birth"]
 +++
 ```
 
