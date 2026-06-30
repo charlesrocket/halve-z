@@ -1141,9 +1141,6 @@ a.zola-anchor {
   }
 }
 
-// Series styling
-
-
 .series-roadmap-bottom {
   margin: 4rem 0 2rem;
   padding: 2rem 0;
@@ -1205,8 +1202,11 @@ a.zola-anchor {
 
 @media (prefers-color-scheme: dark) {
   .series-roadmap-list {
-    .current { color: $green; }
-    a:hover { border-bottom-color: $green; }
+    .current {
+      color: $green;
+    }
+    a:hover {
+      border-bottom-color: $green;
+    }
   }
 }
-
