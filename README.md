@@ -29,7 +29,7 @@ This is a _retro_ port of [Halve](https://github.com/TaylanTatli/Halve) (**Jekyl
 Add theme submodule using `git`:
 
 ```sh
-git submodule add https://github.com/charlesrocket/halve-z themes/halve-z
+git submodule add https://codeberg.org/charlesrocket/halve-z themes/halve-z
 ```
 
 ### Updates
