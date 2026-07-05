@@ -1,10 +1,10 @@
 {%- if config.base_url != "http://127.0.0.1:1111" %}
 {%- if link is starting_with("https://github.com") %}
-  {%- set gh_token = get_env(name="GITHUB_TOKEN", default="notoken") %}
+  {%- set gh_token = get_env(name="ZOLA_GITHUB_TOKEN", default="notoken") %}
   {%- set gh_repo_link = link | replace(from="https://github.com", to="https://api.github.com/repos") %}
   {%- if gh_token is matching("^notoken") %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json") %}{% else %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json", headers=["accept=application/vnd.github.v4.idl", "authorization=Bearer " ~ gh_token]) %}{% endif %}
 {%- elif link is starting_with("https://codeberg.org") %}
-  {%- set cb_token = get_env(name="CODEBERG_TOKEN", default="notoken") %}
+  {%- set cb_token = get_env(name="ZOLA_CODEBERG_TOKEN", default="notoken") %}
   {%- set cb_repo_link = link | replace(from="https://codeberg.org/", to="https://codeberg.org/api/v1/repos/") %}
   {%- if cb_token is matching("^notoken") %}{% set gh_repo_data = load_data(url=cb_repo_link, format="json") %}{% else %}{% set gh_repo_data = load_data(url=cb_repo_link, format="json", headers=["authorization=token " ~ cb_token]) %}{% endif %}
 {%- endif %}
