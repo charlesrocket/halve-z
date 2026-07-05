@@ -3,7 +3,7 @@
 
 A two-column theme for **Zola**.
 
-![logo](https://raw.githubusercontent.com/charlesrocket/halve-z/trunk/static/favicon-32x32.png)
+![logo](https://codeberg.org/charlesrocket/halve-z/raw/branch/trunk/static/favicon-32x32.png)
 
 ## Features
 
@@ -42,7 +42,7 @@ git submodule update --recursive --remote
 
 ## Configuration
 
-1. Copy theme's [config.toml](https://github.com/charlesrocket/halve-z/blob/trunk/config.toml) into your project's root directory. Set variables as required and add `theme = "halve-z"` at the **top** of the config file.
+1. Copy theme's [config.toml](https://codeberg.org/charlesrocket/halve-z/src/branch/trunk/config.toml) into your project's root directory. Set variables as required and add `theme = "halve-z"` at the **top** of the config file.
 2. Copy the content to get started:
 
 ```
@@ -52,3 +52,7 @@ cp -R -f themes/halve-z/content/ content/
 ## Usage
 
 See demo [posts](https://halve-z.netlify.app/posts/).
+
+## Contributing
+
+Patches are accepted via [Codeberg](https://codeberg.org/charlesrocket/halve-z) or e-mail.
