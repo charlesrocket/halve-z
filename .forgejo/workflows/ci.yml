@@ -19,6 +19,7 @@ jobs:
 
   release:
     name: Create release
+    needs: build
     if: >-
       forgejo.ref_type == 'tag' &&
       forgejo.repository_owner == 'charlesrocket'
