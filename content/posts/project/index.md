@@ -10,7 +10,7 @@ subtitle = "Project cards"
 
 ## Usage
 
-Use `GITHUB_TOKEN` environment variable to authenticate **GitHub** requests (optional).
+Use the `ZOLA_GITHUB_TOKEN`/`ZOLA_CODEBERG_TOKEN` environment variable to authenticate your requests (optional).
 
 - `link`: the address of the repository
 
