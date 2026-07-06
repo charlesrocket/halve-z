@@ -10,7 +10,7 @@ jobs:
     name: Build
     runs-on: codeberg-medium
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v6
       - name: Install Zola
         uses: https://github.com/taiki-e/install-action@zola
@@ -18,29 +18,11 @@ jobs:
         run: zola build
 
   release:
-    name: Release
-    needs: build
-    runs-on: codeberg-small
-    if: ${{ forgejo.ref_type == 'tag' && forgejo.repository_owner == 'charlesrocket' }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-      - name: Extract changelog
-        env:
-          TAG: ${{ forgejo.ref_name }}
-        run: |
-          VERSION="${TAG#v}"
-          awk -v ver="$VERSION" '
-            /^## \[/ {
-              if (found) exit
-              if ($0 ~ "\\[" ver "\\]") { found=1; next }
-              next
-            }
-            found { print }
-          ' CHANGELOG.md > release-notes.md
-      - name: Publish
-        uses: https://data.forgejo.org/actions/forgejo-release@v2.13.1
-        with:
-          direction: upload
-          release-notes-file: release-notes.md
-          skip-assets: true
+    name: Create release
+    if: >-
+      forgejo.ref_type == 'tag' &&
+      forgejo.repository_owner == 'charlesrocket'
+
+    uses: charlesrocket/reusable/.forgejo/workflows/release.yml@trunk
+    with:
+      skip-assets: true
