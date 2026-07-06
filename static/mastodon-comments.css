@@ -45,8 +45,9 @@
   font-size: 20px;
 }
 #mastodon-comments time a {
-  display: block;
+  display: inline-block;
   overflow: hidden;
+  max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
