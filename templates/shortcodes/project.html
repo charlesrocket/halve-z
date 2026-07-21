@@ -8,6 +8,9 @@
   {%- set cb_repo_link = link | replace(from="https://codeberg.org/", to="https://codeberg.org/api/v1/repos/") %}
   {%- if cb_token is matching("^notoken") %}{% set gh_repo_data = load_data(url=cb_repo_link, format="json", required=false) %}{% else %}{% set gh_repo_data = load_data(url=cb_repo_link, format="json", required=false, headers=["authorization=token " ~ cb_token]) %}{% endif %}
 {%- endif %}
+{%- if gh_repo_data is not object %}
+  {%- set gh_repo_data = load_data(literal='{"archived": false, "language": "APL", "html_url": "none", "name": "foo", "description": "n/a", "license": {"spdx_id": "XXX"}, "topics": []}', format="json") %}
+{%- endif %}
 {%- else %}
   {%- set gh_repo_data = load_data(literal='{"archived": false, "language": "APL", "html_url": "none", "name": "foobar", "description": "Test description test description test description", "license": {"spdx_id": "FOO"}, "topics": ["foo", "bar", "test"]}', format="json") %}
 {%- endif %}
