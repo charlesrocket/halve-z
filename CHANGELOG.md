@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.25.1] - 2026-07-21
+
+### Bug Fixes
+
+- Rename project vars
+- Do not fail `load_data()` calls
+- Correct date block
+- Check `gh_repo_data`
+
+### Documentation
+
+- Update links
+- Update posts
+- Update submodule address
+- Update project variables
+
+### Miscellaneous tasks
+
+- Update homepage
+
+### Operations
+
+- Bump actions/checkout from 6 to 7
+- Update actions
+- Add step names
+- Update `release` job
+- Fix `release` conditional
+- Downgrade `build` runner
+
+### Build
+
+- Bump MSZV to 0.22.1
+
 ## [0.25.0] - 2026-06-30
 
 ### Bug Fixes
