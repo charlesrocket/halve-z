@@ -1,7 +1,7 @@
 name = "halve-z"
 description = "Retro two-column theme"
 license = "MIT"
-homepage = "https://github.com/charlesrocket/halvez"
+homepage = "https://codeberg.org/charlesrocket/halve-z"
 min_version = "0.22.1"
 demo = "https://halve-z.netlify.app/"
 
