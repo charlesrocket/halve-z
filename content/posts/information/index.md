@@ -54,5 +54,5 @@ music = ["Michael Pitt", "Death to Birth"]
 Set `theme` to `halve-z` in your project's `config.toml` and adjust options according to the example below:
 
 ```toml
-{ <data src="../config.toml", type="plain"/> }
+{{ <data src="../config.toml" type="plain" config={config} page={page}/> }}
 ```
