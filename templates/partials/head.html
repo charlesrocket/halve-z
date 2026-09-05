@@ -1,9 +1,7 @@
-{%- import "macros/macros.html" as macros %}
-
-{%- if page.taxonomies.categories -%}
+{%- if page is defined and page.taxonomies.categories -%}
   {%- if page.taxonomies.categories | length > 1 %}{{ throw(message="'" ~ page.title ~ "' page has more than one category") }}{% endif %}
   {%- for category in config.extra.images.categories %}
-    {%- if category.name is containing(page["taxonomies"]["categories"][0]) %}
+    {%- if category.name is containing(pat=page["taxonomies"]["categories"][0]) %}
         {%- set_global category_image_match = category.image -%}
     {%- endif %}
   {%- endfor %}
@@ -13,41 +11,46 @@
 {%- else %}
   {%- set page_url = "/404.html" %}
 {%- endif %}
-{% if category_image_match %}{% if category_image_match is matching("^http[s]?://") %}
+{% if category_image_match %}{% if category_image_match is matching(pat="^http[s]?://") %}
   {% set category_image = category_image_match %}
 {% else %}
   {%- set category_image = "/" ~ category_image_match ~ "?v=" ~ get_hash(path=category_image_match, sha_type=512, base64=false) %}
 {%- endif %}{% endif %}
-{%- if page.extra.image %}
-  {%- if page.extra.image is matching("^http[s]?://") %}
+{%- if page is defined and page.extra.image %}
+  {%- if page.extra.image is matching(pat="^http[s]?://") %}
     {% set page_image = page.extra.image %}
   {% else %}
     {% set page_image = page.path ~ page.extra.image ~ "?v=" ~ get_hash(path=page.path ~ page.extra.image, sha_type=512, base64=false) %}
   {% endif %}
 {%- endif %}
-{%- if config.extra.images.home is matching("^http[s]?://") %}{% set home_image = config.extra.images.home %}{% else %}{% set home_image = "/" ~ config.extra.images.home ~ "?v=" ~ get_hash(path=config.extra.images.home, sha_type=512, base64=false) %}{% endif %}
-{%- if config.extra.images.post_list is matching("^http[s]?://") %}{% set post_list_image = config.extra.images.post_list %}{% else %}{% set post_list_image = "/" ~ config.extra.images.post_list ~ "?v=" ~ get_hash(path=config.extra.images.post_list, sha_type=512, base64=false) %}{% endif %}
-{%- if config.extra.images.default_post is matching("^http[s]?://") %}{% set default_post_image = config.extra.images.default_post %}{% else %}{% set default_post_image = "/" ~ config.extra.images.default_post ~ "?v=" ~ get_hash(path=config.extra.images.default_post, sha_type=512, base64=false) %}{% endif %}
+{%- if config.extra.images.home is matching(pat="^http[s]?://") %}{% set home_image = config.extra.images.home %}{% else %}{% set home_image = "/" ~ config.extra.images.home ~ "?v=" ~ get_hash(path=config.extra.images.home, sha_type=512, base64=false) %}{% endif %}
+{%- if config.extra.images.post_list is matching(pat="^http[s]?://") %}{% set post_list_image = config.extra.images.post_list %}{% else %}{% set post_list_image = "/" ~ config.extra.images.post_list ~ "?v=" ~ get_hash(path=config.extra.images.post_list, sha_type=512, base64=false) %}{% endif %}
+{%- if config.extra.images.default_post is matching(pat="^http[s]?://") %}{% set default_post_image = config.extra.images.default_post %}{% else %}{% set default_post_image = "/" ~ config.extra.images.default_post ~ "?v=" ~ get_hash(path=config.extra.images.default_post, sha_type=512, base64=false) %}{% endif %}
 {%- if config.extra.csp == true %}
-  {%- if page.extra.mastodon_id %}
+  {%- if page is defined and page.extra.mastodon_id %}
     {%- set purify_hash = get_hash(path="/purify.min.js", base64=true, sha_type=512) %}
-    {%- set mastodon_hash = get_hash(literal=macros::mastodon_comments(server=config.extra.comments.mastodon.server, id=page.extra.mastodon_id), base64=true, sha_type=512) %}
+    {%- set mastodon_comments_js %}{{<mastodon_comments server={config.extra.comments.mastodon.server} id={page.extra.mastodon_id}/>}}{% endset %}
+    {%- set mastodon_hash = get_hash(literal=mastodon_comments_js, base64=true, sha_type=512) %}
   {%- endif %}
-  {%- if page.extra.image %}
-    {%- set page_image_hash = get_hash(literal=macros::image_style(url=page_image), base64=true, sha_type=512) %}
+  {%- if page is defined and page.extra.image %}
+    {%- set page_image_css %}{{<image_style url={page_image}/>}}{% endset %}
+    {%- set page_image_hash = get_hash(literal=page_image_css, base64=true, sha_type=512) %}
   {%- elif category_image %}
-    {%- set category_image_hash = get_hash(literal=macros::image_style(url=category_image), base64=true, sha_type=512) %}
+    {%- set category_image_css %}{{<image_style url={category_image}/>}}{% endset %}
+    {%- set category_image_hash = get_hash(literal=category_image_css, base64=true, sha_type=512) %}
   {%- else %}
-    {%- set default_post_image_hash = get_hash(literal=macros::image_style(url=default_post_image), base64=true, sha_type=512) %}
+    {%- set default_post_image_css %}{{<image_style url={default_post_image}/>}}{% endset %}
+    {%- set default_post_image_hash = get_hash(literal=default_post_image_css, base64=true, sha_type=512) %}
   {%- endif %}
-  {%- set main_images_hash = get_hash(literal=macros::main_images_style(home_url=home_image, posts_url=post_list_image), base64=true, sha_type=512) %}
+  {%- set main_images_css %}{{<main_images_style home_url={home_image} posts_url={post_list_image}/>}}{% endset %}
+  {%- set main_images_hash = get_hash(literal=main_images_css, base64=true, sha_type=512) %}
 {%- endif %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  {% if config.extra.csp == true %}{% block csp %}
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self' data:; img-src 'self' {% if page.extra.mastodon_id %}https://storage.{{ config.extra.comments.mastodon.server }} https://cdn.{{ config.extra.comments.mastodon.server }} https://cdn-media.{{ config.extra.comments.mastodon.server }} https://media.{{ config.extra.comments.mastodon.server }} https://media-cdn.{{ config.extra.comments.mastodon.server }} https://mediacdn.{{ config.extra.comments.mastodon.server }} https://cdn-assets.{{ config.extra.comments.mastodon.server }} https://assets.{{ config.extra.comments.mastodon.server }} https://files.{{ config.extra.comments.mastodon.server }} https://static.{{ config.extra.comments.mastodon.server }} https://staticcdn.{{ config.extra.comments.mastodon.server }} https://{{ config.extra.comments.mastodon.server }}/avatars/ {% endif %} {% if page.extra.image %}{% if page.extra.image is matching("^http[s]?://") %}{{ page.extra.image | safe }}{% endif %}{% endif %} {% if config.extra.images.home is matching("^http[s]?://") %}{{ config.extra.images.home | safe }}{% endif %} {% if config.extra.images.post_list is matching("^http[s]?://") %}{{ config.extra.images.post_list | safe }}{% endif %} {% if category_image_match %}{% if category_image_match is matching("^http[s]?://") %} {{ category_image | safe }}{% endif %}{% endif %}{% if config.extra.images.default_post is matching("^http[s]?://") %} {{ config.extra.images.default_post | safe }}{% endif %}{% if page.extra.csp_img %}{%for url in page.extra.csp_img %} {{ url | safe }}{% endfor %}{% endif %}{% if section.extra.csp_img %}{%for url in section.extra.csp_img %} {{ url | safe }}{% endfor %}{% endif %}; script-src 'self' {% if page.extra.mastodon_id %}'sha512-{{ purify_hash | safe }}'{% endif %} {% if config.extra.comments.system == "giscus" %}giscus.app/client.js{% endif %}{% if page.extra.mastodon_id %} 'sha512-{{ mastodon_hash | safe }}'{% endif %}; manifest-src 'self'; style-src 'self' {% if page_image_hash %}'sha512-{{ page_image_hash | safe }}'{% elif category_image %}'sha512-{{ category_image_hash | safe }}'{% else %}'sha512-{{ default_post_image_hash | safe }}'{% endif %} 'sha512-{{ main_images_hash | safe }}' {% if config.extra.comments.system == "giscus" %}giscus.app/default.css{% endif %}; media-src 'self'; frame-src 'self' https://player.vimeo.com/ https://www.youtube.com/ https://www.youtube-nocookie.com/ {% if config.extra.comments.system == "giscus" %}giscus.app{% endif %}; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src {% if config.build_search_index == true %}'self' {% endif %}{% if page.extra.mastodon_id %} https://{{ config.extra.comments.mastodon.server }}/api/v1/statuses/{{ page.extra.mastodon_id }} https://{{ config.extra.comments.mastodon.server }}/api/v1/statuses/{{ page.extra.mastodon_id }}/context{% endif %} {% if config.mode == "serve" %} ws://127.0.0.1:1024/livereload{% endif %}{% if config.mode != "serve" and config.build_search_index != true and config.extra.comments.system != "giscus" %}'none'{% endif %}">
-  {% endblock csp %}{% endif %}
+  {% block csp %}{% if page is defined and config.extra.csp == true %}
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self' data:; img-src 'self' {% if page.extra.mastodon_id %}https://storage.{{ config.extra.comments.mastodon.server }} https://cdn.{{ config.extra.comments.mastodon.server }} https://cdn-media.{{ config.extra.comments.mastodon.server }} https://media.{{ config.extra.comments.mastodon.server }} https://media-cdn.{{ config.extra.comments.mastodon.server }} https://mediacdn.{{ config.extra.comments.mastodon.server }} https://cdn-assets.{{ config.extra.comments.mastodon.server }} https://assets.{{ config.extra.comments.mastodon.server }} https://files.{{ config.extra.comments.mastodon.server }} https://static.{{ config.extra.comments.mastodon.server }} https://staticcdn.{{ config.extra.comments.mastodon.server }} https://{{ config.extra.comments.mastodon.server }}/avatars/ {% endif %} {% if page.extra.image %}{% if page.extra.image is matching(pat="^http[s]?://") %}{{ page.extra.image | safe }}{% endif %}{% endif %} {% if config.extra.images.home is matching(pat="^http[s]?://") %}{{ config.extra.images.home | safe }}{% endif %} {% if config.extra.images.post_list is matching(pat="^http[s]?://") %}{{ config.extra.images.post_list | safe }}{% endif %} {% if category_image_match %}{% if category_image_match is matching(pat="^http[s]?://") %} {{ category_image | safe }}{% endif %}{% endif %}{% if config.extra.images.default_post is matching(pat="^http[s]?://") %} {{ config.extra.images.default_post | safe }}{% endif %}{% if page.extra.csp_img %}{%for url in page.extra.csp_img %} {{ url | safe }}{% endfor %}{% endif %}{% if section is defined and section.extra.csp_img %}{%for url in section.extra.csp_img %} {{ url | safe }}{% endfor %}{% endif %}; script-src 'self' {% if page.extra.mastodon_id %}'sha512-{{ purify_hash | safe }}'{% endif %} {% if config.extra.comments.system == "giscus" %}giscus.app/client.js{% endif %}{% if page.extra.mastodon_id %} 'sha512-{{ mastodon_hash | safe }}'{% endif %}; manifest-src 'self'; style-src 'self' {% if page_image_hash %}'sha512-{{ page_image_hash | safe }}'{% elif category_image %}'sha512-{{ category_image_hash | safe }}'{% else %}'sha512-{{ default_post_image_hash | safe }}'{% endif %} 'sha512-{{ main_images_hash | safe }}' {% if config.extra.comments.system == "giscus" %}giscus.app/default.css{% endif %}; media-src 'self'; frame-src 'self' https://player.vimeo.com/ https://www.youtube.com/ https://www.youtube-nocookie.com/ {% if config.extra.comments.system == "giscus" %}giscus.app{% endif %}; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src {% if config.build_search_index == true %}'self' {% endif %}{% if page.extra.mastodon_id %} https://{{ config.extra.comments.mastodon.server }}/api/v1/statuses/{{ page.extra.mastodon_id }} https://{{ config.extra.comments.mastodon.server }}/api/v1/statuses/{{ page.extra.mastodon_id }}/context{% endif %} {% if config.mode == "serve" %} ws://127.0.0.1:1024/livereload{% endif %}{% if config.mode != "serve" and config.build_search_index != true and config.extra.comments.system != "giscus" %}'none'{% endif %}">
+  {% endif %}{% endblock csp %}
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#2C2D32">
   {% if config.extra.manifest %}
@@ -55,13 +58,13 @@
   {% endif %}
   <title>
   {%- block title -%}
-    {%- if page.title -%}
+    {%- if page is defined and page.title -%}
       {{ page.title }} • {{ config.title }}
-    {%- elif section.title -%}
+    {%- elif section is defined and section.title -%}
       {{ section.title }} • {{ config.title }}
-    {%- elif term.name -%}
+    {%- elif term is defined and term.name -%}
       {{ '#' ~ term.name }} • {{ config.title }}
-    {%- elif taxonomy.name -%}
+    {%- elif taxonomy is defined and taxonomy.name -%}
       {{ taxonomy.name | title }} • {{ config.title }}
     {%- elif page_url == '/404.html' -%}
       {{ "404 • " ~ config.title }}
@@ -71,30 +74,30 @@
   {%- endblock title -%}
   </title>
   <meta name="author" content="{{ config.author }}">
-  {%- if page.extra.subtitle %}
+  {%- if pages is defined and page.extra.subtitle %}
   <meta name="description" content="{{ page.extra.subtitle | striptags | safe }}">
   {%- else %}
   <meta name="description" content="{{ config.description }}">
   {%- endif %}
-  {%- if page.taxonomies["tags"] %}<meta name="keywords" content="{{ page.taxonomies["tags"] | as_str | replace(from=" ", to="") | replace(from="[", to="") |  replace(from="]", to="") }}">{% endif %}
+  {%- if pages is defined and page.taxonomies["tags"] %}<meta name="keywords" content="{{ page.taxonomies["tags"] | str | replace(from=" ", to="") | replace(from="[", to="") |  replace(from="]", to="") }}">{% endif %}
   {%- if config.generate_feeds %}
     {%- for feed in config.feed_filenames %}
-      {%- if feed is containing('atom') %}
+      {%- if feed is containing(pat="atom") %}
   <link rel="alternate" type="application/atom+xml" title="{{ config.title }} Atom Feed" href="{{ get_url(path=feed, trailing_slash=false, lang=lang) | safe }}" />
     {%- endif %}
-      {%- if feed is containing('rss') %}
+      {%- if feed is containing(pat="rss") %}
   <link rel="alternate" type="application/rss+xml" title="{{ config.title }} RSS Feed" href="{{ get_url(path=feed, trailing_slash=false, lang=lang) | safe }}" />
       {%- endif %}
     {%- endfor %}
   {%- endif %}
   <meta property="og:locale" content="{{ config.extra.locale }}">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
-  {%- if page.extra.subtitle %}<meta property="og:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
+  <meta property="og:title" content="{% if pages is defined and page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
+  {%- if pages is defined and page.extra.subtitle %}<meta property="og:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
   <meta property="og:url" content="{{ page_url | safe }}">
   <meta property="og:site_name" content="{{ config.title }}">
   <link rel="canonical" href="{{ page_url | safe }}">
-  {%- if page.extra.image %}{% if page.extra.image is matching("^http[s]?://") %}{% set image = page.extra.image %}{% else %}{% set image = page.path ~ page.extra.image %}{% endif %}
+  {%- if pages is defined and page.extra.image %}{% if page.extra.image is matching(pat="^http[s]?://") %}{% set image = page.extra.image %}{% else %}{% set image = page.path ~ page.extra.image %}{% endif %}
   <meta property="og:image" content="{{ image | safe }}">
   <meta name="twitter:card" content="{{ image | safe }}">
   <meta name="twitter:image" content="{{ image | safe }}">
@@ -103,8 +106,8 @@
   <meta name="twitter:image" content="{{ "/" ~ config.extra.logo | safe }}">
   <meta property="og:image" content="{{ "/" ~ config.extra.logo | safe }}">
   {%- endif %}
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
-  {%- if page.extra.subtitle %}<meta name="twitter:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
+  <meta name="twitter:title" content="{% if pages is defined and page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
+  {%- if pages is defined and page.extra.subtitle %}<meta name="twitter:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
   {%- if config.extra.twitter %}<meta name="twitter:site" content="@{{ config.extra.twitter }}">
   <meta name="twitter:creator" content="@{{ config.extra.twitter }}">{% endif %}
   <meta name="MobileOptimized" content="320">
@@ -125,7 +128,7 @@
   {% if active_path == "/" %}
   <link rel="stylesheet" type="text/css" href="/nerd-fonts.css?v={{ get_hash(path='/nerd-fonts.css', sha_type=512, base64=false) | safe }}">
   {% endif %}
-  {% if page.extra.mastodon_id %}
+  {% if pages is defined and page.extra.mastodon_id %}
   <link rel="stylesheet" type="text/css" href="/mastodon-comments.css?v={{ get_hash(path='/mastodon-comments.css', sha_type=512, base64=false) | safe }}">
   {% endif %}
   {%- if config.extra.home.glitch == true %}
@@ -144,10 +147,10 @@
   <link rel="me" href="https://{{ config.extra.social.mastodon | safe }}">
   {%- endif %}
   {%- if page_image %}
-  <style>{{ macros::image_style(url=page_image) }}</style>
+  <style>{{<image_style url={page_image}/>}}</style>
   {%- elif category_image %}
-  <style>{{ macros::image_style(url=category_image) }}</style>
+  <style>{{<image_style url={category_image}/>}}</style>
   {%- else %}
-  <style>{{ macros::image_style(url=default_post_image) }}</style>
+  <style>{{<image_style url={default_post_image}/>}}</style>
   {%- endif %}
-  <style>{{ macros::main_images_style(home_url=home_image, posts_url=post_list_image) }}</style>
+  <style>{{<main_images_style home_url={home_image} posts_url={post_list_image}/>}}</style>

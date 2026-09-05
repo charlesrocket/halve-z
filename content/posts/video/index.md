@@ -24,30 +24,34 @@ series_order = 3
 #### Input
 
 ```rs
-{{/* video(src=["over9000.mp4", "over9000.webm"]) */}}
+{% raw %}
+{{ <video src={["over9000.mp4", "over9000.webm"]} page={page}/> }}
+{% endraw %}
 ```
 
 #### Output
 
 ```html
-{{ video(src=["over9000.mp4", "over9000.webm"]) }}
+{{ <video src={["over9000.mp4", "over9000.webm"]} page={page}/> }}
 ```
 
-{{ video(src=["over9000.mp4", "over9000.webm"]) }}
+{{ <video src={["over9000.mp4", "over9000.webm"]} page={page}/> }}
 
 #### Input
 
 ```rs
-{{/* video(src=["over9000.mp4"], muted="true") */}}
+{% raw %}
+{{ <video src={["over9000.mp4"]} muted={true} page={page}/> }}
+{% endraw %}
 ```
 
 #### Output
 
 ```html
-{{ video(src=["over9000.mp4"], muted="true") }}
+{{ <video src={["over9000.mp4"]} muted={true} page={page}/> }}
 ```
 
-{{ video(src=["over9000.mp4"], muted="true") }}
+{{ <video src={["over9000.mp4"]} muted={true} page={page}/> }}
 
 ## Vimeo
 
@@ -63,23 +67,24 @@ series_order = 3
 #### Input
 
 ```rs
-{{/* vimeo(id="4340383") */}}
+{% raw %}
+{{ <vimeo id="4340383"/> }}
+{% endraw %}
 ```
 
 #### Output
 
 ```html
-{{ vimeo(id="4340383") }}
+{{ <vimeo id="4340383"/> }}
 ```
 
-{{ vimeo(id="4340383") }}
+{{ <vimeo id="4340383"/> }}
 
 ## YouTube
 
 ### Usage
 
 - `id`: the video id (mandatory)
-- `playlist`: the playlist id (optional)
 - `autoplay`: when set to "true", the video autoplays on load (optional)
 - `title` - set alt title for the iframe (optional, defaults to "Youtube")
 - `cookie` - set to "true" if you want tracking cookies, otherwise it defaults to false.
@@ -87,13 +92,15 @@ series_order = 3
 #### Input
 
 ```rs
-{{/* youtube(id="frBzlP6t9Gw") */}}
+{% raw %}
+{{ <youtube id="frBzlP6t9Gw"/> }}
+{% endraw %}
 ```
 
 #### Output
 
 ```html
-{{ youtube(id="frBzlP6t9Gw") }}
+{{ <youtube id="frBzlP6t9Gw"/> }}
 ```
 
-{{ youtube(id="frBzlP6t9Gw") }}
+{{ <youtube id="frBzlP6t9Gw"/> }}

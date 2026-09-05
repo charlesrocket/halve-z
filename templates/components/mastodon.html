@@ -1,12 +1,5 @@
-{%- macro main_images_style(home_url, posts_url) -%}
-#posts .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{{ posts_url | safe }}") no-repeat;background-size:cover,cover}.block-left{background:linear-gradient(rgba(44,45,51,0.9),rgba(44,45,51,0.9)),url("{{ home_url | safe }}") no-repeat;background-size:cover}
-{%- endmacro main_images_style -%}
 
-{%- macro image_style(url) -%}
-#posts.inner-post-page .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{{ url | safe }}") no-repeat center center;background-size:cover}
-{%- endmacro image_style -%}
-
-{%- macro mastodon_comments(server, id) -%}
+{%- component mastodon_comments(server, id) -%}
 const commentsSection = document.getElementById("mastodon-comments");
 let commentsLoaded = false;
 
@@ -259,17 +252,4 @@ function emojify(input, emojis) {
 function escapeHtml(unsafe) {
     return unsafe.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&apos;").replace(/"/g, "&quot;")
 }
-{%- endmacro mastodon_comments -%}
-
-{%- macro music(artist, track) -%}
-{%- set api_key = get_env(name="LASTFM_KEY", default="nokey") %}
-{%- if api_key != "nokey" %}
-  {% set data_url = "https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=" ~ api_key ~ "&artist=" ~ artist ~ "&track=" ~ track ~ "&format=json&autocorrect=1" %}
-  {% set track_info = load_data(url=data_url, format="json", headers=['User-Agent=config.title ~ " site"'], required=true) %}
-  {% set artist = "<a href=" ~ track_info.track.artist.url ~ ">" ~ track_info["track"]["artist"]["name"] ~ "</a>" %}
-  {% set track = "<a href=" ~ track_info.track.url ~ ">" ~ track_info["track"]["name"] ~ "</a>" %}
-{% endif %}
-<div class="post-music">
-  <p>{{ artist | safe }} — {{ track | safe }}</p>
-</div>
-{%- endmacro track -%}
+{%- endcomponent mastodon_comments -%}

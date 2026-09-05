@@ -1,13 +1,6 @@
 {% if page.extra.series %}
   {% set posts_section = get_section(path="posts/_index.md") %}
-  {% set series_posts = [] %}
-  {% for p in posts_section.pages %}
-    {% if p.extra.series and p.extra.series == page.extra.series %}
-      {% set_global series_posts = series_posts | concat(with=p) %}
-    {% endif %}
-  {% endfor %}
-  {% set series_posts = series_posts | sort(attribute="extra.series_order") %}
-
+  {% set series_posts = [p for p in posts_section.pages if p.extra.series and p.extra.series == page.extra.series] | sort(attribute="extra.series_order") %}
   {% if series_posts | length > 1 %}
     <div class="series-roadmap-bottom">
       <span class="series-roadmap-header">Series Roadmap: {{ page.extra.series }}</span>

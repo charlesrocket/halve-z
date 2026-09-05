@@ -1,22 +1,24 @@
+{% component data(src, type="plain", key="", page, config) %}
 {%- if src and key and type -%}
-  {%- if src is matching("^http[s]?://") -%}
+  {%- if src is matching(pat="^http[s]?://") -%}
     {%- set loaded_data = load_data(url=src, format=type) %}
   {%- else -%}
     {%- set loaded_data = load_data(path=src, format=type) %}
   {%- endif -%}
   {{ loaded_data[key] | safe }}
 {%- elif src and type -%}
-  {%- if src is matching("^http[s]?://") %}
+  {%- if src is matching(pat="^http[s]?://") %}
     {%- set loaded_data = load_data(url=src, format=type) %}
   {%- else -%}
     {% set loaded_data = load_data(path=src, format=type) %}
   {%- endif -%}
   {{ loaded_data | safe }}
 {%- else -%}
-  {%- if src is matching("^http[s]?://") %}
+  {%- if src is matching(pat="^http[s]?://") %}
     {%- set loaded_data = load_data(url=src) %}
   {%- else -%}
     {%- set loaded_data = load_data(path=src) %}
   {%- endif -%}
   {{ loaded_data | safe }}
 {%- endif -%}
+{% endcomponent data %}

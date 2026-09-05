@@ -1,14 +1,15 @@
+{% component project(link: string, config) %}
 {%- if config.base_url != "http://127.0.0.1:1111" %}
-{%- if link is starting_with("https://github.com") %}
+{%- if link is starting_with(pat="https://github.com") %}
   {%- set gh_token = get_env(name="ZOLA_GITHUB_TOKEN", default="notoken") %}
   {%- set gh_repo_link = link | replace(from="https://github.com", to="https://api.github.com/repos") %}
-  {%- if gh_token is matching("^notoken") %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json", required=false) %}{% else %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json", required=false, headers=["accept=application/vnd.github+json", "authorization=Bearer " ~ gh_token]) %}{% endif %}
-{%- elif link is starting_with("https://codeberg.org") %}
+  {%- if gh_token is matching(pat="^notoken") %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json", required=false) %}{% else %}{% set gh_repo_data = load_data(url=gh_repo_link, format="json", required=false, headers=["accept=application/vnd.github+json", "authorization=Bearer " ~ gh_token]) %}{% endif %}
+{%- elif link is starting_with(pat="https://codeberg.org") %}
   {%- set cb_token = get_env(name="ZOLA_CODEBERG_TOKEN", default="notoken") %}
   {%- set cb_repo_link = link | replace(from="https://codeberg.org/", to="https://codeberg.org/api/v1/repos/") %}
-  {%- if cb_token is matching("^notoken") %}{% set gh_repo_data = load_data(url=cb_repo_link, format="json", required=false) %}{% else %}{% set gh_repo_data = load_data(url=cb_repo_link, format="json", required=false, headers=["authorization=token " ~ cb_token]) %}{% endif %}
+  {%- if cb_token is matching(pat="^notoken") %}{% set gh_repo_data = load_data(url=cb_repo_link, format="json", required=false) %}{% else %}{% set gh_repo_data = load_data(url=cb_repo_link, format="json", required=false, headers=["authorization=token " ~ cb_token]) %}{% endif %}
 {%- endif %}
-{%- if gh_repo_data is not object %}
+{%- if gh_repo_data is not map %}
   {%- set gh_repo_data = load_data(literal='{"archived": false, "language": "APL", "html_url": "none", "name": "foo", "description": "n/a", "license": {"spdx_id": "XXX"}, "topics": []}', format="json") %}
 {%- endif %}
 {%- else %}
@@ -17,7 +18,7 @@
 {%- set gh_archive = gh_repo_data["archived"] | default(value="") %}
 {%- set gh_language = gh_repo_data["language"] | default(value="") %}
 {%- set gh_license = gh_repo_data["license"]["spdx_id"] | default(value="") | replace(from="NOASSERTION", to="") %}
-{%- set gh_description = gh_repo_data["description"] | default(value="") | regex_replace(pattern='\p{Emoji}', rep='') %}
+{%- set gh_description = gh_repo_data["description"] | default(value="") | regex_replace(pattern="\\p{Emoji}", rep="") %}
 <div class="projects frame-dim">
   <h2><a {% if gh_archive == true %}id="project-archived" {% endif %}href="{{ gh_repo_data['html_url'] | safe }}" target="_blank">{{ gh_repo_data["name"] | safe }}</a></h2>
   <ul class="project-list">
@@ -33,3 +34,4 @@
     ></ul></li>
   </ul>
 </div>
+{% endcomponent project %}

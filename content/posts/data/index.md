@@ -19,9 +19,11 @@ music = ["65daysofstatic", "Default This"]
 #### Input
 
 ```
-This theme requires **Zola** version {{/* data(src="../theme.toml" type="toml" key="min_version") */}} or later.
+{% raw %}
+This theme requires **Zola** version {{ <data src="../theme.toml" type="toml" key="min_version" page={page} config={config}/> }} or later.
+{% endraw %}
 ```
 
 #### Output
 
-This theme requires **Zola** version {{ data(src="../theme.toml" type="toml" key="min_version") }} or later.
+This theme requires **Zola** version {{ <data src="../theme.toml" type="toml" key="min_version" page={page} config={config}/> }} or later.

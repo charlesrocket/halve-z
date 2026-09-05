@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block body %}<body id="posts" class="inner-post-page">{% endblock body %}
   {% block left %}
       <div class="post-title-section">
@@ -19,8 +18,7 @@
     <div class="inner-post content">
       {% block date %}{{ super() }}{% endblock date %}
       {% if page.extra.subtitle %}<h1>{{ page.extra.subtitle | safe}}</h1>{% endif %}
-      {% if current_path is starting_with("/posts/") %}
-      {% if config.extra.read_time == true or page.updated %}
+      {% if current_path is starting_with(pat="/posts/") and (config.extra.read_time == true or page.updated) %}
       <div class="post-info"><div class="post-ext-info">
         {% if config.extra.read_time == true %}
         <p>{{ page.reading_time }} minute{{ page.reading_time | pluralize }} reading time</p>
@@ -29,13 +27,13 @@
       </div>
       {% endif %}
       {% block music %}
-      {% if page.extra.music %}
+      {% if current_path is starting_with(pat="/posts/") and page.extra.music %}
         {%- if page.extra.music | length != 2 %}{{ throw(message="'" ~ page.title ~ "' page has invalid 'music' variable") }}{% endif %}
-        {{ macros::music(artist=page.extra.music[0], track=page.extra.music[1]) }}
+        {{<music artist={page.extra.music[0]} track={page.extra.music[1]}/>}}
       {% endif %}
       {% endblock music %}
       </div>
-      {% if config.extra.toc == true and not page.extra.disable_toc %}{% if page.toc %}{% if page.toc | length >= 2 %}
+      {% if current_path is starting_with(pat="/posts/") and config.extra.toc == true and not page.extra.disable_toc and page.toc and page.toc | length >= 2 %}
       <div class="toc-block">
         <ul>
           {% for h2 in page.toc %}
@@ -45,7 +43,7 @@
           {% endfor %}
         </ul>
       </div>
-      {% endif %}{% endif %}{% endif %}{% endif %}
+      {% endif %}
       {{ page.content | safe }}
       {% if page.extra.series %}
         {% include "partials/series_roadmap.html" %}
