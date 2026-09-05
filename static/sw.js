@@ -1,7 +1,7 @@
 "use strict";
 
 const broadcast = new BroadcastChannel("sw-channel");
-const cacheName = "v20";
+const cacheName = "v21";
 const cacheList = [
   "/",
   "/offline/",
