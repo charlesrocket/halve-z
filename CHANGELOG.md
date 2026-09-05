@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.26.0] - 2026-09-05
+
+### Bug Fixes
+
+- Migrate to new `tera`
+- Fix broken footer
+
+### Documentation
+
+- Fix project syntax
+- Fix information post
+- Fix pwa post
+
+### Miscellaneous tasks
+
+- Bump zola to 0.23.4
+
+### Build
+
+- Bump MSZV to 0.23.4
+
 ## [0.25.1] - 2026-07-21
 
 ### Bug Fixes
