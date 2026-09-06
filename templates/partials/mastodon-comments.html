@@ -2,5 +2,5 @@
   <p>Comment by replying to <a href="https://{{ config.extra.comments.mastodon.server }}/@{{ config.extra.comments.mastodon.username }}/{{ page.extra.mastodon_id }}">this</a> post using a <b>Mastodon</b> or other ActivityPub/Fediverse account.</p>
   <div id="mastodon-comments"></div>
   <script src="/purify.min.js?v={{ get_hash(path='/purify.min.js', sha_type=512, base64=false) | safe }}"></script>
-  <script>{{ <mastodon_comments server="config.extra.comments.mastodon.server" id="page.extra.mastodon_id" /> }}</script>
+  <script>{{ <mastodon_comments server={config.extra.comments.mastodon.server} id={page.extra.mastodon_id} /> }}</script>
 </section>
