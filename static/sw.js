@@ -1,6 +1,6 @@
 "use strict";
 
-const broadcast = new BroadcastChannel("sw-channel");
+const broadcast = new BroadcastChannel("hzsw-channel");
 const cacheName = "v21";
 const cacheList = [
   "/",
@@ -21,70 +21,96 @@ const cacheList = [
   "/webfonts/hack-regular.woff2",
 ];
 
+async function cacheEach(cache, urls) {
+  let success = true;
+  for (const url of urls) {
+    try {
+      console.info("Caching", url);
+      await cache.add(url);
+    } catch (error) {
+      console.error("Failed to cache", url, error);
+      success = false;
+    }
+  }
+
+  return success;
+}
+
 oninstall = (event) => {
   event.waitUntil(
     (async () => {
       const cache = await caches.open(cacheName);
-      await cache.addAll(cacheList).catch((error) => {
-        broadcast.postMessage({ type: "SW_INSTALL_ERR" });
-        console.error("Service worker failed", error);
-        return;
+      const success = await cacheEach(cache, cacheList);
+      broadcast.postMessage({
+        type: success ? "SW_INSTALL_FINISH" : "SW_INSTALL_ERR",
       });
     })(),
   );
-
-  broadcast.postMessage({ type: "SW_INSTALL_FINISH" });
 };
 
 onfetch = (event) => {
+  if (event.request.method !== "GET") return;
+  let reqUrl;
+
   try {
-    const reqUrl = new URL(event.request.url);
-    if (reqUrl.hostname === "matrix.cactus.chat") {
-      return;
-    }
+    reqUrl = new URL(event.request.url);
   } catch (e) {
+    console.error("Failed to parse URL", event.request.url, e);
     return;
   }
 
-  console.log("Fetching", event.request.url);
+  if (!reqUrl.protocol.startsWith("http")) return;
+  if (reqUrl.hostname === "matrix.cactus.chat") return;
+
+  console.info("Fetching", event.request.url);
+
   event.respondWith(
-    caches.open(cacheName).then((cache) => {
-      return cache.match(event.request).then((cachedResponse) => {
-        const fetchedResponse = fetch(event.request).then((networkResponse) => {
+    (async () => {
+      const cache = await caches.open(cacheName);
+      const cachedResponse = await cache.match(event.request);
+
+      const networkFetch = (async () => {
+        try {
+          const networkResponse = await fetch(event.request);
           if (networkResponse.status < 400) {
-            console.log("Caching the response to", event.request.url);
+            console.info("Caching response", event.request.url);
             cache.put(event.request, networkResponse.clone());
           } else {
-            console.log("Not caching the response to", event.request.url);
+            console.info("Not caching response", event.request.url);
           }
 
           return networkResponse;
-        });
+        } catch (error) {
+          console.error("Fetch failed", event.request.url, error);
+          throw error;
+        }
+      })();
 
-        return (
-          cachedResponse ||
-          fetchedResponse.catch(() => cache.match("/offline/"))
-        );
-      });
-    }),
+      if (cachedResponse) return cachedResponse;
+
+      try {
+        return await networkFetch;
+      } catch {
+        console.warn("Network is offline");
+        return cache.match("/offline/");
+      }
+    })(),
   );
 };
 
 onmessage = (event) => {
-  if (event.data.type === "PRECACHE") {
+  if (event.data?.type === "PRECACHE") {
     const data = [...new Set(event.data.payload)];
-    var success = true;
     broadcast.postMessage({ type: "SW_PRECACHE" });
-    console.log("Precache started", data);
+    console.info("Precache started", data);
     event.waitUntil(
       (async () => {
         const cache = await caches.open(cacheName);
-        await cache.addAll(data).catch((error) => {
-          broadcast.postMessage({ type: "SW_PRECACHE_ERR" });
-          console.error("Precache error", error);
-          success = false;
+        const success = await cacheEach(cache, data);
+
+        broadcast.postMessage({
+          type: success ? "SW_PRECACHE_FINISH" : "SW_PRECACHE_ERR",
         });
-        if (success) broadcast.postMessage({ type: "SW_PRECACHE_FINISH" });
       })(),
     );
   }
@@ -94,14 +120,16 @@ onactivate = (event) => {
   event.waitUntil(
     (async () => {
       const keys = await caches.keys();
-      return keys.map(async (cache) => {
-        if (cache !== cacheName) {
-          console.log("Removing old cache", cache);
-          return await caches.delete(cache);
-        }
-      });
+      await Promise.all(
+        keys.map(async (cache) => {
+          if (cache !== cacheName) {
+            console.info("Removing old cache", cache);
+            return caches.delete(cache);
+          }
+        }),
+      );
+
+      broadcast.postMessage({ type: "SW_ACTIVATED" });
     })(),
   );
-
-  broadcast.postMessage({ type: "SW_ACTIVATED" });
 };

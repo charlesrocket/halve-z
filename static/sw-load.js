@@ -13,9 +13,9 @@ if ("serviceWorker" in navigator) {
 
       if (registration.installing) {
         showToast("Installing Sevice Worker", "warning");
-        console.log("Service Worker installing");
+        console.info("Service Worker installing");
         navigator.serviceWorker.ready.then((registration) => {
-          console.log("Service Worker requesting precache");
+          console.info("Service Worker requesting precache");
           registration.active.postMessage({
             payload: precacheList,
             type: "PRECACHE",
@@ -23,9 +23,9 @@ if ("serviceWorker" in navigator) {
         });
       } else if (registration.waiting) {
         showToast("Sevice Worker waiting", "info");
-        console.log("Service worker waiting");
+        console.info("Service worker waiting");
       } else if (registration.active) {
-        console.log("Service worker active");
+        console.info("Service worker active");
       }
     } catch (error) {
       showToast("Sevice Worker registration failed", "error");
@@ -34,7 +34,7 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-const broadcast = new BroadcastChannel("sw-channel");
+const broadcast = new BroadcastChannel("hzsw-channel");
 broadcast.onmessage = (event) => {
   if (event.data && event.data.type === "SW_PRECACHE") {
     showToast("Precache started", "warning");
