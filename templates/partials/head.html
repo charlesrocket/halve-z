@@ -74,12 +74,12 @@
   {%- endblock title -%}
   </title>
   <meta name="author" content="{{ config.author }}">
-  {%- if pages is defined and page.extra.subtitle %}
+  {%- if page is defined and page.extra.subtitle %}
   <meta name="description" content="{{ page.extra.subtitle | striptags | safe }}">
   {%- else %}
   <meta name="description" content="{{ config.description }}">
   {%- endif %}
-  {%- if pages is defined and page.taxonomies["tags"] %}<meta name="keywords" content="{{ page.taxonomies["tags"] | str | replace(from=" ", to="") | replace(from="[", to="") |  replace(from="]", to="") }}">{% endif %}
+  {%- if page is defined and page.taxonomies["tags"] %}<meta name="keywords" content="{{ page.taxonomies["tags"] | str | replace(from=" ", to="") | replace(from="[", to="") |  replace(from="]", to="") }}">{% endif %}
   {%- if config.generate_feeds %}
     {%- for feed in config.feed_filenames %}
       {%- if feed is containing(pat="atom") %}
@@ -92,12 +92,12 @@
   {%- endif %}
   <meta property="og:locale" content="{{ config.extra.locale }}">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="{% if pages is defined and page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
-  {%- if pages is defined and page.extra.subtitle %}<meta property="og:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
+  <meta property="og:title" content="{% if page is defined and page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
+  {%- if page is defined and page.extra.subtitle %}<meta property="og:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
   <meta property="og:url" content="{{ page_url | safe }}">
   <meta property="og:site_name" content="{{ config.title }}">
   <link rel="canonical" href="{{ page_url | safe }}">
-  {%- if pages is defined and page.extra.image %}{% if page.extra.image is matching(pat="^http[s]?://") %}{% set image = page.extra.image %}{% else %}{% set image = page.path ~ page.extra.image %}{% endif %}
+  {%- if page is defined and page.extra.image %}{% if page.extra.image is matching(pat="^http[s]?://") %}{% set image = page.extra.image %}{% else %}{% set image = page.path ~ page.extra.image %}{% endif %}
   <meta property="og:image" content="{{ image | safe }}">
   <meta name="twitter:card" content="{{ image | safe }}">
   <meta name="twitter:image" content="{{ image | safe }}">
@@ -106,8 +106,8 @@
   <meta name="twitter:image" content="{{ "/" ~ config.extra.logo | safe }}">
   <meta property="og:image" content="{{ "/" ~ config.extra.logo | safe }}">
   {%- endif %}
-  <meta name="twitter:title" content="{% if pages is defined and page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
-  {%- if pages is defined and page.extra.subtitle %}<meta name="twitter:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
+  <meta name="twitter:title" content="{% if page is defined and page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">
+  {%- if page is defined and page.extra.subtitle %}<meta name="twitter:description" content="{{ page.extra.subtitle | striptags | safe }}">{% endif %}
   {%- if config.extra.twitter %}<meta name="twitter:site" content="@{{ config.extra.twitter }}">
   <meta name="twitter:creator" content="@{{ config.extra.twitter }}">{% endif %}
   <meta name="MobileOptimized" content="320">
@@ -128,7 +128,7 @@
   {% if active_path == "/" %}
   <link rel="stylesheet" type="text/css" href="/nerd-fonts.css?v={{ get_hash(path='/nerd-fonts.css', sha_type=512, base64=false) | safe }}">
   {% endif %}
-  {% if pages is defined and page.extra.mastodon_id %}
+  {% if page is defined and page.extra.mastodon_id %}
   <link rel="stylesheet" type="text/css" href="/mastodon-comments.css?v={{ get_hash(path='/mastodon-comments.css', sha_type=512, base64=false) | safe }}">
   {% endif %}
   {%- if config.extra.home.glitch == true %}
