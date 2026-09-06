@@ -17,7 +17,8 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/",
 - `src`: the path/URL to the image file (mandatory)
 - `link`: destination URL
 - `caption`: set the image caption
-- `alt`: set alternative text
+- `width`: set width
+- `height`: set height
 
 ### Local
 
@@ -64,16 +65,16 @@ Example of an external image.
 #### Input
 
 ```rs
-{{ <image src="https://halve-z.netlify.app/fireball.gif" page={page} config={config}/> }}
+{{ <image src="https://halve-z.netlify.app/fireball.gif" width={200} page={page} config={config}/> }}
 ```
 
 #### Output
 
 ```html
-{{ <image src="https://halve-z.netlify.app/fireball.gif" page={page} config={config}/> }}
+{{ <image src="https://halve-z.netlify.app/fireball.gif" width={200} page={page} config={config}/> }}
 ```
 
-{{ <image src="https://halve-z.netlify.app/fireball.gif" page={page} config={config}/> }}
+{{ <image src="https://halve-z.netlify.app/fireball.gif" width={200} page={page} config={config}/> }}
 
 ## CSP
 
