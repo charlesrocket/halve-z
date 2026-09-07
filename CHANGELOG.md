@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.26.1] - 2026-09-07
+
+### Bug Fixes
+
+- Set width/height
+- Improve error handling
+- Fix mastodon comments
+- Correct `page` checks
+- Improve revalidation
+- Improve status check
+- Bump `DOMPurify` to 3.4.15
+
+### Miscellaneous tasks
+
+- Bump cache to v21
+
 ## [0.26.0] - 2026-09-05
 
 ### Bug Fixes
