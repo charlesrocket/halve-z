@@ -72,7 +72,12 @@ onfetch = (event) => {
       const networkFetch = (async () => {
         try {
           const networkResponse = await fetch(event.request);
-          if (networkResponse.status < 400) {
+
+          if (
+            networkResponse.status < 400 &&
+            networkResponse.status !== 206 &&
+            networkResponse.type === "basic"
+          ) {
             console.info("Caching response", event.request.url);
             cache.put(event.request, networkResponse.clone());
           } else {
