@@ -86,7 +86,13 @@ onfetch = (event) => {
         }
       })();
 
-      if (cachedResponse) return cachedResponse;
+      if (cachedResponse) {
+        networkFetch.catch((error) => {
+          console.warn("Revalidation failed", event.request.url, error);
+        });
+
+        return cachedResponse;
+      }
 
       try {
         return await networkFetch;
