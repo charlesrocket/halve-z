@@ -87,16 +87,6 @@ system = ""
 username = ""
 server = ""
 
-[extra.comments.giscus]
-repo = ""
-repo_id = ""
-category = ""
-category_id = ""
-mapping = ""
-strict = "1"
-reactions = "0"
-lang = "en"
-
 [author]
 name = "-k"
 homepage = "https://failsafe.monster/"

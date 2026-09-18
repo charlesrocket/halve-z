@@ -7,8 +7,6 @@
           {% if page.extra.mastodon_id %}
             {%- include "partials/mastodon-comments.html" %}
           {% endif %}
-        {% elif config.extra.comments.system == "giscus" %}
-          {%- include "partials/giscus.html" %}
         {% endif %}
       <noscript><div class="frame-dim"><p>Activate <code>JavaScript</code> to load <u>comments</u>.</p></div></noscript>
       {% endif %}

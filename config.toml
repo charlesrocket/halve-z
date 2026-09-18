@@ -110,13 +110,3 @@ system = ""
 [extra.comments.mastodon]
 username = "user"
 server = "server"
-
-[extra.comments.giscus]
-repo = "user_name/repo"
-repo_id = ""
-category = "Comments"
-category_id = ""
-mapping = "pathname"
-strict = "1"
-reactions = "1"
-lang = "en"
