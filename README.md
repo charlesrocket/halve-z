@@ -21,7 +21,7 @@ This is a _retro_ port of [Halve](https://github.com/TaylanTatli/Halve) (**Jekyl
 * SEO
 * CSP
 * project cards
-* comments ([Mastodon](https://mastodon.social)/[Giscus](https://github.com/giscus/giscus))
+* comments ([Mastodon](https://mastodon.social))
 * read time
 
 ## Installation
