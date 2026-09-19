@@ -8,7 +8,7 @@ tags = ["content", "feature", "mastodon", "giscus"]
 subtitle = "Enabling the comment system"
 +++
 
- **Halve-Z** supports [Mastodon](https://mastodon.social) and [Giscus](https://giscus.app) comment systems. Set the `extra.comments.system` setting to `mastodon` or `giscus` to enable the corresponding system on the post pages.
+ **Halve-Z** uses [Mastodon](https://mastodon.social) as a comment system. Set the `extra.comments.system` setting to `mastodon` to enable the comments on post pages.
 
  <p class="notice_warning"><strong>Mastodon</strong> requires <code>extra.mastodon_id</code> variable to be set to a related status/post ID.</p>
 
