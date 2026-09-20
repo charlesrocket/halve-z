@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.26.2] - 2026-09-20
+
+### Bug Fixes
+
+- Drop giscus comments
+- Update csp line
+- Reorder meta elements
+- Fix csp block
+- Update font policy
+- Drop default source
+- Update http headers
+
+### Documentation
+
+- Update comments post
+- Update features
+
+### Build
+
+- Drop old netlify csp
+
 ## [0.26.1] - 2026-09-07
 
 ### Bug Fixes
