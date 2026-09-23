@@ -20,10 +20,10 @@ music = ["65daysofstatic", "Default This"]
 
 ```
 {% raw %}
-This theme requires **Zola** version {{ <data src="../theme.toml" type="toml" key="min_version" page={page} config={config}/> }} or later.
+This theme requires **Zola** version {{ <data src="../theme.toml" type="toml" key="min_version"/> }} or later.
 {% endraw %}
 ```
 
 #### Output
 
-This theme requires **Zola** version {{ <data src="../theme.toml" type="toml" key="min_version" page={page} config={config}/> }} or later.
+This theme requires **Zola** version {{ <data src="../theme.toml" type="toml" key="min_version"/> }} or later.

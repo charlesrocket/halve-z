@@ -19,14 +19,14 @@ series_order = 2
 
 ```rs
 {% raw %}
-{{ <audio src={["over9000.ogg", "over9000.mp3"]} page={page} config={config}/> }}
+{{ <audio src={["over9000.ogg", "over9000.mp3"]}/> }}
 {% endraw %}
 ```
 
 #### Output
 
 ```html
-{{ <audio src={["over9000.ogg", "over9000.mp3"]} page={page} config={config}/> }}
+{{ <audio src={["over9000.ogg", "over9000.mp3"]}/> }}
 ```
 
-{{ <audio src={["over9000.ogg", "over9000.mp3"]} page={page} config={config}/> }}
+{{ <audio src={["over9000.ogg", "over9000.mp3"]}/> }}

@@ -28,17 +28,17 @@ Example of a local image with a link and caption.
 
 ```rs
 {% raw %}
-{{ <image src="/fireball.gif" link="https://halve-z.netlify.app/" alt="Fireball" caption="8bit fireball" page={page} config={config}/> }}
+{{ <image src="/fireball.gif" link="https://halve-z.netlify.app/" alt="Fireball" caption="8bit fireball"/> }}
 {% endraw %}
 ```
 
 #### Output
 
 ```html
-{{ <image src="/fireball.gif" link="https://halve-z.netlify.app/" alt="Fireball" caption="8bit fireball" page={page} config={config}/> }}
+{{ <image src="/fireball.gif" link="https://halve-z.netlify.app/" alt="Fireball" caption="8bit fireball"/> }}
 ```
 
-{{ <image src="/fireball.gif" link="https://halve-z.netlify.app/" alt="Fireball" caption="8bit fireball" page={page} config={config}/> }}
+{{ <image src="/fireball.gif" link="https://halve-z.netlify.app/" alt="Fireball" caption="8bit fireball"/> }}
 
 ### Image only
 
@@ -47,16 +47,18 @@ Example of an image without any text or links.
 #### Input
 
 ```rs
-{{ <image src="yawn.gif" page={page} config={config}/> }}
+{% raw %}
+{{ <image src="yawn.gif"/> }}
+{% endraw %}
 ```
 
 #### Output
 
 ```html
-{{ <image src="yawn.gif" page={page} config={config}/> }}
+{{ <image src="yawn.gif"/> }}
 ```
 
-{{ <image src="yawn.gif" page={page} config={config}/> }}
+{{ <image src="yawn.gif"/> }}
 
 ### External
 
@@ -65,16 +67,18 @@ Example of an external image.
 #### Input
 
 ```rs
-{{ <image src="https://halve-z.netlify.app/fireball.gif" width={200} page={page} config={config}/> }}
+{% raw %}
+{{ <image src="https://halve-z.netlify.app/fireball.gif" width={200}/> }}
+{% endraw %}
 ```
 
 #### Output
 
 ```html
-{{ <image src="https://halve-z.netlify.app/fireball.gif" width={200} page={page} config={config}/> }}
+{{ <image src="https://halve-z.netlify.app/fireball.gif" width={200}/> }}
 ```
 
-{{ <image src="https://halve-z.netlify.app/fireball.gif" width={200} page={page} config={config}/> }}
+{{ <image src="https://halve-z.netlify.app/fireball.gif" width={200}/> }}
 
 ## CSP
 
@@ -98,9 +102,11 @@ csp_img = ["raw.githubusercontent.com/charlesrocket/beastie/"]
 #### Input
 
 ```rs
-{{ <image src="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif" caption="CSP test image" page={page} config={config}/> }}
+{% raw %}
+{{ <image src="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif" caption="CSP test image"/> }}
+{% endraw %}
 ```
 
 #### Output
 
-{{ <image src="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif" caption="CSP test image" page={page} config={config}/> }}
+{{ <image src="https://raw.githubusercontent.com/charlesrocket/beastie/master/doc/screenshot.gif" caption="CSP test image"/> }}

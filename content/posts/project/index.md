@@ -22,14 +22,14 @@ Use the `ZOLA_GITHUB_TOKEN`/`ZOLA_CODEBERG_TOKEN` environment variable to authen
 
 ```rs
 {% raw %}
-{{ <project link="https://github.com/charlesrocket/halve-z" config={config}/> }}
+{{ <project link="https://github.com/charlesrocket/halve-z"/> }}
 {% endraw %}
 ```
 
 #### Output
 
 ```html
-{{ <project link="https://github.com/charlesrocket/halve-z" config={config}/> }}
+{{ <project link="https://github.com/charlesrocket/halve-z"/> }}
 ```
 
-{{ <project link="https://github.com/charlesrocket/halve-z" config={config}/> }}
+{{ <project link="https://github.com/charlesrocket/halve-z"/> }}

@@ -25,33 +25,33 @@ series_order = 3
 
 ```rs
 {% raw %}
-{{ <video src={["over9000.mp4", "over9000.webm"]} page={page}/> }}
+{{ <video src={["over9000.mp4", "over9000.webm"]}/> }}
 {% endraw %}
 ```
 
 #### Output
 
 ```html
-{{ <video src={["over9000.mp4", "over9000.webm"]} page={page}/> }}
+{{ <video src={["over9000.mp4", "over9000.webm"]}/> }}
 ```
 
-{{ <video src={["over9000.mp4", "over9000.webm"]} page={page}/> }}
+{{ <video src={["over9000.mp4", "over9000.webm"]}/> }}
 
 #### Input
 
 ```rs
 {% raw %}
-{{ <video src={["over9000.mp4"]} muted={true} page={page}/> }}
+{{ <video src={["over9000.mp4"]} muted={true}/> }}
 {% endraw %}
 ```
 
 #### Output
 
 ```html
-{{ <video src={["over9000.mp4"]} muted={true} page={page}/> }}
+{{ <video src={["over9000.mp4"]} muted={true}/> }}
 ```
 
-{{ <video src={["over9000.mp4"]} muted={true} page={page}/> }}
+{{ <video src={["over9000.mp4"]} muted={true}/> }}
 
 ## Vimeo
 
