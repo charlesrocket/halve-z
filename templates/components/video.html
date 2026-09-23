@@ -1,4 +1,4 @@
-{% component video(src:array, width=0, height=0, autoplay=true, loop=false, muted:bool=false, page) %}
+{% component video(src:array, width=0, height=0, autoplay=true, loop=false, muted:bool=false, @page) %}
 <div class="video-local">
   <video controls{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %}{% if autoplay %} autoplay{% endif %}{% if loop %} loop=true{% endif %}{% if muted %} muted=true{% endif %}>
     {%- for source in src -%}

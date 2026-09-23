@@ -1,4 +1,4 @@
-{% component project(link: string, config) %}
+{% component project(link: string, @config) %}
 {%- if config.base_url != "http://127.0.0.1:1111" %}
 {%- if link is starting_with(pat="https://github.com") %}
   {%- set gh_token = get_env(name="ZOLA_GITHUB_TOKEN", default="notoken") %}

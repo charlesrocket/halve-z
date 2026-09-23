@@ -1,4 +1,4 @@
-{% component audio(src: array, page, config) %}
+{% component audio(src: array, @page, @config) %}
 <audio controls>
   {% for source in src -%}
     {% set type = source | split(pat=".") | last -%}

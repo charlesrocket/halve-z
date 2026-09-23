@@ -1,4 +1,4 @@
-{% component image(src, link="", caption="", width=0, height=0, alt="", page, config) %}
+{% component image(src, link="", caption="", width=0, height=0, alt="", @page, @config) %}
 {%- if src is matching(pat="^http[s]?://") %}
   {%- set image = src %}
 {%- elif src is starting_with(pat="/") %}

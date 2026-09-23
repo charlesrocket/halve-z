@@ -1,4 +1,4 @@
-{% component data(src, type="plain", key="", page, config) %}
+{% component data(src, type="plain", key="", @page, @config) %}
 {%- if src and key and type -%}
   {%- if src is matching(pat="^http[s]?://") -%}
     {%- set loaded_data = load_data(url=src, format=type) %}
