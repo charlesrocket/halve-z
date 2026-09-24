@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.26.3] - 2026-09-24
+
+### Bug Fixes
+
+- Update `figcaption` font size
+- Use implicit parameters
+- Bump project tag font size
+- Update netlify headers
+- Add missing filters
+
+### Documentation
+
+- Update syntax
+
+### Operations
+
+- Bump `zola` to 0.23.6
+
+### Refactor
+
+- Rename roadmap class
+
+### Build
+
+- Bump MSZV to 0.23.6
+
 ## [0.26.2] - 2026-09-20
 
 ### Bug Fixes
